@@ -1,0 +1,52 @@
+<!--Nahia Iglesias Calvo-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css"> <!-- Esto cargaria un archivo de estilo, pero no es necesario en Fiddle porque lo hace automáticamente -->
+  <script src="script.js"></script> <!--Aquí podriamos cargar los scripts, también se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aquí no estamos cargando nada-->
+</head>
+
+<body class=body>
+
+  
+  <h1>WORK TO THE TOP</h1>
+  <div>
+    <h2 class=clase>Workaholote Studio:</h2>
+
+    <p class=clase id="magico"> Nahia Iglesias   Paula López   Mikele López   Cristina Muñoz</p>
+
+    <div>
+      <a href="https://youtu.be/j2TmLrTl6gs" taget="_blank">
+        <img width="300" height="200" src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_UnravelTwo_image1280w.jpg" alt="Si la imagen no se carga, se ve esto"><!--Modifica el atributo src y verás como se muestra el mensaje, pero el link (etiqueta <a>) seguirá funcionando al ser un hijo -->
+      </a>
+      <a href="https://youtu.be/fEDLyprRKao" taget="_blank">
+        <img width="300" height="200" src="https://static.diariovasco.com/real-sociedad/multimedia/201808/20/media/cortadas/DdV-20-08-2018-anoeta-002-kqaC-U60675632020SWC-624x385@Diario%20Vasco.jpg" alt="Si la imagen no se carga, se ve esto"><!--Modifica el atributo src y verás como se muestra el mensaje, pero el link (etiqueta <a>) seguirá funcionando al ser un hijo -->
+      </a>
+      <a href="https://youtu.be/AI9zBBTyX-E" taget="_blank">
+        <img width="300" height="200" src="https://static.bandainamcoent.eu/high/little-nightmares/little-nightmares-2/00-page-setup/ln2_game-thumbnail.jpg" alt="Si la imagen no se carga, se ve esto"><!--Modifica el atributo src y verás como se muestra el mensaje, pero el link (etiqueta <a>) seguirá funcionando al ser un hijo -->
+      </a>
+    </div>
+
+ 
+  </div>
+  <div>
+    <ul id="miLista">
+      <li id="unravel" class=unra>Unravel 1 / 2</li>
+      <li id="fifa" class=fif>FIFA</li>
+      <li id="littlenightmares" class=little>Little Nightmares I / II</li>
+    </ul>
+  </div>
+  <div>
+    <button onclick="alert(devuelveTextoDeAlerta())">Definición de universidad</button>
+  </div>
+  <div>
+    <button onclick="cosasChulas('unravel' , 'littlenightmares' )"> Cosas chulas </button>
+    <button onclick="apareceDesaparece('fifa')"> Cosas no chulas </button>
+    <button onclick="cambioColor('unravel' ,'fifa', 'littlenightmares')"> Cambia colorrrr </button>
+  </div>
+</body>
+</html>
