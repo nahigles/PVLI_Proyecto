@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="estilo.css"> <!-- Esto cargaria un archivo de estilo, pero no es necesario en Fiddle porque lo hace automáticamente -->
   <script src="script.js"></script> <!--Aquí podriamos cargar los scripts, también se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aquí no estamos cargando nada-->
+  <script src = "./lib/phaser.js"></script>
 </head>
 
 <body class=body>
@@ -48,5 +49,6 @@
     <button onclick="apareceDesaparece('fifa')"> Cosas no chulas </button>
     <button onclick="cambioColor('unravel' ,'fifa', 'littlenightmares')"> Cambia colorrrr </button>
   </div>
+  <script src = "./scr/game.js" type="module"></script> <!--module para que la clase game.js pueda usar otros scripts-->
 </body>
 </html>

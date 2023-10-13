@@ -1,0 +1,23 @@
+
+	// Configuracion phaser
+    var config = {
+        parent: "jahsjs", // Para que el canvas no aparezca abajo del todo en la página
+	    type: Phaser.AUTO,
+	    width: 666,
+	    height: 666,
+	    pixelArt: true, 
+	    scene:[{create:create, preload:preload}] // Metodos que queremos en nuestros scripts
+    }
+
+    // Pasamos como parametro la configuracion
+    new Phaser.Game(config);
+    
+    // pa instanciar con objetos de phaser esas imagenes,videos,etc
+    function create(){
+        this.add.image(300,300, "ajolotito").setOrigin(0,0).setScale(0.5,0.5);
+    }
+    
+    // pa cargar imagenes videos, audio etc (informacion)
+    function preload(){
+        this.load.image("ajolotito", "./Images/AjoloteTrajeado.png" );
+    }
