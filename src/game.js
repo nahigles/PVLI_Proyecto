@@ -6,8 +6,22 @@
 	    width: 666,
 	    height: 666,
 	    pixelArt: true, 
-	    scene:[{create:create, preload:preload}] // Metodos que queremos en nuestros scripts
+	    //scene:[{create:create, preload:preload}] // Metodos que queremos en nuestros scripts
+        scale:{
+            autocenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente
+            mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
+            zoom: 1
+    
+        },
+    
+        // La escena podemos poner directamente otoro script e importarlo de el
+        scene:{
+            preload: preload,
+            create: create
+        }
     }
+
+
 
     // Pasamos como parametro la configuracion
     new Phaser.Game(config);
