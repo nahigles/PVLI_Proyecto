@@ -3,8 +3,8 @@
     var config = {
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
 	    type: Phaser.AUTO,
-	    width: 666,
-	    height: 666,
+	    width: 1600,
+	    height: 900,
 	    pixelArt: true, 
         backgroundColor: '#4488aa',
 	    //scene:[{create:create, preload:preload}] // Metodos que queremos en nuestros scripts
