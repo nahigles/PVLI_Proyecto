@@ -36,5 +36,5 @@
     
     // pa cargar imagenes videos, audio etc (informacion)
     function preload(){
-        this.load.image("ajolotito", "./Images/AjoloteTrajeado.png" );
+        this.load.image("ajolotito", "./assets/images/AjoloteTrajeado.png" );
     }
