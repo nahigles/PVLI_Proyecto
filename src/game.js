@@ -3,15 +3,17 @@
     var config = {
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
 	    type: Phaser.AUTO,
-	    width: 1600,
-	    height: 900,
+	    width: 1000,
+	    height: 560,
 	    pixelArt: true, 
         backgroundColor: '#4488aa',
 	    //scene:[{create:create, preload:preload}] // Metodos que queremos en nuestros scripts
         scale:{
             autocenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            zoom: 1
+            zoom: 1,
+            min: { width : 336, height: 188},
+            max: { width: 1000, height: 560}
     
         },
     
