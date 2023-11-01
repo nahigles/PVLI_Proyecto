@@ -19,7 +19,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.add(this.jugador); // Añadimos al contenedor
 
 		// Speed
-		this. speed = 1;
+		this. speed = 3;
 
 		// INPUT
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
