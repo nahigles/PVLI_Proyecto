@@ -40,6 +40,19 @@ header
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
+/*Nombre del juego*/
+#gameTittle
+{
+	pointer-events: none;
+	color: #ffffff;
+	font-size: 20px;
+	padding-top: 100px;
+	padding-left: 60px;
+}
+#imagenControles
+{
+	padding-left: 300px;
+}
 /*Lista del menú*/
 header ul
 {
@@ -191,4 +204,8 @@ footer p {
     color: #ffffff;
     font-size: 10px;
     line-height: 2;
+}
+.container 
+{
+	align-items: center;
 }
