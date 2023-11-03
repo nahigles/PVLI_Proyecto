@@ -115,14 +115,22 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
 </div>
 
 - **Planta 4 - Analistas**
+   - Conforme avanzas en el edificio, la seguridad de las plantas va en aumento. Al llegar a esta, entrarás en una pequeña sala en la que Archie te dirá que la siguiente puerta está cerrada. Así que para poder pasar barajareis dos opciones:
+      - J = Estas personas son organizadas y les gusta enfrentarse a los retos con gran preparación, siguen las reglas y se ciñen a los planes. Por lo que si nuestro jugador es un judger intentará encontrar las llaves en esta sala para poder abrir la puerta.
+      - P = Los perceivers son más espontáneos y flexibles, por lo que al jugador se le dará también la opción de tirar la puerta abajo para pasar, esto se hará mediante varios clics seguidos en la puerta.
 
+   - Al pasar nuestro jugador escuchará a una última conversación entre Charlotte e Inma con la que llegará a entender del todo el drama de la empresa. Entre teorías y debate de ambos personajes podrá discernir lo que está pasando: Al parecer, conforme la empresa ha ido creciendo las demandas de los accionistas también lo han hecho; por lo tanto, estas últimas semanas se ha estado planteando que la única manera de mantenerse competitivos en el mercado internacional es trasladar la producción a una fábrica externa y reducir así los gastos. El jefe ha estado retrasando tomar la decisión y hoy era el día en el que venía la junta directiva para firmar los últimos documentos, por lo que se ha encerrado en su oficina evitando la confrontación.
+   - Finalmente en esta planta el jugador se encontrará con Conrad, que está apunto de conseguir abrir la puerta.
+      - Podrás ayudarle disparando a los virus que caigan hasta coger la clave.
 <div align="center">
   
 <sub>*Minijuego planta 4.*</sub>
 </div>
 
 - **Planta 5 - Jefe**
-
+   - La escena final dependerá de las elecciones del jugador y las insignias que haya conseguido:
+      - Por un lado, el jugador ha podido abandonar la partida antes de llegar a esta planta. Esta elección le llevará a ver una cinemática en la que se le ve abandonando el edificio y acabará el juego.
+      - Por otro lado, si llega a esta planta se encontrará con el jefe y tendrá un diálogo con él, en el que la actitud del jefe representará el tipo de personalidad asignado al jugador mediante las insignias.
 
 ### Personajes
 - **Personaje principal:** El jugador controla al protagonista de la historia quien irá interactuando con los demás personajes. En un principio, se trata de un personaje simple y plano.
@@ -144,9 +152,25 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
   - Jesús, ejecutivo; estas personas son representantes de la tradición y el orden. Son estrictos con su trabajo, pero no trabajan solos, es más, esperan que su fiabilidad y ética en el trabajo sean recíprocas, de lo contrario no tardarán en mostrar su enfado. Suelen ofrecerse voluntariamente como líderes en momentos difíciles, aunque su perfeccionismo hace que acaben sobrepasados. Así se encuentra Jesús en la situación de la empresa, y por su personalidad irascible no podrá evitar contárselo todo a nuestro jugador.
 
 - **Planta 4 - Analistas:**
+   - Archie, arquitecto; este tipo de personalidad destaca por su capacidad de esfuerzo e inteligencia, gracias a esto son capaces de irradiar confianza y tienen una actitud de que “nada es imposible”. Con su mente imaginativa y curiosa, Archie instará a nuestro jugador a encontrar alguna manera de abrir la puerta.
+   - Inma, innovadora; su capacidad de debatir puede resultar irritante, ya que estas personas suelen coger el papel de defensor del diablo. Tienen un agudo sentido del humor basado en su rápido ingenio, y aunque son honestos, son capaces de discutir incansablemente sobre algo en lo que en realidad no creen e incluso hacerse las víctimas. Veremos estas cualidades en su conversación con Charlotte.
+   - Charlotte, lógica; expertos en hacer teorías y detectar patrones y  discrepancias, esta tendencia puede llevarles al miedo generalizado al fracaso. Muchas veces están debatiendo con sus propias mentes, aunque en este caso lo estará haciendo con Inma, y por su manera de ser, no tendrá una perspectiva demasiado positiva.
+   - Conrad, comandante; estas personas son capaces de proyectar su autoridad, logrando que todo el mundo se una en la búsqueda de un objetivo común, es por eso que conrad es el responsable de la última planta. Utilizan su inteligencia para lograr cualquier objetivo y disfrutan con estos desafíos, por lo que su actitud hacía la tarea de abrir la puerta del jefe será muy energica e implacable. Si bien tienen una habilidad especial a la hora de identificar los talentos de los demás, son muy dados a señalar los fracasos de los demás de una manera fría e insensible, por lo que a la hora de superar este último minijuego será muy duro con el jugador.
 
 - **Planta 5 - Jefe:**
-  
+   - Las actitudes posibles del Jefe en base a cada insignia:
+      - Insignia S / N :
+         - S = El jugador se encontrará al jefe en crisis; el empezó la empresa lleno de ilusión como un proyecto al lado de Pedro, y ahora de pronto se ve teniendo que elegir entre la ética y el dinero, sus relaciones personales y el éxito de la empresa, y con más ansiedad que nunca.
+         - N = El jefe estará en un estado zen, e incluso apático. Él sabía que este momento se acercaba y ya no está preocupado por lo que vaya a pasar con la empresa.
+      - Insignia E / I :
+         - E = El jugador cogerá la iniciativa y le preguntará al jefe si de verdad quiere seguir en el puesto. A lo que él, obviamente, responderá que no, dejando la empresa en manos de nuestro jugador.
+         - I = El jefe abandona su cargo y lo deja todo en manos de nuestro jugador, no dándole opción para rechazarla.
+      - Insignia T / F :
+         - T = Nuestro jugador aceptará la posición, ya que se ve capacitado para gestionar el desastre y llevar adelante a la empresa.
+         - F = Recordando la conversación que mantuvo con Pedro, el jugador volverá a él a ofrecerle las riendas de la empresa.
+      - Insignia J / P :
+         - J = Jefe/Pedro responderán positivos, con esperanza de que se pueda redirigir y salvar la empresa. 
+         - P = Lo contrario.
 
 ## Referencias
 - Estilo cámara y salas: <ins>Plunder Pack</ins>, <ins>Sound Shapes</ins>
