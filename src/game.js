@@ -1,25 +1,20 @@
 import Planta1 from './Plantas/planta1.js';
 
-
 	// Configuracion phaser
     var config = {
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
-	    type: Phaser.AUTO,
-	    width: 1000,
-	    height: 560,
+	    type: Phaser.WEBGL,
 	    pixelArt: true, 
-        backgroundColor: '#4488aa',
+        backgroundColor: '#4888aa',
 	    scene:[Planta1], // Metodos que queremos en nuestros scripts
         scale:{
-            autocenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente
+             autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            zoom: 1,
-            min: { width : 336, height: 188},
-            max: { width: 1000, height: 560}
+            width: 600,
+            height: 440
     
         }
     }
-
 
 
     // Pasamos como parametro la configuracion

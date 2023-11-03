@@ -16,29 +16,64 @@
   <header>
 		<a href="#" class="Titulo">Workaholote Studio</a>
 		<ul>
-			<li><a id="historiaB" onClick = "aparecerTexto()">Historia</a></li>
-			<li><a id="controles" onClick = "aparecerControles()">Controles</a></li>
-			<li><a id="autores" onClick = "aparecerAutores()">Autores</a></li>
+			<li><a id="historiaB" href="#historiaSec" onClick = "aparecerTexto()">Historia</a></li>
+			<li><a id="controles" href="#controlesSec" onClick = "aparecerControles()">Controles</a></li>
+			<li><a id="autores" href="#autoresSec" onClick = "aparecerAutores()">Autores</a></li>
 			<li>
 				<div class="dropdown">
 					<button class="dropbtn">Conócemos!</button>
 					<div class="dropdown-content">
-					  <a href="https://www.instagram.com/workaholotestudio/">Instagram</a>
-					  <a href="https://twitter.com/Workaholote">Twitter</a>
-					  <a href="https://github.com/nahigles/Workaholote">GitHub</a>
+					  <a id="instaButton" href="https://www.instagram.com/workaholotestudio/">Instagram</a>
+					  <a id="twitterButton" href="https://twitter.com/Workaholote">Twitter</a>
+					  <a id="githubButton" href="https://github.com/nahigles/Workaholote">GitHub</a>
 					</div>
 				</div>	
 			</li>
 		</ul>
 	</header>
-  <div>
-    <h2 class=clase>Workaholote Studio:</h2>
-
-    <p class=clase id="magico"> Nahia Iglesias   Paula López   Mikele López   Cristina Muñoz</p>
- 
-  </div>
   <div id="canvas">
   </div>
+
+  <section id="historiaSec" class="about">
+	<div class="container">
+		<div id="historiaTittle" class="section-title">
+			<h2>Sipnosis del Juego</h2>
+		</div>
+		<p class="texto">
+			Blablabla bla blabla
+		</p>
+	</div>
+</section>
+
+<section id="controlesSec" class="about">
+	<div class="container">
+		<div id="controlesTittle" class="section-title">
+			<h2>Controles</h2>
+		</div>
+	</div>
+	
+</div>			
+</section>
+
+<section id="autoresSec" class="about">
+	<div class="container">
+		<div id="autoresTittle" class="section-title">
+			<h2>Autores</h2>
+		</div>
+		<p class="texto">
+			Info sobre el grupo
+		</p>
+	</div>
+</section>
+
+<!-- Divider -->
+<hr class="solid">
+<footer id="Copyright">
+	<div class="footer-container">
+		<p> © Copyright 2023-2024 WORKAHOLOTE STUDIO - Todos los derechos reservados</p>
+	</div>
+</footer>
+
   <script src = "./src/game.js" type="module"></script> <!--module para que la clase game.js pueda usar otros scripts-->
 </body>
 </html>
