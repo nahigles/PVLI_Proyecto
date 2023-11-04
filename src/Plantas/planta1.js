@@ -12,13 +12,15 @@ export default class Planta1 extends Phaser.Scene {
 
 	}
     preload(){
-		this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
+		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
+		let jaja = this.load.spritesheet('playerAnim', './../../assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+		console.log(jaja);
     }
 
     create(){
 
 		// Jugador
-		new Jugador(this, 100, 50, 'player');
+		new Jugador(this, 100, 50, 'playerAnim');
     }
 
     update(){
