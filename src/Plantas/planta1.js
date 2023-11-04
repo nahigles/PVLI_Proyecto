@@ -16,14 +16,14 @@ export default class Planta1 extends plantaBase {
 
 	}
     preload(){
-		super.preload();
-		this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
+		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
+		this.load.spritesheet('playerAnim', './../../assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
     }
 
     create(){
 		super.create();
 		// Jugador
-		new Jugador(this, 100, 50, 'player');
+		new Jugador(this, 100, 50, 'playerAnim');
     }
 
     update(){
