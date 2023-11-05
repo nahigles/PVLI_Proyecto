@@ -17,7 +17,7 @@ export default class Planta1 extends plantaBase {
 	}
     preload(){
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
-		this.load.spritesheet('playerAnim', './../../assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
     }
 
     create(){
