@@ -46,6 +46,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		// INPUT
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
+		this.cursors = this.scene.input.keyboard.createCursorKeys();
     }
 
 	preUpdate(t, dt){
@@ -53,22 +54,21 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.jugador.preUpdate(t, dt);
 		
 		// Si se pulsa letra A
-		if(this.a.isDown){ 
+		if(this.a.isDown || this.cursors.left.isDown){ 
 			this.x += (dt/20)*2*-this.speed;
 			this.jugador.setFlip(true, false);
-			this.jugador.play('walk', true)
+			this.jugador.play('walk', true);
 		} 
 
 		// Si se pulsa letra D
-		else if(this.d.isDown){
+		else if(this.d.isDown || this.cursors.right.isDown){
 			this.x += (dt/20)*2*this.speed;
 			this.jugador.setFlip(false, false);
-			this.jugador.play('walk', true)
+			this.jugador.play('walk', true);
 		} 
 
 		else {
 			this.jugador.play('idle', true)
 		}
-
 	}
 }
