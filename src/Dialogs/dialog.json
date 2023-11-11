@@ -1,0 +1,63 @@
+{
+    "j5": [
+      {
+        "isDialog": true,
+        "text": "Lorem ipsum dolor sit amet, consectetur.",
+        "texture": "J5Avatar",
+        "frame": 0
+      },
+      {
+        "isDialog": true,
+        "text": "Ut enim ad minim veniam, quis nostrud.",
+        "texture": "J5Avatar",
+        "frame": 1
+      },
+      {
+        "isDialog": true,
+        "text": "Duis aute irure dolor in reprehenderit esse.",
+        "texture": "J5Avatar",
+        "frame": 2
+      }
+    ],
+    "twiggy": [
+      {
+        "isDialog": true,
+        "text": "Lorem ipsum dolor sit amet, consectetur.",
+        "texture": "TwiggyAvatar",
+        "frame": 0
+      },
+      {
+        "isDialog": true,
+        "text": "Ut enim ad minim veniam, quis nostrud.",
+        "texture": "TwiggyAvatar",
+        "frame": 1
+      },
+      {
+        "isDialog": true,
+        "text": "Duis aute irure dolor in reprehenderit esse.",
+        "texture": "TwiggyAvatar",
+        "frame": 2
+      }
+    ],
+    "tommy": [
+      {
+        "isDialog": true,
+        "text": "Lorem ipsum dolor sit amet, consectetur.",
+        "texture": "TommyAvatar",
+        "frame": 0
+      },
+      {
+        "isDialog": true,
+        "text": "Ut enim ad minim veniam, quis nostrud.",
+        "texture": "TommyAvatar",
+        "frame": 1
+      },
+      {
+        "isDialog": true,
+        "text": "Duis aute irure dolor in reprehenderit esse.",
+        "texture": "TommyAvatar",
+        "frame": 2
+      }
+    ]
+  }
+  

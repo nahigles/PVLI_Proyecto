@@ -32,6 +32,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
         //FISICAS
         this.scene.physics.world.enable(this);
         this.body.setAllowGravity(false);
+		this.body.onOverlap = true;
 		
 		//sprite jug
 		this.jugadorSprite = new Phaser.GameObjects.Sprite(scene, x-100, y-60, key, 0);
@@ -48,6 +49,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		// INPUT
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
+		this.e = this.scene.input.keyboard.addKey('E'); //interact
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
     }
 
@@ -73,4 +75,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			this.jugadorSprite.play('idle', true)
 		}
 	}
+
+	
 }

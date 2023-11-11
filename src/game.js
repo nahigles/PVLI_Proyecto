@@ -1,4 +1,5 @@
 import Planta1 from './Plantas/planta1.js';
+import UiScene from './escenas/UiScene.js';
 
 	// Configuracion phaser
     var config = {
@@ -6,7 +7,7 @@ import Planta1 from './Plantas/planta1.js';
 	    type: Phaser.WEBGL,
 	    pixelArt: true, 
         backgroundColor: '#4888aa',
-	    scene:[Planta1], // Metodos que queremos en nuestros scripts
+	    scene:[Planta1, UiScene], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
@@ -16,7 +17,7 @@ import Planta1 from './Plantas/planta1.js';
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: {y: 150},
+                gravity: {y: 0},
                 // Visibilidad de las colisiones 
                 debug: true
             },

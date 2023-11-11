@@ -26,11 +26,19 @@ export default class Planta1 extends plantaBase {
 		super.create();
 		// Jugador
 		this.explPLYR = new Jugador(this, 100, 50, 'playerAnim');
-		this.explNPC = new NPC(this, 100, 50, 'NPCAnim');
 		
-		this.explPLYR.body.onOverlap = true;
-		this.explNPC.body.onOverlap = true;
-		this.physics.add.overlap(this.explPLYR, this.explNPC, () => {this.explNPC.diHola()})
+		this.NPCGroup = this.physics.add.group();
+		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCAnim'));
+		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAnim'));
+		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCAnim'));
+
+		
+		this.scene.launch("UiScene", {
+			home: this,
+			player: this.explPLYR,
+			NPCs: this.NPCGroup
+		});
+		console.log("UIlaunched");
     }
 
     update(){
