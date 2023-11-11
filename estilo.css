@@ -170,13 +170,23 @@ header ul li a:hover
 }
 
 
-.texto {
+.texto1 {
     color: #ffffff;
     font-size: 0.8em;
-    text-indent: 40px;
+    /*text-indent: 40px;*/
     line-height: 2;
-	text-align: center;
-   
+	text-align: left;
+	margin-left: 8cm;
+	margin-right: 8cm;
+}
+
+.texto2 {
+    color: #ffffff;
+    font-size: 0.8em;
+    /*text-indent: 40px;*/
+    line-height: 2;
+	text-align: left;
+	margin-left: 11cm;
 }
 
 /*#canvas

@@ -8,11 +8,24 @@ import Planta1 from './Plantas/planta1.js';
         backgroundColor: '#4888aa',
 	    scene:[Planta1], // Metodos que queremos en nuestros scripts
         scale:{
-             autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
+            autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
             width: 600,
             height: 440
-    
+        },
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: {y: 150},
+                // Visibilidad de las colisiones 
+                debug: true
+            },
+            checkCollision: {
+                up: true,
+                down: true,
+                left: true,
+                right: true
+            }
         }
     }
 
