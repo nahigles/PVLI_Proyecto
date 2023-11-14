@@ -1,36 +1,11 @@
 import dialogEvents from "./EventCenter.js";
-//import stuffToSay from "./dialog.json";
-//import TalkZone from "./TalkZone";
+import dialogText from "../Dialogs/dialogText.json"  assert { type: 'json' };
 
 export default class DialogManager {
-  constructor(scene, player, NPCGroup) {
+  constructor(scene, UI, player, NPCGroup) {
     this.scene = scene;
+    this.UI = UI;
     this.isTalking = false;
-
-    /*
-    scene.dialogPlugin.setSettings({
-      dialogHeight: 52,
-      avatarWidth: 32,
-      fontFamily: "atari",
-      fontSize: 16,
-      atBottom: false,
-      frameSettings: {
-        key: {
-          key: "frames",
-          frame: 0
-        },
-        offsetConfig: 8
-      },
-      paddings: {
-        xPaddingOut: 5,
-        yPaddingOut: 5,
-        xPaddingIn: 10,
-        yPaddingIn: 10
-      }
-    });
-    */
-
-    //this.physics.add.overlap(this.explPLYR, this.explNPC, () => {this.explNPC.interact()})
 
     this.NPCGroup = NPCGroup;
     scene.physics.add.overlap(this.NPCGroup, player);
@@ -38,37 +13,40 @@ export default class DialogManager {
     dialogEvents.on("wantToTalk", this.wantToTalk, this);
   }
 
-  /*
-  addZone(talkerSprite, talkerName) {
-    var zone = new TalkZone(this.scene, 50, 35, talkerSprite, talkerName);
-
-    this.zoneGroup.add(zone);
-  }
-*/
   wantToTalk() {
-    /*var talker = this._whoIsTalking();
-    if (this.isTalking) {
-      this.isTalking = !this.scene.dialogPlugin.goToNext();
-    } else {
-      this.isTalking = true;
-      this.scene.dialogPlugin.startDialog(stuffToSay[talker]);
-    }*/
-  }
-/*
-  _whoIsTalking() {
-    var talker = this.defaultName;
+    var talker = this._whoIsTalking();
 
-    this.zoneGroup.getChildren();
-    for (const zone of this.zoneGroup.getChildren()) {
-      if (zone.body.embedded) zone.body.touching.none = false;
-      let touching = !zone.body.touching.none;
+    if (this.isTalking) {
+      //this.isTalking = !this.scene.dialogPlugin.goToNext();
+      if(talker == 'NONE'){        
+        console.log('dejas d hablar' + talker.name);
+        this.isTalking = false;
+      }
+    } 
+    else {
+      if(talker != 'NONE'){        
+        console.log('empezamos a hablar con ' + talker.name);
+        this.isTalking = true;
+        this.name = talker.name;
+        this.text = dialogText.Emilio;
+        this.UI.initDialog(this.text);
+      }
+    }
+  }
+
+  _whoIsTalking() {
+    var talker = 'NONE';
+
+    this.NPCGroup.getChildren();
+    for (const NPC of this.NPCGroup.getChildren()) {
+      if (NPC.body.embedded) NPC.body.touching.none = false; //embedded es overlapeado y además no se mueve
+      let touching = !NPC.body.touching.none;
 
       if (touching) {
-        talker = zone.talkerName;
+        talker = NPC;
       }
     }
 
     return talker;
   }
-  */
 }

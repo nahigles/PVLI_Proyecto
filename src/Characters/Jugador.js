@@ -47,6 +47,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.speed = 3;
 
 		// INPUT
+		this.inputEnabled = true;
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
 		this.e = this.scene.input.keyboard.addKey('E'); //interact
@@ -56,25 +57,30 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugadorSprite.preUpdate(t, dt);
-		
-		// Si se pulsa letra A
-		if(this.a.isDown || this.cursors.left.isDown){ 
-			this.x += (dt/20)*2*-this.speed;
-			this.jugadorSprite.setFlip(true, false);
-			this.jugadorSprite.play('walk', true);
-		} 
 
-		// Si se pulsa letra D
-		else if(this.d.isDown || this.cursors.right.isDown){
-			this.x += (dt/20)*2*this.speed;
-			this.jugadorSprite.setFlip(false, false);
-			this.jugadorSprite.play('walk', true);
-		} 
+
+		if (this.inputEnabled){
+			// Si se pulsa letra A
+			if(this.a.isDown || this.cursors.left.isDown){ 
+				this.x += (dt/20)*2*-this.speed;
+				this.jugadorSprite.setFlip(true, false);
+				this.jugadorSprite.play('walk', true);
+			} 
+
+			// Si se pulsa letra D
+			else if(this.d.isDown || this.cursors.right.isDown){
+				this.x += (dt/20)*2*this.speed;
+				this.jugadorSprite.setFlip(false, false);
+				this.jugadorSprite.play('walk', true);
+			} 
+		}		
 
 		else {
 			this.jugadorSprite.play('idle', true)
 		}
-	}
+	}	
 
-	
+	onPauseInput(){
+		this.inputEnabled = !this.inputEnabled;
+	}
 }

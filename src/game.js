@@ -1,3 +1,5 @@
+
+
 import Planta1 from './Plantas/planta1.js';
 import UiScene from './escenas/UiScene.js';
 
@@ -7,7 +9,7 @@ import UiScene from './escenas/UiScene.js';
 	    type: Phaser.WEBGL,
 	    pixelArt: true, 
         backgroundColor: '#4888aa',
-	    scene:[Planta1, UiScene], // Metodos que queremos en nuestros scripts
+	    scene:[Planta1, UiScene,], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion

@@ -1,12 +1,13 @@
 export default class NPCBase extends Phaser.GameObjects.Sprite {
 	/**
-	 * Constructor del pato
+	 * Constructor
 	 * @param {Scene} scene -  escena
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
      * @param {string} key - texture
+     * @param {string} name - NPC name
 	 */
-	constructor(scene, x, y, key){
+	constructor(scene, x, y, key, name){
 		// Llamamos al constructor del padre
 		super(scene, x, y, key, 0);
 
@@ -21,6 +22,7 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 		*/
 
 		// Guardamos escena y añadimos NPC a escena
+		this.name = name;
 		this.scene = scene;
 		this.scene.add.existing(this);
         
@@ -41,16 +43,10 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 
 		// INPUT
 		this.e = this.scene.input.keyboard.addKey('E'); //interact
-    }
+	}
 
 	preUpdate(t, dt){
         //this.preUpdate(t, dt); //al poner esto dejan de salir los dos
         /*this.play('idleNPC', true)*/
 	}
-
-    interact(){
-		if(this.e.isDown){
-			console.log('HOLA!');			
-		}
-    }
 }
