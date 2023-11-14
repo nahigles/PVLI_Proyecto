@@ -1,4 +1,5 @@
 import Planta1 from './Plantas/planta1.js';
+import MainMenu from './UI/MainMenu.js';
 
 	// Configuracion phaser
     var config = {
@@ -6,7 +7,7 @@ import Planta1 from './Plantas/planta1.js';
 	    type: Phaser.AUTO, //type: Phaser.WEBGL
 	    pixelArt: true, 
         backgroundColor: '#4888aa',
-	    scene:[Planta1], // Metodos que queremos en nuestros scripts
+	    scene:[/*Planta1*/MainMenu], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
