@@ -16,6 +16,8 @@ export default class Button extends Phaser.GameObjects.Sprite {
         // Guardamos escena
 		this.scene = scene;
 
+		this.self = this;
+
         this.scene.anims.create({
 			key: 'playButton2',
 			frames: scene.anims.generateFrameNumbers('playButton2', {start:0, end:0}),
@@ -27,19 +29,19 @@ export default class Button extends Phaser.GameObjects.Sprite {
 
         this.on('pointerdown', (pointer)=>
         {
-
+			this.pulsado(pointer);
             this.setTint(0xff0000);
 
         });
 
-        this.on('pointerout', function (pointer)
+        this.on('pointerout', (pointer)=>
         {
 
             this.clearTint();
 
         });
 
-        this.on('pointerup', function (pointer)
+        this.on('pointerup', (pointer)=>
         {
 
             this.clearTint();
@@ -52,12 +54,16 @@ export default class Button extends Phaser.GameObjects.Sprite {
         super.preUpdate(t, dt)
 	}
 
+	
     	/**
 	 * Boton pulsado
 	 * @param {Pointer} pointer 
 	 */
 	pulsado(pointer){
 		// Animacion si queremos
+		this.scene.play();
 		console.log("Boton pulsadoOOOOOOOO");
 	}
+
+	
 }

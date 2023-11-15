@@ -20,4 +20,8 @@ export default class MainMenu extends Phaser.Scene {
     }
     update(){
     }
+
+	play(){
+		this.scene.start("planta1");
+	}
 }
