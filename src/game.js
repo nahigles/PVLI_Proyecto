@@ -14,14 +14,14 @@ import MainMenu from './UI/MainMenu.js';
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            width: 600,
-            height: 440
+            width: 300,
+            height: 170
     
         },
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: {y: 1},
+                gravity: {y: 10},
                 // Visibilidad de las colisiones 
                 debug: true
             },

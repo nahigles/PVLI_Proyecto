@@ -32,12 +32,12 @@ export default class Jugador extends Phaser.GameObjects.Container {
 
         //FISICAS
         this.scene.physics.world.enable(this);
-        this.body.setAllowGravity(false);
+        //this.body.setAllowGravity(false);
 		this.body.onOverlap = true;
 		
 		//sprite jug
 		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, key, 0);
-		this.jugador.setOrigin(0.5,0.5).setScale(1.0,1.0);
+		this.jugador.setOrigin(0,0).setScale(1.0,1.0);
 		
 		this.add(this.jugador); // Añadimos al contenedor
 		
@@ -53,32 +53,35 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 
 		// Físicas
-		this.width = 24
-		this.height = 24
+		this.body.width = 24;
+		this.body.height = 24;
 		scene.physics.add.existing(this);
     }
 
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
-		
-		// Si se pulsa letra A
-		if(this.a.isDown || this.cursors.left.isDown){ 
-			this.body.setVelocityX(-this.speed);
-			this.jugador.setFlip(true, false);
-			this.jugador.play('walk', true);
-		} 
-
-		// Si se pulsa letra D
-		else if(this.d.isDown || this.cursors.right.isDown){
-			this.body.setVelocityX(this.speed);
-			this.jugador.setFlip(false, false);
-			this.jugador.play('walk', true);
-		} 
-
-		else {
-			this.jugador.play('idle', true);
-			this.body.setVelocityX(0);
+		console.log(this.inputEnabled);
+		if(this.inputEnabled)
+		{
+			// Si se pulsa letra A
+			if(this.a.isDown || this.cursors.left.isDown){ 
+				this.body.setVelocityX(-this.speed);
+				this.jugador.setFlip(true, false);
+				this.jugador.play('walk', true);
+			} 
+	
+			// Si se pulsa letra D
+			else if(this.d.isDown || this.cursors.right.isDown){
+				this.body.setVelocityX(this.speed);
+				this.jugador.setFlip(false, false);
+				this.jugador.play('walk', true);
+			} 
+	
+			else {
+				this.jugador.play('idle', true);
+				this.body.setVelocityX(0);
+			}
 		}
 	}	
 

@@ -41,12 +41,12 @@ export default class PlantaBase extends Phaser.Scene{
 
     create(){
         //jugador
-        this.jugador = new Jugador(this, 100, 50, 'playerAnim');
+        /*this.jugador = new Jugador(this, 100, 50, 'playerAnim');
         //camara
         //this.cameras.main.setBounds(0, 0, bg.displayWidth, bg.displayHeight);
         this.cameras.main.setBounds(0, 0, 600, 180);//ancho  y alto nivel
         this.cameras.main.startFollow(this.jugador);
-        this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel
+        this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
         //this.nextKey = this.input.keyboard.addKey('E'); //// Y escuchamos la pulsación de la tecla 'E' para cambiar de escena.
        
     }
