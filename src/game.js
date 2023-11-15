@@ -10,9 +10,22 @@ import Planta1 from './Plantas/planta1.js';
         scale:{
              autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            width: 600,
-            height: 440
+            width: 300,
+            height: 220
     
+        },
+        physics: { 
+            default: 'arcade', 
+            arcade: { 
+                gravity: { y: 1 }, 
+                debug: true
+            },
+            checkCollision: {
+                up: true,
+                down: true,
+                left: true, 
+                right: true
+            }
         }
     }
 

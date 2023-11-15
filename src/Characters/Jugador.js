@@ -8,6 +8,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	constructor(scene, x, y, key){
 		// Llamamos al constructor del padre
 		super(scene, x, y);
+		this.speed = 140; // Nuestra velocidad de movimiento será 140
 
 		// Animaciones del jugador
 		this.scene.anims.create({
@@ -32,21 +33,24 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.scene.add.existing(this);
 		
 		//sprite jug
-		this.jugador = new Phaser.GameObjects.Sprite(scene, x, y, key, 0);
-		this.jugador.setOrigin(0,0).setScale(3.0,3.0);
+		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, key, 0);
+		this.jugador.setOrigin(0.5,0.5).setScale(1.0,1.0);
+		
 		this.add(this.jugador); // Añadimos al contenedor
 		
 		// Ejecutamos la animación 'idle'
 		this.jugador.play('idle')
 		console.log(this);
 
-		// Speed
-		this.speed = 3;
-
 		// INPUT
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
+
+		// Físicas
+		this.width = 24
+		this.height = 24
+		scene.physics.add.existing(this);
     }
 
 	preUpdate(t, dt){
@@ -55,20 +59,21 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		
 		// Si se pulsa letra A
 		if(this.a.isDown || this.cursors.left.isDown){ 
-			this.x += (dt/20)*2*-this.speed;
+			this.body.setVelocityX(-this.speed);
 			this.jugador.setFlip(true, false);
 			this.jugador.play('walk', true);
 		} 
 
 		// Si se pulsa letra D
 		else if(this.d.isDown || this.cursors.right.isDown){
-			this.x += (dt/20)*2*this.speed;
+			this.body.setVelocityX(this.speed);
 			this.jugador.setFlip(false, false);
 			this.jugador.play('walk', true);
 		} 
 
 		else {
-			this.jugador.play('idle', true)
+			this.jugador.play('idle', true);
+			this.body.setVelocityX(0);
 		}
 	}
 }
