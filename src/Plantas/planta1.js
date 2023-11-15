@@ -1,6 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
-import Jugador from '../Characters/Jugador.js';
-import NPC from '../Characters/NPCBase.js';
+import Jugador from '../Personajes/jugador.js';
+import NPC from '../Personajes/NPCBase.js';
 
 export default class Planta1 extends plantaBase {
 	/**
