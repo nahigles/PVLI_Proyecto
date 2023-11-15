@@ -42,7 +42,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         this.actWritten = "";     // Las letras escritas de momento
         this.delay = 0;           // Contador para hacer paradas entre char
         this.finished = false;    // Informa si un mensaje ya se ha terminado de imprimir
-        this.textSpeed = 6;     // Vlocidad al imprimir el texto, en ms
+        this.textSpeed = 20;     // Vlocidad al imprimir el texto, en ms
   
         // Crea el texto
         this.text = this.scene.add.text(this.x,this.y , "", {
@@ -80,8 +80,6 @@ export default class TextMessage extends Phaser.GameObjects.Container {
               this.actWritten = "...";
               this.contChar = 0;
             }
-            
-            console.log(this.contChar);
 
             // Actualiza el número de caracteres impresos e imprime el texto
             this.actWritten += this.Message[100*this.screens + this.contChar];
@@ -96,8 +94,5 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         } else this.delay -= dt; //esperando en s para imprimir el sig char
       }
     }
-  
-  
-  
   }
   

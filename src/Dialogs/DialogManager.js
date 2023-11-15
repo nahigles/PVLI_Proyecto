@@ -15,22 +15,20 @@ export default class DialogManager {
 
   wantToTalk() {
     var talker = this._whoIsTalking();
+    if(talker != 'NONE'){        
+      console.log('empezamos a hablar con ' + talker.name);
+      this.isTalking = true;
 
-    if (this.isTalking) {
-      //this.isTalking = !this.scene.dialogPlugin.goToNext();
-      if(talker == 'NONE'){        
-        console.log('dejas d hablar' + talker.name);
-        this.isTalking = false;
-      }
-    } 
-    else {
-      if(talker != 'NONE'){        
-        console.log('empezamos a hablar con ' + talker.name);
-        this.isTalking = true;
-        this.name = talker.name;
-        this.text = dialogText.Emilio;
-        this.UI.initDialog(this.text);
-      }
+      this.name = talker.name;
+      
+      if (this.name == "Emilio")
+        this.text = dialogText.Emilio; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
+      else if (this.name == "Aurelia")
+        this.text = dialogText.Aurelia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
+      else if (this.name == "Julia")
+        this.text = dialogText.Julia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
+
+      this.UI.initDialog(this.text);
     }
   }
 

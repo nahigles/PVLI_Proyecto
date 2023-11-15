@@ -8,7 +8,7 @@ import UiScene from './escenas/UiScene.js';
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
 	    type: Phaser.WEBGL,
 	    pixelArt: true, 
-        backgroundColor: '#4888aa',
+        backgroundColor: '#afe0fa',
 	    scene:[Planta1, UiScene,], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_BOTH, // Centra horizontalmente

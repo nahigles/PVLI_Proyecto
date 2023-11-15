@@ -33,7 +33,7 @@
         {
             "who": "Aurelia",
             "id": 1,
-            "frase": "Hola bb soy ",
+            "frase": "Hola bb soy Aurelia",
             "chosen": false,
             "a": "hola",
             "b": "bb",
@@ -42,7 +42,7 @@
         {
             "who": "Aurelia",
             "id": 1,
-            "frase": "Hola bb soy ",
+            "frase": "Q tal estas ????",
             "chosen": false,
             "a": "hola",
             "b": "bb",
@@ -54,7 +54,7 @@
         {
             "who": "Julia",
             "id": 1,
-            "frase": "Hola bb soy ",
+            "frase": "Hola bb soy Julia",
             "chosen": false,
             "a": "hola",
             "b": "bb",
@@ -63,7 +63,7 @@
         {
             "who": "Julia",
             "id": 1,
-            "frase": "Hola bb soy ",
+            "frase": "Toma un besito <3",
             "chosen": false,
             "a": "hola",
             "b": "bb",

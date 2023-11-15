@@ -11,18 +11,18 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 		// Llamamos al constructor del padre
 		super(scene, x, y, key, 0);
 
-		/*
+		
 		// Animacion del NPC
 		this.scene.anims.create({
-			key: 'idleNPC',
+			key: key,
 			frames: scene.anims.generateFrameNumbers(key, {start:0, end:1}),
 			frameRate: 2,
 			repeat: -1
 		});
-		*/
 
 		// Guardamos escena y añadimos NPC a escena
 		this.name = name;
+		this.key = key;
 		this.scene = scene;
 		this.scene.add.existing(this);
         
@@ -35,18 +35,15 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 		this.setOrigin(0,0).setScale(3.0,3.0);
 		
 		// Ejecutamos la animación 'idle'
-		/*this.play('idleNPC')*/
+		this.play(key, true);
 		console.log(this);
 
 		// Speed
 		this.speed = 3;
-
-		// INPUT
-		this.e = this.scene.input.keyboard.addKey('E'); //interact
 	}
 
 	preUpdate(t, dt){
         //this.preUpdate(t, dt); //al poner esto dejan de salir los dos
-        /*this.play('idleNPC', true)*/
+        this.play(this.key, true)
 	}
 }

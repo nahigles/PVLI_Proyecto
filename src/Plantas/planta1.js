@@ -20,7 +20,9 @@ export default class Planta1 extends plantaBase {
     preload(){
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
-		this.load.spritesheet('NPCAnim', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCEmilio', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCAurelia', './assets/images/Characters/Aurelia.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
     }
@@ -30,11 +32,17 @@ export default class Planta1 extends plantaBase {
 
 		// Jugador
 		this.explPLYR = new Jugador(this, 100, 50, 'playerAnim');
+		this.explPLYR.body.setCollideWorldBounds(true);
+		this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
+		this.cameras.main.startFollow(this.explPLYR);
+		this.physics.world.setBounds(0,0,800,180);//ancho  y alto nivel
+		
+		//this.physics.add.collider(this.explPLYR);
 		
 		this.NPCGroup = this.physics.add.group();
-		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCAnim', 'Emilio'));
-		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAnim', 'Aurelia'));
-		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCAnim', 'Julia'));
+		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
+		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAurelia', 'Aurelia'));
+		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCJulia', 'Julia'));
 
 		this.scene.launch("UiScene", {
 			home: this,
