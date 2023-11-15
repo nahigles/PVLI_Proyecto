@@ -25,6 +25,10 @@ export default class Planta1 extends plantaBase {
 		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
+		super.preload();
+		//background
+	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+		
     }
 
     create(){
@@ -49,6 +53,15 @@ export default class Planta1 extends plantaBase {
 			player: this.explPLYR,
 			NPCs: this.NPCGroup
 		});
+		/*//background
+		// Jugador
+		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
+		//this.jugador.setCollideWorldBounds(true);
+		this.cameras.main.setBounds(0,0,600, 180);//ancho  y alto nivel
+		this.cameras.main.startFollow(this.jugador);
+		//this.cameras.main.startFollow(this.jugador, true, 0.08, 0.08);
+		//this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel
+		//this.physics.add.collider(this.jugador);*/
     }
 
     update(){
