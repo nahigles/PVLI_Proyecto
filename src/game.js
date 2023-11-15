@@ -21,7 +21,7 @@ import MainMenu from './UI/MainMenu.js';
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: {y: 0},
+                gravity: {y: 1},
                 // Visibilidad de las colisiones 
                 debug: true
             },
