@@ -99,6 +99,6 @@ export default class Planta1 extends plantaBase {
     }
 
 	onPause(){
-		this.explPLYR.onPauseInput();
+		this.jugador.onPauseInput();
 	}
 }

@@ -25,6 +25,19 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			repeat: -1
 		});
 
+		this.scene.anims.create({
+			key: 'jump',
+			frames: scene.anims.generateFrameNumbers(key, {start:32, end:35}),
+			frameRate: 2,
+			repeat: -1
+		});
+
+		this.scene.anims.create({
+			key: 'sit',
+			frames: scene.anims.generateFrameNumbers(key, {start:40, end:41}),
+			frameRate: 2,
+			repeat: -1
+		});
 
 		// Guardamos escena y añadimos jugador a escena
 		this.scene = scene;
@@ -42,7 +55,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.add(this.jugador); // Añadimos al contenedor
 		
 		// Ejecutamos la animación 'idle'
-		this.jugador.play('idle')
+		this.jugador.play('idle');
 		console.log(this);
 
 		// INPUT
@@ -89,4 +102,12 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.inputEnabled = !this.inputEnabled;
 	}
 
+	sitAnim(){
+		this.jugador.play('sit', true);
+	}
+
+	jumpAnim(){
+		this.jugador.play('jump', true);
+		this.jugador.setFlip(false, false);
+	}
 }

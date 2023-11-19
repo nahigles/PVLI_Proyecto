@@ -12,7 +12,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
         // Añadimos sprite a la escena
 		this.scene.add.existing(this);
 		this.setInteractive();
-
+		this.setScale(0.5,0.5);
         // Guardamos escena
 		this.scene = scene;
 
