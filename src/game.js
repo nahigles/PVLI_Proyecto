@@ -14,8 +14,8 @@ import MainMenu from './UI/MainMenu.js';
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            width: 300,
-            height: 170
+            width: 256,
+            height: 192,
     
         },
         physics: {

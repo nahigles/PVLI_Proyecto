@@ -67,15 +67,20 @@ export default class Planta1 extends plantaBase {
 		this.backgroundLayer = this.map.createLayer('Fondo', tileset1);
 		this.wallLayer = this.map.createLayer('Paredes', tileset1);
 		this.wallLayer.setCollisionByExclusion([-1]);
+		// Layer objeto
 
 		// Jugador
 		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
-		this.jugador.body.setCollideWorldBounds(true);
-		this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
-		this.cameras.main.startFollow(this.jugador);
-		//this.physics.world.setBounds(0,0,800,180);//ancho  y alto nivel
 		
-		//this.physics.add.collider(this.explPLYR);
+		// JUGADOR POR CAPA DE OBJETOS	
+		/*this.jugador = this.map.createFromObjects('Jugador', {
+			classType: Jugador,
+			id: 3
+		})
+		console.log(this.jugador);*/
+		// CAMARA
+		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
+		this.cameras.main.startFollow(this.jugador);
 		
 		this.NPCGroup = this.physics.add.group();
 		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
@@ -99,6 +104,6 @@ export default class Planta1 extends plantaBase {
     }
 
 	onPause(){
-		this.explPLYR.onPauseInput();
+		this.jugador.onPauseInput();
 	}
 }

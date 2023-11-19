@@ -16,7 +16,7 @@ export default class MainMenu extends Phaser.Scene {
     }
     create(){
 		// BotonPlay
-		new Button(this, 200, 100, 'playButton');
+		new Button(this, 200, 100, 'playButton').setScale(0.5,0.5);
     }
     update(){
     }
