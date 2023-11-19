@@ -70,14 +70,14 @@ export default class Planta1 extends plantaBase {
 		// Layer objeto
 
 		// Jugador
-		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
+		//this.jugador = new Jugador(this, 100, 50, 'playerAnim');
 		
 		// JUGADOR POR CAPA DE OBJETOS	
-		/*this.jugador = this.map.createFromObjects('Jugador', {
+		this.jugador = this.map.createFromObjects('Jugador', {
 			classType: Jugador,
 			id: 3
 		})
-		console.log(this.jugador);*/
+		console.log(this.jugador);
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
