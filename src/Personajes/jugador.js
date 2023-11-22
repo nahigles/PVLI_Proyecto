@@ -56,7 +56,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		
 		// Ejecutamos la animación 'idle'
 		this.jugador.play('idle');
-		console.log(this);
 
 		// INPUT
 		this.inputEnabled = true;
@@ -74,7 +73,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
-		console.log(this.inputEnabled);
 		if(this.inputEnabled)
 		{
 			// Si se pulsa letra A

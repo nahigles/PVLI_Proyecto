@@ -13,10 +13,16 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		this.scene.add.existing(this);
 		this.setInteractive();
 		this.setScale(0.5,0.5);
+
         // Guardamos escena
 		this.scene = scene;
 
+		// Timer
+		this.timeAcum = 0;
+		this.pulsadoBoolean = false;
+
 		this.self = this;
+
 
         this.scene.anims.create({
 			key: 'playButton2',
@@ -30,21 +36,21 @@ export default class Button extends Phaser.GameObjects.Sprite {
         this.on('pointerdown', (pointer)=>
         {
 			this.pulsado(pointer);
-            this.setTint(0xff0000);
-
+			this.setTint(0xff0000);
+			
         });
-
+		
         this.on('pointerout', (pointer)=>
         {
-
-            this.clearTint();
-
+			
+			this.clearTint();
+			
         });
-
+		
         this.on('pointerup', (pointer)=>
         {
-
-            this.clearTint();
+			
+			this.clearTint();
 
         });
     }
@@ -52,17 +58,26 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	preUpdate(t, dt){
         // Si ponemos animación descomentar
         super.preUpdate(t, dt)
+
+		if(this.pulsadoBoolean){
+
+			if(this.timeAcum > 2000){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
+				this.scene.play();
+				//this.actionMethod;
+				this.timeAcum = 0;
+				this.pulsadoBoolean = false;
+			}
+
+			this.timeAcum = this.timeAcum + dt;
+		}
 	}
 
-	
     	/**
 	 * Boton pulsado
 	 * @param {Pointer} pointer 
 	 */
 	pulsado(pointer){
-		// Animacion si queremos
-		this.scene.play();
-		console.log("Boton pulsadoOOOOOOOO");
+		this.pulsadoBoolean = true;
 	}
 
 	
