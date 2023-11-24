@@ -32,15 +32,16 @@ export default class Jugador extends Phaser.GameObjects.Container {
 
         //FISICAS
         this.scene.physics.world.enable(this);
-        //this.body.setAllowGravity(false);
+        this.body.setAllowGravity(true);
 		this.body.onOverlap = true;
 		
+
 		//sprite jug
 		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, key, 0);
 		this.jugador.setOrigin(0,0).setScale(1.0,1.0);
 		
 		this.add(this.jugador); // Añadimos al contenedor
-		
+
 		// Ejecutamos la animación 'idle'
 		this.jugador.play('idle')
 		console.log(this);
@@ -61,7 +62,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
-		console.log(this.inputEnabled);
+		//console.log(this.inputEnabled);
 		if(this.inputEnabled)
 		{
 			// Si se pulsa letra A
