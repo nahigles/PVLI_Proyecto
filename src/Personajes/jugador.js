@@ -26,19 +26,21 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			repeat: -1
 		});
 
+		
 		this.scene.anims.create({
 			key: 'jump',
-			frames: scene.anims.generateFrameNumbers(key, {start:32, end:35}),
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:32, end:35}),
 			frameRate: 2,
 			repeat: -1
 		});
 
 		this.scene.anims.create({
 			key: 'sit',
-			frames: scene.anims.generateFrameNumbers(key, {start:40, end:41}),
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:40, end:41}),
 			frameRate: 2,
 			repeat: -1
 		});
+		
 
 		// Guardamos escena y añadimos jugador a escena
 		this.scene = scene;

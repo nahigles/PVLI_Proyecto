@@ -107,6 +107,7 @@ export default class Planta1 extends plantaBase {
 		})[0];
 		console.log(this.jugador);
 		console.log("Esto apesta");
+
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
