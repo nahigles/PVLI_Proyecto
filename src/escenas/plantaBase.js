@@ -1,4 +1,3 @@
-
 import Jugador from '../Personajes/jugador.js';
 /**
  * Escena planta base
@@ -11,9 +10,10 @@ export default class PlantaBase extends Phaser.Scene{
      * @param {string} tilemap - mapa
      * @param {string} tilename
      * @param {int} tileColision -hasta que numero
+     * @param {string} tileColision -siguiente planta
      */
 
-    constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
+    constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision, nextPlanta) {
         super({ key: level });
          //TILE MAP
          //this.level=level;

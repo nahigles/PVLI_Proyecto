@@ -11,7 +11,8 @@ export default class Planta1 extends plantaBase {
 
 	constructor(){	
 		super('Planta1', "planta2", 'mj_Plataformas', 'level1', 'tiles', 560);
-		//por ahora lo d tiles no tiene sentido
+
+		
 	}
 
 	init(){
@@ -46,12 +47,15 @@ export default class Planta1 extends plantaBase {
     create(){
 		super.create();
 
+		this.p = this.input.keyboard.addKey('P');
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
 			tileWidth: 16, 
 			tileHeight: 16
 		});
+		
 		
 		// tiles
 		const tileset1 = this.map.addTilesetImage('tileset_architecture', 'tileset_Planta_1_1');  
@@ -100,6 +104,11 @@ export default class Planta1 extends plantaBase {
 
     update(){
 		super.update();
+
+		if(this.p.isDown){ 
+			this.scene.start('Planta2');
+		}
+		
     }
 
 	onPause(){

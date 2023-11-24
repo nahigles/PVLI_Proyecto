@@ -1,4 +1,4 @@
-import MinijuegoBase from '../Escenas/minijuegoBase.js';
+import MinijuegoBase from '../escenas/minijuegoBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Plataforma from '../Minijuegos/plataforma.js';
 
