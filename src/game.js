@@ -15,10 +15,11 @@ import MJ_Plataformas from './Minijuegos/mj_Plataformas.js';
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            width: 300,
-            height: 170
-    
+            width: 600,
+            height: 400
+           // zoom: 35    
         },
+        
         physics: {
             default: 'arcade',
             arcade: {

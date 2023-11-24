@@ -5,22 +5,23 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
 	 */
-	constructor(scene, x, y, key){
+	constructor(scene, x, y){
 		// Llamamos al constructor del padre
 		super(scene, x, y);
 		this.speed = 140; // Nuestra velocidad de movimiento será 140
 
+		
 		// Animaciones del jugador
 		this.scene.anims.create({
 			key: 'walk',
-			frames: scene.anims.generateFrameNumbers(key, {start:8, end:11}),
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:8, end:11}),
 			frameRate: 2,
 			repeat: -1
 		});
 
 		this.scene.anims.create({
 			key: 'idle',
-			frames: scene.anims.generateFrameNumbers(key, {start:0, end:1}),
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:0, end:1}),
 			frameRate: 2,
 			repeat: -1
 		});
@@ -50,7 +51,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		
 
 		//sprite jug
-		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, key, 0);
+		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, 'playerAnim', 0);
 		this.jugador.setOrigin(0,0).setScale(1.0,1.0);
 		
 		this.add(this.jugador); // Añadimos al contenedor
@@ -69,6 +70,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.body.width = 24;
 		this.body.height = 24;
 		scene.physics.add.existing(this);
+		
     }
 
 	preUpdate(t, dt){
@@ -110,4 +112,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.jugador.play('jump', true);
 		this.jugador.setFlip(false, false);
 	}
+	// Método vacio necesario para creación de objetos desde tilemap
+	setTexture(){}
+
 }
