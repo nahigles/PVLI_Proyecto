@@ -5,7 +5,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
 	 */
-	constructor(scene, x, y, key){
+	constructor(scene, x, y, key, action){
 		// Llamamos al constructor del padre
 		super(scene, x, y);
 
@@ -20,7 +20,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		// Timer
 		this.timeAcum = 0;
 		this.pulsadoBoolean = false;
-
+		this.actionMethod = action;
 		this.self = this;
 
 
@@ -61,9 +61,9 @@ export default class Button extends Phaser.GameObjects.Sprite {
 
 		if(this.pulsadoBoolean){
 
-			if(this.timeAcum > 2000){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
-				this.scene.play();
-				//this.actionMethod;
+			if(this.timeAcum > 1000){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
+				//this.scene.play();
+				this.actionMethod();
 				this.timeAcum = 0;
 				this.pulsadoBoolean = false;
 			}
@@ -79,6 +79,4 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	pulsado(pointer){
 		this.pulsadoBoolean = true;
 	}
-
-	
 }

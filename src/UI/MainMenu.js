@@ -20,7 +20,7 @@ export default class MainMenu extends Phaser.Scene {
     }
     create(){
 		// BotonPlay
-		new Button(this, 200, 100, 'playButton');
+		new Button(this, 200, 100, 'playButton', ()=>{this.scene.start("Planta1");});
 
 		// Jugadores
 		this.player1 = new Jugador(this, 100, 50, 'playerAnim');
@@ -37,8 +37,4 @@ export default class MainMenu extends Phaser.Scene {
     }
     update(){
     }
-
-	play(){
-		this.scene.start("Planta1");
-	}
 }
