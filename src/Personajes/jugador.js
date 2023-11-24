@@ -61,7 +61,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
-		console.log(this.inputEnabled);
+		
 		if(this.inputEnabled)
 		{
 			// Si se pulsa letra A

@@ -17,6 +17,7 @@ export default class Planta1 extends plantaBase {
 		super.init();
 
 	}
+
     preload(){
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
@@ -25,6 +26,9 @@ export default class Planta1 extends plantaBase {
 		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
+		this.load.image('Emilio', 'assets/images/Hud/faces/Emilio.png');
+		this.load.image('Aurelia', 'assets/images/Hud/faces/Aurelia.png');
+		this.load.image('Julia', 'assets/images/Hud/faces/Julia.png');
 		super.preload();
 		//background
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
@@ -74,19 +78,20 @@ export default class Planta1 extends plantaBase {
 		this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
 		//this.physics.world.setBounds(0,0,800,180);//ancho  y alto nivel
-		
-		//this.physics.add.collider(this.explPLYR);
-		
+		  
 		this.NPCGroup = this.physics.add.group();
 		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
 		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAurelia', 'Aurelia'));
 		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCJulia', 'Julia'));
+		
+		
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
 			NPCs: this.NPCGroup
-		});
-		
+		});	
+
+
 		// Colisiones MAPA PRUEBA 2
 		this.physics.add.collider(this.jugador, this.wallLayer)
 		this.physics.add.collider(this.NPCGroup, this.wallLayer)
@@ -94,11 +99,9 @@ export default class Planta1 extends plantaBase {
 
     }
 
-    update(){
-		super.update();
-    }
+    update(t, dt){}
 
 	onPause(){
-		this.explPLYR.onPauseInput();
+		this.jugador.onPauseInput();
 	}
 }

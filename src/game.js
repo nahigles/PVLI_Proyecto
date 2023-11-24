@@ -10,7 +10,7 @@ import MainMenu from './UI/MainMenu.js';
 	    type: Phaser.AUTO, //type: Phaser.WEBGL
 	    pixelArt: true, 
         backgroundColor: '#4888aa',
-	    scene:[MainMenu,Planta1, UiScene], // Metodos que queremos en nuestros scripts
+	    scene:[MainMenu, Planta1, UiScene], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion

@@ -12,12 +12,12 @@ export default class TextMessage extends Phaser.GameObjects.Container {
       constructor(scene, x, y, width, message) {
         super(scene, x, y);
         this.scene = scene; //DialogManager
-        this.width = width;
         this.x = x;
         this.y = y;
+        this.width = width;
         this.Message = message; //mensaje completo a imprimir
         
-        this.textSize = 30;
+        this.textSize = 10;
 
         this.createText(); //Creación del texto
         this.scene.add.existing(this); //añadir a la escena para poder activar el preupdate
@@ -39,19 +39,22 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         //Variables para gestionar la escritura del diálogo
         this.contChar = 0;        // Para contar los caractéres escritos
         this.screens = 0;
+        this.screenLetters = 260;
         this.actWritten = "";     // Las letras escritas de momento
         this.delay = 0;           // Contador para hacer paradas entre char
         this.finished = false;    // Informa si un mensaje ya se ha terminado de imprimir
-        this.textSpeed = 20;     // Vlocidad al imprimir el texto, en ms
+        this.textSpeed = 40;     // Vlocidad al imprimir el texto, en ms
   
         // Crea el texto
         this.text = this.scene.add.text(this.x,this.y , "", {
           color:'#7c00a6'
         });
-        this.text.setFontFamily("VT323");
+        this.text.setFontFamily("Montserrat");
         this.text.setFontSize(this.textSize);
   
         this.text.setWordWrapWidth(this.width - 20 * 2);
+
+        this.text.setResolution(2);
       }
   
   
@@ -73,16 +76,16 @@ export default class TextMessage extends Phaser.GameObjects.Container {
       // Si no ha terminado de aparecer todo el mensaje
       if (!this.finished) {
         if (this.delay <= 0) {
-          if (100*this.screens + this.contChar < this.Message.length) {
+          if (this.screenLetters*this.screens + this.contChar < this.Message.length) {
             
-            if (this.contChar > 100){
+            if (this.contChar > this.screenLetters){
               this.screens++;
               this.actWritten = "...";
               this.contChar = 0;
             }
 
             // Actualiza el número de caracteres impresos e imprime el texto
-            this.actWritten += this.Message[100*this.screens + this.contChar];
+            this.actWritten += this.Message[this.screenLetters*this.screens + this.contChar];
             this.text.setText(this.actWritten);
 
             this.contChar++;

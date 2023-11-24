@@ -28,20 +28,29 @@ export default class UiScene extends Phaser.Scene {
             data.NPCs
         );
 
-    
-        /*PROBANDO ESTE CODIGO ¡WIP!*/
-
         //numeros magicos blabla cambiar!!!!!!
-        this.dialogPosX = 300;
-        this.dialogPosY = 360;
-        this.dialogScaleX = 0.55;
-        this.dialogScaleY = 0.44;
+        this.dialogPosX = 150;
+        this.dialogPosY = 130;//360;
+        this.dialogScaleX = 0.28;
+        this.dialogScaleY = 0.22;
         //CREA CAJA D DIALOGO
         this.dialogBox = this.add.image(this.dialogPosX, this.dialogPosY, 'dialogBox').setOrigin(0.5, 0.5);
         this.dialogBox.setScale(this.dialogScaleX, this.dialogScaleY);
         this.dialogBox.visible = false;
         this.dialogBox.setInteractive();
         
+        
+        //CREA IMG D NPCs
+        this.thumbNails = this.add.group();        
+        data.NPCs.getChildren();
+        for (const npc of data.NPCs.getChildren()) {
+            this.imageNPC = this.add.image(this.dialogPosX, this.dialogPosY, npc.name).setOrigin(0.5, 0.5);
+            this.imageNPC.visible = true;
+            this.imageNPC.setScale(3, 3);;
+            this.thumbNails.add(this.imageNPC);
+        };
+        
+
         // Al pulsar el e, se pasa al siguiente mensaje si ya estamos hablando o llama al talk      
         this.e = this.input.keyboard.addKey('E');
         this.e.on('down', pointer => {
@@ -71,8 +80,6 @@ export default class UiScene extends Phaser.Scene {
                 console.log("Fonts have been rendered")
             }
         });
-
-        /*PROBANDO ESTE CODIGO ¡WIP!*/
     }
 
     // Sisema de pausa
@@ -86,14 +93,15 @@ export default class UiScene extends Phaser.Scene {
         this.isOnPauseMenu = false;        
     }
     
-    update(){};
+    update(t, dt){
+        //console.log(t, dt);
+    };
 
     talk() {
         console.log("talk");
         dialogEvents.emit("wantToTalk");
     }
 
-    //////////////////////////////////////////////////////////////////////MÉTODOS PARA DIALOGO
     /*PROBANDO ESTE CODIGO ¡WIP!*/
     // Inicia el diálogo
     initDialog(text) {
@@ -108,7 +116,7 @@ export default class UiScene extends Phaser.Scene {
             this.text = text;       //array de strings
             this.mesCount = 0;      //contador para contar los mensajes ya imprimidos
             // Contenedor del texto al que se le pasa el primer mensaje
-            this.textMessage = new TextMessage(this, 60, this.dialogPosY-40, 500, this.text[this.mesCount].frase);
+            this.textMessage = new TextMessage(this, 26, 108, 300, this.text[this.mesCount].frase);
 
             // Aparece el cuadro de texto y se pausa el juego
             this.dialogBox.visible = true; 
@@ -124,7 +132,7 @@ export default class UiScene extends Phaser.Scene {
             //this.soundManager.play("dialogJump");
     
             // Si sigue habiendo mensajes, sigue escribiéndolos
-            if (/*this.mesCount < this.text.length*/!this.text[this.mesCount].isLast) { //nuestro vector representa un arbol así q no nos vale con q sea la última
+            if (!this.text[this.mesCount].isLast) { //nuestro vector representa un arbol así q no nos vale con q sea la última
                 this.textMessage.setNewMessage(this.text[this.mesCount].frase);
             }
             // Si no, desactiva el cuadro de texto y reanuda el juego
@@ -156,9 +164,7 @@ export default class UiScene extends Phaser.Scene {
     choose(){
         this.text[this.mesCount].chosen = true;
     }
-
-    /*PROBANDO ESTE CODIGO ¡WIP!*/
-
+    
     //////////////////////////////////////////////////////////////////////MÉTODOS PARA PAUSA
     // Menú de pausa 
     pauseGame() {

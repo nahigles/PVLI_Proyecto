@@ -24,10 +24,6 @@ export default class PlantaBase extends Phaser.Scene{
          this.numColision=tileColision;
 
          this.nextLocked = true; //el siguiente nivel esta lockeado porq todavía no se ha superado en minijuego
-        /*
-            this.personajes = group d personajes
-            botones d menu y cosas d esas?
-        */
     }
 
     

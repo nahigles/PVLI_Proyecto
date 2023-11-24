@@ -18,9 +18,10 @@ export default class DialogManager {
     if(talker != 'NONE'){        
       console.log('empezamos a hablar con ' + talker.name);
       this.isTalking = true;
-
-      this.name = talker.name;
+      //this.UI.initDialog(talker.name);
       
+      
+      this.name = talker.name;
       if (this.name == "Emilio")
         this.text = dialogText.Emilio; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
       else if (this.name == "Aurelia")
@@ -29,6 +30,7 @@ export default class DialogManager {
         this.text = dialogText.Julia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
 
       this.UI.initDialog(this.text);
+  
     }
   }
 
