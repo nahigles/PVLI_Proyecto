@@ -1,5 +1,5 @@
 import dialogEvents from "./EventCenter.js";
-import dialogText from "../Dialogs/dialogText.json"  assert { type: 'json' };
+//import dialogText from "../Dialogs/dialogText.json"  assert { type: 'json' };
 
 export default class DialogManager {
   constructor(scene, UI, player, NPCGroup) {

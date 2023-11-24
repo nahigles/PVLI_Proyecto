@@ -32,29 +32,29 @@ export default class PlantaBase extends Phaser.Scene{
     }
 
     preload(){ //cargar los assets que vayamos a usar
-        this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+       // this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
     }
 
     create(){
-        //jugador
-        /*this.jugador = new Jugador(this, 100, 50, 'playerAnim');
-        //camara
-        //this.cameras.main.setBounds(0, 0, bg.displayWidth, bg.displayHeight);
-        this.cameras.main.setBounds(0, 0, 600, 180);//ancho  y alto nivel
-        this.cameras.main.startFollow(this.jugador);
+        /*
+        // Jugador
+		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
+		this.jugador.body.setCollideWorldBounds(true);
+        // Camara
+        this.cameras.main.startFollow(this.jugador);*/
+        /*
         this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
-        //this.nextKey = this.input.keyboard.addKey('E'); //// Y escuchamos la pulsación de la tecla 'E' para cambiar de escena.
+        this.m = this.input.keyboard.addKey('M'); // Y escuchamos la pulsación de la tecla 'E' para cambiar de escena.
        
     }
 
     update(){
-        //this.cameras.main.setFollowOffset(0,0);
-        //this.cameras.main.startFollow(this.jugador);
-        /*
-        if(this.nextKey.isDown){ // Comprobamos si hemos pulsado la tecla 'Q', en cuyo caso, pasamos a esa escena.
-			this.scene.start(this.minijuego); // Pasamos a la escena con identificador 'MinijuegoPlataformas'
+        
+        if(this.m.isDown){ 
+            this.scene.launch(this.minijuego); // Pasamos al minijuego
+            this.scene.pause();
 		}
-        */
+        
     }
 
     /*
