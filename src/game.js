@@ -11,13 +11,15 @@ import MainMenu from './UI/MainMenu.js';
 	    pixelArt: true, 
         backgroundColor: '#4888aa',
 	    scene:[MainMenu,Planta1, UiScene], // Metodos que queremos en nuestros scripts
+        
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
-            width: 256,
-            height: 192,
-    
+            width: 600,
+            height: 400
+           // zoom: 35    
         },
+        
         physics: {
             default: 'arcade',
             arcade: {

@@ -31,15 +31,16 @@
          "name":"Jugador",
          "objects":[
                 {
-                 "height":25.4545454545455,
-                 "id":3,
+                 "height":0,
+                 "id":4,
                  "name":"Player",
+                 "point":true,
                  "rotation":0,
                  "type":"Jugador",
                  "visible":true,
-                 "width":25.4545454545455,
-                 "x":214.909090909091,
-                 "y":150
+                 "width":0,
+                 "x":208.181818181818,
+                 "y":159.818181818182
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -71,7 +72,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

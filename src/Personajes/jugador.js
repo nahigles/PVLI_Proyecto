@@ -91,4 +91,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.inputEnabled = !this.inputEnabled;
 	}
 
+	// Método vacio necesario para creación de objetos desde tilemap
+	setTexture(){}
+
 }
