@@ -25,7 +25,7 @@ import MJ_Plataformas from './Minijuegos/mj_Plataformas.js';
             arcade: {
                 gravity: {y: 400},
                 // Visibilidad de las colisiones 
-                debug: true
+                debug: false
             }
         }
     }

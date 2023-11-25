@@ -16,7 +16,7 @@ export default class PlantaBase extends Phaser.Scene{
     constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
         super({ key: level });
          //TILE MAP
-         //this.level=level;
+         this.key=level;
          this.nextlevel=nextlevel;
          this.minijuego=minijuego;
          this.mapname=tilemap;

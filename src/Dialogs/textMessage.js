@@ -17,7 +17,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         this.width = width;
         this.Message = message; //mensaje completo a imprimir
         
-        this.textSize = 10;
+        this.textSize = 26;
 
         this.createText(); //Creación del texto
         this.scene.add.existing(this); //añadir a la escena para poder activar el preupdate
@@ -39,7 +39,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         //Variables para gestionar la escritura del diálogo
         this.contChar = 0;        // Para contar los caractéres escritos
         this.screens = 0;
-        this.screenLetters = 260;
+        this.screenLetters = 100;
         this.actWritten = "";     // Las letras escritas de momento
         this.delay = 0;           // Contador para hacer paradas entre char
         this.finished = false;    // Informa si un mensaje ya se ha terminado de imprimir
@@ -49,7 +49,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         this.text = this.scene.add.text(this.x,this.y , "", {
           color:'#7c00a6'
         });
-        this.text.setFontFamily("Montserrat");
+        this.text.setFontFamily("Pixelify Sans");
         this.text.setFontSize(this.textSize);
   
         this.text.setWordWrapWidth(this.width - 20 * 2);
@@ -89,7 +89,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
             this.text.setText(this.actWritten);
 
             this.contChar++;
-            this.delay = 100 - this.textSpeed;
+            this.delay = this.textSpeed;
           } 
           else {
             this.finished = true;

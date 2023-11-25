@@ -1,6 +1,5 @@
 import plantaBase from '../Escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
-import NPCBase from '../Personajes/NPCBase.js';
 import NPC from '../Personajes/NPCBase.js';
 import MJ_Plataformas from '../Minijuegos/mj_Plataformas.js' ;
 
@@ -22,6 +21,7 @@ export default class Planta1 extends plantaBase {
 
     preload(){
 		super.preload();
+
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.spritesheet('NPCEmilio', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})

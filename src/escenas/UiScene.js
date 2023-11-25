@@ -29,10 +29,10 @@ export default class UiScene extends Phaser.Scene {
         );
 
         //numeros magicos blabla cambiar!!!!!!
-        this.dialogPosX = 150;
-        this.dialogPosY = 130;//360;
-        this.dialogScaleX = 0.28;
-        this.dialogScaleY = 0.22;
+        this.dialogPosX = 300;
+        this.dialogPosY = 100;
+        this.dialogScaleX = 0.57;
+        this.dialogScaleY = 0.55;
         //CREA CAJA D DIALOGO
         this.dialogBox = this.add.image(this.dialogPosX, this.dialogPosY, 'dialogBox').setOrigin(0.5, 0.5);
         this.dialogBox.setScale(this.dialogScaleX, this.dialogScaleY);
@@ -44,12 +44,11 @@ export default class UiScene extends Phaser.Scene {
         this.thumbNails = this.add.group();        
         data.NPCs.getChildren();
         for (const npc of data.NPCs.getChildren()) {
-            this.imageNPC = this.add.image(this.dialogPosX, this.dialogPosY, npc.name).setOrigin(0.5, 0.5);
-            this.imageNPC.visible = true;
-            this.imageNPC.setScale(3, 3);;
+            this.imageNPC = this.add.image(500, 102, npc.name).setOrigin(0.5, 0.5);
+            this.imageNPC.visible = false;
+            this.imageNPC.setScale(-8, 8);
             this.thumbNails.add(this.imageNPC);
         };
-        
 
         // Al pulsar el e, se pasa al siguiente mensaje si ya estamos hablando o llama al talk      
         this.e = this.input.keyboard.addKey('E');
@@ -104,7 +103,7 @@ export default class UiScene extends Phaser.Scene {
 
     /*PROBANDO ESTE CODIGO ¡WIP!*/
     // Inicia el diálogo
-    initDialog(text) {
+    initDialog(conversation, whom = "Emilio", text = "hola bb soy Emilio", a = "opcA", b = "opcB") {
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
             this.onDialog=true;
@@ -116,9 +115,17 @@ export default class UiScene extends Phaser.Scene {
             this.text = text;       //array de strings
             this.mesCount = 0;      //contador para contar los mensajes ya imprimidos
             // Contenedor del texto al que se le pasa el primer mensaje
-            this.textMessage = new TextMessage(this, 26, 108, 300, this.text[this.mesCount].frase);
+            this.textMessage = new TextMessage(this, 50, 46, 414, this.text);
 
             // Aparece el cuadro de texto y se pausa el juego
+            this.thumbNails.getChildren();
+            for (const npcImg of this.thumbNails.getChildren()) {
+                if (npcImg.texture.key == whom){
+                    console.log(npcImg.texture.key);
+                    npcImg.visible = true;
+                }
+            };
+            
             this.dialogBox.visible = true; 
             this.onDialogStarted();
         }
@@ -165,7 +172,7 @@ export default class UiScene extends Phaser.Scene {
         this.text[this.mesCount].chosen = true;
     }
     
-    //////////////////////////////////////////////////////////////////////MÉTODOS PARA PAUSA
+    /////////////////////////////////////////////////MÉTODOS PARA PAUSA
     // Menú de pausa 
     pauseGame() {
         this.isOnPauseMenu = !this.isOnPauseMenu;

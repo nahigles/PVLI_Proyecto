@@ -1,5 +1,5 @@
 import dialogEvents from "./EventCenter.js";
-//import dialogText from "../Dialogs/dialogText.json"  assert { type: 'json' };
+import Conversation from "./conversation.js";
 
 export default class DialogManager {
   constructor(scene, UI, player, NPCGroup) {
@@ -18,19 +18,8 @@ export default class DialogManager {
     if(talker != 'NONE'){        
       console.log('empezamos a hablar con ' + talker.name);
       this.isTalking = true;
-      //this.UI.initDialog(talker.name);
-      
-      
-      this.name = talker.name;
-      if (this.name == "Emilio")
-        this.text = dialogText.Emilio; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
-      else if (this.name == "Aurelia")
-        this.text = dialogText.Aurelia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
-      else if (this.name == "Julia")
-        this.text = dialogText.Julia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
 
-      this.UI.initDialog(this.text);
-  
+      new Conversation(this.UI, this.scene.key, talker.name);
     }
   }
 

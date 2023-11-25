@@ -27,47 +27,5 @@
             "b": "bb",
             "isLast": false
         }
-    ],
-
-    "Aurelia": [
-        {
-            "who": "Aurelia",
-            "id": 1,
-            "frase": "Hola bb soy Aurelia",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": false
-        },
-        {
-            "who": "Aurelia",
-            "id": 1,
-            "frase": "Q tal estas ????",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": true
-        }
-    ],
-
-    "Julia": [
-        {
-            "who": "Julia",
-            "id": 1,
-            "frase": "Hola bb soy Julia",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": false
-        },
-        {
-            "who": "Julia",
-            "id": 1,
-            "frase": "Toma un besito <3",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": true
-        }
     ]
 }
