@@ -1,4 +1,4 @@
-import plantaBase from '../Escenas/plantaBase.js';
+import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import MJ_Basuras from '../Minijuegos/mj_Basuras.js' ;
@@ -11,7 +11,6 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', "Planta3", 'mj_Basuras', 'level1', 'tiles', 560);
-		//por ahora lo d tiles no tiene sentido
 	}
 
 	init(){
@@ -27,10 +26,20 @@ export default class Planta2 extends plantaBase {
 
     create(){
 		super.create();
+
+		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
+		this.jugador.body.setCollideWorldBounds(true);
+
+		this.m = this.input.keyboard.addKey('K');
+		
     }
 
     update(){
 		super.update();
+
+		if(this.m.isDown){ 
+            this.scene.start("mj_Basuras"); // Pasamos al minijuego
+		}
     }
 
 	onPause(){

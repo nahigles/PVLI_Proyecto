@@ -1,4 +1,4 @@
-import plantaBase from '../Escenas/plantaBase.js';
+import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import MJ_Plataformas from '../Minijuegos/mj_Plataformas.js' ;
