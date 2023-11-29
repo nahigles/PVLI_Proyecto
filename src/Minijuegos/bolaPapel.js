@@ -16,6 +16,7 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         this.body.allowGravity = false; //no tienen gravedad
         this.touch = false;
 
+        this.setScale(5.0,5.0);
     }  
     
     create(){
