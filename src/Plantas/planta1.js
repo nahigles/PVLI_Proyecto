@@ -1,4 +1,4 @@
-import plantaBase from '../Escenas/plantaBase.js';
+import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPCBase from '../Personajes/NPCBase.js';
 import NPC from '../Personajes/NPCBase.js';
@@ -12,7 +12,8 @@ export default class Planta1 extends plantaBase {
 
 	constructor(){	
 		super('Planta1', "planta2", 'mj_Plataformas', 'level1', 'tiles', 560);
-		//por ahora lo d tiles no tiene sentido
+
+		
 	}
 
 	init(){
@@ -47,6 +48,8 @@ export default class Planta1 extends plantaBase {
     create(){
 		super.create();
 
+		this.p = this.input.keyboard.addKey('P');
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -55,6 +58,7 @@ export default class Planta1 extends plantaBase {
 			width : 100,
 			height : 100
 		});
+		
 		
 		// tiles
 		const tileset1 = this.map.addTilesetImage('tileset_architecture', 'tileset_Planta_1_1');  
@@ -127,6 +131,13 @@ export default class Planta1 extends plantaBase {
 
     update(){
 		super.update();
+
+		if(this.p.isDown){ 
+			this.scene.start('Planta2');
+			this.scene.stop();
+			console.log("Paso de P1 a P2")
+		}
+		
     }
 
 	onPause(){
