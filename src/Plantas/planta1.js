@@ -107,6 +107,8 @@ export default class Planta1 extends plantaBase {
 
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
+			this.scene.stop();
+			console.log("Paso de P1 a P2")
 		}
 		
     }

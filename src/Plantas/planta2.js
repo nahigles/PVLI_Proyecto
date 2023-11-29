@@ -29,17 +29,13 @@ export default class Planta2 extends plantaBase {
 
 		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
 		this.jugador.body.setCollideWorldBounds(true);
-
-		this.m = this.input.keyboard.addKey('K');
 		
     }
 
     update(){
 		super.update();
 
-		if(this.m.isDown){ 
-            this.scene.start("mj_Basuras"); // Pasamos al minijuego
-		}
+	
     }
 
 	onPause(){

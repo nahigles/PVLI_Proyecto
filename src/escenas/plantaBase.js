@@ -13,7 +13,7 @@ export default class PlantaBase extends Phaser.Scene{
      * @param {string} tileColision -siguiente planta
      */
 
-    constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision, nextPlanta) {
+    constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
         super({ key: level });
          //TILE MAP
          //this.level=level;
@@ -54,11 +54,17 @@ export default class PlantaBase extends Phaser.Scene{
 
     update(){
         
+
+
         if(this.m.isDown){ 
+            console.log(this.minijuego)
             this.scene.launch(this.minijuego); // Pasamos al minijuego
             this.scene.pause();
+
+            console.log("P2 a Minijuego Basura")
 		}
         
+   
     }
 
     /*

@@ -23,8 +23,8 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
     }
 
     preUpdate(t,dt) {
-        super.update(t,dt);
-        const pointer = this.input.activePointer;
+        super.preUpdate(t,dt);
+        const pointer = this.scene.input.activePointer;
 
         this.x = pointer.worldX
         console.log(this.x);
