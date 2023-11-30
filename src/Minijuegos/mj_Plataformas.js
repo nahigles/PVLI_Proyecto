@@ -15,8 +15,8 @@ export default class MJ_Plataformas extends MinijuegoBase{
     preload(){
         super.preload();
         this.load.image('background', './assets/images/Backgrounds/fondonegro.png');
-       // this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
-       // this.load.image('ajolote', './assets/images/AjoloteTrajeado.png');
+       //this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+       //this.load.image('ajolote', './assets/images/AjoloteTrajeado.png');
        this.load.image('azul', './assets/images/Objetos/plataformaAzul.png');
        this.load.image('amarillo', './assets/images/Objetos/plataformaAmarillo.png');
        this.load.image('verde', './assets/images/Objetos/plataformaVerde.png');
@@ -26,7 +26,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
     create(){
         super.create();
         //background
-        this.add.image(0,0,'background').setScrollFactor(0); 
+        this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0); 
         //this.scoreText = this.add.bitmapText(5,8,'scoreFont', 'SCORE' +  this.score, 40).setScrollFactor(0);
         //mostrar score
         
@@ -45,7 +45,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
             antialias: true
         }).setScrollFactor(0);
         //jugador
-        this.jugador = new Jugador(this,140,100, 'playerAnim');
+        this.jugador = new Jugador(this,10,100);
         this.jugador.body.setCollideWorldBounds(false);
         //plataformas
         this.plataformas = this.add.group();
@@ -53,7 +53,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.plataformasAzules = this.add.group();
         this.plataformasVerdes = this.add.group();
         this.plataformasMoradas = this.add.group();
-        this.pAmarillo = new Plataforma(this,150,150, 'amarillo');
+        this.pAmarillo = new Plataforma(this,0,150, 'amarillo');
         this.pVerde = new Plataforma(this,50,100, 'verde');
         this.pAzul = new Plataforma(this,260,50, 'azul');
         this.pMorado = new Plataforma(this,180,0, 'morado');
@@ -73,10 +73,6 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.pVerde4 = new Plataforma(this,50,-700, 'verde');
         this.pAzul4 = new Plataforma(this,260,-750, 'azul');
         this.pMorado4 = new Plataforma(this,180,-800, 'morado');
-        //this.plataformasAmarillas.addMultiple([this.pAmarillo,this.pAmarillo1,this.pAmarillo2,this.pAmarillo3,this.pAmarillo4]);
-        //this.plataformasVerdes.addMultiple([this.pVerde,this.pVerde1,this.pVerde2,this.pVerde3,this.pVerde4]);
-       // this.plataformasAzules.addMultiple([this.pAzul,this.pAzul1,this.pAzul2,this.pAzul3,this.pAzul4]);
-     //   this.plataformasMoradas.addMultiple([this.pMorado, this.pMorado1, this.pMorado2, this.pMorado3, this.pMorado4]);
         this.plataformas.addMultiple([this.pAmarillo, this.pAmarillo1,this.pAmarillo2,this.pAmarillo3,this.pAmarillo4,this.pVerde, this.pVerde1,this.pVerde2,this.pVerde3,this.pVerde4,this.pAzul,this.pAzul1,this.pAzul2,this.pAzul3,this.pAzul4,this.pMorado,this.pMorado1,this.pMorado2,this.pMorado3,this.pMorado4]);
         //colisiones y rebote
         this.physics.add.collider(this.jugador, this.plataformas, (jugador,plataforma)=>{
@@ -102,14 +98,15 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.cameras.main.startFollow(this.jugador);
     }
     update(){
+        console.log(this.jugador.y);
         super.update();
         //gestionar cuando muere
-        if (this.jugador.y > 170){
+        if (this.jugador.y > 200){
             this.scene.start(this);
         }
         //jugador aparece por el otro lado 
-       if(this.jugador.x > 300) this.jugador.x = -25;
-       if(this.jugador.x < -25) this.jugador.x = 300;
+       if(this.jugador.x > 600) this.jugador.x = -25;
+       if(this.jugador.x < -25) this.jugador.x = 600;
        //update plataformas
        this.plataformas.children.iterate(plataforma => {
         if(plataforma.update){
