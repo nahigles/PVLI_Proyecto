@@ -1,0 +1,55 @@
+{
+    "Talk": [
+        {
+            "who": "Victoria",
+            "frase": "Otra vez por aquí?",
+            "nextId": 0,
+            "choice": false,
+            "isLast": true
+            },{
+            "who": "Victoria",
+            "frase": "Hola cariño, asumo que nadie te ha dicho nada verdad?",
+            "nextId": 2,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Player",
+            "frase": "No :(",
+            "nextId": 3,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Victoria",
+            "frase": "Los que se han enterado ni siquiera se han molestado en venir. Es el jefe, q se ha encerrado en su oficina y no hay quien le saque de ahí. Ni responder al teléfono ni na, impresentable.",
+            "nextId": 4,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Player",
+            "frase": "Entonces me voy?",
+            "nextId": 5,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Victoria",
+            "frase": "Como quieras mi vida, yo m voy a quedar por aquí por si vienen más como tú. Eso sí, si decides irte tienes que hablar con Álvaro para justificar la ausencia, ya sbs, los de recursos humanos siempre con su papeleo.",
+            "nextId": 6,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Player",
+            "frase": "Pero… justificar?? Ns… enfin… como están las cosas está bastante claro no?",
+            "nextId": 7,
+            "choice": false,
+            "isLast": false
+            },{
+            "who": "Victoria",
+            "frase": "Eso pensaba yo, pero q va. Tú inventate algo, q a los d arriba les puede dar una pataleta pero los demás nada, yo he estado a esto d fingir que rompía aguas, así t lo digo.",
+            "nextId": 0,
+            "choice": true,
+            "a": "Habla con Álvaro.",
+            "b": "Encuentra algo para poder pasar por delante de Álvaro sin que te vea.",
+            "isLast": true
+        }
+    ]
+}

@@ -7,8 +7,10 @@ dialogMngr, eventos, crea el mensaje, next y pausa el juego d mientras)
     devuelve cn quien estamos hablando
     
     conversation:
-    Le das el nombre y la UiScene y se va a encargar de devolverte el texto, quien lo dice
-    y si necesitas botones o no, esto lo va a hacer cn un json por personaje?? según
+    Le das el nombre y la UiScene y se va a encargar de devolverte el texto, quien lo dice 
+    (nombre o "Player") y si necesitas botones o no, esto lo va a hacer cn un json por personaje
 
         initDialog se llama desde Conversation y cuando elija le enviará la choice d vuelta
+
+        los NPCs van a tener un bool haveTalked y si sí solo se pondrá la frase 00 
 

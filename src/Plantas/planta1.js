@@ -24,14 +24,17 @@ export default class Planta1 extends plantaBase {
 
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+		this.load.spritesheet('NPCVictoria', './assets/images/Characters/Victoria.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCAlvaro', './assets/images/Characters/Alvaro.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCAlma', './assets/images/Characters/Alma.png', {frameWidth: 24, frameHeight: 36})
 		this.load.spritesheet('NPCEmilio', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})
-		this.load.spritesheet('NPCAurelia', './assets/images/Characters/Aurelia.png', {frameWidth: 24, frameHeight: 36})
-		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
-		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
+		this.load.image('dialogBox', 'assets/images/Hud/dialogBoxB.png');
+		this.load.image('Player', 'assets/images/Hud/faces/Player.png');
+		this.load.image('Victoria', 'assets/images/Hud/faces/Victoria.png');
+		this.load.image('Alvaro', 'assets/images/Hud/faces/Alvaro.png');
+		this.load.image('Alma', 'assets/images/Hud/faces/Alma.png');
 		this.load.image('Emilio', 'assets/images/Hud/faces/Emilio.png');
-		this.load.image('Aurelia', 'assets/images/Hud/faces/Aurelia.png');
-		this.load.image('Julia', 'assets/images/Hud/faces/Julia.png');
 		super.preload();
 		//background
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
@@ -89,10 +92,12 @@ export default class Planta1 extends plantaBase {
 		
 		
 		this.NPCGroup = this.physics.add.group();
-		/*this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
-		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAurelia', 'Aurelia'));
-		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCJulia', 'Julia'));*/
+		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCVictoria', 'Victoria'));
+		this.NPCGroup.add(new NPC(this, 300, 50, 'NPCAlvaro', 'Alvaro'));
+		this.NPCGroup.add(new NPC(this, 200, 50, 'NPCAlma', 'Alma'));
+		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
 
+		/*
 		// NPCS POR CAPA DE OBJETOS
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
@@ -102,7 +107,7 @@ export default class Planta1 extends plantaBase {
 				this.NPCGroup.add(this.npc);
 			}
 		}
-
+		*/
 
 
 		// JUGADOR POR CAPA DE OBJETOS	

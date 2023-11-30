@@ -41,7 +41,13 @@ export default class UiScene extends Phaser.Scene {
         
         
         //CREA IMG D NPCs
-        this.thumbNails = this.add.group();        
+        this.thumbNails = this.add.group();     
+
+        this.imagePLR = this.add.image(90, 112, "Player").setOrigin(0.5, 0.5);
+        this.imagePLR.visible = false;
+        this.imagePLR.setScale(9, 9);
+        this.thumbNails.add(this.imagePLR);
+
         data.NPCs.getChildren();
         for (const npc of data.NPCs.getChildren()) {
             this.imageNPC = this.add.image(500, 102, npc.name).setOrigin(0.5, 0.5);
@@ -50,6 +56,7 @@ export default class UiScene extends Phaser.Scene {
             this.thumbNails.add(this.imageNPC);
         };
 
+
         // Al pulsar el e, se pasa al siguiente mensaje si ya estamos hablando o llama al talk      
         this.e = this.input.keyboard.addKey('E');
         this.e.on('down', pointer => {
@@ -57,17 +64,7 @@ export default class UiScene extends Phaser.Scene {
             else this.talk();
         });
 
-        this.n = this.input.keyboard.addKey('N');
-        this.n.on('down', pointer => {
-            this.choose();
-        });
-
-        this.m = this.input.keyboard.addKey('M');
-        this.m.on('down', pointer => {
-            this.choose(); //POR AHORA NO DISTINGUIMOS N D M
-        });
-    
-        ''
+        
         WebFont.load({
             google: {
                 families: ['VT323', 'Roboto', 'Freckle Face']
@@ -103,9 +100,11 @@ export default class UiScene extends Phaser.Scene {
 
     /*PROBANDO ESTE CODIGO ¡WIP!*/
     // Inicia el diálogo
-    initDialog(conversation, whom = "Emilio", text = "hola bb soy Emilio", a = "opcA", b = "opcB") {
+    initDialog(conversation, who, text, a = "opcA", b = "opcB") {
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
+            this.conversation = conversation;
+
             this.onDialog=true;
 
             // Reproduce un sonido
@@ -115,12 +114,20 @@ export default class UiScene extends Phaser.Scene {
             this.text = text;       //array de strings
             this.mesCount = 0;      //contador para contar los mensajes ya imprimidos
             // Contenedor del texto al que se le pasa el primer mensaje
-            this.textMessage = new TextMessage(this, 50, 46, 414, this.text);
+
+            if (who == "Player"){
+                this.dialogBox.setScale(-this.dialogScaleX, this.dialogScaleY);
+                this.textMessage = new TextMessage(this, 210, 46, 414, this.text);
+            }
+            else {      //cambia la posición del texto y la caja del dialogo
+                this.dialogBox.setScale(this.dialogScaleX, this.dialogScaleY);
+                this.textMessage = new TextMessage(this, 50, 46, 414, this.text);
+            }
 
             // Aparece el cuadro de texto y se pausa el juego
             this.thumbNails.getChildren();
             for (const npcImg of this.thumbNails.getChildren()) {
-                if (npcImg.texture.key == whom){
+                if (npcImg.texture.key == who){
                     console.log(npcImg.texture.key);
                     npcImg.visible = true;
                 }
@@ -133,6 +140,15 @@ export default class UiScene extends Phaser.Scene {
 
     // Pasa el siguiente mensaje al contenedor
     NextMessage() {
+        {
+            this.mesCount = 0;
+                this.dialogBox.visible = false; //hacer invisible el cuadro de texto
+                this.onDialogFinished();
+                this.textMessage.onMessageFinished();
+                this.onDialog=false;
+        }
+        this.conversation.next();
+        /*
         if (this.text[this.mesCount].chosen){ //la deciisión se ha tomado ya o no había decisión
 
             this.mesCount++;
@@ -155,7 +171,9 @@ export default class UiScene extends Phaser.Scene {
         }
         else{
             this.choices();
-        }        
+        }    
+        */
+
     }
 
     choices(){
