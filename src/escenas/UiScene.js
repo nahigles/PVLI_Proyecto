@@ -49,17 +49,6 @@ export default class UiScene extends Phaser.Scene {
             else this.talk();
         });
 
-        this.n = this.input.keyboard.addKey('N');
-        this.n.on('down', pointer => {
-            this.choose();
-        });
-
-        this.m = this.input.keyboard.addKey('M');
-        this.m.on('down', pointer => {
-            this.choose(); //POR AHORA NO DISTINGUIMOS N D M
-        });
-    
-        ''
         WebFont.load({
             google: {
                 families: ['VT323', 'Roboto', 'Freckle Face']

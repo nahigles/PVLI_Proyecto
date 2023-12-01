@@ -43,7 +43,7 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 	}
 
 	preUpdate(t, dt){
-        //this.preUpdate(t, dt); //al poner esto dejan de salir los dos
+        super.preUpdate(t, dt); //al poner esto dejan de salir los dos
         this.play(this.key, true)
 	}
 }

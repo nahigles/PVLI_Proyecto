@@ -1,4 +1,3 @@
-
 import Jugador from '../Personajes/jugador.js';
 /**
  * Escena planta base
@@ -11,6 +10,7 @@ export default class PlantaBase extends Phaser.Scene{
      * @param {string} tilemap - mapa
      * @param {string} tilename
      * @param {int} tileColision -hasta que numero
+     * @param {string} tileColision -siguiente planta
      */
 
     constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
@@ -54,11 +54,17 @@ export default class PlantaBase extends Phaser.Scene{
 
     update(){
         
+
+
         if(this.m.isDown){ 
+            console.log(this.minijuego)
             this.scene.launch(this.minijuego); // Pasamos al minijuego
             this.scene.pause();
+
+            console.log("P2 a Minijuego Basura")
 		}
         
+   
     }
 
     /*
