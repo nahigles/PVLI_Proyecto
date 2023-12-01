@@ -30,12 +30,12 @@ export default class Planta1 extends plantaBase {
 		this.load.spritesheet('NPCAlma', './assets/images/Characters/Alma.png', {frameWidth: 24, frameHeight: 36})
 		this.load.spritesheet('NPCEmilio', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
-		this.load.image('dialogBox', 'assets/images/Hud/dialogBoxB.png');
-		this.load.image('Player', 'assets/images/Hud/faces/Player.png');
-		this.load.image('Victoria', 'assets/images/Hud/faces/Victoria.png');
-		this.load.image('Alvaro', 'assets/images/Hud/faces/Alvaro.png');
-		this.load.image('Alma', 'assets/images/Hud/faces/Alma.png');
-		this.load.image('Emilio', 'assets/images/Hud/faces/Emilio.png');
+		this.load.image('dialogBox', 'assets/images/UI/Dialogs/dialogBoxB.png');
+		this.load.image('Player', 'assets/images/UI/Dialogs/faces/Player.png');
+		this.load.image('Victoria', 'assets/images/UI/Dialogs/faces/Victoria.png');
+		this.load.image('Alvaro', 'assets/images/UI/Dialogs/faces/Alvaro.png');
+		this.load.image('Alma', 'assets/images/UI/Dialogs/faces/Alma.png');
+		this.load.image('Emilio', 'assets/images/UI/Dialogs/faces/Emilio.png');
 		super.preload();
 		//background
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});

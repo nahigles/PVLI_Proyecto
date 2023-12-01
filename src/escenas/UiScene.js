@@ -1,6 +1,7 @@
 import DialogManager from "../Dialogs/DialogManager.js";
 import dialogEvents from "../Dialogs/EventCenter.js";
 import TextMessage from "../Dialogs/textMessage.js";
+import Button from "../UI/Button.js";
 
 export default class UiScene extends Phaser.Scene {
   constructor() {
@@ -11,7 +12,9 @@ export default class UiScene extends Phaser.Scene {
 
     init(){}
 
-    preload(){}
+    preload(){
+        this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 8, frameHeight: 8});
+    }
 
     create(data){    
         this.ScenePlanta = data.home;
@@ -60,7 +63,7 @@ export default class UiScene extends Phaser.Scene {
         // Al pulsar el e, se pasa al siguiente mensaje si ya estamos hablando o llama al talk      
         this.e = this.input.keyboard.addKey('E');
         this.e.on('down', pointer => {
-            if (this.dialogBox.visible) this.NextMessage();
+            if (this.onDialog) this.NextMessage();
             else this.talk();
         });
 
@@ -91,10 +94,17 @@ export default class UiScene extends Phaser.Scene {
     
     update(t, dt){
         //console.log(t, dt);
+        if (this.choice == "noSabe"){ //si todavía no ha decidido mira si se ha clicado alguno de los botones
+            if (this.A.pulsadoBoolean){
+                this.chooseA();
+            }
+            else if (this.B.pulsadoBoolean){
+                this.chooseB();
+            }
+        }
     };
 
     talk() {
-        console.log("talk");
         dialogEvents.emit("wantToTalk");
     }
 
@@ -111,9 +121,7 @@ export default class UiScene extends Phaser.Scene {
             //this.soundManager = this.scene.get('soundManager');
             //this.soundManager.play("dialogPop");
             
-            this.text = text;       //array de strings
-            this.mesCount = 0;      //contador para contar los mensajes ya imprimidos
-            // Contenedor del texto al que se le pasa el primer mensaje
+            this.text = text;       //array de strings 
 
             if (who == "Player"){
                 this.dialogBox.setScale(-this.dialogScaleX, this.dialogScaleY);
@@ -124,76 +132,70 @@ export default class UiScene extends Phaser.Scene {
                 this.textMessage = new TextMessage(this, 50, 46, 414, this.text);
             }
 
-            // Aparece el cuadro de texto y se pausa el juego
+            // Aparece el cuadro de texto y la imagen del que hable
             this.thumbNails.getChildren();
-            for (const npcImg of this.thumbNails.getChildren()) {
-                if (npcImg.texture.key == who){
-                    console.log(npcImg.texture.key);
-                    npcImg.visible = true;
+            for (const img of this.thumbNails.getChildren()) {
+                if (img.texture.key == who){
+                    console.log(img.texture.key);
+                    img.visible = true;
+                    this.actThumbNail = img;
                 }
             };
-            
             this.dialogBox.visible = true; 
+
+            if (a == "opcA"){
+                this.choice = "noHay";
+            }
+            else {
+                this.choice = "noSabe";
+                this.opcA = a;
+                this.opcB = b;
+                this.A = new Button(this, 200, 180, 'choiceButton');
+                this.B = new Button(this, 400, 180, 'choiceButton');
+                
+            }
+
+            //para pausar el juego
             this.onDialogStarted();
         }
     }
 
+    chooseA(){
+        this.choice = this.opcA;
+    }
+    
+    chooseB(){
+        this.choice = this.opcB;
+    }
+
     // Pasa el siguiente mensaje al contenedor
     NextMessage() {
-        {
-            this.mesCount = 0;
-                this.dialogBox.visible = false; //hacer invisible el cuadro de texto
-                this.onDialogFinished();
-                this.textMessage.onMessageFinished();
-                this.onDialog=false;
+        if (this.choice == "noHay"){
+            this.endDialog(); //cerramos esta frase
+            this.conversation.next(); //miramos a ver si hay next
         }
-        this.conversation.next();
-        /*
-        if (this.text[this.mesCount].chosen){ //la deciisión se ha tomado ya o no había decisión
-
-            this.mesCount++;
-            //this.soundManager.play("dialogJump");
-    
-            // Si sigue habiendo mensajes, sigue escribiéndolos
-            if (!this.text[this.mesCount].isLast) { //nuestro vector representa un arbol así q no nos vale con q sea la última
-                this.textMessage.setNewMessage(this.text[this.mesCount].frase);
-            }
-            // Si no, desactiva el cuadro de texto y reanuda el juego
-            else {
-                this.mesCount = 0;
-                this.dialogBox.visible = false; //hacer invisible el cuadro de texto
-                this.onDialogFinished();
-                this.textMessage.onMessageFinished();
-                this.onDialog=false;
-                return false;
-            }
-
+        else if (this.choice == "noSabe"){
+            this.textMessage.setNewMessage("Tienes que tomar una decisión antes d avanzar.")
         }
         else{
-            this.choices();
-        }    
-        */
+            this.conversation.next(this.choice);
+        }
 
     }
 
-    choices(){
-        this.escribir = "No puedes avanzar sin haber tomado una decision. ";
-        this.escribir += "Pulsa n para decir: ";
-        this.escribir += this.text[this.mesCount].a;
-        this.escribir += " ...o pulsa m para decir: ";
-        this.escribir += this.text[this.mesCount].b;
-
-        this.textMessage.setNewMessage(this.escribir);
-    }
-
-    choose(){
-        this.text[this.mesCount].chosen = true;
-    }
+    endDialog(){ 
+        this.dialogBox.visible = false; //hacer invisible el cuadro de texto
+        this.actThumbNail.visible = false;
+        this.onDialogFinished();
+        this.textMessage.onMessageFinished();
+        this.onDialog=false;
+    } 
     
     /////////////////////////////////////////////////MÉTODOS PARA PAUSA
     // Menú de pausa 
     pauseGame() {
         this.isOnPauseMenu = !this.isOnPauseMenu;
+        console.log("isPaused: " + this.isOnPauseMenu);
         this.ScenePlanta.onPause();
     }
     

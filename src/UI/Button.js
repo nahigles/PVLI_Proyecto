@@ -25,13 +25,13 @@ export default class Button extends Phaser.GameObjects.Sprite {
 
 
         this.scene.anims.create({
-			key: 'playButton2',
-			frames: scene.anims.generateFrameNumbers('playButton2', {start:0, end:0}),
+			key: key,
+			frames: scene.anims.generateFrameNumbers(key, {start:0, end:0}),
 			frameRate: 1,
 			repeat: -1
 		});
 
-        this.play('playButton2');
+        this.play(key);
 
         this.on('pointerdown', (pointer)=>
         {

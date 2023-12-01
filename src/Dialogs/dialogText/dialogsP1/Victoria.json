@@ -2,7 +2,7 @@
     "Talk": [
         {
             "who": "Victoria",
-            "frase": "Otra vez por aquí?",
+            "frase": "Otra vez por aquí? Ve a hablar con Álvaro anda.",
             "nextId": 0,
             "choice": false,
             "isLast": true
@@ -45,11 +45,16 @@
             },{
             "who": "Victoria",
             "frase": "Eso pensaba yo, pero q va. Tú inventate algo, q a los d arriba les puede dar una pataleta pero los demás nada, yo he estado a esto d fingir que rompía aguas, así t lo digo.",
-            "nextId": 0,
-            "choice": true,
-            "a": "Habla con Álvaro.",
-            "b": "Encuentra algo para poder pasar por delante de Álvaro sin que te vea.",
-            "isLast": true
+            "nextId": 8,
+            "choice": false,
+            "isLast": false
+            },{
+                "who": "Choice",
+                "nextId": 0,
+                "choice": true,
+                "a": "Habla con Álvaro.",
+                "b": "Encuentra algo para poder pasar por delante de Álvaro sin que te vea.",
+                "isLast": true
         }
     ]
 }

@@ -10,16 +10,21 @@ export default class DialogManager {
     this.NPCGroup = NPCGroup;
     scene.physics.add.overlap(this.NPCGroup, player);
 
+    this.NPCGroup.getChildren();
+    for (const NPC of this.NPCGroup.getChildren()) {
+      NPC.visited = false;
+    }
+
     dialogEvents.on("wantToTalk", this.wantToTalk, this);
   }
 
   wantToTalk() {
-    var talker = this._whoIsTalking();
-    if(talker != 'NONE'){        
-      console.log('empezamos a hablar con ' + talker.name);
-      this.isTalking = true;
+    var NPC = this._whoIsTalking();
 
-      new Conversation(this.UI, this.scene.key, talker.name);
+    if(NPC.talker != 'NONE'){        
+      console.log('empezamos a hablar con ' + NPC.talker.name);
+      this.isTalking = true;
+      new Conversation(this.UI, this.scene.key, NPC.talker.name, NPC.visited);
     }
   }
 
@@ -31,11 +36,17 @@ export default class DialogManager {
       if (NPC.body.embedded) NPC.body.touching.none = false; //embedded es overlapeado y además no se mueve
       let touching = !NPC.body.touching.none;
 
+      console.log(NPC.visited);
+
       if (touching) {
         talker = NPC;
+        this.visited = NPC.visited;
+        NPC.visited = true;
       }
     }
 
-    return talker;
+    
+    console.log(this.visited);
+    return {talker: talker, visited: this.visited};
   }
 }

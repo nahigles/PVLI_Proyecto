@@ -9,13 +9,14 @@ export default class Conversation{
 	 * @param {Scene} scene -  escena
 	 * @param {string} who - npc _whoIsTalking
 	 */
-	constructor(UI, planta, who){
+	constructor(UI, planta, who, visited){
 		this.UI = UI;
 		this.who = who;
 
 		this.conversText;
-		this.index = 1; //por ahora vas a empezar por el primero
-		//(no sabemos si queremos tener alreadyTalked)
+
+		if (visited) { this.index = 0; }
+		else { this.index = 1; }//por ahora vas a empezar por el primero
 
 		switch (planta){
 			case "Planta1":
@@ -38,22 +39,43 @@ export default class Conversation{
 			default:
 		}
 
-		this.initConversation();
+		// NO SE POR Q PUSE ESTO :/
+		/*
+		if (this.conversText.Talk[this.index].choice) {this.next();}
+		else {
+			this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
+		}
+		*/
+
+		this.next();
     }	
 
-	initConversation(){		
-
-		this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-	}
-
-	next(){
-		console.log("conversationNext");
-		if (this.conversText.Talk[this.index].choice){
-			//algo d la choice
+	next(choice = "noHay"){
+		if (this.conversText.Talk[this.index].choice){ //TIENE Q TOMAR UNA CHOICE	
+			console.log("choice" + this.index);
+			this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
+			this.conversText.Talk[this.index].frase,
+			this.conversText.Talk[this.index].a,
+			this.conversText.Talk[this.index].b)
 		}
-		else {
+		else if (choice == "noSabe") {
+			//se hace ya en uiScene creo?
+		}
+		else if (this.conversText.Talk[this.index].isLast){ //ERA LA ULT 
+			console.log("last" + this.index);
+			this.UI.endDialog();
+		}
+		else if (false){ //ha elegido a
+
+		}
+		else if (false){ //ha elegido b
+
+		}
+		else { //SINMAS SEGUIMOS
+			console.log("next" + this.index); 
+			this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
+
 			this.index = this.conversText.Talk[this.index].nextId;
-			this.initConversation();
 		}
 	}
 }
