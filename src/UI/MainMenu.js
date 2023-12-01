@@ -22,7 +22,7 @@ export default class MainMenu extends Phaser.Scene {
 		// BotonPlay
 		new Button(this, 200, 100, 'playButton', ()=>{this.scene.start("Planta1");});
 
-		/*
+		
 		// Jugadores
 		this.player1 = new Jugador(this, 100, 50, 'playerAnim');
 		this.player1.onPauseInput();
@@ -31,7 +31,7 @@ export default class MainMenu extends Phaser.Scene {
 		this.player2 = new Jugador(this, 200, 50, 'playerAnim');
 		this.player2.onPauseInput();
 		this.player2.sitAnim();
-		*/
+		
 		// Desactivo Input para que no se muevan
 
 

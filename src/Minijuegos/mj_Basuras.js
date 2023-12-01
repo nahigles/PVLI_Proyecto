@@ -21,7 +21,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         super.create();
 
         //background
-        this.add.image(0,0,'background').setOrigin(0,0).setScale(5.0,6.0);
+        this.add.image(0,0,'background').setOrigin(0,0).setScale(10.0,13.0);
 
         this.ballsText = this.add.text(5,8, 'BALLS: ' + this.ballNumer, {
             fontSize: '10px', 
@@ -34,7 +34,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         //this.jugador = new Jugador(this,140,100, 'playerAnim');
         //this.jugador.body.setCollideWorldBounds(false);
 
-        this.bolaPapel = new BolaPapel(this,150,150, 'bolaImage');
+        this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage');
   
         //colisiones y rebote
         //this.physics.add.collider(this.jugador, this.plataformas, (jugador,plataforma)=>{

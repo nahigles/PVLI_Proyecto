@@ -15,8 +15,8 @@ export default class Plataforma extends Phaser.GameObjects.Sprite{
         scene.physics.add.existing(this); 
         this.body.setImmovable(true);   //no se mueve si el jugador esta encima
         this.body.allowGravity = false; //no tienen gravedad
-        this.setScale(0.08,0.08);       //escala para sprite
-        this.desplazamiento = 25;       //cuanto se van a mover
+        this.setScale(0.2,0.2);       //escala para sprite
+        this.desplazamiento = 40;       //cuanto se van a mover
         //limite derecha e izquierda de movimiento
         this.limDer = this.x + this.desplazamiento; 
         this.limIzq = this.x - this.desplazamiento;
