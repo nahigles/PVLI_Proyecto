@@ -10,7 +10,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
     init(){
         super.init();
         this.score = 0;
-        this.emilioScore = 2000;
+        this.emilioScore = 2023;
     }
     preload(){
        super.preload();
@@ -26,10 +26,10 @@ export default class MJ_Plataformas extends MinijuegoBase{
     create(){
         super.create();
         //background
-        this.add.image(0,0,'background').setScrollFactor(0); 
+        this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0);  
         // BotonPause
-		this.pauseButton = new Button(this, 200, 100, 'pauseButton', ()=>{this.scene.start("PauseMenuMJ");});
-        this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0); 
+		this.pauseButton = new Button(this, 200, 250, 'pauseButton', ()=>{this.scene.start("PauseMenuMJ");});
+       
         //this.scoreText = this.add.bitmapText(5,8,'scoreFont', 'SCORE' +  this.score, 40).setScrollFactor(0);
         //mostrar score
         
@@ -110,12 +110,12 @@ export default class MJ_Plataformas extends MinijuegoBase{
         }
        });
        //cuando se iguale el score se termina el minijuego
-       if(this.score===this.emilioScore){
+       if(this.score>this.emilioScore){
             //para que no cambie de repente
             setTimeout(()=>{
                 this.scene.resume('Planta1'); //volvemos a planta
                 this.scene.stop();
-            },1000);
+            },1500);
        }
 
     }
