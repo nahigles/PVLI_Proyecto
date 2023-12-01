@@ -1,7 +1,7 @@
 import MinijuegoBase from '../Escenas/minijuegoBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Plataforma from '../Minijuegos/plataforma.js';
-
+import Button from '../UI/Button.js';
 export default class MJ_Plataformas extends MinijuegoBase{
 
     constructor(){
@@ -22,11 +22,14 @@ export default class MJ_Plataformas extends MinijuegoBase{
        this.load.image('verde', './assets/images/Objetos/plataformaVerde.png');
        this.load.image('morado', './assets/images/Objetos/plataformaMorada.png');
        this.load.image('moradoRota', './assets/images/Objetos/moradaRota.png');
+       this.load.image('pauseButton', './assets/images/UI/pauseButton.jpg');
     }
     create(){
         super.create();
         //background
         this.add.image(0,0,'background').setScrollFactor(0); 
+        // BotonPause
+		this.pauseButton = new Button(this, 200, 100, 'pauseButton', ()=>{this.scene.start("PauseMenuMJ");});
         //this.scoreText = this.add.bitmapText(5,8,'scoreFont', 'SCORE' +  this.score, 40).setScrollFactor(0);
         //mostrar score
         

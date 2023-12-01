@@ -30,7 +30,12 @@ export default class Button extends Phaser.GameObjects.Sprite {
 			frameRate: 1,
 			repeat: -1
 		});
-
+		/*this.scene.anims.create({
+			key: 'pauseButton',
+			frames: scene.anims.generateFrameNumbers('pauseButton', {start:0, end:0}),
+			frameRate: 1,
+			repeat: -1
+		});*/
         this.play('playButton2');
 
         this.on('pointerdown', (pointer)=>
