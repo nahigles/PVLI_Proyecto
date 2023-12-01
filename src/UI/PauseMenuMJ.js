@@ -12,17 +12,19 @@ export default class PauseMenuMJ extends Phaser.Scene {
 	init(){
 	}
     preload(){
-        this.load.spritesheet("playButton2", "./assets/images/UI/MainMenu/playButton2.png", {frameWidth: 300, frameHeight: 120});
+        this.load.image('resumeButton', './assets/images/UI/PauseMenu/resumeButton.png');
         this.load.image('background', './assets/images/Backgrounds/fondonegro.png');
+        this.load.image('exitButton', './assets/images/UI/PauseMenu/exitButton.png');
+        this.load.image('officeButton', './assets/images/UI/PauseMenu/officeButton.png');
     }
     create(){
-        this.add.image(0,0,'background');
+        this.add.image(0,0,'background').setScale(2,2);  
 		// BotonVolverMinijuego
-		//this.buttonMJ = new Button(this,150, 50, 'button', ()=>{this.scene.resume("mj_Plataformas");});
-        // BotonVolverPlanta
-       this.buttonPlanta = new Button(this, 150, 100, 'playButton', ()=>{this.scene.resume("mj_Plataformas");},   ()=>{this.scene.stop();} );
+		this.resumeButton = new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume("mj_Plataformas");},  ()=>{this.scene.stop();},  ()=>{});
+        //BotonVolverPlanta
+       this.officeButton = new Button(this, 300, 200, 'officeButton', ()=>{this.scene.resume("Planta1");},   ()=>{this.scene.stop("mj_Plataformas");}, ()=>{this.scene.stop();});
         // BotonSalir
-      //  this.buttonExit = new Button(this, 150, 150, 'playButton', ()=>{this.scene.start("MainMenu");});
+        this.buttonExit = new Button(this, 300, 300, 'exitButton', ()=>{this.scene.start("MainMenu");}, ()=>{}, ()=>{});
     }
     update(){
     }

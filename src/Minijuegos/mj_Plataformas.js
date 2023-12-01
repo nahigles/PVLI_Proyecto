@@ -21,14 +21,14 @@ export default class MJ_Plataformas extends MinijuegoBase{
        this.load.image('verde', './assets/images/Objetos/plataformaVerde.png');
        this.load.image('morado', './assets/images/Objetos/plataformaMorada.png');
        this.load.image('moradoRota', './assets/images/Objetos/moradaRota.png');
-       this.load.image('pauseButton', './assets/images/UI/pauseButton.jpg');
+       this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
     }
     create(){
         super.create();
         //background
         this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0);  
         // BotonPause
-		this.pauseButton = new Button(this, 200, 250, 'pauseButton', ()=>{this.scene.start("PauseMenuMJ");});
+		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
        
         //this.scoreText = this.add.bitmapText(5,8,'scoreFont', 'SCORE' +  this.score, 40).setScrollFactor(0);
         //mostrar score
@@ -96,7 +96,6 @@ export default class MJ_Plataformas extends MinijuegoBase{
     update(){
         super.update();
         //gestionar cuando muere
-        console.log(this.ajolote.x);
         if (this.ajolote.y > 500){
             this.scene.start(this);
         }

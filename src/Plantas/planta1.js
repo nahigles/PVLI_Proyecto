@@ -3,6 +3,7 @@ import Jugador from '../Personajes/jugador.js';
 import NPCBase from '../Personajes/NPCBase.js';
 import NPC from '../Personajes/NPCBase.js';
 import MJ_Plataformas from '../Minijuegos/mj_Plataformas.js' ;
+import Button from '../UI/Button.js';
 
 export default class Planta1 extends plantaBase {
 	/**
@@ -29,6 +30,7 @@ export default class Planta1 extends plantaBase {
 		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
+		this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
 		//background
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		
@@ -49,7 +51,8 @@ export default class Planta1 extends plantaBase {
 		super.create();
 
 		this.p = this.input.keyboard.addKey('P');
-
+		// BotonPause
+		this.pauseButton = new Button(this, 584, 88, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -126,12 +129,15 @@ export default class Planta1 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer)
 		this.physics.add.collider(this.NPCGroup, this.wallLayer)
 		
+		
+       
 
     }
 
     update(){
 		super.update();
-
+		console.log(this.jugador.x);
+		console.log(this.jugador.y);
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
