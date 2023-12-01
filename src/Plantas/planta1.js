@@ -2,6 +2,8 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPCBase from '../Personajes/NPCBase.js';
 import NPC from '../Personajes/NPCBase.js';
+import MJ_Plataformas from '../Minijuegos/mj_Plataformas.js' ;
+import Button from '../UI/Button.js';
 
 export default class Planta1 extends plantaBase {
 	/**
@@ -10,8 +12,9 @@ export default class Planta1 extends plantaBase {
 	 */
 
 	constructor(){	
-		super('Planta1', "planta2", "mj_plataformas", 'level1', 'tiles', 560);
-		//por ahora lo d tiles no tiene sentido
+		super('Planta1', "planta2", 'mj_Plataformas', 'level1', 'tiles', 560);
+
+		
 	}
 
 	init(){
@@ -19,6 +22,7 @@ export default class Planta1 extends plantaBase {
 
 	}
     preload(){
+		super.preload();
 		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.spritesheet('NPCEmilio', './assets/images/Characters/Emilio.png', {frameWidth: 24, frameHeight: 36})
@@ -26,7 +30,7 @@ export default class Planta1 extends plantaBase {
 		this.load.spritesheet('NPCJulia', './assets/images/Characters/Julia.png', {frameWidth: 24, frameHeight: 36})
 		this.load.script('WebFont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
-		super.preload();
+		this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
 		//background
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		
@@ -47,6 +51,9 @@ export default class Planta1 extends plantaBase {
     create(){
 		super.create();
 
+		this.p = this.input.keyboard.addKey('P');
+		// BotonPause
+		this.pauseButton = new Button(this, 584, 88, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -55,6 +62,7 @@ export default class Planta1 extends plantaBase {
 			width : 100,
 			height : 100
 		});
+		
 		
 		// tiles
 		const tileset1 = this.map.addTilesetImage('tileset_architecture', 'tileset_Planta_1_1');  
@@ -77,6 +85,8 @@ export default class Planta1 extends plantaBase {
 		this.wallLayer.setCollisionByExclusion([-1]);
 		// Layer objeto
 
+		//Camara
+		//this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
 		// Jugador
 		//this.jugador = new Jugador(this, 100, 50, 'playerAnim');
 		
@@ -105,6 +115,7 @@ export default class Planta1 extends plantaBase {
 		})[0];
 		console.log(this.jugador);
 		console.log("Esto apesta");
+
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -119,11 +130,21 @@ export default class Planta1 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer)
 		this.physics.add.collider(this.NPCGroup, this.wallLayer)
 		
+		
+       
 
     }
 
     update(){
 		super.update();
+		console.log(this.jugador.x);
+		console.log(this.jugador.y);
+		if(this.p.isDown){ 
+			this.scene.start('Planta2');
+			this.scene.stop();
+			console.log("Paso de P1 a P2")
+		}
+		
     }
 
 	onPause(){

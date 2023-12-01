@@ -1,6 +1,6 @@
 export default class Jugador extends Phaser.GameObjects.Container {
 	/**
-	 * Constructor del pato
+	 * Constructor del jugador
 	 * @param {Scene} scene -  escena
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
@@ -26,6 +26,21 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			repeat: -1
 		});
 
+		
+		this.scene.anims.create({
+			key: 'jump',
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:32, end:35}),
+			frameRate: 2,
+			repeat: -1
+		});
+
+		this.scene.anims.create({
+			key: 'sit',
+			frames: scene.anims.generateFrameNumbers('playerAnim', {start:40, end:41}),
+			frameRate: 2,
+			repeat: -1
+		});
+		
 
 		// Guardamos escena y añadimos jugador a escena
 		this.scene = scene;
@@ -33,18 +48,18 @@ export default class Jugador extends Phaser.GameObjects.Container {
 
         //FISICAS
         this.scene.physics.world.enable(this);
-        //this.body.setAllowGravity(false);
+        this.body.setAllowGravity(true);
 		this.body.onOverlap = true;
 		
+
 		//sprite jug
 		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, 'playerAnim', 0);
 		this.jugador.setOrigin(0,0).setScale(1.0,1.0);
 		
 		this.add(this.jugador); // Añadimos al contenedor
-		
+
 		// Ejecutamos la animación 'idle'
-		this.jugador.play('idle')
-		console.log(this);
+		this.jugador.play('idle');
 
 		// INPUT
 		this.inputEnabled = true;
@@ -91,6 +106,14 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.inputEnabled = !this.inputEnabled;
 	}
 
+	sitAnim(){
+		this.jugador.play('sit', true);
+	}
+
+	jumpAnim(){
+		this.jugador.play('jump', true);
+		this.jugador.setFlip(false, false);
+	}
 	// Método vacio necesario para creación de objetos desde tilemap
 	setTexture(){}
 
