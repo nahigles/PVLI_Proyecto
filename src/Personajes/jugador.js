@@ -1,6 +1,6 @@
 export default class Jugador extends Phaser.GameObjects.Container {
 	/**
-	 * Constructor del pato
+	 * Constructor del jugador
 	 * @param {Scene} scene -  escena
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
