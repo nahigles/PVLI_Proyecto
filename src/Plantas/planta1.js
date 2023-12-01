@@ -40,7 +40,8 @@ export default class Planta1 extends plantaBase {
 		// MAPA PRUEBA 2
 		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/mapa_prueba_3.json');
         this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
-
+		this.load.image('tileset_Planta_1_2', './assets/Prueba_Mapa/tileset_elevator.png');
+        this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');
     }
 
     create(){
@@ -67,11 +68,11 @@ export default class Planta1 extends plantaBase {
 		//this.backgroundLayer.resizeWorld();
 
 		// Layers MAPA PRUEBA 2
-		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset2, tileset3]);
-		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset2, tileset3]);
+		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset3]);
+		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset3]);
 		// Layers MAPA PRUEBA 3
-		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset2, tileset3]);
-		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset2, tileset3]);
+		this.cubiclesLayer = this.map.createLayer('Cubicles', tileset3);
+		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset1, tileset2, tileset3]);
 
 		this.wallLayer.setCollisionByExclusion([-1]);
 		// Layer objeto
