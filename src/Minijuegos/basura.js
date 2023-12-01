@@ -1,4 +1,4 @@
-export default class BolaPapel extends Phaser.GameObjects.Sprite{
+export default class Basura extends Phaser.GameObjects.Sprite{
     /**
      * Constructor plataforma
      *  @param {Scene} scene - escena en la que aparece
@@ -16,27 +16,32 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         this.body.allowGravity = false; //no tienen gravedad
         this.touch = false;
 
-        this.setScale(5.0,5.0);
+        this.setScale(4.0,4.0);
+        this.desplazamiento = 25;
+        this.speed = 35;
+
+        //limite derecha e izquierda de movimiento
+        this.limDer = 500; 
+        this.limIzq = 0;
+
+        this.body.setVelocity(this.speed, 0);
     }  
     
     create(){
 
-        this.input.mouse.disableContextMenu();
-
-        this.input.on('pointerup', pointer =>
-        {
-
-            if (pointer.leftButtonReleased())
-            {
-                console.log("Holaaaaaa")
-            }
-        });
+      
     }
 
     preUpdate(t,dt) {
         super.preUpdate(t,dt);
-        const pointer = this.scene.input.activePointer;
-
-        this.x = pointer.worldX
+        
+        if(this.x < this.limIzq) {
+            this.body.setVelocity(this.speed, 0);
+        }
+        if(this.x > this.limDer) {
+            this.body.setVelocity(-this.speed, 0);
+        }
+console.log("hoalaaaaa");
+        console.log(this.x);
     }
 }
