@@ -29,10 +29,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0);  
         // BotonPause
 		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
-       
-        //this.scoreText = this.add.bitmapText(5,8,'scoreFont', 'SCORE' +  this.score, 40).setScrollFactor(0);
         //mostrar score
-        
         this.scoreText = this.add.text(5,8, 'SCORE: ' + this.score, {
             fontSize: '20px', 
             fill: '#fff',
@@ -48,7 +45,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
             antialias: true
         }).setScrollFactor(0);
         //ajolote
-        this.ajolote = new Ajolote(this,300,250, 'ajolote');
+        this.ajolote = new Ajolote(this,300 ,200, 'ajolote');
         this.ajolote.body.setCollideWorldBounds(false);
         //plataformas
         this.plataformas = this.add.group();
@@ -56,20 +53,22 @@ export default class MJ_Plataformas extends MinijuegoBase{
         let firstXPos = 300;
         let firstYPos = 350;
         const firstPlataforma = new Plataforma(this,firstXPos,firstYPos, 'amarillo');
-        let anteriorX = firstXPos;
         this.plataformas.add(firstPlataforma);
+        let anteriorX = firstXPos;
+        
         for(let i = 0; i < 20; i++) {
+            
             const color = colores[i%4]; //va alternando ciclicamente entre los cuatro colores
-            let x1 = Phaser.Math.Between(100, anteriorX - 200);
-            let x2 = Phaser.Math.Between(anteriorX + 200, 500);
-            const x = Phaser.Math.Between(x1,x2);
-            const y = (firstYPos - 100) - i * 100;
+            let x1 = Phaser.Math.Between(90, Math.max(90, anteriorX - 180) );
+           
+            let x2 = Phaser.Math.Between(Math.min(anteriorX + 180, 510), 510);
 
+            const x = Math.random() < 0.5 ? x1 : x2;
+            const y = (firstYPos - 100) - i * 100;
             const newPlataforma = new Plataforma(this, x, y, color);
             this.plataformas.add(newPlataforma);
             anteriorX = x;
-
-        }
+        } 
         //colisiones y rebote
         this.physics.add.collider(this.ajolote, this.plataformas, (ajolote,plataforma)=>{
             if(ajolote.body.touching.down) { //solo salta cuando el jugador esta encima de la plataforma

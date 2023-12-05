@@ -13,8 +13,6 @@ export default class Planta1 extends plantaBase {
 
 	constructor(){	
 		super('Planta1', "planta2", 'mj_Plataformas', 'level1', 'tiles', 560);
-
-		
 	}
 
 	init(){
@@ -52,7 +50,7 @@ export default class Planta1 extends plantaBase {
 
 		this.p = this.input.keyboard.addKey('P');
 		// BotonPause
-		this.pauseButton = new Button(this, 584, 88, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
+		this.pauseButton = new Button(this, 0, 0, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -136,8 +134,6 @@ export default class Planta1 extends plantaBase {
 
     update(){
 		super.update();
-		console.log(this.jugador.x);
-		console.log(this.jugador.y);
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
