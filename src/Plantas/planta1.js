@@ -2,7 +2,6 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPCBase from '../Personajes/NPCBase.js';
 import NPC from '../Personajes/NPCBase.js';
-import MJ_Plataformas from '../Minijuegos/mj_Plataformas.js' ;
 import Button from '../UI/Button.js';
 
 export default class Planta1 extends plantaBase {
@@ -50,7 +49,9 @@ export default class Planta1 extends plantaBase {
 
 		this.p = this.input.keyboard.addKey('P');
 		// BotonPause
-		this.pauseButton = new Button(this, 0, 0, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
+		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{}).setScrollFactor(0);
+		//this.pauseButton.setDepth(10);
+		//this.pauseButton.setAlpha(1);
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -74,7 +75,9 @@ export default class Planta1 extends plantaBase {
 
 		// Layers MAPA PRUEBA 2
 		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset2, tileset3]);
+		//this.backgroundLayer.setDepth(0);
 		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset2, tileset3]);
+		//this.wallLayer.setDepth(0);
 		// Layers MAPA PRUEBA 3
 		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset2, tileset3]);
 		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset2, tileset3]);
@@ -133,13 +136,13 @@ export default class Planta1 extends plantaBase {
     }
 
     update(){
+
 		super.update();
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
 			console.log("Paso de P1 a P2")
 		}
-		
     }
 
 	onPause(){

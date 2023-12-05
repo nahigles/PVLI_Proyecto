@@ -8,8 +8,9 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	 * @param {Function} action1 - accion que se realiza al pulsar el boton
 	 * @param {Function} action2 - accion que se realiza al pulsar el boton
 	 * @param {Function} action3 - accion que se realiza al pulsar el boton
+	 * @param {Function} action4 - accion que se realiza al pulsar el boton
 	 */
-	constructor(scene, x, y, key, action1, action2, action3){
+	constructor(scene, x, y, key, action1, action2, action3,action4){
 		// Llamamos al constructor del padre
 		super(scene, x, y, key);
 
@@ -28,6 +29,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		this.action1Method = action1;
 		this.action2Method = action2;
 		this.action3Method = action3;
+		this.action4Method = action4
 		this.self = this;
 
 		if(key === 'playButton2') {
@@ -73,6 +75,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 				this.action1Method();
 				this.action2Method();
 				this.action3Method();
+				this.action4Method();
 				this.timeAcum = 0;
 				this.pulsadoBoolean = false;
 			}

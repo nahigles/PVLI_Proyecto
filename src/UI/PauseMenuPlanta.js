@@ -18,9 +18,9 @@ export default class PauseMenuPlanta extends Phaser.Scene {
     create(){
         this.add.image(0,0,'background').setScale(2,2);  
 		// BotonVolverPlanta
-		this.resumeButton = new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume("Planta1");},  ()=>{this.scene.stop();},  ()=>{});
+		this.resumeButton = new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume("Planta1");},  ()=>{this.scene.stop();},  ()=>{}, ()=>{});
         // BotonSalir
-        this.buttonExit = new Button(this, 300, 300, 'exitButton', ()=>{this.scene.start("MainMenu");}, ()=>{}, ()=>{});
+        this.buttonExit = new Button(this, 300, 300, 'exitButton', ()=>{this.scene.start("MainMenu");}, ()=>{this.scene.stop("Planta1")}, ()=>{this.scene.stop()}, ()=>{});
     }
     update(){
     }

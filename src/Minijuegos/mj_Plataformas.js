@@ -28,7 +28,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         //background
         this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0);  
         // BotonPause
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} ).setScrollFactor(0);
+		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
         //mostrar score
         this.scoreText = this.add.text(5,8, 'SCORE: ' + this.score, {
             fontSize: '20px', 
