@@ -145,9 +145,9 @@ export default class UiScene extends Phaser.Scene {
             if (who == "ChoiceStay" || who == "Choice"){
                 this.choice = "noSabe";
                 if (who == "Choice"){
-                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{});
+                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{});
                     this.A.changeScale(0.6,0.6);
-                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{});
+                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{});
                     this.B.changeScale(0.6,0.6);
                 }
             }

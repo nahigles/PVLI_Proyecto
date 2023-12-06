@@ -39,14 +39,6 @@ export default class Conversation{
 			default:
 		}
 
-		// NO SE POR Q PUSE ESTO :/
-		/*
-		if (this.conversText.Talk[this.index].choice) {this.next();}
-		else {
-			this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-		}
-		*/
-
 		this.next();
     }	
 

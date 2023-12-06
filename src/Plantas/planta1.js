@@ -141,8 +141,6 @@ export default class Planta1 extends plantaBase {
 		// Colisiones MAPA PRUEBA 2
 		this.physics.add.collider(this.jugador, this.wallLayer)
 		this.physics.add.collider(this.NPCGroup, this.wallLayer)
-		
-		
        
 
     }
