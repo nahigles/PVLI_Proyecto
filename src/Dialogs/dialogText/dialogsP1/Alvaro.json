@@ -1,28 +1,73 @@
 {
-    "Emilio": [
+    "Talk": [
         {
-            "who": "Emilio",
-            "frase": "",
-            "choice": false,
-            "isLast": false
-        },
-        {
-            "who": "Emilio",
-            "id": 1,
-            "frase": "q tal va todo mireina??",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": false
-        },        
-        {
-            "who": "Emilio",
-            "id": 1,
-            "frase": "está pvli tratandote bn??",
-            "chosen": false,
-            "a": "hola",
-            "b": "bb",
-            "isLast": false
+            "who": "Alvaro",
+            "frase": "Q haces todavía aquí?",
+            "nextId": 15
+            },{
+            "who": "Alvaro",
+            "frase": "Por fin alguien que se digna a venir al trabajo, que tal maquina?",
+            "nextId": 2
+            },{
+            "who": "Choice",
+            "a": "De hecho… pensaba irme ahora.",
+            "b": "Sí todo bien ¿En q puedo ayudar?",
+            "nextA": 3,
+            "nextB": 13
+            },{
+            "who": "Player",
+            "frase": "De hecho… pensaba irme ahora.",
+            "nextId": 4
+            },{
+            "who": "Alvaro",
+            "frase": "Ahora? La d la jornada laboral d 8h t la sabes? O q es q falla el jefe y ya todos nos vamos no?",
+            "nextId": 5
+            },{
+                "who": "Choice",
+                "a": "Para nada, pero acabo d recibir una llamada y tengo que irme, es urgente.",
+                "b": "Nono, me quedo me quedo.",
+                "nextA": 6,
+                "nextB": 12
+            },{
+            "who": "Player",
+            "frase": "Para nada, pero acabo d recibir una llamada y tengo que irme, es urgente.",
+            "nextId": 7
+            },{
+            "who": "Alvaro",
+            "frase": "Yaya una llamada. anda, y la excusa cuál es?",
+            "nextId": 8
+            },{
+                "who": "Choice",
+                "a": "De hecho, mi hermana está de parto.",
+                "b": "De hecho, mi abuela está en el hospital.",
+                "nextA": 9,
+                "nextB": 10
+            },{
+            "who": "Player",
+            "frase": "De hecho, mi hermana está de parto.",
+            "nextId": 11
+            },{
+            "who": "Player",
+            "frase": "De hecho, mi abuela está en el hospital.",
+            "nextId": 11
+            },{
+            "who": "Alvaro",
+            "frase": "Venga tira, pero quiero un selfie en cuanto llegues.",
+            "nextId": 15
+            },{
+            "who": "Player",
+            "frase": "Nono, me quedo me quedo. ¿En q puedo ayudar?",
+            "nextId": 14
+            },{
+            "who": "Player",
+            "frase": "Sí todo bien ¿En q puedo ayudar?",
+            "nextId": 14
+            },{
+                "who": "Alvaro",
+                "frase": "Pues no lo tengo muy claro, pero seguro que encuentras algo que hacer.",
+                "nextId": 15
+            },{
+            "who": "End"
         }
     ]
 }

@@ -2,59 +2,52 @@
     "Talk": [
         {
             "who": "Victoria",
-            "frase": "Otra vez por aquí? Ve a hablar con Álvaro anda.",
-            "nextId": 0,
-            "choice": false,
-            "isLast": true
+            "frase": "Otra vez por aquí? Ve anda.",
+            "nextId": 9
             },{
             "who": "Victoria",
             "frase": "Hola cariño, asumo que nadie te ha dicho nada verdad?",
-            "nextId": 2,
-            "choice": false,
-            "isLast": false
+            "nextId": 2
             },{
             "who": "Player",
             "frase": "No :(",
-            "nextId": 3,
-            "choice": false,
-            "isLast": false
+            "nextId": 3
             },{
             "who": "Victoria",
             "frase": "Los que se han enterado ni siquiera se han molestado en venir. Es el jefe, q se ha encerrado en su oficina y no hay quien le saque de ahí. Ni responder al teléfono ni na, impresentable.",
-            "nextId": 4,
-            "choice": false,
-            "isLast": false
+            "nextId": 4
             },{
             "who": "Player",
             "frase": "Entonces me voy?",
-            "nextId": 5,
-            "choice": false,
-            "isLast": false
+            "nextId": 5
             },{
             "who": "Victoria",
             "frase": "Como quieras mi vida, yo m voy a quedar por aquí por si vienen más como tú. Eso sí, si decides irte tienes que hablar con Álvaro para justificar la ausencia, ya sbs, los de recursos humanos siempre con su papeleo.",
-            "nextId": 6,
-            "choice": false,
-            "isLast": false
+            "nextId": 6
             },{
             "who": "Player",
             "frase": "Pero… justificar?? Ns… enfin… como están las cosas está bastante claro no?",
-            "nextId": 7,
-            "choice": false,
-            "isLast": false
+            "nextId": 7
             },{
             "who": "Victoria",
             "frase": "Eso pensaba yo, pero q va. Tú inventate algo, q a los d arriba les puede dar una pataleta pero los demás nada, yo he estado a esto d fingir que rompía aguas, así t lo digo.",
-            "nextId": 8,
-            "choice": false,
-            "isLast": false
+            "nextId": 8
             },{
-                "who": "Choice",
-                "nextId": 0,
-                "choice": true,
-                "a": "Habla con Álvaro.",
-                "b": "Encuentra algo para poder pasar por delante de Álvaro sin que te vea.",
-                "isLast": true
+            "who": "Choice",
+            "a": "Habla con Álvaro.",
+            "b": "Encuentra algo para poder pasar por delante de Álvaro sin que te vea.",
+            "nextA": 9,
+            "nextB": 10
+            },{
+            "who": "Player",
+            "frase": "A ver si puedo inventarme algo.",
+            "nextId": 11
+            },{
+            "who": "Player",
+            "frase": "Uff nono mejor voy a intentar escabullirme.",
+            "nextId": 11
+            },{
+            "who": "End"
         }
     ]
 }

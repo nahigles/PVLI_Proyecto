@@ -36,8 +36,6 @@ export default class DialogManager {
       if (NPC.body.embedded) NPC.body.touching.none = false; //embedded es overlapeado y además no se mueve
       let touching = !NPC.body.touching.none;
 
-      console.log(NPC.visited);
-
       if (touching) {
         talker = NPC;
         this.visited = NPC.visited;
@@ -45,8 +43,6 @@ export default class DialogManager {
       }
     }
 
-    
-    console.log(this.visited);
     return {talker: talker, visited: this.visited};
   }
 }

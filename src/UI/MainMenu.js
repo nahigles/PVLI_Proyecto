@@ -15,14 +15,14 @@ export default class MainMenu extends Phaser.Scene {
     preload(){
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		//this.load.image("playButton", "./assets/images/UI/MainMenu/playButton.png" );
-        this.load.spritesheet("playButton2", "./assets/images/UI/MainMenu/playButton2.png", {frameWidth: 300, frameHeight: 120});
+        this.load.spritesheet("playButton2", "./assets/images/UI/MainMenu/playButton3.png", {frameWidth: 300, frameHeight: 120});
 		
     }
     create(){
 		// BotonPlay
-		new Button(this, 200, 100, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{});
+		this.PlayButton = new Button(this, 300, 200, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{});
+		this.PlayButton.changeScale(1.2,1.2);
 
-		
 		// Jugadores
 		this.player1 = new Jugador(this, 100, 50, 'playerAnim');
 		this.player1.onPauseInput();

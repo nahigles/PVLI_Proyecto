@@ -13,7 +13,7 @@ export default class UiScene extends Phaser.Scene {
     init(){}
 
     preload(){
-        this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 8, frameHeight: 8});
+        this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
     }
 
     create(data){    
@@ -110,7 +110,7 @@ export default class UiScene extends Phaser.Scene {
 
     /*PROBANDO ESTE CODIGO ¡WIP!*/
     // Inicia el diálogo
-    initDialog(conversation, who, text, a = "opcA", b = "opcB") {
+    initDialog(conversation, who, text) {
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
             this.conversation = conversation;
@@ -136,23 +136,23 @@ export default class UiScene extends Phaser.Scene {
             this.thumbNails.getChildren();
             for (const img of this.thumbNails.getChildren()) {
                 if (img.texture.key == who){
-                    console.log(img.texture.key);
                     img.visible = true;
                     this.actThumbNail = img;
                 }
             };
             this.dialogBox.visible = true; 
 
-            if (a == "opcA"){
-                this.choice = "noHay";
+            if (who == "ChoiceStay" || who == "Choice"){
+                this.choice = "noSabe";
+                if (who == "Choice"){
+                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{});
+                    this.A.changeScale(0.6,0.6);
+                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{});
+                    this.B.changeScale(0.6,0.6);
+                }
             }
             else {
-                this.choice = "noSabe";
-                this.opcA = a;
-                this.opcB = b;
-                this.A = new Button(this, 200, 180, 'choiceButton');
-                this.B = new Button(this, 400, 180, 'choiceButton');
-                
+                this.choice = "noHay";                
             }
 
             //para pausar el juego
@@ -161,31 +161,32 @@ export default class UiScene extends Phaser.Scene {
     }
 
     chooseA(){
-        this.choice = this.opcA;
+        this.choice = "a";
+        this.NextMessage();
     }
     
     chooseB(){
-        this.choice = this.opcB;
+        this.choice = "b";        
+        this.NextMessage();
     }
 
     // Pasa el siguiente mensaje al contenedor
     NextMessage() {
-        if (this.choice == "noHay"){
-            this.endDialog(); //cerramos esta frase
-            this.conversation.next(); //miramos a ver si hay next
-        }
-        else if (this.choice == "noSabe"){
-            this.textMessage.setNewMessage("Tienes que tomar una decisión antes d avanzar.")
-        }
-        else{
-            this.conversation.next(this.choice);
-        }
-
+        this.endDialog(); //cerramos esta frase
+        this.conversation.next(this.choice);
     }
 
     endDialog(){ 
+        console.log("endDialog");
+
         this.dialogBox.visible = false; //hacer invisible el cuadro de texto
         this.actThumbNail.visible = false;
+        
+        if (this.choice == "a" || this.choice == "b"){           
+            this.A.destroy();
+            this.B.destroy();
+        }
+
         this.onDialogFinished();
         this.textMessage.onMessageFinished();
         this.onDialog=false;
@@ -195,7 +196,6 @@ export default class UiScene extends Phaser.Scene {
     // Menú de pausa 
     pauseGame() {
         this.isOnPauseMenu = !this.isOnPauseMenu;
-        console.log("isPaused: " + this.isOnPauseMenu);
         this.ScenePlanta.onPause();
     }
     

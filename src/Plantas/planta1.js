@@ -148,8 +148,6 @@ export default class Planta1 extends plantaBase {
 
     update(){
 		super.update();
-		console.log(this.jugador.x);
-		console.log(this.jugador.y);
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
