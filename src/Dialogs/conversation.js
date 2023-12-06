@@ -44,7 +44,12 @@ export default class Conversation{
 
 	next(choice = "noHay"){
 		if (this.conversText.Talk[this.index].who != "End") {
-			if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)
+			if (this.conversText.Talk[this.index].who == "Action"){
+				this.UI.actions(this.conversText.Talk[this.index].what);
+				this.index = this.conversText.Talk[this.index].nextId;
+				console.log("change to index " + this.index);
+			}
+			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)
 				if (choice == "noHay"){ //PRIM VEZ
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
 					"· " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
