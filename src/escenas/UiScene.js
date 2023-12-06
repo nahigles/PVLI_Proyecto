@@ -14,6 +14,7 @@ export default class UiScene extends Phaser.Scene {
 
     preload(){
         this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
+        this.load.spritesheet("houseButton", "./assets/images/UI/house.png", {frameWidth: 80, frameHeight: 80});
     }
 
     create(data){    
@@ -169,6 +170,19 @@ export default class UiScene extends Phaser.Scene {
         this.choice = "b";        
         this.NextMessage();
     }
+    
+	actions(action){
+        switch (action) { 
+            case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{console.log("M QUIERO IR")},  ()=>{},  ()=>{});
+                this.exit.changeScale(0.6,0.6);
+                break;
+        
+            default:
+                break;
+        }
+
+	}
 
     // Pasa el siguiente mensaje al contenedor
     NextMessage() {
