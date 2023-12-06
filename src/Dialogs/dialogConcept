@@ -1,0 +1,12 @@
+UiScene:
+Todo lo d los dialogos se centraliza aki (crear el box y los thumbnails, los inputs, dialogMngr, eventos, crea el mensaje, next y pausa el juego d mientras)
+
+    dialogMngr:
+    Tiene al player y los NPCs y cuando recibe el evento wantToTalk mira los overlaps y devuelve cn quien estamos hablando
+    
+    conversation:
+    Le das el nombre y la UiScene y se va a encargar de devolverte el texto, quien lo dice (nombre o "Player") y si necesitas botones o no, esto lo va a hacer cn un json por personaje
+
+        initDialog se llama desde Conversation y cuando elija le enviará la choice d vuelta
+
+        los NPCs van a tener un bool haveTalked y si sí solo se pondrá la frase 00

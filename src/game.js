@@ -14,7 +14,7 @@ import PauseMenuPlanta from './UI/PauseMenuPlanta.js';
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
 	    type: Phaser.AUTO, //type: Phaser.WEBGL
 	    pixelArt: true, 
-        backgroundColor: '#4888aa',
+        backgroundColor: '#e7d1ff',
 	    scene:[MainMenu,Planta1, Planta2, MJ_Plataformas, MJ_Basuras,UiScene,PauseMenuMJ, PauseMenuPlanta], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
@@ -29,7 +29,7 @@ import PauseMenuPlanta from './UI/PauseMenuPlanta.js';
             arcade: {
                 gravity: {y: 400},
                 // Visibilidad de las colisiones 
-                debug: true
+                debug: false
             }
         }
     }

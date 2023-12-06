@@ -1,0 +1,31 @@
+{
+    "Talk": [
+        {
+            "who": "Emilio",
+            "frase": "Tira parriba anda!",
+            "nextId": 6
+            },{
+            "who": "Emilio",
+            "frase": "A dónde vas muchacha?",
+            "nextId": 2
+            },{
+            "who": "Player",
+            "frase": "A la siguiente planta a ver si alguien necesitan ayuda.",
+            "nextId": 3
+            },{
+            "who": "Emilio",
+            "frase": "¿Subir? Miramiramira, yo si que estoy subiendo aquí, pero vamos, como la espuma. Que al parecer se ha caído la nube, yo no sé de qué me hablan, si no llueve ni nada. Pero vaya, a mi me ha aparecido esto aquí y estoy que me salgo. Échate una partida a ver si me superas.",
+            "nextId": 4
+            },{
+            "who": "Player",
+            "frase": "INCLUIR PARTIDA",
+            "nextId": 5
+            },{
+            "who": "Emilio",
+            "frase": "Ole! Claro, todo el día con las pantallitas, esto a vosotros os viene en la sangre ya. Sube pues, tu que todavía puedes enfrentarte a unas escaleras.",
+            "nextId": 6
+            },{
+            "who": "End"
+        }
+    ]
+}

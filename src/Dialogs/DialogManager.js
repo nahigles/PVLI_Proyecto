@@ -1,5 +1,5 @@
 import dialogEvents from "./EventCenter.js";
-//import dialogText from "../Dialogs/dialogText.json"  assert { type: 'json' };
+import Conversation from "./conversation.js";
 
 export default class DialogManager {
   constructor(scene, UI, player, NPCGroup) {
@@ -10,25 +10,21 @@ export default class DialogManager {
     this.NPCGroup = NPCGroup;
     scene.physics.add.overlap(this.NPCGroup, player);
 
+    this.NPCGroup.getChildren();
+    for (const NPC of this.NPCGroup.getChildren()) {
+      NPC.visited = false;
+    }
+
     dialogEvents.on("wantToTalk", this.wantToTalk, this);
   }
 
   wantToTalk() {
-    var talker = this._whoIsTalking();
-    if(talker != 'NONE'){        
-      console.log('empezamos a hablar con ' + talker.name);
+    var NPC = this._whoIsTalking();
+
+    if(NPC.talker != 'NONE'){        
+      console.log('empezamos a hablar con ' + NPC.talker.name);
       this.isTalking = true;
-
-      this.name = talker.name;
-      
-      if (this.name == "Emilio")
-        this.text = dialogText.Emilio; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
-      else if (this.name == "Aurelia")
-        this.text = dialogText.Aurelia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
-      else if (this.name == "Julia")
-        this.text = dialogText.Julia; ///QUIERO PONER TALKER NAME!!!!!!!!!!!!!!!
-
-      this.UI.initDialog(this.text);
+      new Conversation(this.UI, this.scene.key, NPC.talker.name, NPC.visited);
     }
   }
 
@@ -42,9 +38,11 @@ export default class DialogManager {
 
       if (touching) {
         talker = NPC;
+        this.visited = NPC.visited;
+        NPC.visited = true;
       }
     }
 
-    return talker;
+    return {talker: talker, visited: this.visited};
   }
 }

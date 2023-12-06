@@ -1,0 +1,41 @@
+{
+    "Talk": [
+        {
+            "who": "Alma",
+            "frase": "Vamos! Ayuda a tus compañeros!!!",
+            "nextId": 8
+            },{
+            "who": "Alma",
+            "frase": "Ei pero ya te vas?",
+            "nextId": 2
+            },{
+            "who": "Choice",
+            "a": "Sí, eso pensaba.",
+            "b": "Que va, voy a ver a ver si necesitan ayuda en alguna otra planta.",
+            "nextA": 3,
+            "nextB": 6
+            },{
+            "who": "Player",
+            "frase": "Sí, eso pensaba.",
+            "nextId": 4
+            },{
+            "who": "Alma",
+            "frase": "Bueno, algunos de nosotros hemos decidido quedarnos, por qué no subes a echar una mano?",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "Mmmmm…. Me lo pensaré.",
+            "nextId": 7
+            },{
+            "who": "Player",
+            "frase": "Que va, voy a ver a ver si necesitan ayuda en alguna otra planta.",
+            "nextId": 7
+            },{
+            "who": "Alma",
+            "frase": "Genial! Si todos ponemos un poquito de nuestra parte, salimos d esta fijo!",
+            "nextId": 8
+            },{
+            "who": "End"
+        }
+    ]
+}

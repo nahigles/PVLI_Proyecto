@@ -16,7 +16,7 @@ export default class PlantaBase extends Phaser.Scene{
     constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
         super({ key: level });
          //TILE MAP
-         //this.level=level;
+         this.key=level;
          this.nextlevel=nextlevel;
          this.minijuego=minijuego;
          this.mapname=tilemap;
@@ -24,10 +24,6 @@ export default class PlantaBase extends Phaser.Scene{
          this.numColision=tileColision;
 
          this.nextLocked = true; //el siguiente nivel esta lockeado porq todavía no se ha superado en minijuego
-        /*
-            this.personajes = group d personajes
-            botones d menu y cosas d esas?
-        */
     }
 
     

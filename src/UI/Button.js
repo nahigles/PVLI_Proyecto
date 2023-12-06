@@ -45,15 +45,13 @@ export default class Button extends Phaser.GameObjects.Sprite {
         this.on('pointerdown', (pointer)=>
         {
 			this.pulsado(pointer);
-			this.setTint(0xff0000);
+			this.setTint(0xb103fc);
 			
         });
 		
         this.on('pointerout', (pointer)=>
-        {
-			
-			this.clearTint();
-			
+        {			
+			this.clearTint();			
         });
 		
         this.on('pointerup', (pointer)=>
@@ -70,7 +68,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 
 		if(this.pulsadoBoolean){
 
-			if(this.timeAcum > 1000){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
+			if(this.timeAcum > 700){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
 				//this.scene.play();
 				this.action1Method();
 				this.action2Method();
@@ -90,5 +88,9 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	 */
 	pulsado(pointer){
 		this.pulsadoBoolean = true;
+	}
+
+	changeScale (x, y){
+		this.setScale(x,y);
 	}
 }
