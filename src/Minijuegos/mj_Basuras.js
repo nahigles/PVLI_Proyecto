@@ -33,12 +33,14 @@ export default class MJ_Basuras extends MinijuegoBase{
             antialias: true
         }).setScrollFactor(0);
 
+        this.basura = new Basura(this, 150, 150, "basuraImagen");
         this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage');
   
-        this.basura = new Basura(this, 150, 150, "basuraImagen");
         //colisiones y rebote
-        //this.physics.add.collider(this.jugador, this.plataformas, (jugador,plataforma)=>{
+        this.physics.add.collider(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
          // si colisiona hace esto
-       // });
+
+            console.log("Colisionau");
+        });
     }
 }

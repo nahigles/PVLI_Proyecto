@@ -14,29 +14,54 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         //añadir fisicas
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
-        this.touch = false;
-
+        this.pulsadaBola = false;
+        this.speed = 150;
+        this.initialY = y;
+        this.bajando = false;
         this.setScale(5.0,5.0);
     }  
     
     create(){
-
         this.input.mouse.disableContextMenu();
-
-        this.input.on('pointerup', pointer =>
-        {
-
-            if (pointer.leftButtonReleased())
-            {
-                console.log("Holaaaaaa")
-            }
-        });
     }
 
     preUpdate(t,dt) {
         super.preUpdate(t,dt);
         const pointer = this.scene.input.activePointer;
 
-        this.x = pointer.worldX
+        // Si no ha sido pulsado
+        if(!this.pulsadaBola){
+            this.x = pointer.worldX
+
+            // Si clica
+            if (pointer.leftButtonDown())
+            {
+                this.pulsadaBola = true;
+                this.body.setVelocityY(-this.speed);
+            }
+        }
+        else{
+            // Si ya ha llegado al punto mas alto de la pantalla
+            // Va pa abajo
+            if(this.y < 0){
+                this.bajando = true;
+                this.body.setVelocityY(this.speed);
+                // Activo collider basura (o bola de pende como lo quiera)
+            }
+            else if(this.initialY < this.y){
+                this.body.setVelocityY(0);
+                this.pulsadaBola = false;
+                this.bajando = false;
+                // Desactivo collider
+            }
+        }
+
+        if(this.pulsadaBola && !this.bajando){
+            
+        }
+    }
+
+    resetPosition(){
+        this.body.setPosition(this.x, this.initialY,0);
     }
 }

@@ -18,7 +18,7 @@ export default class Basura extends Phaser.GameObjects.Sprite{
 
         this.setScale(4.0,4.0);
         this.desplazamiento = 25;
-        this.speed = 35;
+        this.speed = 40;
 
         //limite derecha e izquierda de movimiento
         this.limDer = 500; 
@@ -41,7 +41,5 @@ export default class Basura extends Phaser.GameObjects.Sprite{
         if(this.x > this.limDer) {
             this.body.setVelocity(-this.speed, 0);
         }
-console.log("hoalaaaaa");
-        console.log(this.x);
     }
 }
