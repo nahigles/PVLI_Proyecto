@@ -1,6 +1,7 @@
 import MinijuegoBase from '../escenas/minijuegoBase.js';
 import Jugador from '../Personajes/jugador.js';
 import BolaPapel from './bolaPapel.js'
+import Basura from './basura.js'
 
 export default class MJ_Basuras extends MinijuegoBase{
 
@@ -15,6 +16,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         super.preload();
         this.load.image('background', './assets/images/Backgrounds/BackgroundPapelera.png');
         this.load.image('bolaImage', './assets/images/Objetos/BolaPapel.png');
+        this.load.image('basuraImagen', './assets/images/Objetos/basura.png');
 
     }
     create(){
@@ -30,18 +32,19 @@ export default class MJ_Basuras extends MinijuegoBase{
             resolution: 50,
             antialias: true
         }).setScrollFactor(0);
-        //jugador
-        //this.jugador = new Jugador(this,140,100, 'playerAnim');
-        //this.jugador.body.setCollideWorldBounds(false);
 
+        this.basura = new Basura(this, 150, 150, "basuraImagen");
         this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage');
   
         //colisiones y rebote
-        //this.physics.add.collider(this.jugador, this.plataformas, (jugador,plataforma)=>{
+        this.physics.add.collider(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
          // si colisiona hace esto
-       // });
+            this.ballNumer = this.ballNumer - 1;
+            console.log("Colisionau");
+        });
     }
-    update(){
-        super.update();
+
+    update(t,dt){
+        console.log(this.ballNumer);
     }
 }
