@@ -39,8 +39,12 @@ export default class MJ_Basuras extends MinijuegoBase{
         //colisiones y rebote
         this.physics.add.collider(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
          // si colisiona hace esto
-
+            this.ballNumer = this.ballNumer - 1;
             console.log("Colisionau");
         });
+    }
+
+    update(t,dt){
+        console.log(this.ballNumer);
     }
 }
