@@ -45,7 +45,6 @@ export default class PlantaBase extends Phaser.Scene{
         /*
         this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
         this.m = this.input.keyboard.addKey('M'); // Y escuchamos la pulsación de la tecla 'E' para cambiar de escena.
-       
     }
 
     update(){

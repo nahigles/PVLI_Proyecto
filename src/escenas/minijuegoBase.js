@@ -1,3 +1,4 @@
+
 export default class MinijuegoBase extends Phaser.Scene{
      /**
      * Constructora
@@ -13,7 +14,6 @@ export default class MinijuegoBase extends Phaser.Scene{
 
     }
     preload(){
-
     }
     create(){
         this.q = this.input.keyboard.addKey('Q'); //salir del minijuego

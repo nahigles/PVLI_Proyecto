@@ -2,7 +2,6 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Button from '../UI/Button.js';
-
 export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -38,17 +37,17 @@ export default class Planta1 extends plantaBase {
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
 		this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
 		//background
-	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		
 
-		// MAPA PRUEBA 1
-		/*this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/example.json');
+		/*// MAPA PRUEBA 1
+		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/example.json');
         this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
         this.load.image('tileset_Planta_1_2', './assets/Prueba_Mapa/tileset_elevator.png');
         this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');*/
 
 		// MAPA PRUEBA 2
-		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/mapa_prueba_3.json');
+	   	this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/mapa_prueba_3.json');
         this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
 
     }
@@ -57,10 +56,7 @@ export default class Planta1 extends plantaBase {
 		super.create();
 
 		this.p = this.input.keyboard.addKey('P');
-		// BotonPause
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJ");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{}).setScrollFactor(0);
-		//this.pauseButton.setDepth(10);
-		//this.pauseButton.setAlpha(1);
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -84,21 +80,13 @@ export default class Planta1 extends plantaBase {
 
 		// Layers MAPA PRUEBA 2
 		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset2, tileset3]);
-		//this.backgroundLayer.setDepth(0);
 		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset2, tileset3]);
-		//this.wallLayer.setDepth(0);
 		// Layers MAPA PRUEBA 3
 		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset2, tileset3]);
 		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset2, tileset3]);
 
 		this.wallLayer.setCollisionByExclusion([-1]);
 		// Layer objeto
-
-		//Camara
-		//this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
-		// Jugador
-		//this.jugador = new Jugador(this, 100, 50, 'playerAnim');
-		
 		
 		this.NPCGroup = this.physics.add.group();
 		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCVictoria', 'Victoria'));
@@ -126,6 +114,11 @@ export default class Planta1 extends plantaBase {
 		})[0];
 		console.log(this.jugador);
 		console.log("Esto apesta");
+		
+		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuPlanta1");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{});
+		this.pauseButton.setScrollFactor(0);
+        this.pauseButton.setDepth(100);
+		console.log("Pause button created:", this.pauseButton);
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -139,10 +132,8 @@ export default class Planta1 extends plantaBase {
 
 
 		// Colisiones MAPA PRUEBA 2
-		this.physics.add.collider(this.jugador, this.wallLayer)
-		this.physics.add.collider(this.NPCGroup, this.wallLayer)
-       
-
+		this.physics.add.collider(this.jugador, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
     }
 
     update(){
