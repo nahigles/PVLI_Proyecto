@@ -15,8 +15,8 @@ export default class Planta2 extends plantaBase {
 
 	init(){
 		super.init();
-
 	}
+
     preload(){
 		super.preload();
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
@@ -33,12 +33,17 @@ export default class Planta2 extends plantaBase {
 		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuPlanta2");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{});
 		this.pauseButton.setScrollFactor(0);
         this.pauseButton.setDepth(100);
+		this.p = this.input.keyboard.addKey('P');
     }
 
     update(){
 		super.update();
-
-	
+		
+		if(this.p.isDown){ 
+			this.scene.start('Planta4');
+			this.scene.stop();
+			console.log("Paso de P2 a P4")
+		}	
     }
 
 	onPause(){
