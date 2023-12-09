@@ -1,16 +1,14 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
-import NPC from '../Personajes/NPCBase.js';
-import MJ_Basuras from '../Minijuegos/mj_Basuras.js' ;
 
-export default class Planta2 extends plantaBase {
+export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1
 	 * @extends plantaBase
 	 */
 
 	constructor(){	
-		super('Planta2', "Planta3", 'mj_Basuras', 'level1', 'tiles', 560);
+		super('Planta4', "planta5", 'mj_Nave', 'level1', 'tiles', 560);
 	}
 
 	init(){
@@ -18,7 +16,7 @@ export default class Planta2 extends plantaBase {
 	}
 
     preload(){
-		super.preload();
+        super.preload();
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
     }
 
@@ -27,18 +25,11 @@ export default class Planta2 extends plantaBase {
 
 		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
 		this.jugador.body.setCollideWorldBounds(true);
-		
-		this.p = this.input.keyboard.addKey('P');
     }
 
     update(){
+
 		super.update();
-		
-		if(this.p.isDown){ 
-			this.scene.start('Planta4');
-			this.scene.stop();
-			console.log("Paso de P2 a P4")
-		}	
     }
 
 	onPause(){

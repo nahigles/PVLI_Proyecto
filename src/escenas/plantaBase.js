@@ -50,13 +50,10 @@ export default class PlantaBase extends Phaser.Scene{
 
     update(){
         
-
-
         if(this.m.isDown){ 
             this.scene.launch(this.minijuego); // Pasamos al minijuego
             this.scene.pause();
-		}
-        
+		}        
    
     }
 
