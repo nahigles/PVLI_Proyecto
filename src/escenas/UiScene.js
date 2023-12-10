@@ -174,10 +174,12 @@ export default class UiScene extends Phaser.Scene {
 	actions(action){
         switch (action) { 
             case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{console.log("M QUIERO IR")},  ()=>{},  ()=>{});
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{console.log("M QUIERO IR")},  ()=>{},  ()=>{}, ()=>{}) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
-        
+            case "MinijuegoPlanta1":
+                this.scene.launch("mj_Plataformas");
+                this.scene.pause("Planta1");
             default:
                 break;
         }
