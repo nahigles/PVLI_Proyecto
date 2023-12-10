@@ -2,6 +2,7 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Button from '../UI/Button.js';
+import Carpeta from '../Misiones/Carpeta.js';
 export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -20,7 +21,6 @@ export default class Planta1 extends plantaBase {
     preload(){
 		super.preload();
 
-		//this.load.image("player", "./assets/images/AjoloteTrajeado.png" );
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.spritesheet('NPCVictoria', './assets/images/Characters/Victoria.png', {frameWidth: 24, frameHeight: 36})
 		this.load.spritesheet('NPCAlvaro', './assets/images/Characters/Alvaro.png', {frameWidth: 24, frameHeight: 36})
@@ -36,9 +36,9 @@ export default class Planta1 extends plantaBase {
 	
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
 		this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
-		//background
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
-		
+		this.load.image('Carpeta', './assets/images/Objetos/Carpeta.png');
+		//this.load.image('Tablon', './assets/images/Objetos/Tabla.png');
 
 		/*// MAPA PRUEBA 1
 		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/example.json');
@@ -56,7 +56,7 @@ export default class Planta1 extends plantaBase {
 		super.create();
 
 		this.p = this.input.keyboard.addKey('P');
-
+		//this.add.image(0,0,'Tablon');  
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -89,11 +89,11 @@ export default class Planta1 extends plantaBase {
 		// Layer objeto
 		
 		this.NPCGroup = this.physics.add.group();
-		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCVictoria', 'Victoria'));
-		this.NPCGroup.add(new NPC(this, 300, 50, 'NPCAlvaro', 'Alvaro'));
-		this.NPCGroup.add(new NPC(this, 200, 50, 'NPCAlma', 'Alma'));
-		this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
-
+		this.NPCVictoria = new NPC(this, 400, 50, 'NPCVictoria', 'Victoria');
+		this.NPCAlvaro = new NPC(this, 300, 50, 'NPCAlvaro', 'Alvaro');
+		this.NPCAlma = new NPC(this, 200, 50, 'NPCAlma', 'Alma');
+		this.NPCEmilio = new NPC(this, 100, 50, 'NPCEmilio', 'Emilio');
+		this.NPCGroup.addMultiple([this.NPCVictoria, this.NPCAlvaro, this.NPCAlma, this.NPCEmilio]);
 		/*
 		// NPCS POR CAPA DE OBJETOS
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
@@ -134,18 +134,69 @@ export default class Planta1 extends plantaBase {
 		// Colisiones MAPA PRUEBA 2
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
+
+		//Mision
+		this.carpeta = new Carpeta(this,this.jugador.x, this.jugador.y, 'Carpeta');
+		this.e = this.input.keyboard.addKey('E');
+		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
+		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
+		this.resultado = false;		//saber si se ha dado ya el resultado de la mision
     }
+	catchFolder(){
+		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
 
+		if(canCatch && !this.carpeta.catch) { //si se puede coger y no se ha cogido antes
+			this.carpeta.catch = true;
+		}
+	}
+	hablaConAlvaro(){		//ha elegido hablar con Alvaro
+		this.haveToTalk = true;
+	}
+	finConversacionAlvaro(){// ha hablado con Alvaro
+		this.alreadyTalked = true;
+	}
+	resultadoMision(){
+		if(this.haveToTalk && this.alreadyTalked ) { //si tenia que hablar y ha hablado
+			console.log("extrovertido");
+			this.jugador.extrovertido = true; //extrovertido
+			this.resultado = true;
+		}
+		else if(!this.haveToTalk && this.alreadyTalked && !this.carpeta.catch){ //si no tenia que hablar, pero no ha cogido la carpeta, Alvaro le ha hablado
+			console.log("extrovertido");
+			this.jugador.extrovertido = true; //extrovertido
+			this.resultado = true;
+		}
+		else if(!this.haveToTalk && this.carpeta.catch){//si no tenia que hablar y ha cogido la carpte
+			console.log("introvertido");
+			this.jugador.introvertido = true; //introvertido
+			this.resultado = true;
+		}
+	}
     update(){
-
 		super.update();
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
-			console.log("Paso de P1 a P2")
+		}
+		if(this.e.isDown){	//coger carpeta
+			this.catchFolder();
+		}
+		if(this.carpeta.catch) { //si se ha cogido la carpeta, se mueve con el jugador para taparle
+			this.carpeta.x = this.jugador.x + 12;
+		}
+		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
+		if(!this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.physics.overlap(this.jugador, this.NPCAlvaro) ){
+			this.jugador.body.setVelocityX(0);
+			this.scene.get("UiScene").talk();
+		}
+		//Cuando se llegue a Alma, dependiendo de lo que has hecho se te de el resultado de la mision
+		if(!this.resultado && this.physics.overlap(this.jugador, this.NPCAlma)){
+			this.resultadoMision();
+			if(this.resultado) {
+				this.carpeta.destroy();
+			}
 		}
     }
-
 	onPause(){
 		this.jugador.onPauseInput();
 	}

@@ -66,7 +66,13 @@
                 "who": "Alvaro",
                 "frase": "Pues no lo tengo muy claro, pero seguro que encuentras algo que hacer.",
                 "nextId": 15
-            },{
+            },
+            {
+            "who": "Action", 
+            "what": "FinConversacionAlvaro",
+            "nextId": 16
+            },
+            {
             "who": "End"
         }
     ]

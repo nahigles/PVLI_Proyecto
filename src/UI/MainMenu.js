@@ -27,10 +27,13 @@ export default class MainMenu extends Phaser.Scene {
 		this.player1 = new Jugador(this, 100, 50, 'playerAnim');
 		this.player1.onPauseInput();
 		this.player1.jumpAnim();
+		this.player1.body.setCollideWorldBounds(true);
 
 		this.player2 = new Jugador(this, 200, 50, 'playerAnim');
 		this.player2.onPauseInput();
 		this.player2.sitAnim();
+		this.player2.body.setCollideWorldBounds(true);
+
 		
 		// Desactivo Input para que no se muevan
 

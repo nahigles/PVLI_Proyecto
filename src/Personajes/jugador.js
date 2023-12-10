@@ -1,3 +1,4 @@
+
 export default class Jugador extends Phaser.GameObjects.Container {
 	/**
 	 * Constructor del jugador
@@ -65,7 +66,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.inputEnabled = true;
 		this.a = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
-		this.e = this.scene.input.keyboard.addKey('E'); //interact
+		//this.e = this.scene.input.keyboard.addKey('E'); //interact
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 
 		// Físicas
@@ -73,8 +74,17 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.body.height = 24;
 		scene.physics.add.existing(this);
 		
-    }
+		//Misiones
+		this.extrovertido = false;
+		this.introvertido = false;
+		this.sensitivo = false;
+		this.intuitivo = false;
+		this.thinker = false;
+		this.feeler =  false;
+		this.juzgador = false;
+		this.pereceptivo =  false;
 
+    }
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
@@ -94,7 +104,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 				this.jugador.setFlip(false, false);
 				this.jugador.play('walk', true);
 			} 
-	
 			else {
 				this.jugador.play('idle', true);
 				this.body.setVelocityX(0);

@@ -2,7 +2,6 @@ import DialogManager from "../Dialogs/DialogManager.js";
 import dialogEvents from "../Dialogs/EventCenter.js";
 import TextMessage from "../Dialogs/textMessage.js";
 import Button from "../UI/Button.js";
-
 export default class UiScene extends Phaser.Scene {
   constructor() {
         super({
@@ -180,6 +179,12 @@ export default class UiScene extends Phaser.Scene {
             case "MinijuegoPlanta1":
                 this.scene.launch("mj_Plataformas");
                 this.scene.pause("Planta1");
+            case "HablaConAlvaro" :
+                this.scene.get("Planta1").hablaConAlvaro();
+                break;
+            case "FinConversacionAlvaro" : 
+                this.scene.get("Planta1").finConversacionAlvaro();
+                break;
             default:
                 break;
         }
@@ -197,8 +202,7 @@ export default class UiScene extends Phaser.Scene {
 
         this.dialogBox.visible = false; //hacer invisible el cuadro de texto
         this.actThumbNail.visible = false;
-        
-        if (this.choice == "a" || this.choice == "b"){           
+        if (this.choice === "a" || this.choice === "b"){           
             this.A.destroy();
             this.B.destroy();
         }

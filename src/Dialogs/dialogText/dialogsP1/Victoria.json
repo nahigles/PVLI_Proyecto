@@ -45,8 +45,14 @@
             },{
             "who": "Player",
             "frase": "Uff nono mejor voy a intentar escabullirme.",
-            "nextId": 11
-            },{
+            "nextId": 12
+            },
+            {
+            "who": "Action", 
+            "what": "HablaConAlvaro",
+            "nextId": 12
+            },
+            {
             "who": "End"
         }
     ]
