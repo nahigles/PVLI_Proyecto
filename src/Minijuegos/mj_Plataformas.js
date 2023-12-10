@@ -14,7 +14,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
     }
     preload(){
        super.preload();
-       this.load.image('background', './assets/images/Backgrounds/fondonegro.png');
+       this.load.image('background1', './assets/images/Backgrounds/61fbff.png');
        this.load.image('ajolote', './assets/images/Characters/ajolote.png');
        this.load.image('azul', './assets/images/Objetos/plataformaAzul.png');
        this.load.image('amarillo', './assets/images/Objetos/plataformaAmarillo.png');
@@ -26,23 +26,23 @@ export default class MJ_Plataformas extends MinijuegoBase{
     create(){
         super.create();
         //background
-        this.add.image(0,0,'background').setScale(2,2).setScrollFactor(0);  
+        this.add.image(0,0,'background1').setScale(4,4).setOrigin(0,0).setScrollFactor(0);  
          // BotonPause
 		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJPlataforma");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
         this.pauseButton.setDepth(10);
         //mostrar score
         this.scoreText = this.add.text(5,8, 'SCORE: ' + this.score, {
             fontSize: '20px', 
-            fill: '#fff',
+            fill: '#000',
             fontFamily:'Arial',
-            resolution: 50,
+            resolution: 2,
             antialias: true
         }).setScrollFactor(0);
         this.emilioScoreText = this.add.text(5,28, 'EMILIO: ' + this.emilioScore, {
             fontSize: '20px', 
-            fill: '#fff',
+            fill: '#000',
             fontFamily:'Arial',
-            resolution: 50,
+            resolution: 2,
             antialias: true
         }).setScrollFactor(0);
         //ajolote

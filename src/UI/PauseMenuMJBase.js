@@ -17,12 +17,12 @@ export default class PauseMenuMJBase extends Phaser.Scene {
 	}
     preload(){
         this.load.image('resumeButton', './assets/images/UI/PauseMenu/resumeButton.png');
-        this.load.image('background', './assets/images/Backgrounds/fondonegro.png');
+        this.load.image('backgroundPausa', './assets/images/Backgrounds/e7d1ff.png');
         this.load.image('exitButton', './assets/images/UI/PauseMenu/exitButton.png');
         this.load.image('officeButton', './assets/images/UI/PauseMenu/officeButton.png');
     }
     create(){
-        this.add.image(0,0,'background').setScale(2,2);  
+        this.add.image(0,0,'backgroundPausa').setScale(4,4).setOrigin(0,0);  
 		// BotonVolverMinijuego
 		this.resumeButton = new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume(this.minijuego);},  ()=>{this.scene.stop();},  ()=>{}, ()=>{});
         //BotonVolverPlanta

@@ -5,19 +5,19 @@ import Jugador from '../Personajes/jugador.js';
 export default class PlantaBase extends Phaser.Scene{
     /**
      * Constructora
-     * @param {string} level -  nivel
-     * @param {string} nextlevel - siguiente nivel
+     * @param {string} planta -  planta
+     * @param {string} nextPlanta - siguiente planta
      * @param {string} tilemap - mapa
      * @param {string} tilename
      * @param {int} tileColision -hasta que numero
      * @param {string} tileColision -siguiente planta
      */
 
-    constructor(level, nextlevel, minijuego, tilemap, tilename, tileColision) {
-        super({ key: level });
+    constructor(planta, nextPlanta, minijuego, tilemap, tilename, tileColision) {
+        super({ key: planta });
          //TILE MAP
-         this.key=level;
-         this.nextlevel=nextlevel;
+         this.key=planta;
+         this.nextPlanta=nextPlanta;
          this.minijuego=minijuego;
          this.mapname=tilemap;
          this.tilename=tilename;
@@ -44,7 +44,8 @@ export default class PlantaBase extends Phaser.Scene{
         this.cameras.main.startFollow(this.jugador);*/
         /*
         this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
-        this.m = this.input.keyboard.addKey('M'); // Y escuchamos la pulsación de la tecla 'E' para cambiar de escena.
+        this.m = this.input.keyboard.addKey('M'); 
+        this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     }
 
     update(){
@@ -53,6 +54,10 @@ export default class PlantaBase extends Phaser.Scene{
             this.scene.launch(this.minijuego); // Pasamos al minijuego
             this.scene.pause();
 		}        
+        else if(this.esc.isDown){
+            this.scene.launch("PauseMenu"+this.key);
+            this.scene.pause(this.key);
+        }
    
     }
 

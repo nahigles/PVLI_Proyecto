@@ -14,7 +14,7 @@ export default class MJ_Basuras extends MinijuegoBase{
     }
     preload(){
         super.preload();
-        this.load.image('background', './assets/images/Backgrounds/BackgroundPapelera.png');
+        this.load.image('background2', './assets/images/Backgrounds/BackgroundPapelera.png');
         this.load.image('bolaImage', './assets/images/Objetos/BolaPapel.png');
         this.load.image('basuraImagen', './assets/images/Objetos/basura.png');
         this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
@@ -23,7 +23,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         super.create();
 
         //background
-        this.add.image(0,0,'background').setOrigin(0,0).setScale(10.0,13.0);
+        this.add.image(0,0,'background2').setOrigin(0,0).setScale(10.0,13.0);
         // BotonPause
 		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJBasura");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
         this.pauseButton.setDepth(10);

@@ -13,7 +13,7 @@ export default class MJ_Nave extends MinijuegoBase{
     }
     preload(){
         super.preload();
-        this.load.image('background', './assets/images/Backgrounds/bg_mjNave.png');
+        this.load.image('background4', './assets/images/Backgrounds/bg_mjNave.png');
         this.load.image('nave', './assets/images/Objetos/nave.png');
         this.load.image('virusA', './assets/images/Objetos/virusA.png');
         this.load.image('virusB', './assets/images/Objetos/virusB.png');
@@ -22,7 +22,7 @@ export default class MJ_Nave extends MinijuegoBase{
         super.create();
 
         //background
-        this.add.image(0,0,'background').setOrigin(0,0);
+        this.add.image(0,0,'background4').setOrigin(0,0);
 
         this.bounds = {x: 112, y:80, w:378, h:220};
         this.physics.world.setBounds(this.bounds.x,this.bounds.y,this.bounds.w,this.bounds.h);
