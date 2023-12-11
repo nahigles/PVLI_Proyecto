@@ -1,5 +1,5 @@
-import PauseMenuMJBase from '../UI/PauseMenuMJBase.js';
-export default class PauseMenuMJBasura extends PauseMenuMJBase {
+import PauseMenu from '../UI/PauseMenu.js';
+export default class PauseMenuMJBasura extends PauseMenu {
 	/**
 	 * Constructor, deficimos la key que tendrá la escena, nos sirve para los cambios de escena 
 	 */

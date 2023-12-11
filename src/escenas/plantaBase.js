@@ -46,8 +46,17 @@ export default class PlantaBase extends Phaser.Scene{
         this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
         this.m = this.input.keyboard.addKey('M'); 
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
-    }
 
+        //Minijuego
+		this.mjCompletado = false;
+    }
+    startMinijuego(){
+        this.scene.launch(this.minijuego);
+        this.scene.pause();
+    }
+    minijuegoCompletado(){
+		this.mjCompletado = true;
+	}
     update(){
         
         if(this.m.isDown){ 

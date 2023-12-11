@@ -110,6 +110,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
        });
        //cuando se iguale el score se termina el minijuego
        if(this.score>this.emilioScore){
+        this.scene.get("Planta1").minijuegoCompletado();
             //para que no cambie de repente
             setTimeout(()=>{
                 this.scene.resume('Planta1'); //volvemos a planta

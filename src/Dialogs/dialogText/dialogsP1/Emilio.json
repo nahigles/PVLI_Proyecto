@@ -2,8 +2,8 @@
     "Talk": [
         {
             "who": "Emilio",
-            "frase": "Tira parriba anda!",
-            "nextId": 6
+            "frase": "Ole! Claro, todo el día con las pantallitas, esto a vosotros os viene en la sangre ya. Sube pues, tu que todavía puedes enfrentarte a unas escaleras.Tira parriba anda!",
+            "nextId": 5
             },{
             "who": "Emilio",
             "frase": "A dónde vas muchacha?",
@@ -20,10 +20,6 @@
             "who": "Action", 
             "what": "MinijuegoPlanta1",
             "nextId": 5
-            },{
-            "who": "Emilio",
-            "frase": "Ole! Claro, todo el día con las pantallitas, esto a vosotros os viene en la sangre ya. Sube pues, tu que todavía puedes enfrentarte a unas escaleras.",
-            "nextId": 6
             },{
             "who": "End"
         }

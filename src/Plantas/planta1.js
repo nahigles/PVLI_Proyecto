@@ -56,6 +56,7 @@ export default class Planta1 extends plantaBase {
 		super.create();
 
 		this.p = this.input.keyboard.addKey('P');
+		this.w = this.input.keyboard.addKey('W');
 		//this.add.image(0,0,'Tablon');  
 		// TILEMAP
 		this.map = this.make.tilemap({ 
@@ -141,6 +142,7 @@ export default class Planta1 extends plantaBase {
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
 		this.resultado = false;		//saber si se ha dado ya el resultado de la mision
+		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
     }
 	catchFolder(){
 		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
@@ -151,6 +153,9 @@ export default class Planta1 extends plantaBase {
 	}
 	hablaConAlvaro(){		//ha elegido hablar con Alvaro
 		this.haveToTalk = true;
+	}
+	finConversacionVictoria(){// ha hablado con Victoria, por lo que ha tomado una decision respecto a la mision
+		this.choose = true;
 	}
 	finConversacionAlvaro(){// ha hablado con Alvaro
 		this.alreadyTalked = true;
@@ -185,15 +190,24 @@ export default class Planta1 extends plantaBase {
 			this.carpeta.x = this.jugador.x + 12;
 		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
-		if(!this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.physics.overlap(this.jugador, this.NPCAlvaro) ){
+		if(this.choose && !this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.physics.overlap(this.jugador, this.NPCAlvaro) ){
 			this.jugador.body.setVelocityX(0);
 			this.scene.get("UiScene").talk();
 		}
 		//Cuando se llegue a Alma, dependiendo de lo que has hecho se te de el resultado de la mision
-		if(!this.resultado && this.physics.overlap(this.jugador, this.NPCAlma)){
+		if(this.choose && !this.resultado && this.physics.overlap(this.jugador, this.NPCAlma)){
 			this.resultadoMision();
 			if(this.resultado) {
 				this.carpeta.destroy();
+			}
+		}
+		//Cuando se tenga el ascensor, sise ha completado la mision y el minijuego puede subir, si no todavia no
+		if(this.w.isDown){ 
+			if(this.mjCompletado && this.resultado) {
+				console.log("puedes subir");
+			}
+			else{
+				console.log("todavia no puedes subir");
 			}
 		}
     }
