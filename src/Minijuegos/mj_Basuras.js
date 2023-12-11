@@ -25,7 +25,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         //background
         this.add.image(0,0,'background2').setOrigin(0,0).setScale(10.0,13.0);
         // BotonPause
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuMJBasura");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
+		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenumj_Basuras");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
         this.pauseButton.setDepth(10);
 
         this.ballsText = this.add.text(5,8, 'BALLS: ' + this.ballNumer, {

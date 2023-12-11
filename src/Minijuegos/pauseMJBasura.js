@@ -4,7 +4,7 @@ export default class PauseMenuMJBasura extends PauseMenuMJBase {
 	 * Constructor, deficimos la key que tendrá la escena, nos sirve para los cambios de escena 
 	 */
 	constructor(){	
-		super('mj_Basuras', 'Planta2', 'PauseMenuMJBasura');
+		super('mj_Basuras', 'Planta2', 'PauseMenumj_Basuras');
 	}
 	init(){
 	}
