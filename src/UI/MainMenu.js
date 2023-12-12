@@ -17,28 +17,75 @@ export default class MainMenu extends Phaser.Scene {
 		//this.load.image("playButton", "./assets/images/UI/MainMenu/playButton.png" );
         this.load.spritesheet("playButton2", "./assets/images/UI/MainMenu/playButton3.png", {frameWidth: 300, frameHeight: 120});
 		
+		// IMAGENES TILEMAP
+		this.load.tilemapTiledJSON('tilemap_main_menu', './assets/Prueba_Mapa/mapa_main_menu.json');
+        this.load.image('tileset_architecture_blue', 'assets/officeAssets/Architecture/tiles_architecture_blue.png');
+        this.load.image('tileset_architecture_purple', 'assets/officeAssets/Architecture/tiles_architecture_purple.png');
+        this.load.image('tileset_architecture_green', 'assets/officeAssets/Architecture/tiles_architecture_green.png');
+		this.load.image('tileset_door_purple', 'assets/officeAssets/Doors/tile_door_purple.png');
+        this.load.image('tileset_furniture_yellow', 'assets/officeAssets/Furniture/tiles_furniture_yellow.png');
+        this.load.image('tileset_furniture_green', 'assets/officeAssets/Furniture/tiles_furniture_green.png');
+        this.load.image('tileset_objects_yellow', 'assets/officeAssets/Objects/tiles_objects_yellow.png');
+        this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
+        this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
     }
     create(){
-		// BotonPlay
-		this.PlayButton = new Button(this, 300, 200, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{}, ()=>{});
-		this.PlayButton.changeScale(1.2,1.2);
-
+		
+		// TILE MAP
+		this.map = this.make.tilemap({ 
+			key: 'tilemap_main_menu', 
+			tileWidth: 16, 
+			tileHeight: 16,
+			width : 100,
+			height : 100
+		});
+		
+		// TILE SET
+		const tileset_architecture_blue = this.map.addTilesetImage('tiles_architecture_blue', 'tileset_architecture_blue');  
+		const tileset_architecture_purple = this.map.addTilesetImage('tiles_architecture_purple', 'tileset_architecture_purple');  
+		const tileset_architecture_green = this.map.addTilesetImage('tiles_architecture_green', 'tileset_architecture_green');  
+		const tileset_door = this.map.addTilesetImage('tile_door_purple', 'tileset_door_purple');  
+		const tileset_furniture_yellow = this.map.addTilesetImage('tiles_furniture_yellow', 'tileset_furniture_yellow');  
+		const tileset_furniture_green = this.map.addTilesetImage('tiles_furniture_green', 'tileset_furniture_green');  
+		const tileset_objects_yellow = this.map.addTilesetImage('tiles_objects_yellow', 'tileset_objects_yellow');  
+		const tileset_objects_green = this.map.addTilesetImage('tiles_objects_green', 'tileset_objects_green');  
+		const tileset_objects_purple = this.map.addTilesetImage('tiles_objects_purple', 'tileset_objects_purple');  
+		
+		// LAYERS
+		this.backgroundLayer = this.map.createLayer('Fondo', tileset_architecture_blue);
+		this.wallLayer = this.map.createLayer('Walls', tileset_architecture_blue);
+		this.windowsLayer = this.map.createLayer('Ventanas', [tileset_architecture_green, tileset_architecture_purple, tileset_architecture_blue]);
+		this.doorLayer = this.map.createLayer('Puerta', tileset_door);
+		this.objectsLayer_1 = this.map.createLayer('Furniture', [tileset_furniture_green, tileset_furniture_yellow, tileset_objects_green, tileset_objects_purple, tileset_objects_yellow]);
+		this.objectsLayer_2 = this.map.createLayer('Furniture2', [tileset_furniture_green, tileset_furniture_yellow, tileset_objects_green, tileset_objects_purple, tileset_objects_yellow]);
+		this.chairsLayer = this.map.createLayer('Chairs', [tileset_objects_green, tileset_objects_purple, tileset_objects_yellow]);
+		
+		// Colisiones con las paredes
+		this.wallLayer.setCollisionByExclusion([-1]);
+		
 		// Jugadores
-		this.player1 = new Jugador(this, 100, 50, 'playerAnim');
+		// Desactivo Input para que no se muevan
+		this.player1 = new Jugador(this, 130, 50, 'playerAnim');
 		this.player1.onPauseInput();
 		this.player1.jumpAnim();
-		this.player1.body.setCollideWorldBounds(true);
 
-		this.player2 = new Jugador(this, 200, 50, 'playerAnim');
+		this.player2 = new Jugador(this, 61, 80, 'playerAnim');
 		this.player2.onPauseInput();
 		this.player2.sitAnim();
-		this.player2.body.setCollideWorldBounds(true);
-
+		this.player2.body.allowGravity = false;
 		
-		// Desactivo Input para que no se muevan
-
-
-    }
+		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
+		this.cameras.main.startFollow(this.player1);
+		this.cameras.main.setZoom(3.2);
+		
+		// Colisiones MAPA 
+		this.physics.add.collider(this.player1, this.wallLayer)
+		this.physics.add.collider(this.player2, this.wallLayer)
+		
+		// BotonPlay
+		this.button = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{});
+		this.button.setScale(0.1, 0.1);
+	}
     update(){
     }
 }

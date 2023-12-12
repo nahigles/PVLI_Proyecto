@@ -69,23 +69,24 @@ export default class Planta1 extends plantaBase {
 		
 		
 		// tiles
-		const tileset1 = this.map.addTilesetImage('tileset_architecture', 'tileset_Planta_1_1');  
-		const tileset2 = this.map.addTilesetImage('tileset_elevator', 'tileset_Planta_1_2');  
-		const tileset3 = this.map.addTilesetImage('tileset_objects', 'tileset_Planta_1_3');  
+		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_yellow', 'tileset_architecture_yellow');  
+		const tileset_door = this.map.addTilesetImage('tile_door_yellow', 'tileset_door_yellow');  
+		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_yellow', 'tileset_furniture_yellow');  
+		const tileset_objects = this.map.addTilesetImage('tiles_objects_yellow', 'tileset_objects_yellow');  
+		const tileset_objects_grey = this.map.addTilesetImage('tileset_objects', 'tileset_objects_grey');  
+		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
 		
-		// Layers MAPA PRUEBA 1
-		/*this.backgroundLayer = this.map.createLayer('BGWall', [tileset1, tileset2, tileset3]);
-		this.groundLayer = this.map.createLayer('Architecture', [tileset1, tileset2, tileset3]);
-		this.foreground = this.map.createLayer('Elevators', [tileset1, tileset2, tileset3]);*/
-		//this.backgroundLayer.resizeWorld();
+		// Layers 
+		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
+		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);
+		this.windowsLayer = this.map.createLayer('Windows', tileset_architecture);
+		this.columsLayer = this.map.createLayer('Colums', tileset_architecture);
+		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset_objects, tileset_objects_grey]);
+		this.doorLayer = this.map.createLayer('Doors', tileset_door);
+		this.objectsLayer = this.map.createLayer('Furniture', [tileset_objects, tileset_furniture, tileset_objects_grey]);
+		this.chairsLayer = this.map.createLayer('Chairs', [tileset_objects, tileset_objects_grey]);
 
-		// Layers MAPA PRUEBA 2
-		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset2, tileset3]);
-		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset2, tileset3]);
-		// Layers MAPA PRUEBA 3
-		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset2, tileset3]);
-		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset2, tileset3]);
-
+		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
 		// Layer objeto
 		
@@ -95,23 +96,28 @@ export default class Planta1 extends plantaBase {
 		this.NPCAlma = new NPC(this, 200, 50, 'NPCAlma', 'Alma');
 		this.NPCEmilio = new NPC(this, 100, 50, 'NPCEmilio', 'Emilio');
 		this.NPCGroup.addMultiple([this.NPCVictoria, this.NPCAlvaro, this.NPCAlma, this.NPCEmilio]);
-		/*
+		
 		// NPCS POR CAPA DE OBJETOS
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// Bucle de creación
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
 				this.npc = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				this.NPCGroup.add(this.npc);
+				console.log("Esto apesta aa");
+
 			}
 		}
-		*/
+		
 
 
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
-			classType: Jugador,
-			id: 2
+			name: 'Jugador',
+			classType: Jugador
 		})[0];
 		console.log(this.jugador);
 		console.log("Esto apesta");
