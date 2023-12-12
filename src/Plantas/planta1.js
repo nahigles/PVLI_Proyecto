@@ -35,17 +35,14 @@ export default class Planta1 extends plantaBase {
 	//	this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		
 
-		// MAPA PRUEBA 1
-		/*this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/example.json');
-        this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
-        this.load.image('tileset_Planta_1_2', './assets/Prueba_Mapa/tileset_elevator.png');
-        this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');*/
-
-		// MAPA PRUEBA 2
-		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/mapa_prueba_3.json');
-        this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
-		this.load.image('tileset_Planta_1_2', './assets/Prueba_Mapa/tileset_elevator.png');
-        this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');
+		// IMAGENES TILES 
+		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/tilemap_planta_1_amarilla_2.json');
+        this.load.image('tileset_architecture_yellow', 'assets/officeAssets/Architecture/tiles_architecture_yellow.png');
+		this.load.image('tileset_door_yellow', 'assets/officeAssets/Doors/tile_door_yellow.png');
+        this.load.image('tileset_furniture_yellow', 'assets/officeAssets/Furniture/tiles_furniture_yellow.png');
+        this.load.image('tileset_objects_yellow', 'assets/officeAssets/Objects/tiles_objects_yellow.png');
+        this.load.image('tileset_objects_grey', 'assets/officeAssets/Objects/tileset_objects.png');
+        //this.load.image('tileset_plants_yellow', 'assets/officeAssets/Plants/tiles_plantas_yellow.png');
     }
 
     create(){
@@ -65,53 +62,45 @@ export default class Planta1 extends plantaBase {
 		
 		
 		// tiles
-		const tileset1 = this.map.addTilesetImage('tileset_architecture', 'tileset_Planta_1_1');  
-		const tileset2 = this.map.addTilesetImage('tileset_elevator', 'tileset_Planta_1_2');  
-		const tileset3 = this.map.addTilesetImage('tileset_objects', 'tileset_Planta_1_3');  
+		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_yellow', 'tileset_architecture_yellow');  
+		const tileset_door = this.map.addTilesetImage('tile_door_yellow', 'tileset_door_yellow');  
+		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_yellow', 'tileset_furniture_yellow');  
+		const tileset_objects = this.map.addTilesetImage('tiles_objects_yellow', 'tileset_objects_yellow');  
+		const tileset_objects_grey = this.map.addTilesetImage('tileset_objects', 'tileset_objects_grey');  
+		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
 		
-		// Layers MAPA PRUEBA 1
-		/*this.backgroundLayer = this.map.createLayer('BGWall', [tileset1, tileset2, tileset3]);
-		this.groundLayer = this.map.createLayer('Architecture', [tileset1, tileset2, tileset3]);
-		this.foreground = this.map.createLayer('Elevators', [tileset1, tileset2, tileset3]);*/
-		//this.backgroundLayer.resizeWorld();
+		// Layers 
+		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
+		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);
+		this.windowsLayer = this.map.createLayer('Windows', tileset_architecture);
+		this.columsLayer = this.map.createLayer('Colums', tileset_architecture);
+		this.cubiclesLayer = this.map.createLayer('Cubicles', [tileset_objects, tileset_objects_grey]);
+		this.doorLayer = this.map.createLayer('Doors', tileset_door);
+		this.objectsLayer = this.map.createLayer('Furniture', [tileset_objects, tileset_furniture, tileset_objects_grey]);
+		this.chairsLayer = this.map.createLayer('Chairs', [tileset_objects, tileset_objects_grey]);
 
-		// Layers MAPA PRUEBA 2
-		this.backgroundLayer = this.map.createLayer('BG Wall', [tileset1, tileset3]);
-		this.wallLayer = this.map.createLayer('Walls', [tileset1, tileset3]);
-		// Layers MAPA PRUEBA 3
-		this.cubiclesLayer = this.map.createLayer('Cubicles', tileset3);
-		this.elevatorsLayer = this.map.createLayer('Elevators', [tileset1, tileset2, tileset3]);
-
+		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
-		// Layer objeto
-
-		//Camara
-		//this.cameras.main.setBounds(0,0,800, 180);//ancho  y alto nivel
-		// Jugador
-		//this.jugador = new Jugador(this, 100, 50, 'playerAnim');
 		
-		
-		this.NPCGroup = this.physics.add.group();
-		/*this.NPCGroup.add(new NPC(this, 100, 50, 'NPCEmilio', 'Emilio'));
-		this.NPCGroup.add(new NPC(this, 250, 50, 'NPCAurelia', 'Aurelia'));
-		this.NPCGroup.add(new NPC(this, 400, 50, 'NPCJulia', 'Julia'));*/
-
 		// NPCS POR CAPA DE OBJETOS
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// Bucle de creación
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
 				this.npc = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				this.NPCGroup.add(this.npc);
+				console.log("Esto apesta aa");
+
 			}
 		}
 
-
-
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
-			classType: Jugador,
-			id: 2
+			name: 'Jugador',
+			classType: Jugador
 		})[0];
 		console.log(this.jugador);
 		console.log("Esto apesta");
@@ -126,24 +115,22 @@ export default class Planta1 extends plantaBase {
 			NPCs: this.NPCGroup
 		});
 		
-		// Colisiones MAPA PRUEBA 2
+		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer)
 		this.physics.add.collider(this.NPCGroup, this.wallLayer)
-		
-		
        
 
     }
 
     update(){
 		super.update();
-		console.log(this.jugador.x);
+		/*console.log(this.jugador.x);
 		console.log(this.jugador.y);
 		if(this.p.isDown){ 
 			this.scene.start('Planta2');
 			this.scene.stop();
 			console.log("Paso de P1 a P2")
-		}
+		}*/
 		
     }
 
