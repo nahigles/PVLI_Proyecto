@@ -55,7 +55,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 
 		//sprite jug
 		this.jugador = new Phaser.GameObjects.Sprite(scene, 0, 0, 'playerAnim', 0);
-		this.jugador.setOrigin(0,0).setScale(1.0,1.0);
+		this.jugador.setOrigin(0.3,0).setScale(1.0,1.0);
 		
 		this.add(this.jugador); // Añadimos al contenedor
 
@@ -70,7 +70,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 
 		// Físicas
-		this.body.width = 24;
+		this.body.width = 10;
 		this.body.height = 24;
 		scene.physics.add.existing(this);
 		

@@ -1,14 +1,14 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 
-export default class Planta4 extends plantaBase {
+export default class Planta4_2 extends plantaBase {
 	/**
 	 * Nivel 1
 	 * @extends plantaBase
 	 */
 
 	constructor(){	
-		super('Planta4', 'Planta4_2', 'mj_Nave', 'level1', 'tiles', 560);
+		super('Planta4_2', 'Planta5', 'mj_Nave', 'level1', 'tiles', 560);
 	}
 
 	init(){
@@ -20,7 +20,7 @@ export default class Planta4 extends plantaBase {
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 
 		// IMAGENES MAPA
-		this.load.tilemapTiledJSON('tilemap_Planta_4_1', './assets/Prueba_Mapa/mapa_planta_4_1_purple.json');
+		this.load.tilemapTiledJSON('tilemap_Planta_4_2', './assets/Prueba_Mapa/mapa_planta_4_2_purple.json');
         this.load.image('tileset_architecture_purple', 'assets/officeAssets/Architecture/tiles_architecture_purple.png');
         this.load.image('tileset_furniture_purple', 'assets/officeAssets/Furniture/tiles_furniture_purple.png');
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
@@ -32,7 +32,7 @@ export default class Planta4 extends plantaBase {
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 
-			key: 'tilemap_Planta_4_1', 
+			key: 'tilemap_Planta_4_2', 
 			tileWidth: 16, 
 			tileHeight: 16,
 			width : 100,
@@ -50,6 +50,8 @@ export default class Planta4 extends plantaBase {
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
 		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);
 		this.windowsLayer = this.map.createLayer('Windows', tileset_architecture);
+		this.chairsLayer2 = this.map.createLayer('Chairs2', [tileset_objects]);
+		this.objectsLayer2 = this.map.createLayer('Furniture2', [tileset_objects, tileset_furniture]);
 		this.objectsLayer = this.map.createLayer('Furniture', [tileset_objects, tileset_furniture]);
 		this.chairsLayer = this.map.createLayer('Chairs', [tileset_objects]);
 		this.doorLayer = this.map.createLayer('Door', [tileset_door]);
@@ -79,9 +81,9 @@ export default class Planta4 extends plantaBase {
 		super.update();
 
 		if(this.p.isDown){ 
-			this.scene.start('Planta4_2');
+			this.scene.start('Planta5');
 			this.scene.stop();
-			console.log("Paso de P4_1 a P4_2")
+			console.log("Paso de P4_2 a P5")
 		}	
     }
 
