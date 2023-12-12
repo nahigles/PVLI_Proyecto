@@ -29,7 +29,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		this.action1Method = action1;
 		this.action2Method = action2;
 		this.action3Method = action3;
-		this.action4Method = action4
+		this.action4Method = action4;
 		this.self = this;
 
 		if(key === 'playButton2') {

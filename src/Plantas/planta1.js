@@ -47,8 +47,13 @@ export default class Planta1 extends plantaBase {
         this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');*/
 
 		// MAPA PRUEBA 2
-	   	this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/mapa_prueba_3.json');
-        this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
+		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/tilemap_planta_1_amarilla_2.json');
+        this.load.image('tileset_architecture_yellow', 'assets/officeAssets/Architecture/tiles_architecture_yellow.png');
+		this.load.image('tileset_door_yellow', 'assets/officeAssets/Doors/tile_door_yellow.png');
+        this.load.image('tileset_furniture_yellow', 'assets/officeAssets/Furniture/tiles_furniture_yellow.png');
+        this.load.image('tileset_objects_yellow', 'assets/officeAssets/Objects/tiles_objects_yellow.png');
+        this.load.image('tileset_objects_grey', 'assets/officeAssets/Objects/tileset_objects.png');
+        //this.load.image('tileset_plants_yellow', 'assets/officeAssets/Plants/tiles_plantas_yellow.png');
 
     }
 
@@ -99,7 +104,7 @@ export default class Planta1 extends plantaBase {
 		
 		// NPCS POR CAPA DE OBJETOS
 		// Grupo de NPCS
-		this.NPCGroup = this.physics.add.group();
+		//this.NPCGroup = this.physics.add.group();
 		// Bucle de creación
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
@@ -111,8 +116,6 @@ export default class Planta1 extends plantaBase {
 
 			}
 		}
-		
-
 
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
