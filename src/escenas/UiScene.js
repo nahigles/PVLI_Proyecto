@@ -177,12 +177,14 @@ export default class UiScene extends Phaser.Scene {
                 this.exit.changeScale(0.6,0.6);
                 break;
             case "MinijuegoPlanta1":
+                this.endDialog();
                 this.scene.get("Planta1").startMinijuego();
                 break;
             case "HablaConAlvaro" :
                 this.scene.get("Planta1").hablaConAlvaro();
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
+                
             case "FinConversacionVictoria" : 
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
