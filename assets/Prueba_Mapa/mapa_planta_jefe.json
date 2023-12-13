@@ -60,6 +60,29 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":7,
+         "name":"Jugador",
+         "objects":[
+                {
+                 "height":0,
+                 "id":1,
+                 "name":"Jugador",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Jugador",
+                 "visible":true,
+                 "width":0,
+                 "x":64.7272727272727,
+                 "y":86.5454545454545
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -116,8 +139,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":7,
- "nextobjectid":1,
+ "nextlayerid":8,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

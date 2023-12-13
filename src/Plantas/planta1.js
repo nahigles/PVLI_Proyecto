@@ -40,13 +40,7 @@ export default class Planta1 extends plantaBase {
 		this.load.image('Carpeta', './assets/images/Objetos/Carpeta.png');
 		//this.load.image('Tablon', './assets/images/Objetos/Tabla.png');
 
-		/*// MAPA PRUEBA 1
-		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/example.json');
-        this.load.image('tileset_Planta_1_1', './assets/Prueba_Mapa/tileset_architecture.png');
-        this.load.image('tileset_Planta_1_2', './assets/Prueba_Mapa/tileset_elevator.png');
-        this.load.image('tileset_Planta_1_3', './assets/Prueba_Mapa/tileset_objects.png');*/
-
-		// MAPA PRUEBA 2
+		// IMAGENES MAPA 
 		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/tilemap_planta_1_amarilla_2.json');
         this.load.image('tileset_architecture_yellow', 'assets/officeAssets/Architecture/tiles_architecture_yellow.png');
 		this.load.image('tileset_door_yellow', 'assets/officeAssets/Doors/tile_door_yellow.png');
@@ -140,8 +134,7 @@ export default class Planta1 extends plantaBase {
 			NPCs: this.NPCGroup
 		});	
 
-
-		// Colisiones MAPA PRUEBA 2
+		// Colisiones MAPA
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
