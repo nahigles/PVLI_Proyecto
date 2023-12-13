@@ -29,10 +29,10 @@ export default class MJ_Basuras extends MinijuegoBase{
         this.pauseButton.setDepth(10);
 
         this.ballsText = this.add.text(5,8, 'BALLS: ' + this.ballNumer, {
-            fontSize: '10px', 
+            fontSize: '20px', 
             fill: '#fff',
             fontFamily:'Arial',
-            resolution: 50,
+            resolution: 2,
             antialias: true
         }).setScrollFactor(0);
 
@@ -40,10 +40,15 @@ export default class MJ_Basuras extends MinijuegoBase{
         this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage', ()=>{this.basura.basuraCollider});
   
         //colisiones y rebote
-        this.physics.add.collider(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
+        this.physics.add.overlap(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
          // si colisiona hace esto
-            this.ballNumer = this.ballNumer - 1;
-            console.log("Colisionau");
+         if(bolaPapel.body.touching.down){
+             this.ballNumer = this.ballNumer - 1;
+             this.ballsText.setText('BALLS: ' + this.ballNumer);
+             console.log("Colisionau");
+             bolaPapel.resetPosition();
+             basura.stopBasura();
+            } 
         });
     }
 
