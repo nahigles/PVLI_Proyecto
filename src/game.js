@@ -14,7 +14,7 @@ import PauseMenuMJBasura from './Minijuegos/pauseMJBasura.js';
 import MJ_Basuras from './Minijuegos/mj_Basuras.js';
 import PauseMenuPlanta1 from './Plantas/pausePlanta1.js';
 import PauseMenuPlanta2 from './Plantas/pausePlanta2.js';
-import MJ_Nave from './Minijuegos/mj_Nave.js';
+import MJ_Nave from './Minijuegos/mjNave/mj_Nave.js';
 	// Configuracion phaser
     var config = {
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
@@ -35,7 +35,7 @@ import MJ_Nave from './Minijuegos/mj_Nave.js';
             arcade: {
                 gravity: {y: 400},
                 // Visibilidad de las colisiones 
-                debug: true
+                debug: false
             }
         }
     }

@@ -10,8 +10,7 @@ export default class Bala extends Phaser.GameObjects.Sprite {
 		super(scene, x, y, 'balaAnim');
         this.key = 'balaAnim';
         this.rotation = rot;
-        this.speed = 100;
-        this.setScale(2,2); 
+        this.setScale(3,3); 
 
 		this.scene.add.existing(this);
 
@@ -41,17 +40,18 @@ export default class Bala extends Phaser.GameObjects.Sprite {
 		super.preUpdate(t, dt);
         
         this.play(this.key, true);
-
-        this.scene.physics.velocityFromRotation(this.rotation, 200, this.body.acceleration);
+		
+        this.scene.physics.velocityFromRotation(this.rotation, 666, this.body.acceleration);
 
         if (this.x < this.bounds.x || this.x > this.bounds.x + this.bounds.w || this.y < this.bounds.y || this.y > this.bounds.y + this.bounds.h)
         {            
-			this.pool.release(this)
+			this.destroy();
         }
 	}
 
-    activate(){
-        this.setActive(true);
-        console.log("ACTIVATE");
+	
+    destroyBala(){
+		this.pool.release(this);
+		
     }
 }

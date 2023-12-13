@@ -1,4 +1,4 @@
-import Bala from '../Minijuegos/bala.js'
+import Bala from './bala.js'
 
 export default class Pool {
 	/**
@@ -19,7 +19,7 @@ export default class Pool {
 		this._group.killAndHide(entity);
 	}
 	
-	spawn (x, y, rot) {
+	spawn (x, y, rot, vel) {
 		let entity = this._group.getFirstDead();
 		console.log("spawn");
 		
@@ -37,6 +37,8 @@ export default class Pool {
 				this._group.remove(entity);				
 				entity.x = x;
 				entity.y = y;
+				entity.rotation = rot; 
+				entity.body.setVelocity(vel.x, vel.y);                                                                                                                                                                             
 				this._group.add(entity);	
 				console.log ("reused");
 			}			
@@ -45,12 +47,15 @@ export default class Pool {
 		// Cuando ya hemos conseguido la entidad de alguna forma la reutilizamos
 		if (entity) {
 			console.log("dead relive");
+			entity.x = x;
+			entity.y = y;
+			entity.rotation = rot; 
+			entity.body.setVelocity(vel.x, vel.y);
 			entity.setActive(true);
 			entity.setVisible(true);
-			entity.activate();
 			entity.play(entity.key, true);
 
-			//entity.body.checkCollision.none = false;
+			entity.body.checkCollision.none = false;
 		}
 
 		console.log(entity);
@@ -62,12 +67,10 @@ export default class Pool {
 	 * @param {Object} entity - entidad de la pool que queremos marcar como libre
 	 */
 	release (entity) {
-		//entity.body.checkCollision.none = true;
+		entity.body.checkCollision.none = true;
 		this._group.killAndHide(entity);
-		/*
 		entity.setActive(false);
 		entity.setVisible(false);
-		*/
 	}
 
 
