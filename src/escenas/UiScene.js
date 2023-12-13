@@ -183,6 +183,7 @@ export default class UiScene extends Phaser.Scene {
                 this.scene.get("Planta1").hablaConAlvaro();
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
+                
             case "FinConversacionVictoria" : 
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;

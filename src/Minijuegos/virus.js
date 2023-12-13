@@ -1,35 +1,51 @@
-export default class Nave extends Phaser.GameObjects.Sprite {
+export default class Virus extends Phaser.GameObjects.Sprite {
     /**
 	 * Constructor
 	 * @param {Scene} scene -  escena
 	 * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
-     * @param {string} key - texture
 	 */
-    constructor(scene, x, y, key, bounds){
+    constructor(scene, bounds){
 		// Llamamos al constructor del padre
+        let x = Phaser.Math.Between(bounds.x+10, bounds.x+bounds.w-10);
+        let y = Phaser.Math.Between(bounds.y+10, bounds.y+bounds.h-10);
+        
+        let key;
+        let speed;
+        if (Math.random() < 0.5){
+            key = 'virusA';
+            speed = 1;
+        }
+        else {
+            key = 'virusB';
+            speed = 2;
+        }
+
 		super(scene, x, y, key);
-        this.speed = 2;
-        this.setScale(1,1); 
 
         // Guardamos escena y añadimos ajolote a escena
 		this.scene = scene;
 		this.scene.add.existing(this);
-        this.key = key;
 
         this.bounds = bounds;
+        this.speed = speed;
 
         //FISICAS
-        scene.physics.world.enable(this);
-        this.body.setAllowGravity(false);
+        scene.physics.world.enable(this); 
+        /*       
+        this.dirX = Phaser.Math.Between(-1, 1);
+        this.dirY = Phaser.Math.Between(-1, 1);
+        this.body.setVelocity(10, 20);// = {Phaser.Math.Between(-2, 2), Math.Between(-2, 2)};
+        */
+        console.log(this);
     }
     preUpdate(t, dt){
         super.preUpdate(t, dt);
-
-        this.x += this.speed;
-
+        /*
+        this.x += this.dirX*this.speed;
+        this.y += this.dirY*this.speed;
+        */
         this.screenWrap();
-
 	}
 
     screenWrap () {
