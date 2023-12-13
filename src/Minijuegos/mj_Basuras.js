@@ -34,7 +34,7 @@ export default class MJ_Basuras extends MinijuegoBase{
         }).setScrollFactor(0);
 
         this.basura = new Basura(this, 150, 150, "basuraImagen");
-        this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage');
+        this.bolaPapel = new BolaPapel(this,150,350, 'bolaImage', ()=>{this.basura.basuraCollider});
   
         //colisiones y rebote
         this.physics.add.collider(this.basura, this.bolaPapel, (basura,bolaPapel)=>{
@@ -46,5 +46,12 @@ export default class MJ_Basuras extends MinijuegoBase{
 
     update(t,dt){
         console.log(this.ballNumer);
+
+        if(this.ballNumer == 0){
+            setTimeout(()=>{
+                this.scene.resume('Planta2'); //volvemos a planta
+                this.scene.stop();
+            },1500);
+        }
     }
 }

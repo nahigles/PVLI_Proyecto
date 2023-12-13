@@ -9,22 +9,24 @@ export default class Basura extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, key) {
         //constructor padre
         super(scene,x,y,key);
-        //añadir la plataforma a la escena
+        
         scene.add.existing(this);
         //añadir fisicas
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
         this.touch = false;
 
-        this.setScale(4.0,4.0);
+        this.setScale(2.0,2.0);
         this.desplazamiento = 25;
-        this.speed = 40;
+        this.speed = 5;
+        this.dir = 1;
 
         //limite derecha e izquierda de movimiento
         this.limDer = 500; 
-        this.limIzq = 0;
+        this.limIzq = 50;
 
         this.body.setVelocity(this.speed, 0);
+        //this.body.enable = false;
     }  
     
     create(){
@@ -36,10 +38,15 @@ export default class Basura extends Phaser.GameObjects.Sprite{
         super.preUpdate(t,dt);
         
         if(this.x < this.limIzq) {
-            this.body.setVelocity(this.speed, 0);
+            this.dir = 1;
         }
-        if(this.x > this.limDer) {
-            this.body.setVelocity(-this.speed, 0);
+        else if(this.x > this.limDer) {
+            this.dir = -1;
         }
+        this.x += (dt/20)*2*this.speed*this.dir;
+    }
+
+    basuraCollider(enableBool){
+        this.body.enable = enableBool;
     }
 }

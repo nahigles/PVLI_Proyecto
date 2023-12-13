@@ -6,7 +6,7 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
      *  @param {number} y - coordenada y
      *  @param {String} key - identificador del color del sprite
      */
-    constructor(scene, x, y, key) {
+    constructor(scene, x, y, key, activoDesactivoBasura) {
         //constructor padre
         super(scene,x,y,key);
         //añadir la plataforma a la escena
@@ -18,7 +18,8 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         this.speed = 150;
         this.initialY = y;
         this.bajando = false;
-        this.setScale(5.0,5.0);
+        this.escala = 5.0;
+        this.setScale(this.escala,this.escala);
     }  
     
     create(){
@@ -40,28 +41,33 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
                 this.body.setVelocityY(-this.speed);
             }
         }
+        // Si bola clicada
         else{
+            this.setScale(this.escala,this.escala);
+            this.escala = this.escala*0.999;
             // Si ya ha llegado al punto mas alto de la pantalla
-            // Va pa abajo
             if(this.y < 0){
+                // Va pa abajo
                 this.bajando = true;
                 this.body.setVelocityY(this.speed);
                 // Activo collider basura (o bola de pende como lo quiera)
+                //activoDesactivoBasura(true);
             }
             else if(this.initialY < this.y){
                 this.body.setVelocityY(0);
                 this.pulsadaBola = false;
                 this.bajando = false;
+                this.resetPosition();
                 // Desactivo collider
+                //activoDesactivoBasura(false);
             }
         }
 
-        if(this.pulsadaBola && !this.bajando){
-            
-        }
     }
 
     resetPosition(){
-        this.body.setPosition(this.x, this.initialY,0);
+        this.setPosition(this.x, this.initialY);
+        this.escala = 5.0;
+        this.setScale(this.escala,this.escala);
     }
 }
