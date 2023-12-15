@@ -26,8 +26,6 @@ export default class PlantaBase extends Phaser.Scene{
 
          this.nextLocked = true; //el siguiente nivel esta lockeado porq todavía no se ha superado en minijuego
     }
-
-    
     init(){
 
     }
@@ -88,7 +86,6 @@ export default class PlantaBase extends Phaser.Scene{
             this.scene.pause(this.key);
         }
     }
-
     /*
     CreateMap() {
         this.map = this.make.tilemap({ key: this.mapname });

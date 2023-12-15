@@ -1,7 +1,7 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import Carpeta from '../Misiones/Carpeta.js';
+import Carpeta from '../Misiones/carpeta.js';
 export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -91,7 +91,6 @@ export default class Planta1 extends plantaBase {
 		this.NPCAlma = new NPC(this, 200, 50, 'NPCAlma', 'Alma');
 		this.NPCEmilio = new NPC(this, 100, 50, 'NPCEmilio', 'Emilio');
 		this.NPCGroup.addMultiple([this.NPCVictoria, this.NPCAlvaro, this.NPCAlma, this.NPCEmilio]);
-		
 		// NPCS POR CAPA DE OBJETOS
 		// Grupo de NPCS
 		//this.NPCGroup = this.physics.add.group();
@@ -100,10 +99,8 @@ export default class Planta1 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				this.npc = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				this.NPCGroup.add(this.npc);
-				console.log("Esto apesta aa");
-
 			}
 		}
 
@@ -139,7 +136,6 @@ export default class Planta1 extends plantaBase {
     }
 	catchFolder(){
 		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
-
 		if(canCatch && !this.carpeta.catch) { //si se puede coger y no se ha cogido antes
 			this.carpeta.catch = true;
 			this.carpeta.y += 10;
@@ -190,7 +186,7 @@ export default class Planta1 extends plantaBase {
 			this.carpeta.x = this.jugador.x + 5;
 		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
-		if(this.choose && !this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.physics.overlap(this.jugador, this.NPCAlvaro) ){
+		if(this.choose && !this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x < 300 ){
 			this.jugador.body.setVelocityX(0);
 			this.scene.get("UiScene").talk();
 		}
