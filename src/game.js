@@ -12,6 +12,7 @@ import MJ_Plataformas from './Minijuegos/mj_Plataformas.js';
 import PauseMenuMJPlataforma from './Minijuegos/pauseMJPlataformas.js';
 import PauseMenuMJBasura from './Minijuegos/pauseMJBasura.js';
 import MJ_Basuras from './Minijuegos/mj_Basuras.js';
+import PuertaSecreta from './Misiones/PuertaSecreta.js';
 import PauseMenuPlanta1 from './Plantas/pausePlanta1.js';
 import PauseMenuPlanta2 from './Plantas/pausePlanta2.js';
 import MJ_Nave from './Minijuegos/mj_Nave.js';
@@ -21,7 +22,7 @@ import MJ_Nave from './Minijuegos/mj_Nave.js';
 	    type: Phaser.AUTO, //type: Phaser.WEBGL
 	    pixelArt: true, 
         backgroundColor: '#e7d1ff',
-	    scene:[MainMenu,Planta1, Planta2, Planta3, Planta4, Planta4_2, Planta5, MJ_Plataformas, MJ_Basuras, MJ_Nave, PauseMenuMJPlataforma,PauseMenuMJBasura, UiScene, PauseMenuPlanta1, PauseMenuPlanta2 ], // Metodos que queremos en nuestros scripts
+	    scene:[MainMenu,Planta1, Planta2, Planta3, Planta4, Planta4_2, Planta5, MJ_Plataformas, MJ_Basuras, MJ_Nave, PauseMenuMJPlataforma,PauseMenuMJBasura, UiScene, PauseMenuPlanta1, PauseMenuPlanta2, PuertaSecreta ], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion

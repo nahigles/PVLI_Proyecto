@@ -11,6 +11,8 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', 'Planta3', 'mj_Basuras', 'level1', 'tiles', 560);
+
+		this.claveNum = ["1", "3", "8"];
 	}
 
 	init(){
@@ -78,15 +80,19 @@ export default class Planta2 extends plantaBase {
 		this.pauseButton.setScrollFactor(0);
         this.pauseButton.setDepth(100);
 		this.p = this.input.keyboard.addKey('P');
+		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
     }
 
-    update(){
-		super.update();
+    update(t,dt){
+		super.update(t,dt);
 		
 		if(this.p.isDown){ 
 			this.scene.start('Planta3');
 			this.scene.stop();
-			console.log("Paso de P2 a P3")
+		}
+		if(this.i.isDown){
+			this.scene.start('puertaSecreta');
+			this.scene.stop();
 		}	
     }
 

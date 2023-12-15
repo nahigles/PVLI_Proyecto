@@ -9,7 +9,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	constructor(scene, x, y){
 		// Llamamos al constructor del padre
 		super(scene, x, y);
-		this.speed = 140; // Nuestra velocidad de movimiento será 140
+		this.speed = 120; // Nuestra velocidad de movimiento será 140
 
 		
 		// Animaciones del jugador
