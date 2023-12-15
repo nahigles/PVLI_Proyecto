@@ -19,6 +19,7 @@ export default class MJ_Nave extends MinijuegoBase{
         this.load.image('nave', './assets/images/Objetos/nave.png');
 		this.load.spritesheet('balaAnim', './assets/images/Objetos/bala.png', {frameWidth: 5, frameHeight: 5});
 		this.load.spritesheet('lockAnim', './assets/images/Objetos/lock.png', {frameWidth: 10, frameHeight: 10});
+		this.load.spritesheet('explotionAnim', './assets/images/Objetos/explotion.png', {frameWidth: 19, frameHeight: 21});
         this.load.image('virusA', './assets/images/Objetos/virusA.png');
         this.load.image('virusB', './assets/images/Objetos/virusB.png');
     }
@@ -40,20 +41,33 @@ export default class MJ_Nave extends MinijuegoBase{
         this.VirusGRP = this.physics.add.group({
             allowGravity: false
         });
-        for (let i = 0; i < 6; ++i){
+        for (let i = 0; i < 1; ++i){
             this.virus = new Virus(this, this.bounds);
             this.VirusGRP.add(this.virus);
             this.virus.setV();
         }
+
+        this.triggerTimer = this.time.addEvent({
+            callback: this.addVirus(),
+            callbackScope: this,
+            delay: 3000, // 1000 = 1 sec
+            loop: true
+        });
 
         console.log(this.VirusGRP);
 
         this.balasPool = new Pool(this, 100, true, this.bounds);	
         
         this.physics.add.overlap(this.VirusGRP, this.balasPool._group, (bala, virus) => {
-            console.log("Overlap: " + virus.x + bala.x);
             bala.destroyBala();
             virus.destroyVirus();
+        })
+
+        this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {
+            virus.destroyVirus();
+            setTimeout(()=>{
+                this.scene.restart();
+            }, 100);
         })
 
         this.x = this.input.keyboard.addKey('X');
@@ -63,24 +77,18 @@ export default class MJ_Nave extends MinijuegoBase{
     }
 
     update(t,dt){
+
+        
     }
 
     shoot(){
 		this.balasPool.spawn(this.nave.x, this.nave.y, this.nave.rotation, this.nave.body.velocity);
     }
 
-    /*
-    destroyVirus(){
-        this.VirusGRP.getChildren();
-        for (const Virus of this.VirusGRP.getChildren()) {
-            if (Virus.body.embedded) Virus.body.touching.none = false;
-            let touching = !Virus.body.touching.none;
-    
-            if (touching) {
-                console.log("TOUCHING");
-                Virus.destroy();
-            }
-        }
+    addVirus(){       
+        console.log("NEW VIRUS");
+        this.virus = new Virus(this, this.bounds);
+        this.VirusGRP.add(this.virus);
+        this.virus.setV();
     }
-    */
 }

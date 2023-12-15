@@ -15,6 +15,12 @@ export default class Virus extends Phaser.GameObjects.Sprite {
         let speed;
         if (isLock){
             key = 'lockAnim'
+            scene.anims.create({
+                key: key,
+                frames: scene.anims.generateFrameNumbers(key, {start:0, end:1}),
+                frameRate: 10,
+                repeat: -1
+            });
         }
         else {
             if (Math.random() < 0.5){
@@ -24,7 +30,13 @@ export default class Virus extends Phaser.GameObjects.Sprite {
             else {
                 key = 'virusB';
                 speed = 33;
-            }
+            }            
+            scene.anims.create({
+                key: 'explotionAnim',
+                frames: scene.anims.generateFrameNumbers('explotionAnim', {start:0, end:7}),
+                frameRate: 10,
+                hideOnComplete: true
+            });
         }
 
 		super(scene, x, y, key);
@@ -52,6 +64,17 @@ export default class Virus extends Phaser.GameObjects.Sprite {
 
     destroyVirus(){
 		console.log("destroy virus");
-        this.destroy();
+        if (super.key == 'lockAnim'){
+
+        }
+        else {
+            this.play('explotionAnim', true);
+            this.once('animationcomplete', () => {
+                console.log('animationcomplete');
+                setTimeout(()=>{
+                    this.destroy();
+                },100);
+            })
+        }
     }
 }
