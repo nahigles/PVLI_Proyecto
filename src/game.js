@@ -35,7 +35,7 @@ import MJ_Nave from './Minijuegos/mjNave/mj_Nave.js';
             arcade: {
                 gravity: {y: 400},
                 // Visibilidad de las colisiones 
-                debug: false
+                debug: true
             }
         }
     }

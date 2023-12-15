@@ -21,14 +21,10 @@ export default class Pool {
 	
 	spawn (x, y, rot, vel) {
 		let entity = this._group.getFirstDead();
-		console.log("spawn");
 		
 		if(!entity){		
-			console.log("!entity");
-
 			if (this._group.getLength() < this.max) {
-				entity = new Bala(this.scene, x, y, rot, this, this.bounds);				
-				console.log("Pool created: " + entity)	
+				entity = new Bala(this.scene, x, y, rot, this, this.bounds);
 				this.addEntity(entity);
 			} 
 			 //Como hemos mencionado podemos querer reutilizar el elemento que más tiempo ha estado vivo si no tenemos otra opción
@@ -39,14 +35,12 @@ export default class Pool {
 				entity.y = y;
 				entity.rotation = rot; 
 				entity.body.setVelocity(vel.x, vel.y);                                                                                                                                                                             
-				this._group.add(entity);	
-				console.log ("reused");
+				this._group.add(entity);
 			}			
 		}		
 
 		// Cuando ya hemos conseguido la entidad de alguna forma la reutilizamos
 		if (entity) {
-			console.log("dead relive");
 			entity.x = x;
 			entity.y = y;
 			entity.rotation = rot; 
