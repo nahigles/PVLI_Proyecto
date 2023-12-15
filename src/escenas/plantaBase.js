@@ -1,4 +1,5 @@
 import Jugador from '../Personajes/jugador.js';
+import Button from '../UI/Button.js';
 /**
  * Escena planta base
  */
@@ -33,6 +34,7 @@ export default class PlantaBase extends Phaser.Scene{
 
     preload(){ //cargar los assets que vayamos a usar
        // this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+       this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton3.png');
     }
 
     create(){
@@ -49,6 +51,14 @@ export default class PlantaBase extends Phaser.Scene{
 
         //Minijuego
 		this.mjCompletado = false;
+         // BotonPause
+		/*this.pauseButton = new Button(this, 310, 8  , 'pauseButton', ()=>{ this.scene.launch("PauseMenu", {
+            level : this.key,
+            other : this.minijuego
+           });}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} );
+        this.pauseButton.setDepth(10);
+       
+        this.add.existing(this.pauseButton);*/
     }
     startMinijuego(){
         this.scene.launch(this.minijuego);
@@ -57,17 +67,26 @@ export default class PlantaBase extends Phaser.Scene{
     minijuegoCompletado(){
 		this.mjCompletado = true;
 	}
+    moveButtonRight(){
+        console.log("tihht");
+        this.pauseButton.x += 10;
+    }
+    moveButtonLeft(){
+        console.log("lefy");
+        this.pauseButton.x -= 10;
+    }
     update(){
-        
         if(this.m.isDown){ 
             this.scene.launch(this.minijuego); // Pasamos al minijuego
             this.scene.pause();
 		}        
         else if(this.esc.isDown){
-            this.scene.launch("PauseMenu"+this.key);
+           this.scene.launch("PauseMenu", {
+            level : this.key,
+            other : this.minijuego
+           });
             this.scene.pause(this.key);
         }
-   
     }
 
     /*

@@ -29,9 +29,8 @@ export default class Planta2 extends plantaBase {
         this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
     }
 
-    create(){
+    create(data){
 		super.create();
-
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_2', 
@@ -64,6 +63,14 @@ export default class Planta2 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
+		/*this.jugador = data.jugador;
+		this.jugador.scene = this;
+		this.jugador.x = 728;
+		this.jugador.y = 88;
+		console.log(this.jugador);*/
+		
+		
+		
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel

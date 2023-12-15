@@ -1,8 +1,6 @@
 import MinijuegoBase from '../escenas/minijuegoBase.js';
-import Jugador from '../Personajes/jugador.js';
 import BolaPapel from './bolaPapel.js'
 import Basura from './basura.js'
-import Button from '../UI/Button.js';
 export default class MJ_Basuras extends MinijuegoBase{
 
     constructor(){
@@ -17,17 +15,13 @@ export default class MJ_Basuras extends MinijuegoBase{
         this.load.image('background2', './assets/images/Backgrounds/BackgroundPapelera.png');
         this.load.image('bolaImage', './assets/images/Objetos/BolaPapel.png');
         this.load.image('basuraImagen', './assets/images/Objetos/basura.png');
-        this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
     }
     create(){
         super.create();
 
         //background
         this.add.image(0,0,'background2').setOrigin(0,0).setScale(10.0,13.0);
-        // BotonPause
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenumj_Basuras");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
-        this.pauseButton.setDepth(10);
-
+        
         this.ballsText = this.add.text(5,8, 'BALLS: ' + this.ballNumer, {
             fontSize: '10px', 
             fill: '#fff',

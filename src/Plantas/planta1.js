@@ -1,7 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import Button from '../UI/Button.js';
 import Carpeta from '../Misiones/Carpeta.js';
 export default class Planta1 extends plantaBase {
 	/**
@@ -20,7 +19,7 @@ export default class Planta1 extends plantaBase {
 
     preload(){
 		super.preload();
-
+		
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.spritesheet('NPCVictoria', './assets/images/Characters/Victoria.png', {frameWidth: 24, frameHeight: 36})
 		this.load.spritesheet('NPCAlvaro', './assets/images/Characters/Alvaro.png', {frameWidth: 24, frameHeight: 36})
@@ -35,10 +34,8 @@ export default class Planta1 extends plantaBase {
 		this.load.image('Emilio', 'assets/images/UI/Dialogs/faces/Emilio.png');
 	
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
-		this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.image('Carpeta', './assets/images/Objetos/Carpeta.png');
-		//this.load.image('Tablon', './assets/images/Objetos/Tabla.png');
 
 		// IMAGENES MAPA 
 		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/tilemap_planta_1_amarilla_2.json');
@@ -53,10 +50,9 @@ export default class Planta1 extends plantaBase {
 
     create(){
 		super.create();
-
 		this.p = this.input.keyboard.addKey('P');
 		this.w = this.input.keyboard.addKey('W');
-		//this.add.image(0,0,'Tablon');  
+		console.log(this.pauseButton); 
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -117,12 +113,7 @@ export default class Planta1 extends plantaBase {
 			classType: Jugador
 		})[0];
 		console.log(this.jugador);
-		console.log("Esto apesta");
 		
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuPlanta1");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{});
-		this.pauseButton.setScrollFactor(0);
-        this.pauseButton.setDepth(100);
-		console.log("Pause button created:", this.pauseButton);
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -139,7 +130,7 @@ export default class Planta1 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		//Mision
-		this.carpeta = new Carpeta(this,this.jugador.x, this.jugador.y, 'Carpeta');
+		this.carpeta = new Carpeta(this,66, this.jugador.y, 'Carpeta');
 		this.e = this.input.keyboard.addKey('E');
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
@@ -151,6 +142,7 @@ export default class Planta1 extends plantaBase {
 
 		if(canCatch && !this.carpeta.catch) { //si se puede coger y no se ha cogido antes
 			this.carpeta.catch = true;
+			this.carpeta.y += 10;
 		}
 	}
 	hablaConAlvaro(){		//ha elegido hablar con Alvaro
@@ -173,7 +165,12 @@ export default class Planta1 extends plantaBase {
 			this.jugador.extrovertido = true; //extrovertido
 			this.resultado = true;
 		}
-		else if(!this.haveToTalk && this.carpeta.catch){//si no tenia que hablar y ha cogido la carpte
+		else if(!this.haveToTalk && this.alreadyTalked && this.carpeta.catch) { //si no tenia que hablar,pero ha hablado  aunque haya  ha cogido la carpeta
+			console.log("extrovertido");
+			this.jugador.extrovertido = true; //extrovertido
+			this.resultado = true;
+		}
+		else if(!this.haveToTalk && !this.alreadyTalked&& this.carpeta.catch){//si no tenia que hablar, no ha hablado  y ha cogido la carpeta
 			console.log("introvertido");
 			this.jugador.introvertido = true; //introvertido
 			this.resultado = true;
@@ -182,14 +179,15 @@ export default class Planta1 extends plantaBase {
     update(){
 		super.update();
 		if(this.p.isDown){ 
-			this.scene.start('Planta2');
+			
+			this.scene.launch('Planta2', {jugador : this.jugador});
 			this.scene.stop();
 		}
 		if(this.e.isDown){	//coger carpeta
 			this.catchFolder();
 		}
 		if(this.carpeta.catch) { //si se ha cogido la carpeta, se mueve con el jugador para taparle
-			this.carpeta.x = this.jugador.x + 12;
+			this.carpeta.x = this.jugador.x + 5;
 		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
 		if(this.choose && !this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.physics.overlap(this.jugador, this.NPCAlvaro) ){
@@ -212,7 +210,7 @@ export default class Planta1 extends plantaBase {
 				console.log("todavia no puedes subir");
 			}
 		}
-    }
+	}
 	onPause(){
 		this.jugador.onPauseInput();
 	}
