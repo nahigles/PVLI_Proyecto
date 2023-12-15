@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="192" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="4">
+ <editorsettings>
+  <export target="tile_mj_carpetas.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="bg_mj_carpetas" tilewidth="192" tileheight="128" tilecount="1" columns="1">
+  <image source="../images/Backgrounds/bg_mj_carpetas.png" trans="ff00ff" width="192" height="128"/>
+ </tileset>
+ <layer id="1" name="Fondo" width="1" height="1">
+  <data encoding="csv">
+1
+</data>
+ </layer>
+ <objectgroup id="2" name="Puntos">
+  <object id="1" name="AB" type="Point" x="52" y="72.75">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="BotonPausa">
+  <object id="2" name="BotonPausa" type="Button" x="181.5" y="7.25">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Carpetas">
+  <object id="3" name="Carpeta_AB" x="95.5" y="65.25">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
