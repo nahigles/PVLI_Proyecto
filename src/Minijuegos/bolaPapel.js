@@ -50,13 +50,9 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
                 // Va pa abajo
                 this.bajando = true;
                 this.body.setVelocityY(this.speed);
-                // Activo collider basura (o bola de pende como lo quiera)
-                //activoDesactivoBasura(true);
             }
             else if(this.bajando && 250 < this.y){
                 this.resetPosition();
-                // Desactivo collider
-                //activoDesactivoBasura(false);
             }
         }
 
