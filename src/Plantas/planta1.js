@@ -176,7 +176,7 @@ export default class Planta1 extends plantaBase {
 		super.update();
 		if(this.p.isDown){ 
 			
-			this.scene.launch('Planta2', {jugador : this.jugador});
+			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
 		}
 		if(this.e.isDown){	//coger carpeta

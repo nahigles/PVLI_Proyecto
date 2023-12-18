@@ -28,7 +28,7 @@ export default class Planta3 extends plantaBase {
         this.load.image('tileset_objects_blue', 'assets/officeAssets/Objects/tiles_objects_blue.png');
     }
 
-    create(){
+    create(data){
 		super.create();
 
 		// TILEMAP
@@ -65,6 +65,10 @@ export default class Planta3 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
+		this.jugador.introvertido = data.introvertido;
+		this.jugador.extrovertido = data.extrovertido;
+		this.jugador.intuitivo = data.intuitivo;
+		this.jugador.sensitivo = data.sensitivo;
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -85,7 +89,9 @@ export default class Planta3 extends plantaBase {
 		super.update();
 		
 		if(this.p.isDown){ 
-			this.scene.start('Planta4');
+			this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+										sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
+										thinker : this.jugador.thinker, feeler : this.jugador.feeler});
 			this.scene.stop();
 			console.log("Paso de P3 a P4")
 		}	

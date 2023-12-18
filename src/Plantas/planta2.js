@@ -58,16 +58,13 @@ export default class Planta2 extends plantaBase {
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
 
-		/*// JUGADOR POR CAPA DE OBJETOS	
+		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
 			classType: Jugador
-		})[0];*/
-		this.jugador = data.jugador;
-		this.jugador.scene = this;
-		this.jugador.x = 728;
-		this.jugador.y = 88;
-		console.log(this.jugador);
+		})[0];
+		this.jugador.introvertido = data.introvertido;
+		this.jugador.extrovertido = data.extrovertido;
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -88,7 +85,8 @@ export default class Planta2 extends plantaBase {
 		super.update();
 		
 		if(this.p.isDown){ 
-			this.scene.start('Planta3');
+			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
+										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
 			console.log("Paso de P2 a P3")
 		}	

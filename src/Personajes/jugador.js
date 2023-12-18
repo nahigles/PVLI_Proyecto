@@ -83,7 +83,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.thinker = false;
 		this.feeler =  false;
 		this.juzgador = false;
-		this.pereceptivo =  false;
+		this.perceptivo =  false;
 
     }
 	preUpdate(t, dt){
