@@ -10,7 +10,7 @@ import UiScene from './escenas/UiScene.js';
 import MainMenu from './UI/MainMenu.js';
 import MJ_Plataformas from './Minijuegos/mj_Plataformas.js';
 import MJ_Basuras from './Minijuegos/mj_Basuras.js';
-import MJ_Nave from './Minijuegos/mj_Nave.js';
+import MJ_Nave from './Minijuegos/mjNave/mj_Nave.js';
 import PauseMenu from './UI/PauseMenu.js';
 	// Configuracion phaser
     var config = {
