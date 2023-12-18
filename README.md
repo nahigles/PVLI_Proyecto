@@ -6,7 +6,8 @@
 ¡Ven y conoce nuestro proyecto para la asignatura de PVLI!
   </p>
 <p>
-Blablabla resumen/introducción del juego
+Nuestro protagonista, un simple y amargado oficinista, llega un dia a la oficina y todo es un caos porque el jefe no responde. ¿Que le habrá pasado? Se verá obligado a avanzar por el edificio conociendo a sus compañeros,descubriendo los secretos de la empresa, completando misiones y minijuegos para finalmente averiguar el motivo de la desaparición de su jefe.
+Dependiendo de como se resuelvan las misiones, se irá descubriendo la personalidad de nuestro protagonista, y su desenlace dependerá de esta.
 </p>
 
 <br><sub>Capturas del juego</sub>

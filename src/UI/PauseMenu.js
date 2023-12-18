@@ -1,17 +1,10 @@
 
 import Button from './Button.js';
 export default class PauseMenu extends Phaser.Scene {
-     /**
-     * Constructora
-     * @param {string} levelActual //planta o minijuego 
-     * @param {string} otherLevel  //planta o minijuego
-     * definimos la key que tendrá la escena, nos sirve para los cambios de escena 
-     */
-     constructor(levelActual, otherLevel, key) {
-        super({key: key});
-        this.actual = levelActual;
-        this.other = otherLevel;
-        this.self = this;
+    constructor() {
+        super({
+            key: "PauseMenu"
+        });
     }
 	init(){
 	}
@@ -23,15 +16,18 @@ export default class PauseMenu extends Phaser.Scene {
         this.load.image('controlsMenu', './assets/images/UI/PauseMenu/controles.png');
         this.load.image('backButton', './assets/images/UI/PauseMenu/backButton.png')
     }
-    create(){
+    create(data){
+
+        this.level = data.level;
+        this.other = data.other;
         this.add.image(0,0,'backgroundPausa').setScale(4,4).setOrigin(0,0);  
         
 		// BotonVolverMinijuego
-		new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume(this.actual);},  ()=>{this.scene.stop();},  ()=>{}, ()=>{});
+		new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume(this.level);},  ()=>{this.scene.stop();},  ()=>{}, ()=>{});
         //Controles
         new Button(this, 300, 200, 'controlsButton', ()=>{ this.controlsMenu.setVisible(true); },   ()=>{ this.backButton.setVisible(true);}, ()=>{}, ()=>{});
         // BotonSalir
-        new Button(this, 300, 300, 'exitButton', ()=>{this.scene.start("MainMenu");}, ()=>{this.scene.stop(this.actual);},()=>{this.scene.stop(this.other);}, ()=>{this.scene.stop();});
+        new Button(this, 300, 300, 'exitButton', ()=>{this.scene.start("MainMenu");}, ()=>{this.scene.stop(this.level);},()=>{this.scene.stop(this.other);}, ()=>{this.scene.stop();});
 
         //menu controles
         this.controlsMenu = this.add.image(0,0,'controlsMenu').setOrigin(0,0).setVisible(false);

@@ -1,7 +1,6 @@
 import MinijuegoBase from '../escenas/minijuegoBase.js';
 import Ajolote from '../Personajes/ajolote.js';
 import Plataforma from '../Minijuegos/plataforma.js';
-import Button from '../UI/Button.js';
 export default class MJ_Plataformas extends MinijuegoBase{
 
     constructor(){
@@ -21,15 +20,12 @@ export default class MJ_Plataformas extends MinijuegoBase{
        this.load.image('verde', './assets/images/Objetos/plataformaVerde.png');
        this.load.image('morado', './assets/images/Objetos/plataformaMorada.png');
        this.load.image('moradoRota', './assets/images/Objetos/moradaRota.png');
-       this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton.png');
     }
     create(){
         super.create();
         //background
         this.add.image(0,0,'background1').setScale(4,4).setOrigin(0,0).setScrollFactor(0);  
-         // BotonPause
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenumj_Plataformas");}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
-        this.pauseButton.setDepth(10);
+        
         //mostrar score
         this.scoreText = this.add.text(5,8, 'SCORE: ' + this.score, {
             fontSize: '20px', 

@@ -1,4 +1,4 @@
-
+import Button from '../UI/Button.js';
 export default class MinijuegoBase extends Phaser.Scene{
      /**
      * Constructora
@@ -14,12 +14,22 @@ export default class MinijuegoBase extends Phaser.Scene{
 
     }
     preload(){
+        this.load.image('pauseButtonMJ', './assets/images/UI/PauseMenu/pauseButton.png');
     }
     create(){
         this.input.keyboard.on('keydown-ESC', function (event) {
-            this.scene.launch("PauseMenu" + this.key);
+            this.scene.launch("PauseMenu", {
+                level : this.key,
+                other : this.planta
+               });
             this.scene.pause(this.key);
         }, this);
+         // BotonPause
+		this.pauseButton = new Button(this, 575, 25, 'pauseButtonMJ', ()=>{ this.scene.launch("PauseMenu", {
+            level : this.key,
+            other : this.planta
+           });}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
+        this.pauseButton.setDepth(10);
     }
     update(){
     }
