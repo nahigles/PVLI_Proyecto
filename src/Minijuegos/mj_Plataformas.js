@@ -14,6 +14,9 @@ export default class MJ_Plataformas extends MinijuegoBase{
     }
     preload(){
        super.preload();
+
+       this.load.spritesheet('ajoloteAnim', './assets/images/Characters/Ajolote_Spritesheet.png', {frameWidth: 24, frameHeight: 24});
+
        this.load.image('background1', './assets/images/Backgrounds/61fbff.png');
        this.load.image('ajolote', './assets/images/Characters/ajolote.png');
        this.load.image('azul', './assets/images/Objetos/plataformaAzul.png');
@@ -46,7 +49,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
             antialias: true
         }).setScrollFactor(0);
         //ajolote
-        this.ajolote = new Ajolote(this,300 ,200, 'ajolote');
+        this.ajolote = new Ajolote(this,300 ,200, 'ajoloteAnim');
         this.ajolote.body.setCollideWorldBounds(false);
         //plataformas
         this.plataformas = this.add.group();
@@ -74,6 +77,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.physics.add.collider(this.ajolote, this.plataformas, (ajolote,plataforma)=>{
             if(ajolote.body.touching.down) { //solo salta cuando el jugador esta encima de la plataforma
                 this.ajolote.body.setVelocityY(-300);   //para que cada vez que rebote en una plataforma lo haga con la misma "fuerza"
+                this.ajolote.play('jumpAjolote');
                 if(plataforma.texture.key==='morado' || plataforma.texture.key==='moradoRota' ){
                     if(!plataforma.touch) {
                         plataforma.setTexture('moradoRota');
@@ -89,6 +93,19 @@ export default class MJ_Plataformas extends MinijuegoBase{
                 }
             }
         });
+        
+        // Animaciones 
+        console.log(this.ajolote.body.velocity.y)
+            if(this.ajolote.body.velocity.y > 0)
+            {
+                console.log('mira abajo');
+                this.ajolote.play('lookingDown');
+            }
+            else
+            {
+                console.log('mira arriba');
+                this.ajolote.play('lookingUp');
+            }
         //camara
         this.cameras.main.setBounds(0,-1800,300, 2300);
         this.cameras.main.startFollow(this.ajolote);

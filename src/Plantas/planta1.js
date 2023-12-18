@@ -106,8 +106,6 @@ export default class Planta1 extends plantaBase {
 			if (objeto.type === 'NPCBase') {
 				this.npc = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				this.NPCGroup.add(this.npc);
-				console.log("Esto apesta aa");
-
 			}
 		}
 

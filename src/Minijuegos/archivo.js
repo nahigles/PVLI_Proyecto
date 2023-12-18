@@ -4,26 +4,44 @@ export default class Archivo extends Phaser.GameObjects.Container{
 	 * @param {Scene} scene, escena en la que se añade la carpeta
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
-     * @param {string} key - id
+     * @param {string} keyID - id
+     * @param {string} keyFolder - id
+     * @param {string} keyImg - id
+     * @param {string} keyText - id
 	 */
-    constructor(scene,x,y,key) {
+    constructor(scene,x,y, keyFolder, keyID, keyImg, keyText) {
         // Constructor del padre 
         super(scene,x,y);
-        this.key = key;
         this.setScale(0.3,0.3);
 
         // Añadimos la carpeta a la escena 
         this.scene = scene;
 		this.scene.add.existing(this);
 
-        this.scene.input.on('drag', (pointer, gameObject, dragX, dragY) =>
+        const imgFolder =  new Phaser.GameObjects.Sprite(this.scene, 0, 0, keyImg, 0);
+        const text = new Phaser.GameObjects.BitmapText(this.scene,0, 0, keyText, keyFolder).setFontSize(32);
+        
+        this.id = keyID;
+
+        this.add([imgFolder, text]).setScale(1,1);
+        this.setSize(imgFolder.width, imgFolder.height);
+        
+        this.setInteractive();
+
+        this.on('pointerover', () =>
         {
             
-            gameObject.x = dragX;
-            gameObject.y = dragY;
+            imgFolder.setTint(0x44ff44);
+            console.log('aaaaaaaaaaa');
             
         });
 
+        this.on('pointerout', () =>
+        {
+            
+            imgFolder.clearTint();
+            
+        });
     }
     create(){}
 

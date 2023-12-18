@@ -37,9 +37,70 @@
          "visible":true,
          "x":0,
          "y":0
+        },
+    
+        {
+         "draworder":"topdown",
+         "id":3,
+         "name":"BotonPausa",
+         "objects":[
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"BotonPausa",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Button",
+                 "visible":true,
+                 "width":0,
+                 "x":181.5,
+                 "y":7.25
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        },
+    
+        {
+         "class":"Archivo",
+         "draworder":"topdown",
+         "id":4,
+         "name":"Carpetas",
+         "objects":[
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"Carpeta_AB",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"A-B"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"AB"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":95.5,
+                 "y":65.25
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":3,
- "nextobjectid":2,
+ "nextlayerid":5,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

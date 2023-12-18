@@ -21,8 +21,12 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="4" name="Carpetas">
+ <objectgroup id="4" name="Carpetas" class="Archivo">
   <object id="3" name="Carpeta_AB" x="95.5" y="65.25">
+   <properties>
+    <property name="keyFolder" value="A-B"/>
+    <property name="keyID" value="AB"/>
+   </properties>
    <point/>
   </object>
  </objectgroup>
