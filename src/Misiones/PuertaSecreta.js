@@ -5,11 +5,16 @@ export default class PuertaSecreta extends Phaser.Scene{
     constructor(){
         super('puertaSecreta', 'Planta2');
         this.correct = false;
+        this.escrito = [" ", " ", " "];
     }
-    init(){
+    init(clav){
+        this.clave = clav;
+        console.log(this.clave);
     }
     preload(t,dt){
-        //this.load.image('background2', './assets/images/Backgrounds/BackgroundPapelera.png');
+        // Cargo imagenes
+        this.load.image('backgroundM2', './assets/images/Backgrounds/BackgroundM2.png');
+        this.load.image('pantalla', './assets/images/Objetos/Pantalla.png')
         this.load.image('0', './assets/images/Objetos/TecladoNumerico/Number0.png');
         this.load.image('1', './assets/images/Objetos/TecladoNumerico/Number1.png');
         this.load.image('2', './assets/images/Objetos/TecladoNumerico/Number2.png');
@@ -26,16 +31,17 @@ export default class PuertaSecreta extends Phaser.Scene{
     create(){
 
         //background
-        //this.add.image(0,0,'background2').setOrigin(0,0).setScale(10.0,13.0);
+        this.add.image(0,0,'backgroundM2').setOrigin(0,0).setScale(10.0,13.0);
+        this.add.image(290,60,'pantalla').setOrigin(0.5,0.5).setScale(5.0,5.0);
         
         // Fila columna y numeros para ayuda de colocar
         let fil = 3;
         let col = 3;
-        let nums = 1;
+        let nums = 1; // key
 
         // Donde empiezan a colocarse las teclas
         let desplX = 210;
-        let desplY = 150;
+        let desplY = 140;
 
         // Distaancia entre teclas
         let distanciaX = 80;
@@ -56,9 +62,9 @@ export default class PuertaSecreta extends Phaser.Scene{
         new Tecla(this, 2*distanciaX + desplX, 3*distanciaY + desplY, "tick");
 
         // Texto numeros para pantalla
-        this.numbers = this.add.text(8,90, this.numbers, {
-            fontSize: '20px', 
-            fill: '#fff',
+        this.numbers = this.add.text(230,32, this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2], {
+            fontSize: '50px', 
+            fill: '#000',
             fontFamily:'Arial',
             resolution: 2,
             antialias: true
@@ -68,11 +74,57 @@ export default class PuertaSecreta extends Phaser.Scene{
 
     update(t,dt){
         super.update(t,dt);
+
+        //console.log(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
+        console.log(this.correct);
         if(this.correct){
-            setTimeout(()=>{
+            //setTimeout(()=>{
                 this.scene.resume('Planta2'); //volvemos a planta
                 this.scene.stop();
-            },1500);
+            //},1500);
         }
+    }
+
+    anadirNum(n){
+        let i = 0;
+        while(i < this.escrito.length && this.escrito[i] != " "){
+            i++;
+        }
+
+        if(i < 3){
+            this.escrito[i] = n;
+            this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
+        }
+    }
+
+    quitarNum(){
+        let i = this.escrito.length - 1;
+        while(i >= 0 && this.escrito[i] == " "){
+            i--;
+        }
+
+        this.escrito[i] = " ";
+        this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
+
+    }
+
+    comprobarCorrecto(){
+        let correctttt = true;
+
+        let i = 0;
+        while(i < this.escrito.length && correctttt){
+            if(this.escrito[i] != this.clave[i]){
+                correctttt = false;
+            }
+
+            i++;
+        }
+
+        if(!correctttt){
+            this.escrito = [" ", " ", " "];
+            this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
+        }
+        
+        this.correct = correctttt;
     }
 }

@@ -11,8 +11,7 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', 'Planta3', 'mj_Basuras', 'level1', 'tiles', 560);
-
-		this.claveNum = ["1", "3", "8"];
+		this.claveNum = ["0", "4", "7"];
 	}
 
 	init(){
@@ -91,8 +90,8 @@ export default class Planta2 extends plantaBase {
 			this.scene.stop();
 		}
 		if(this.i.isDown){
-			this.scene.start('puertaSecreta');
-			this.scene.stop();
+			this.scene.launch('puertaSecreta', this.claveNum);
+            this.scene.pause();
 		}	
     }
 
