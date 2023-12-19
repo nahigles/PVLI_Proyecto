@@ -157,6 +157,7 @@
         },
     
         {
+         "class":"Button",
          "draworder":"topdown",
          "id":3,
          "name":"BotonPausa",

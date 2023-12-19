@@ -37,6 +37,7 @@ export default class MJ_Carpetas extends MinijuegoBase{
         // BACKGROUND
         const bgImgTilemap = this.map.addTilesetImage('bg_mj_carpetas', 'background3');  
         this.backgroundLayer = this.map.createLayer('Fondo', bgImgTilemap);
+        this.backgroundLayer.setDepth(5);
         
         // CAMERA
         this.cameras.main.setZoom(3.2);
@@ -50,7 +51,6 @@ export default class MJ_Carpetas extends MinijuegoBase{
 			// objeto en Tiled
 			if (objeto.type === 'Archivo') {
                 this.archivo = new Archivo(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.properties[1].value, 'folder', 'atari');
-                console.log(this.archivo);
                 this.input.setDraggable(this.archivo);
                 this.archivosGroup.add(this.archivo);
 
@@ -64,12 +64,9 @@ export default class MJ_Carpetas extends MinijuegoBase{
 		for (const objeto of this.map.getObjectLayer('Puntos').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
-            console.log('bucle creacion puntos');
-            console.log(objeto.type);
 			if (objeto.type === 'Point') {
                 this.point = new PointArchivo(this, objeto.x, objeto.y, objeto.name);
                 this.pointsGroup.push(this.point);
-                console.log('coordenadas punto: ', this.point.x, this.point.y);
             }
 		}
         
@@ -81,11 +78,21 @@ export default class MJ_Carpetas extends MinijuegoBase{
         });
         
         // BotonPause
-        //this.pauseButton = new Button(this, 100, 100, 'pauseButton', ()=>{this.scene.launch(new PauseMenu('Planta3', 'mj_Carpetas', 'MenuPause_P3'));}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
+        //
        //this.pauseButton.setScale(0.1,0.1); 
+       for (const objeto of this.map.getObjectLayer('BotonPausa').objects) {
+        // `objeto.name` u `objeto.type` nos llegan de las propiedades del
+        // objeto en Tiled
+        if (objeto.type === 'Button') {
+            console.log('botoon');
+            console.log(this.pauseButton.x, this.pauseButton.y);
+            this.pauseButton.x = objeto.x;
+            this.pauseButton.y = objeto.y;
+            console.log(this.pauseButton.x, this.pauseButton.y);
+            this.pauseButton.setScale(0.1,0.1);
 
-       //console.log("CONTAINER: ", this.container.x, this.container.y);
-       //console.log("BOTON PAUSA: ", this.pauseButton.x, this.pauseButton.y);
+        }
+    }
        
     }
     update(t,dt){

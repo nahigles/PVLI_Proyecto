@@ -44,8 +44,6 @@ export default class Planta1 extends plantaBase {
         this.load.image('tileset_furniture_yellow', 'assets/officeAssets/Furniture/tiles_furniture_yellow.png');
         this.load.image('tileset_objects_yellow', 'assets/officeAssets/Objects/tiles_objects_yellow.png');
         this.load.image('tileset_objects_grey', 'assets/officeAssets/Objects/tileset_objects.png');
-        //this.load.image('tileset_plants_yellow', 'assets/officeAssets/Plants/tiles_plantas_yellow.png');
-
     }
 
     create(){
@@ -69,7 +67,6 @@ export default class Planta1 extends plantaBase {
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_yellow', 'tileset_furniture_yellow');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_yellow', 'tileset_objects_yellow');  
 		const tileset_objects_grey = this.map.addTilesetImage('tileset_objects', 'tileset_objects_grey');  
-		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
 		
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
