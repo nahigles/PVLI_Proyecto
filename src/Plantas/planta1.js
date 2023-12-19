@@ -49,6 +49,7 @@ export default class Planta1 extends plantaBase {
 
     create(){
 		super.create();
+
 		this.p = this.input.keyboard.addKey('P');
 		this.w = this.input.keyboard.addKey('W');
 		console.log(this.pauseButton); 
@@ -105,10 +106,13 @@ export default class Planta1 extends plantaBase {
 		})[0];
 		console.log(this.jugador);
 		this.e = this.input.keyboard.addKey('E');
+
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
 		this.cameras.main.setZoom(3.2);
+
+		// UISCENE
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
@@ -138,11 +142,13 @@ export default class Planta1 extends plantaBase {
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
+
 				this.ascensor.play('abrir', true);
-				setTimeout(()=>{
-					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
+				//setTimeout(()=>{
 					this.scene.stop();
-				},2000);
+					this.scene.get("UiScene").removeUI();
+					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});					
+				//},2000);
 			}
 			else{
 				console.log("todavia no puedes subir");
@@ -183,8 +189,8 @@ export default class Planta1 extends plantaBase {
 
     update(){
 		super.update();
-		if(this.p.isDown){ 
-			
+		if(this.p.isDown){
+			this.scene.get("UiScene").removeUI();
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
 		}

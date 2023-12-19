@@ -104,6 +104,13 @@ export default class Planta3 extends plantaBase {
 		this.cameras.main.startFollow(this.jugador);
 		this.cameras.main.setZoom(3.2);
 
+		// UISCENE
+		this.scene.launch("UiScene", {
+			home: this,
+			player: this.jugador,
+			NPCs: this.NPCGroup
+		});	
+
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
@@ -116,13 +123,15 @@ export default class Planta3 extends plantaBase {
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
 				this.ascensor.play('abrir', true);
-				setTimeout(()=>{
+				//setTimeout(()=>{
+					
+				this.scene.get("UiScene").removeUI();
 					this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler});
 						this.scene.stop();
 						console.log("Paso de P3 a P4")
-				},2000);
+				//},2000);
 			}
 			else{
 				console.log("todavia no puedes subir");
@@ -135,6 +144,7 @@ export default class Planta3 extends plantaBase {
 			this.nextLevel();
 		}
 		if(this.p.isDown){ 
+			this.scene.get("UiScene").removeUI();
 			this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 										sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 										thinker : this.jugador.thinker, feeler : this.jugador.feeler});

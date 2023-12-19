@@ -12,14 +12,19 @@ export default class DialogManager {
 
     this.NPCGroup.getChildren();
     for (const NPC of this.NPCGroup.getChildren()) {
+      console.log("getChildNPC " + NPC.name);
       NPC.visited = false;
     }
+
+    console.log("DialoManagerConstruido");
 
     dialogEvents.on("wantToTalk", this.wantToTalk, this);
   }
 
   wantToTalk() {
     var NPC = this._whoIsTalking();
+
+    console.log("WANT TO TALK");
 
     if(NPC.talker != 'NONE'){        
       console.log('empezamos a hablar con ' + NPC.talker.name);
@@ -44,5 +49,9 @@ export default class DialogManager {
     }
 
     return {talker: talker, visited: this.visited};
+  }
+
+  removeDM(){
+    dialogEvents.destroy();
   }
 }
