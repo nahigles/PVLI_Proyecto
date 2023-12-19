@@ -139,10 +139,14 @@ export default class Planta1 extends plantaBase {
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
 				this.ascensor.play('abrir', true);
-				setTimeout(()=>{
+				
+				this.ascensor.once('abierto', function(){
+					//cuando haya acabado la animacion
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
-				},2000);
+				}, this);
+				
+				
 			}
 			else{
 				console.log("todavia no puedes subir");

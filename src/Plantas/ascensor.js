@@ -9,20 +9,27 @@ export default class Ascensor extends Phaser.GameObjects.Sprite{
     constructor(scene,x,y,key) {
         //constructor del padre (Sprite)
         super(scene,x,y, key);
-       // this.setScale(0.3,0.3);
         // Añadimos el ascensor a la escena 
         this.scene = scene;
-		this.scene.add.existing(this);
+		    this.scene.add.existing(this);
         //fisicas
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
+
         //animacion abrir ascensor
         this.scene.anims.create({
-			key: 'abrir',
-			frames: scene.anims.generateFrameNumbers('ascensorAnim', {start:1, end:3}),
-			frameRate: 2,
-			repeat:0,
-		});
+			    key: 'abrir',
+			    frames: scene.anims.generateFrameNumbers('ascensorAnim', {start:1, end:3}),
+			    frameRate: 2,
+			    repeat:0,
+		    });
+
+        //evento cuando termina la animacion de abrir ascensor
+        this.on('animationcomplete-abrir', function(animation,frame){
+          if(animation.key === 'abrir') {
+              this.emit('abierto');
+          }
+        }, this); 
     }
     preUpdate(t, dt){
 		super.preUpdate(t, dt);
