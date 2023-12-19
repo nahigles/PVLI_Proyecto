@@ -10,6 +10,7 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', 'Planta3', 'mj_Basuras', 'level1', 'tiles', 560);
+		this.claveNum = ["0", "4", "7"];
 	}
 
 	init(){
@@ -76,7 +77,6 @@ export default class Planta2 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				//if(objeto.name == 'Emilio' || objeto.name == 'Victoria') this.npc.setFlip(true, false);
 				console.log(this.npc.x, this.npc.y);
@@ -91,18 +91,27 @@ export default class Planta2 extends plantaBase {
 		})[0];
 		this.jugador.introvertido = data.introvertido;
 		this.jugador.extrovertido = data.extrovertido;
-		//this.e = this.input.keyboard.addKey('E');
+		this.e = this.input.keyboard.addKey('E');
 		this.w = this.input.keyboard.addKey('W');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
 		this.cameras.main.setZoom(3.2);
 
+		// UISCENE
+		console.log("Planta 2: launcheas UI");
+		this.scene.launch("UiScene", {
+			home: this,
+			player: this.jugador,
+			NPCs: this.NPCGroup
+		});	
+
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
 		this.p = this.input.keyboard.addKey('P');
+		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -110,27 +119,32 @@ export default class Planta2 extends plantaBase {
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
 				this.ascensor.play('abrir', true);
-				setTimeout(()=>{
+				//setTimeout(()=>{					
+				this.scene.get("UiScene").removeUI();
 					this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 					this.scene.stop();
-				},2000);
+				//},2000);
 			}
 			else{
 				console.log("todavia no puedes subir");
 			}
 		}
 	}
-    update(){
-		super.update();
-		if(this.w.isDown){	//subir ascensor
+    update(t,dt){
+		super.update(t,dt);
+		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
 		if(this.p.isDown){ 
+			this.scene.get("UiScene").removeUI();
 			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
-			console.log("Paso de P2 a P3")
+		}
+		if(this.i.isDown){
+			this.scene.launch('puertaSecreta', this.claveNum);
+            this.scene.pause();
 		}	
     }
 

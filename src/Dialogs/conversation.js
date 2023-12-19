@@ -2,6 +2,15 @@ import dialogVictoria from "../Dialogs/dialogText/dialogsP1/Victoria.json"  asse
 import dialogAlvaro from "../Dialogs/dialogText/dialogsP1/Alvaro.json"  assert { type: 'json' };
 import dialogAlma from "../Dialogs/dialogText/dialogsP1/Alma.json"  assert { type: 'json' };
 import dialogEmilio from "../Dialogs/dialogText/dialogsP1/Emilio.json"  assert { type: 'json' };
+import dialogAndrea from "../Dialogs/dialogText/dialogsP2/Andrea.json"  assert { type: 'json' };
+import dialogMelisa from "../Dialogs/dialogText/dialogsP2/Melisa.json"  assert { type: 'json' };
+import dialogPedro from "../Dialogs/dialogText/dialogsP2/Pedro.json"  assert { type: 'json' };
+import dialogLola from "../Dialogs/dialogText/dialogsP3/Lola.json"  assert { type: 'json' };
+import dialogFede from "../Dialogs/dialogText/dialogsP3/Fede.json"  assert { type: 'json' };
+import dialogJesus from "../Dialogs/dialogText/dialogsP3/Jesus.json"  assert { type: 'json' };
+import dialogArchie from "../Dialogs/dialogText/dialogsP4/Archie.json"  assert { type: 'json' };
+import dialogInmaCharlotte from "../Dialogs/dialogText/dialogsP4/InmaCharlotte.json"  assert { type: 'json' };
+import dialogConrad from "../Dialogs/dialogText/dialogsP4/Conrad.json"  assert { type: 'json' };
 
 export default class Conversation{
 	/**
@@ -36,6 +45,52 @@ export default class Conversation{
 					default:
 				}
 				break;
+			case "Planta2":
+				switch(who){
+					case "Andrea":
+						this.conversText = dialogAndrea;
+						break;
+					case "Melisa":
+						this.conversText = dialogMelisa;
+						break;
+					case "Pedro":
+						this.conversText = dialogPedro;
+						break;
+					default:
+				}
+				break;
+			case "Planta3":
+				switch(who){
+					case "Lola":
+						this.conversText = dialogLola;
+						break;
+					case "Fede":
+						this.conversText = dialogFede;
+						break;
+					case "Jesus":
+						this.conversText = dialogJesus;
+						break;
+					default:
+				}
+				break;
+			case "Planta4":
+				switch(who){
+					case "Archie":
+						this.conversText = dialogArchie;
+						break;
+					case "Inma":
+						this.conversText = dialogInmaCharlotte;
+						break;
+					case "Charlotte":
+						this.conversText = dialogInmaCharlotte;
+						break;
+					case "Conrad":
+						this.conversText = dialogConrad;
+						break;
+					default:
+				}
+				break;
+
 			default:
 		}
 

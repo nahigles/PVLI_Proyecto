@@ -9,7 +9,9 @@ export default class UiScene extends Phaser.Scene {
         });
     }
 
-    init(){}
+    init(){
+        console.log("UI INIT");
+    }
 
     preload(){
         this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
@@ -17,6 +19,9 @@ export default class UiScene extends Phaser.Scene {
     }
 
     create(data){    
+
+        console.log("UI CREATE");
+
         this.ScenePlanta = data.home;
         this.initDialogSystem(data);
         this.initPauseSystem();
@@ -24,6 +29,8 @@ export default class UiScene extends Phaser.Scene {
 
     //Sistema de dialogos
     initDialogSystem(data) {
+
+        console.log("initDialogSys");
         this.dialogManager = new DialogManager(
             data.home,
             this,
@@ -188,9 +195,11 @@ export default class UiScene extends Phaser.Scene {
             case "FinConversacionVictoria" : 
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
+
             case "FinConversacionAlvaro" :
                 this.scene.get("Planta1").finConversacionAlvaro();
                 break;
+
             default:
                 break;
         }
@@ -236,5 +245,11 @@ export default class UiScene extends Phaser.Scene {
         this.onDialog = false;            
         this.pauseGame();
         dialogEvents.emit('dialogFinished');             
+    }
+
+    removeUI(){
+        console.log("REMOVE UI");
+        this.dialogManager.removeDM();
+        this.scene.stop();
     }
 }

@@ -15,7 +15,7 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
         this.pulsadaBola = false;
-        this.speed = 150;
+        this.speed = 350;
         this.initialY = y;
         this.bajando = false;
         this.escala = 5.0;
@@ -44,22 +44,15 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         // Si bola clicada
         else{
             this.setScale(this.escala,this.escala);
-            this.escala = this.escala*0.999;
+            this.escala = this.escala*0.995;
             // Si ya ha llegado al punto mas alto de la pantalla
-            if(this.y < 0){
+            if(this.y < 30){
                 // Va pa abajo
                 this.bajando = true;
                 this.body.setVelocityY(this.speed);
-                // Activo collider basura (o bola de pende como lo quiera)
-                //activoDesactivoBasura(true);
             }
-            else if(this.initialY < this.y){
-                this.body.setVelocityY(0);
-                this.pulsadaBola = false;
-                this.bajando = false;
+            else if(this.bajando && 250 < this.y){
                 this.resetPosition();
-                // Desactivo collider
-                //activoDesactivoBasura(false);
             }
         }
 
@@ -69,5 +62,8 @@ export default class BolaPapel extends Phaser.GameObjects.Sprite{
         this.setPosition(this.x, this.initialY);
         this.escala = 5.0;
         this.setScale(this.escala,this.escala);
+        this.body.setVelocityY(0);
+        this.pulsadaBola = false;
+        this.bajando = false;
     }
 }

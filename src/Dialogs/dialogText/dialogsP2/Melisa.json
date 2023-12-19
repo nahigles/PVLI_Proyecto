@@ -1,0 +1,43 @@
+{
+    "Talk": [
+        {
+            "who": "Melisa",
+            "frase": "Anda ve. Pedro está ahí al lado.",
+            "nextId": 9
+            },{
+            "who": "Player",
+            "frase": "A la siguiente planta a ver si alguien necesitan ayuda.",
+            "nextId": 2
+            },{
+            "who": "Melisa",
+            "frase": "Pedro está ahí, le estoy dando un poco d espacio. Yo soy Melisa, encantada:)",
+            "nextId": 3
+            },{
+            "who": "Player",
+            "frase": "Ui, perdón. Está bn?",
+            "nextId": 4
+            },{
+            "who": "Melisa",
+            "frase": "Bueno, ahora se ha tranquilizado un poco. Llevaba un rato perdiendo los papeles.",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "¿Así d la nada?",
+            "nextId": 6
+            },{
+            "who": "Melisa",
+            "frase": "Justo acababa de recibir una llamada. Y de ahí en adelante pues se ha puesto a gritar, tirar cosas… Pero claro, luego le ha dado el bajón y se ha puesto a llorar.",
+            "nextId": 7
+            },{
+            "who": "Player",
+            "frase": "¿Y sabes quién estaba llamando?",
+            "nextId": 8
+            },{
+            "who": "Melisa",
+            "frase": "Creo que el jefe. No lo sé. He intentado hablar con él pero no ha habido manera. Igual si lo intentas tú.",
+            "nextId": 9
+            },{
+            "who": "End"
+        }
+    ]
+}

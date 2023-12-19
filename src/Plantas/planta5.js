@@ -106,6 +106,13 @@ export default class Planta5 extends plantaBase {
 		this.cameras.main.startFollow(this.jugador);
 		this.cameras.main.setZoom(3.2);
 
+		// UISCENE
+		this.scene.launch("UiScene", {
+			home: this,
+			player: this.jugador,
+			NPCs: this.NPCGroup
+		});	
+
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
