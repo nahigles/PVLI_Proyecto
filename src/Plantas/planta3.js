@@ -8,7 +8,7 @@ export default class Planta3 extends plantaBase {
 	 */
 
 	constructor(){	
-		super('Planta3', 'Planta4', 'mj_DragDrop', 'level1', 'tiles', 560);
+		super('Planta3', 'Planta4', 'mj_Carpetas', 'level1', 'tiles', 560);
 	}
 
 	init(){

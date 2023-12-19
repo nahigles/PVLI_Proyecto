@@ -54,6 +54,7 @@ export default class PlantaBase extends Phaser.Scene{
     }
     minijuegoCompletado(){
 		this.mjCompletado = true;
+        
 	}
     update(){
         if(this.m.isDown){ 
