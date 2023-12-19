@@ -100,8 +100,7 @@ export default class Planta4_2 extends plantaBase {
 		this.jugador.feeler = data.feeler;
 		this.jugador.juzgador = data.juzgador;
 		this.jugador.perceptivo = data.perceptivo;
-		//this.e = this.input.keyboard.addKey('E');
-		this.w = this.input.keyboard.addKey('W');
+		this.e = this.input.keyboard.addKey('E');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -126,15 +125,16 @@ export default class Planta4_2 extends plantaBase {
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
 				this.ascensor.play('abrir', true);
-				//setTimeout(()=>{
-					
-			this.scene.get("UiScene").removeUI();
+				
+				this.ascensor.once('abierto', function(){
+					//cuando haya acabado la animacion
 					this.scene.start('Planta5', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler,
 						juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
-					this.scene.stop();
-				//},2000);
+   					this.scene.stop();
+					this.scene.get("UiScene").removeUI();
+				}, this);
 			}
 			else{
 				console.log("todavia no puedes subir");
@@ -144,7 +144,7 @@ export default class Planta4_2 extends plantaBase {
     update(){
 
 		super.update();
-		if(this.w.isDown){	//subir ascensor
+		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
 		if(this.p.isDown){ 

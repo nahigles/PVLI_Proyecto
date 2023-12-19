@@ -149,14 +149,8 @@ export default class Planta1 extends plantaBase {
 					//cuando haya acabado la animacion
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
-				}, this);
-				
-				
-				//setTimeout(()=>{
-					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
-					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});					
-				//},2000);
+				}, this);
 			}
 			else{
 				console.log("todavia no puedes subir");

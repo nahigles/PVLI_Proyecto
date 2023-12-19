@@ -97,8 +97,7 @@ export default class Planta3 extends plantaBase {
 		this.jugador.extrovertido = data.extrovertido;
 		this.jugador.intuitivo = data.intuitivo;
 		this.jugador.sensitivo = data.sensitivo;
-		//this.e = this.input.keyboard.addKey('E');
-		this.w = this.input.keyboard.addKey('W');
+		this.e = this.input.keyboard.addKey('E');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -123,15 +122,15 @@ export default class Planta3 extends plantaBase {
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
 				console.log("puedes subir");
 				this.ascensor.play('abrir', true);
-				//setTimeout(()=>{
-					
-				this.scene.get("UiScene").removeUI();
+				
+				this.ascensor.once('abierto', function(){
+					//cuando haya acabado la animacion
 					this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler});
-						this.scene.stop();
-						console.log("Paso de P3 a P4")
-				//},2000);
+   					this.scene.stop();
+					this.scene.get("UiScene").removeUI();
+				}, this);
 			}
 			else{
 				console.log("todavia no puedes subir");
@@ -140,7 +139,7 @@ export default class Planta3 extends plantaBase {
 	}
     update(){
 		super.update();
-		if(this.w.isDown){	//subir ascensor
+		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
 		if(this.p.isDown){ 
