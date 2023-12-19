@@ -10,6 +10,7 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', 'Planta3', 'mj_Basuras', 'level1', 'tiles', 560);
+		this.claveNum = ["0", "4", "7"];
 	}
 
 	init(){
@@ -103,6 +104,7 @@ export default class Planta2 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
 		this.p = this.input.keyboard.addKey('P');
+		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -121,8 +123,8 @@ export default class Planta2 extends plantaBase {
 			}
 		}
 	}
-    update(){
-		super.update();
+    update(t,dt){
+		super.update(t,dt);
 		if(this.w.isDown){	//subir ascensor
 			this.nextLevel();
 		}
@@ -130,7 +132,10 @@ export default class Planta2 extends plantaBase {
 			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
-			console.log("Paso de P2 a P3")
+		}
+		if(this.i.isDown){
+			this.scene.launch('puertaSecreta', this.claveNum);
+            this.scene.pause();
 		}	
     }
 

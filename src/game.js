@@ -13,13 +13,15 @@ import MJ_Basuras from './Minijuegos/mj_Basuras.js';
 import MJ_Nave from './Minijuegos/mjNave/mj_Nave.js';
 import PauseMenu from './UI/PauseMenu.js';
 import MJ_Carpetas from './Minijuegos/mj_Carpetas.js';
+import PuertaSecreta from './Misiones/PuertaSecreta.js';
+
 	// Configuracion phaser
     var config = {
         parent: "canvas", // Para que el canvas no aparezca abajo del todo en la página
 	    type: Phaser.AUTO, //type: Phaser.WEBGL
 	    pixelArt: true, 
         backgroundColor: '#e7d1ff',
-	    scene:[MainMenu,Planta1, Planta2, Planta3, Planta4, Planta4_2, Planta5, MJ_Plataformas, MJ_Basuras, MJ_Carpetas, MJ_Nave, UiScene, PauseMenu ], // Metodos que queremos en nuestros scripts
+	    scene:[MainMenu,Planta1, Planta2, Planta3, Planta4, Planta4_2, Planta5, MJ_Plataformas, MJ_Basuras, MJ_Carpetas, MJ_Nave, UiScene, PauseMenu, PuertaSecreta ], // Metodos que queremos en nuestros scripts
         scale:{
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
