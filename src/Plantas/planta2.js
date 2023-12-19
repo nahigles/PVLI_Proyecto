@@ -25,7 +25,17 @@ export default class Planta2 extends plantaBase {
         this.load.image('tileset_architecture_green', 'assets/officeAssets/Architecture/tiles_architecture_green.png');
         this.load.image('tileset_furniture_green', 'assets/officeAssets/Furniture/tiles_furniture_green.png');
         this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
-    }
+
+		// NPCS
+		this.load.spritesheet('NPCAndrea', './assets/images/Characters/Andrea.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCPedro', './assets/images/Characters/Pedro.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCMelisa', './assets/images/Characters/Melisa.png', {frameWidth: 24, frameHeight: 36})
+
+		// NPS DIALOGO
+		this.load.image('Andrea', 'assets/images/UI/Dialogs/faces/Andrea.png');
+		this.load.image('Pedro', 'assets/images/UI/Dialogs/faces/Pedro.png');
+		this.load.image('Melisa', 'assets/images/UI/Dialogs/faces/Melisa.png');
+	}
 
     create(data){
 		super.create();
@@ -42,7 +52,6 @@ export default class Planta2 extends plantaBase {
 		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_green', 'tileset_architecture_green');  
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_green', 'tileset_furniture_green');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_green', 'tileset_objects_green');  
-		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
 		
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
@@ -55,6 +64,22 @@ export default class Planta2 extends plantaBase {
 
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
+
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
+		// Bucle de creación
+		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
+			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+			// objeto en Tiled
+			if (objeto.type === 'NPCBase') {
+				console.log('creado npc planta 2');
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				//if(objeto.name == 'Emilio' || objeto.name == 'Victoria') this.npc.setFlip(true, false);
+				console.log(this.npc.x, this.npc.y);
+				this.NPCGroup.add(this.npc);
+			}
+		}
 
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
@@ -71,7 +96,7 @@ export default class Planta2 extends plantaBase {
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
-		//this.physics.add.collider(this.NPCGroup, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
 		this.p = this.input.keyboard.addKey('P');
     }

@@ -25,6 +25,16 @@ export default class Planta3 extends plantaBase {
         this.load.image('tileset_architecture_blue', 'assets/officeAssets/Architecture/tiles_architecture_blue.png');
         this.load.image('tileset_furniture_blue', 'assets/officeAssets/Furniture/tiles_furniture_blue.png');
         this.load.image('tileset_objects_blue', 'assets/officeAssets/Objects/tiles_objects_blue.png');
+
+		// NPCS
+		this.load.spritesheet('NPCLola', './assets/images/Characters/Lola.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCFede', './assets/images/Characters/Fede.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCJesus', './assets/images/Characters/Jesus.png', {frameWidth: 24, frameHeight: 36})
+
+		// NPS DIALOGO
+		this.load.image('Lola', 'assets/images/UI/Dialogs/faces/Lola.png');
+		this.load.image('Fede', 'assets/images/UI/Dialogs/faces/Fede.png');
+		this.load.image('Jesus', 'assets/images/UI/Dialogs/faces/Jesus.png');
     }
 
     create(data){
@@ -59,6 +69,22 @@ export default class Planta3 extends plantaBase {
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
 
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
+		// Bucle de creación
+		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
+			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+			// objeto en Tiled
+			if (objeto.type === 'NPCBase') {
+				console.log('creado npc planta 2');
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				if(objeto.name == 'Lola' || objeto.name == 'Jesus') this.npc.setFlip(true, false);
+				console.log(this.npc.x, this.npc.y);
+				this.NPCGroup.add(this.npc);
+			}
+		}
+
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -76,7 +102,7 @@ export default class Planta3 extends plantaBase {
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
-		//this.physics.add.collider(this.NPCGroup, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
 		this.p = this.input.keyboard.addKey('P');
     }

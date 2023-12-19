@@ -82,21 +82,16 @@ export default class Planta1 extends plantaBase {
 		this.wallLayer.setCollisionByExclusion([-1]);
 		// Layer objeto
 		
-		this.NPCGroup = this.physics.add.group();
-		this.NPCVictoria = new NPC(this, 400, 50, 'NPCVictoria', 'Victoria');
-		this.NPCAlvaro = new NPC(this, 300, 50, 'NPCAlvaro', 'Alvaro');
-		this.NPCAlma = new NPC(this, 200, 50, 'NPCAlma', 'Alma');
-		this.NPCEmilio = new NPC(this, 100, 50, 'NPCEmilio', 'Emilio');
-		this.NPCGroup.addMultiple([this.NPCVictoria, this.NPCAlvaro, this.NPCAlma, this.NPCEmilio]);
-		// NPCS POR CAPA DE OBJETOS
 		// Grupo de NPCS
-		//this.NPCGroup = this.physics.add.group();
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
 		// Bucle de creación
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				if(objeto.name == 'Emilio' || objeto.name == 'Victoria') this.npc.setFlip(true, false);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -124,7 +119,7 @@ export default class Planta1 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		//Mision
-		this.carpeta = new Carpeta(this,66, this.jugador.y, 'Carpeta');
+		this.carpeta = new Carpeta(this,66, this.jugador.y+4, 'Carpeta').setScale(0.2, 0.2);
 		this.e = this.input.keyboard.addKey('E');
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
