@@ -11,8 +11,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		// Llamamos al constructor del padre
 		super(scene, x, y);
 		this.speed = 140; // Nuestra velocidad de movimiento será 140
-
-		
 		// Animaciones del jugador
 		this.scene.anims.create({
 			key: 'walk',
@@ -43,7 +41,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			repeat: -1
 		});
 		
-
 		// Guardamos escena y añadimos jugador a escena
 		this.scene = scene;
 		this.scene.add.existing(this);
