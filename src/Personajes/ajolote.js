@@ -52,6 +52,9 @@ export default class Ajolote extends Phaser.GameObjects.Sprite {
 			repeat: 0
 		});
 		this.play('lookingDown');
+		this.body.setSize(this.width * 0.7, this.height * 0.6);
+		this.body.setOffset(this.width * 0.1,	this.height * 0.35);
+		
     }
     preUpdate(t, dt){
         super.preUpdate(t, dt); 
