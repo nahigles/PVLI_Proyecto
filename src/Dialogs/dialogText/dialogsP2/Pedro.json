@@ -1,0 +1,31 @@
+{
+    "Talk": [
+        {
+            "who": "Pedro",
+            "frase": "Anda ve. Pedro está ahí al lado.",
+            "nextId": 9
+            },{
+            "who": "Player",
+            "frase": "Hola Pedro. ¿Estás bn?",
+            "nextId": 2
+            },{
+            "who": "Pedro",
+            "frase": "¡¿Tú quién eres?!",
+            "nextId": 3
+            },{
+            "who": "Player",
+            "frase": "Nadie, osea, sí, ai bueno, puedo irme sieso, perdón.",
+            "nextId": 4
+            },{
+            "who": "Pedro",
+            "frase": "Recoge.",
+            "nextId": 5
+            },{
+                "who": "Action", 
+                "what": "MinijuegoPlanta2",
+                "nextId": 6
+            },{
+            "who": "End"
+        }
+    ]
+}

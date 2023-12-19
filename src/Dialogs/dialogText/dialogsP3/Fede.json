@@ -1,0 +1,27 @@
+{
+    "Talk": [
+        {
+            "who": "Fede",
+            "frase": "¡Ocupado!",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "Hola.",
+            "nextId": 2
+            },{
+            "who": "Fede",
+            "frase": "Hola, perdón no puedo atenderte, estoy acabando con esto.",
+            "nextId": 3
+            },{
+            "who": "Player",
+            "frase": "¿Qué es?",
+            "nextId": 4
+            },{
+            "who": "Fede",
+            "frase": "No creo que pueda decírtelo. Pero hoy falta parte del equipo y hay que acabarlo ya. Bueno igual no, con el cambio de hora no me aclaro bien.",
+            "nextId": 5
+            },{
+            "who": "End"
+        }
+    ]
+}

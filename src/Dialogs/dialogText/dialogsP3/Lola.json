@@ -1,0 +1,33 @@
+{
+    "Talk": [
+        {
+            "who": "Alvaro",
+            "frase": "Ya hemos acabado ¿no?",
+            "nextId": 15
+            },{
+            "who": "Alvaro",
+            "frase": "¿Que eres? (MISIÓN DIALOGADA PENDIENTE)",
+            "nextId": 2
+            },{
+            "who": "Choice",
+            "a": "T",
+            "b": "F",
+            "nextA": 3,
+            "nextB": 4
+            },{
+            "who": "Action", 
+            "what": "InsigniaT",
+            "nextId": 5
+            },{
+            "who": "Action", 
+            "what": "InsigniaF",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "Bla, bla, bla, chao.",
+            "nextId": 6
+            },{
+            "who": "End"
+        }
+    ]
+}
