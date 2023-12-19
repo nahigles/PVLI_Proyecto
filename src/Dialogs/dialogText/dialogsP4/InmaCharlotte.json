@@ -1,0 +1,19 @@
+{
+    "Talk": [
+        {
+            "who": "Inma",
+            "frase": "Odio a esta tia.",
+            "nextId": 3
+            },{
+            "who": "Charlotte",
+            "frase": "Yo pienso esto.",
+            "nextId": 2
+            },{
+            "who": "Inma",
+            "frase": "Yo esto.",
+            "nextId": 3
+            },{
+            "who": "End"
+        }
+    ]
+}

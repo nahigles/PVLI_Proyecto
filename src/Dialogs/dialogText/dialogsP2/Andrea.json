@@ -1,0 +1,59 @@
+{
+    "Talk": [
+        {
+            "who": "Andrea",
+            "frase": "Bb! Ya aki?! Si todavía no son las 17h. Jajajajjajajja q mala influencia t amo<3",
+            "nextId": 13
+            },{
+            "who": "Player",
+            "frase": "¿Hola? ¿Hay alguien aqui?",
+            "nextId": 2
+            },{
+            "who": "Andrea",
+            "frase": "Eiiii! Siiiiiii! Soy Andrea. Vienes a la rave?",
+            "nextId": 3
+            },{
+            "who": "Player",
+            "frase": ":/ ?",
+            "nextId": 4
+            },{
+            "who": "Andrea",
+            "frase": "Es broma cari!  Q se ha roto la bombilla y nos hemos quedau así.",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "Aaaaa vale vale. ¿Puedo ayudar?",
+            "nextId": 6
+            },{
+            "who": "Andrea",
+            "frase": "De hecho si puedes intentar abrir la puerta del d mantenimiento.",
+            "nextId": 7
+            },{
+            "who": "Action", 
+            "what": "Mision",
+            "nextId": 8
+            },{
+            "who": "Andrea",
+            "frase": "Q bn amooor<3 muchas gracias!!!",
+            "nextId": 9
+            },{
+            "who": "Player",
+            "frase": "Nada :) Puedo hacer algo más??",
+            "nextId": 10
+            },{
+            "who": "Andrea",
+            "frase": "Si quieres en la sala de al lado está Pedro. Y bueno… el pobre… igual le viene bn hablar cn alguien.",
+            "nextId": 11
+            },{
+            "who": "Player",
+            "frase": "Voy!",
+            "nextId": 12
+            },{
+            "who": "Andrea",
+            "frase": "Y oye cuando salgas pasate por aquí y si quieres nos vamos a tomar algo <3",
+            "nextId": 13
+            },{
+            "who": "End"
+        }
+    ]
+}

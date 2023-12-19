@@ -1,0 +1,19 @@
+{
+    "Talk": [
+        {
+            "who": "Conrad",
+            "frase": "Habla con el jefe.",
+            "nextId": 3
+            },{
+            "who": "Conrad",
+            "frase": "Hacker mode on.",
+            "nextId": 2
+            },{
+            "who": "Action", 
+            "what": "MinijuegoPlanta4",
+            "nextId": 3
+            },{
+            "who": "End"
+        }
+    ]
+}

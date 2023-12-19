@@ -1,0 +1,33 @@
+{
+    "Talk": [
+        {
+            "who": "Archie",
+            "frase": "Bro si ya está la puerta abierta, dale!",
+            "nextId": 15
+            },{
+            "who": "Archie",
+            "frase": "Prefieres ostias o paciencia?",
+            "nextId": 2
+            },{
+            "who": "Choice",
+            "a": "Ostias gracias, P.",
+            "b": "Busco las llaves, J.",
+            "nextA": 3,
+            "nextB": 4
+            },{
+            "who": "Action", 
+            "what": "InsigniaP",
+            "nextId": 5
+            },{
+            "who": "Action", 
+            "what": "InsigniaJ",
+            "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "Abierto!!!!!!",
+            "nextId": 6
+            },{
+            "who": "End"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "Talk": [
+        {
+            "who": "Jesus",
+            "frase": "M voy a la comunión. Chao.",
+            "nextId": 5
+            },{
+            "who": "Jesus",
+            "frase": "Estoy estresado :(",
+            "nextId": 2
+            },{
+            "who": "Player",
+            "frase": "Oh no!",
+            "nextId": 3
+            },{
+            "who": "Pedro",
+            "frase": "Ayudame!",
+            "nextId": 4
+            },{
+            "who": "Action", 
+            "what": "MinijuegoPlanta3",
+            "nextId": 5
+            },{
+            "who": "End"
+        }
+    ]
+}
