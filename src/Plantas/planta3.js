@@ -1,7 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import Button from '../UI/Button.js';
 export default class Planta3 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -79,9 +78,6 @@ export default class Planta3 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		//this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
-		/*this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuPlanta2");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{});
-		this.pauseButton.setScrollFactor(0);
-        this.pauseButton.setDepth(100);*/
 		this.p = this.input.keyboard.addKey('P');
     }
 

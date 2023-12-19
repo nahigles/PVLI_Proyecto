@@ -1,5 +1,5 @@
-import Jugador from '../Personajes/jugador.js';
 import Button from '../UI/Button.js';
+
 /**
  * Escena planta base
  */
@@ -27,23 +27,13 @@ export default class PlantaBase extends Phaser.Scene{
          this.nextLocked = true; //el siguiente nivel esta lockeado porq todavía no se ha superado en minijuego
     }
     init(){
-
     }
 
     preload(){ //cargar los assets que vayamos a usar
-       // this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
        this.load.image('pauseButton', './assets/images/UI/PauseMenu/pauseButton3.png');
     }
 
     create(){
-        /*
-        // Jugador
-		this.jugador = new Jugador(this, 100, 50, 'playerAnim');
-		this.jugador.body.setCollideWorldBounds(true);
-        // Camara
-        this.cameras.main.startFollow(this.jugador);*/
-        /*
-        this.physics.world.setBounds(0,0,600,180);//ancho  y alto nivel*/
         this.m = this.input.keyboard.addKey('M'); 
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
 
@@ -65,14 +55,6 @@ export default class PlantaBase extends Phaser.Scene{
     minijuegoCompletado(){
 		this.mjCompletado = true;
 	}
-    moveButtonRight(){
-        console.log("tihht");
-        this.pauseButton.x += 10;
-    }
-    moveButtonLeft(){
-        console.log("lefy");
-        this.pauseButton.x -= 10;
-    }
     update(){
         if(this.m.isDown){ 
             this.scene.launch(this.minijuego); // Pasamos al minijuego
@@ -86,14 +68,4 @@ export default class PlantaBase extends Phaser.Scene{
             this.scene.pause(this.key);
         }
     }
-    /*
-    CreateMap() {
-        this.map = this.make.tilemap({ key: this.mapname });
-        this.tiles = this.map.addTilesetImage("mapa", this.tilename);
-        this.fondolayer = this.map.createLayer('fondo', this.tiles, 0, 0);
-        this.colisionlayer = this.map.createLayer('colision', this.tiles, 0, 0);
-        //poner colision a layer
-        this.colisionlayer.setCollisionBetween(0, this.numColision);
-    }
-    */
 }
