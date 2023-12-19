@@ -15,6 +15,8 @@ export default class Clave extends Phaser.GameObjects.Sprite{
         //fisicas
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
+
+        this.setScale(0.3,0.3);
     }
     preUpdate(t, dt){
 		super.preUpdate(t, dt);
