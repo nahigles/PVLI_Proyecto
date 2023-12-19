@@ -1,4 +1,4 @@
-import Button from '../UI/Button.js';
+
 /**
  * Escena planta base
  */
@@ -22,8 +22,6 @@ export default class PlantaBase extends Phaser.Scene{
          this.mapname=tilemap;
          this.tilename=tilename;
          this.numColision=tileColision;
-
-         this.nextLocked = true; //el siguiente nivel esta lockeado porq todavía no se ha superado en minijuego
     }
     init(){
     }
@@ -39,24 +37,15 @@ export default class PlantaBase extends Phaser.Scene{
 		this.mjCompletado = false;
         //Mision
         this.misionCompletada = false;
-         // BotonPause
-		/*this.pauseButton = new Button(this, 310, 8  , 'pauseButton', ()=>{ this.scene.launch("PauseMenu", {
-            level : this.key,
-            other : this.minijuego
-           });}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} );
-        this.pauseButton.setDepth(10);
-       
-        this.add.existing(this.pauseButton);*/
     }
     startMinijuego(){
         this.scene.launch(this.minijuego);
         this.scene.pause();
+        this.scene.pause("UiScene");
     }
     minijuegoCompletado(){
 		this.mjCompletado = true;
-       if(this.key==='Planta1') {
-            this.scene.get("Planta1").resumeUiScene();
-       }
+        this.scene.resume("UiScene");
 	}
     update(){
         if(this.m.isDown){ 

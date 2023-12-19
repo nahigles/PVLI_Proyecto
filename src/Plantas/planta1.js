@@ -188,12 +188,6 @@ export default class Planta1 extends plantaBase {
 			this.misionCompletada = true;
 		}
 	}
-	callateEmilio(){
-		this.scene.pause("UiScene");
-	}
-	resumeUiScene(){
-		this.scene.resume("UiScene");
-	}
     update(){
 		super.update();
 		if(this.p.isDown){
