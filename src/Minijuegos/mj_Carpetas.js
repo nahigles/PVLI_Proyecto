@@ -56,7 +56,9 @@ export default class MJ_Carpetas extends MinijuegoBase{
 
             }
 		}
-        
+        this.numArchivos = this.archivosGroup.getLength();
+        this.cont = 0;
+
         this.pointsGroup = [];
         // Bucle de creación de LUGARES ARCHIVOS (puntos/coordenadas)
 		for (const objeto of this.map.getObjectLayer('Puntos').objects) {
@@ -76,14 +78,7 @@ export default class MJ_Carpetas extends MinijuegoBase{
         {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.drag = true;
         });
-        // DROP
-        this.input.on('dragend', (pointer, gameObject) =>
-        {
-            gameObject.drag = false;
-        }
-        )
         
         // BotonPause
         //this.pauseButton = new Button(this, 100, 100, 'pauseButton', ()=>{this.scene.launch(new PauseMenu('Planta3', 'mj_Carpetas', 'MenuPause_P3'));}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
@@ -93,35 +88,46 @@ export default class MJ_Carpetas extends MinijuegoBase{
        //console.log("BOTON PAUSA: ", this.pauseButton.x, this.pauseButton.y);
        
     }
-    update(){
-        super.update();
+    update(t,dt){
+        super.update(t,dt);
         // COMPROBACIÓN DE COORDENADAS
          this.archivosGroup.getChildren();
          for (const Archivo of this.archivosGroup.getChildren())
          {
             Archivo.depth = Archivo.y;
-            /*let franja = this.map.height / 5;
-            if()
-            {
-
-            }*/
              for(const Point of this.pointsGroup)
              {
-                 /*if(Archivo.drag == false)
-                 {*/
-                     if(Archivo.id == Point.key && 
+                     if(!Archivo.locate && Archivo.id == Point.key && 
                         ((Archivo.x >= Point.x || Archivo.x < Point.x + 10) && (Archivo.y >= Point.y && Archivo.y < Point.y + 5)))
                     {
                         Archivo.imgFolder.clearTint();
-                        Archivo.imgFolder.setTint(0x0000ff);
+                        //Archivo.imgFolder.setTint(0x0000ff);
                         Archivo.x = Point.x;
                         Archivo.y = Point.y;
                         Archivo.disableInteractive();
+                        Archivo.locate = true;
+                        this.cont = this.cont + 1;
                     }
-                /*}*/
              }
+         }
+
+         if(this.cont == this.numArchivos)
+         {
+           this.win();
          }
 
 
     }
+    
+    win()
+    {
+        this.scene.get("Planta3").minijuegoCompletado();
+        //para que no cambie de repente
+        setTimeout(()=>{
+            console.log('no me va el metodo aaa');
+            this.scene.resume("Planta3"); //volvemos a planta
+            this.scene.remove();
+        },1500);
+    }
 }
+

@@ -10,7 +10,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
     init(){
         super.init();
         this.score = 0;
-        this.emilioScore = 2023;
+        this.emilioScore = 200;
     }
     preload(){
        super.preload();
@@ -130,6 +130,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         this.scene.get("Planta1").minijuegoCompletado();
             //para que no cambie de repente
             setTimeout(()=>{
+                console.log('ajolote success');
                 this.scene.resume('Planta1'); //volvemos a planta
                 this.scene.stop();
             },1500);

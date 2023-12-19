@@ -19,7 +19,7 @@ export default class Archivo extends Phaser.GameObjects.Container{
 		this.scene.add.existing(this);
 
         // Bool drag and drop
-        this.drag = false;
+        this.locate = false;
         this.imgFolder =  new Phaser.GameObjects.Sprite(this.scene, 0, 0, keyImg, 0);
         this.text = new Phaser.GameObjects.BitmapText(this.scene,-18, -18, keyText, keyFolder).setFontSize(4);
         
