@@ -71,6 +71,23 @@ export default class Planta5 extends plantaBase {
 		this.wallLayer.setCollisionByExclusion([-1]);
 		//Ascensor
 		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
+
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
+		// Bucle de creación
+		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
+			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+			// objeto en Tiled
+			if (objeto.type === 'NPCBase') {
+				console.log('creado npc planta 2');
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				if(objeto.name == 'Lola' || objeto.name == 'Jesus') this.npc.setFlip(true, false);
+				console.log(this.npc.x, this.npc.y);
+				this.NPCGroup.add(this.npc);
+			}
+		}
+		
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -91,6 +108,7 @@ export default class Planta5 extends plantaBase {
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
     }

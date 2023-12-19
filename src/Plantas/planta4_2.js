@@ -1,6 +1,8 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Ascensor from './ascensor.js';
+import NPC from '../Personajes/NPCBase.js';
+
 export default class Planta4_2 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -25,6 +27,14 @@ export default class Planta4_2 extends plantaBase {
         this.load.image('tileset_furniture_purple', 'assets/officeAssets/Furniture/tiles_furniture_purple.png');
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
         this.load.image('tileset_door_purple', 'assets/officeAssets/Doors/tile_door_purple.png');
+
+		// NPCS
+		this.load.spritesheet('NPCCharlotte', './assets/images/Characters/Charlotte.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCInma', './assets/images/Characters/Inma.png', {frameWidth: 24, frameHeight: 36})
+
+		// NPS DIALOGO
+		this.load.image('Charlotte', 'assets/images/UI/Dialogs/faces/Charlotte.png');
+		this.load.image('Inma', 'assets/images/UI/Dialogs/faces/Inma.png');
     }
 
     create(data){
@@ -60,6 +70,23 @@ export default class Planta4_2 extends plantaBase {
 		this.wallLayer.setCollisionByExclusion([-1]);
 		//Ascensor
 		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
+
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
+		// Bucle de creación
+		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
+			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+			// objeto en Tiled
+			if (objeto.type === 'NPCBase') {
+				console.log('creado npc planta 2');
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				if(objeto.name == 'Inma') this.npc.setFlip(true, false);
+				console.log(this.npc.x, this.npc.y);
+				this.NPCGroup.add(this.npc);
+			}
+		}
+
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -82,6 +109,7 @@ export default class Planta4_2 extends plantaBase {
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
     }

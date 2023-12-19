@@ -1,5 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
+import NPC from '../Personajes/NPCBase.js';
 
 export default class Planta4 extends plantaBase {
 	/**
@@ -25,6 +26,12 @@ export default class Planta4 extends plantaBase {
         this.load.image('tileset_furniture_purple', 'assets/officeAssets/Furniture/tiles_furniture_purple.png');
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
         this.load.image('tileset_door_purple', 'assets/officeAssets/Doors/tile_door_purple.png');
+
+		// NPCS
+		this.load.spritesheet('NPCArchie', './assets/images/Characters/Archie.png', {frameWidth: 24, frameHeight: 36})
+
+		// NPS DIALOGO
+		this.load.image('Archie', 'assets/images/UI/Dialogs/faces/Archie.png');
     }
 
     create(data){
@@ -57,6 +64,21 @@ export default class Planta4 extends plantaBase {
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
 
+		// Grupo de NPCS
+		this.NPCGroup = this.physics.add.group();
+		// NPCS POR CAPA DE OBJETOS
+		// Bucle de creación
+		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
+			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+			// objeto en Tiled
+			if (objeto.type === 'NPCBase') {
+				console.log('creado npc planta 2');
+				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
+				console.log(this.npc.x, this.npc.y);
+				this.NPCGroup.add(this.npc);
+			}
+		}
+
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -76,6 +98,7 @@ export default class Planta4 extends plantaBase {
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
+		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
     }
