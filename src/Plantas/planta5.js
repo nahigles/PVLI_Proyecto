@@ -1,6 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
-
+import Ascensor from './ascensor.js';
 export default class Planta5 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -69,7 +69,8 @@ export default class Planta5 extends plantaBase {
 
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
-
+		//Ascensor
+		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
