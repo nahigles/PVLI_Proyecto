@@ -2,6 +2,7 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Carpeta from '../Misiones/carpeta.js';
+import Ascensor from './ascensor.js';
 export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -36,7 +37,7 @@ export default class Planta1 extends plantaBase {
 		this.load.image('dialogBox', 'assets/images/Hud/dialogBox.png');
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
 		this.load.image('Carpeta', './assets/images/Objetos/Carpeta.png');
-
+		this.load.spritesheet('ascensorAnim', './assets/images/Objetos/tileset_elevator.png', {frameWidth: 32, frameHeight: 48});
 		// IMAGENES MAPA 
 		this.load.tilemapTiledJSON('tilemap_Planta_1', './assets/Prueba_Mapa/tilemap_planta_1_amarilla_2.json');
         this.load.image('tileset_architecture_yellow', 'assets/officeAssets/Architecture/tiles_architecture_yellow.png');
@@ -103,15 +104,15 @@ export default class Planta1 extends plantaBase {
 				this.NPCGroup.add(this.npc);
 			}
 		}
-
+		//Ascensor
+		this.ascensor = new Ascensor(this, 750 , 88, 'ascensorAnim' );
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
 		console.log(this.jugador);
-		
-
+		this.e = this.input.keyboard.addKey('E');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -128,10 +129,8 @@ export default class Planta1 extends plantaBase {
 
 		//Mision
 		this.carpeta = new Carpeta(this,66, this.jugador.y, 'Carpeta');
-		this.e = this.input.keyboard.addKey('E');
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
-		this.resultado = false;		//saber si se ha dado ya el resultado de la mision
 		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
     }
 	catchFolder(){
@@ -139,6 +138,22 @@ export default class Planta1 extends plantaBase {
 		if(canCatch && !this.carpeta.catch) { //si se puede coger y no se ha cogido antes
 			this.carpeta.catch = true;
 			this.carpeta.y += 10;
+		}
+	}
+	nextLevel(){
+		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
+		if(subir){
+			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
+				console.log("puedes subir");
+				this.ascensor.play('abrir', true);
+				setTimeout(()=>{
+					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
+					this.scene.stop();
+				},2000);
+			}
+			else{
+				console.log("todavia no puedes subir");
+			}
 		}
 	}
 	hablaConAlvaro(){		//ha elegido hablar con Alvaro
@@ -154,24 +169,25 @@ export default class Planta1 extends plantaBase {
 		if(this.haveToTalk && this.alreadyTalked ) { //si tenia que hablar y ha hablado
 			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
-			this.resultado = true;
+			this.misionCompletada = true;
 		}
 		else if(!this.haveToTalk && this.alreadyTalked && !this.carpeta.catch){ //si no tenia que hablar, pero no ha cogido la carpeta, Alvaro le ha hablado
 			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
-			this.resultado = true;
+			this.misionCompletada = true;
 		}
 		else if(!this.haveToTalk && this.alreadyTalked && this.carpeta.catch) { //si no tenia que hablar,pero ha hablado  aunque haya  ha cogido la carpeta
 			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
-			this.resultado = true;
+			this.misionCompletada = true;
 		}
 		else if(!this.haveToTalk && !this.alreadyTalked&& this.carpeta.catch){//si no tenia que hablar, no ha hablado  y ha cogido la carpeta
 			console.log("introvertido");
 			this.jugador.introvertido = true; //introvertido
-			this.resultado = true;
+			this.misionCompletada = true;
 		}
 	}
+
     update(){
 		super.update();
 		if(this.p.isDown){ 
@@ -179,31 +195,23 @@ export default class Planta1 extends plantaBase {
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
 		}
-		if(this.e.isDown){	//coger carpeta
+		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
+			this.nextLevel();
 		}
 		if(this.carpeta.catch) { //si se ha cogido la carpeta, se mueve con el jugador para taparle
 			this.carpeta.x = this.jugador.x + 5;
 		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
-		if(this.choose && !this.resultado && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x < 300 ){
+		if(this.choose && !this.misionCompletada && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x < 300 ){
 			this.jugador.body.setVelocityX(0);
 			this.scene.get("UiScene").talk();
 		}
 		//Cuando se llegue a Alma, dependiendo de lo que has hecho se te de el resultado de la mision
-		if(this.choose && !this.resultado && this.physics.overlap(this.jugador, this.NPCAlma)){
+		if(this.choose && !this.misionCompletada && this.physics.overlap(this.jugador, this.NPCAlma)){
 			this.resultadoMision();
-			if(this.resultado) {
-				this.carpeta.destroy();
-			}
-		}
-		//Cuando se tenga el ascensor, sise ha completado la mision y el minijuego puede subir, si no todavia no
-		if(this.w.isDown){ 
-			if(this.mjCompletado && this.resultado) {
-				console.log("puedes subir");
-			}
-			else{
-				console.log("todavia no puedes subir");
+			if(this.misionCompletada) {
+				this.carpeta.destroy(); //se elimina la carpeta
 			}
 		}
 	}
