@@ -55,7 +55,7 @@
                  "visible":true,
                  "width":0,
                  "x":77,
-                 "y":89.3333333333333
+                 "y":89.3333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -201,9 +201,74 @@
          "width":50,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"NPCS",
+         "objects":[
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"Lola",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCLola"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":215,
+                 "y":80
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"Fede",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCFede"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":322,
+                 "y":81
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Jesus",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCJesus"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":675,
+                 "y":79.3333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":2,
+ "nextlayerid":13,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

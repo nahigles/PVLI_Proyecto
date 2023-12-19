@@ -55,7 +55,7 @@
                  "visible":true,
                  "width":0,
                  "x":728,
-                 "y":89.6363636363636
+                 "y":89.6364
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -157,9 +157,74 @@
          "width":50,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":9,
+         "name":"NPCS",
+         "objects":[
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"Andrea",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCAndrea"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":488.94696969697,
+                 "y":77.9204545454545
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"Melisa",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCMelisa"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":298.545454545455,
+                 "y":79.8181818181818
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Pedro",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCPedro"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":139.636363636364,
+                 "y":78.9090909090909
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":9,
- "nextobjectid":2,
+ "nextlayerid":10,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
