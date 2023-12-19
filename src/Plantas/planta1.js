@@ -180,9 +180,15 @@ export default class Planta1 extends plantaBase {
 			this.misionCompletada = true;
 		}
 	}
-
+	callateEmilio(){
+		this.scene.pause("UiScene");
+	}
+	resumeUiScene(){
+		this.scene.resume("UiScene");
+	}
     update(){
 		super.update();
+		//console.log(this.jugador.inputEnabled);
 		if(this.p.isDown){ 
 			
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
@@ -196,12 +202,12 @@ export default class Planta1 extends plantaBase {
 			this.carpeta.x = this.jugador.x + 5;
 		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
-		if(this.choose && !this.misionCompletada && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x < 300 ){
+		if(this.choose && !this.misionCompletada && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x > 370 ){
 			this.jugador.body.setVelocityX(0);
 			this.scene.get("UiScene").talk();
 		}
 		//Cuando se llegue a Alma, dependiendo de lo que has hecho se te de el resultado de la mision
-		if(this.choose && !this.misionCompletada && this.physics.overlap(this.jugador, this.NPCAlma)){
+		if(this.choose && !this.misionCompletada && this.jugador.x > 550){
 			this.resultadoMision();
 			if(this.misionCompletada) {
 				this.carpeta.destroy(); //se elimina la carpeta
