@@ -1,4 +1,5 @@
 import Button from '../UI/Button.js';
+
 /**
  * Escena planta base
  */
@@ -35,10 +36,9 @@ export default class PlantaBase extends Phaser.Scene{
     create(){
         this.m = this.input.keyboard.addKey('M'); 
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+
         //Minijuego
 		this.mjCompletado = false;
-        //Mision
-        this.misionCompletada = false;
          // BotonPause
 		/*this.pauseButton = new Button(this, 310, 8  , 'pauseButton', ()=>{ this.scene.launch("PauseMenu", {
             level : this.key,

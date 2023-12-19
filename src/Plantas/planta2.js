@@ -1,7 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import Ascensor from './ascensor.js';
 export default class Planta2 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -56,8 +55,7 @@ export default class Planta2 extends plantaBase {
 
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
-		//Ascensor
-		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
+
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -65,8 +63,7 @@ export default class Planta2 extends plantaBase {
 		})[0];
 		this.jugador.introvertido = data.introvertido;
 		this.jugador.extrovertido = data.extrovertido;
-		//this.e = this.input.keyboard.addKey('E');
-		this.w = this.input.keyboard.addKey('W');
+
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -78,28 +75,10 @@ export default class Planta2 extends plantaBase {
 		
 		this.p = this.input.keyboard.addKey('P');
     }
-	nextLevel(){
-		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
-		if(subir){
-			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				console.log("puedes subir");
-				this.ascensor.play('abrir', true);
-				setTimeout(()=>{
-					this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
-										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
-					this.scene.stop();
-				},2000);
-			}
-			else{
-				console.log("todavia no puedes subir");
-			}
-		}
-	}
+
     update(){
 		super.update();
-		if(this.w.isDown){	//subir ascensor
-			this.nextLevel();
-		}
+		
 		if(this.p.isDown){ 
 			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
