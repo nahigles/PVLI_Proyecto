@@ -14,6 +14,8 @@ export default class Planta4 extends plantaBase {
 
 	init(){
 		super.init();
+		this.contGolpes = 0;
+		this.maxGolpes = 20;
 	}
 
     preload(){
@@ -32,6 +34,9 @@ export default class Planta4 extends plantaBase {
 
 		// NPS DIALOGO
 		this.load.image('Archie', 'assets/images/UI/Dialogs/faces/Archie.png');
+
+		// LOCKED DOOR
+		this.load.image('Locked_door', 'assets/officeAssets/Doors/locked_door_purple.png');
     }
 
     create(data){
@@ -51,8 +56,7 @@ export default class Planta4 extends plantaBase {
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_purple', 'tileset_furniture_purple');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_purple', 'tileset_objects_purple');  
 		const tileset_door = this.map.addTilesetImage('tile_door_purple', 'tileset_door_purple');  
-		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
-		
+
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
 		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);
@@ -101,11 +105,34 @@ export default class Planta4 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
+
+
+		// MISION
+		for (const objeto of this.map.getObjectLayer('Door').objects) {
+			
+			this.locked_door = new Phaser.GameObjects.Sprite(this, objeto.x, objeto.y, 'Locked_door');
+			this.locked_door.setInteractive();
+		}
+
+
+		this.locked_door.on('pointerdown', () =>
+        {
+            this.contGolpes++;
+			console.log('num golpes', this.contGolpes);
+            
+        });
+
     }
 
     update(){
 
 		super.update();
+
+		// MISION
+		if(this.contGolpes >= this.maxGolpes)
+		{
+			console.log('puerta abierta');
+		}
 
 		if(this.p.isDown){ 
 			this.scene.start('Planta4_2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
