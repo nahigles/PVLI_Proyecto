@@ -7,6 +7,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	 * @param {number} y - posición Y en la escena
 	 */
 	constructor(scene, x, y){
+		
 		// Llamamos al constructor del padre
 		super(scene, x, y);
 		this.speed = 140; // Nuestra velocidad de movimiento será 140
@@ -82,7 +83,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.thinker = false;
 		this.feeler =  false;
 		this.juzgador = false;
-		this.pereceptivo =  false;
+		this.perceptivo =  false;
 
     }
 	preUpdate(t, dt){
@@ -96,6 +97,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 				this.body.setVelocityX(-this.speed);
 				this.jugador.setFlip(true, false);
 				this.jugador.play('walk', true);
+				//this.scene.moveButtonLeft();
 			} 
 	
 			// Si se pulsa letra D
@@ -103,6 +105,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 				this.body.setVelocityX(this.speed);
 				this.jugador.setFlip(false, false);
 				this.jugador.play('walk', true);
+				//this.scene.moveButtonRight();
 			} 
 			else {
 				this.jugador.play('idle', true);

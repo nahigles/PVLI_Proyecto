@@ -6,10 +6,13 @@
 ¡Ven y conoce nuestro proyecto para la asignatura de PVLI!
   </p>
 <p>
-Blablabla resumen/introducción del juego
+Nuestro protagonista, un simple y amargado oficinista, llega un dia a la oficina y todo es un caos porque el jefe no responde. ¿Que le habrá pasado? Se verá obligado a avanzar por el edificio conociendo a sus compañeros,descubriendo los secretos de la empresa, completando misiones y minijuegos para finalmente averiguar el motivo de la desaparición de su jefe.
+Dependiendo de como se resuelvan las misiones, se irá descubriendo la personalidad de nuestro protagonista, y su desenlace dependerá de esta.
 </p>
 
 <br><sub>Capturas del juego</sub>
+ <img src = "https://github.com/nahigles/Workaholote/blob/main/assets/images/Captura.JPG" height= "auto" widht="auto">
+ <img src = "https://github.com/nahigles/Workaholote/blob/main/assets/images/Captura2.JPG" height= "auto" widht="auto">
 
 <p>
 <br>Si quieres saber más sobre el proyecto, siempre puedes revisar nuestro <a href="https://github.com/nahigles/Workaholote/blob/main/documents/GDD.md">GDD</a> o nuestra carpeta <a href="https://github.com/nahigles/Workaholote/blob/main/documents">documents</a>, donde tenemos información sobre los <a href="https://github.com/nahigles/Workaholote/blob/main/documents/assets.md">assets</a> usados y la <a href="https://github.com/nahigles/Workaholote/blob/main/documents/architecture.md">arquitectura del juego</a>.   

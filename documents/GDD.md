@@ -15,26 +15,28 @@
    - [Personajes](#personajes)
 4. [Referencias](#referencias) 
 ## Descripción
-Se trata de una aventura gráfica narrativa en vista frontal en la que nuestro protagonista, un simple y amargado oficinista se verá obligado a avanzar por el edificio conocinedo así más a la empresa, sus compañeros y descubrir el secreto tras la desaparición de su jefe.
+Se trata de una aventura gráfica narrativa en vista frontal en la que nuestro protagonista, un simple y amargado oficinista, llega un dia a la oficina y todo es un caos porque el jefe no responde. ¿Que le habrá pasado? Se verá obligado a avanzar por el edificio conociendo a sus compañeros,descubriendo los secretos de la empresa, completando misiones y minijuegos para finalmente averiguar el motivo de la desaparición de su jefe.
 
 ## Jugabilidad
 ### Mecánica
   - **Dentro del edificio:**
-    - Moverse a la izquierda (tecla A)
-    - Moverse a la derecha (tecla D)
-    - Interactuar con objetos (tecla E)
-    - Diálogos, *drag and drop*, pulsar (click izquierdo)
-  - **En los minijuegos:**
-    - Movimiento hacia la izquierda (tecla A)
-    - Movimiento hacia la derecha (tecla D)
-    - Saltar (espacio)
+    - Moverse a la izquierda (tecla A o ←)
+    - Moverse a la derecha (tecla D o →) 
+    - Interactuar con objetos y personajes y pasar de frase durante los diálogos(tecla E)
+    - *Drag and drop*, pulsar (click izquierdo)
+  - **En los minijuegos:** 
+    - Moverse a la izquierda (tecla A o ← )
+    - Moverse a la derecha (tecla D o →) 
+    - Moverse hacia arriba (tecla W o ↑)
+    - Moverse hacia abajo (tecla S o ↓)
     - Lanzar, *drag and drop* (click izquierdo) 
+    -Disparar?
 
   - **Cámara**
-    - Cámara estática en la sala/planta en la que se encuentre el jugador.
+    - La cámara sigue al jugador y muestra la planta o minijuego donde se encuentra.
 
 ### Dinámica
-Al inicio del juego uno de los trabajadores contacta con nuestro protagonista para comunicarle que el jefe ha desaparecido y no se sabe nada de él. Por tanto, requieren de la ayuda del jugador para sacar la empresa a flote con el proviniente caos. Cada planta representa a cada uno de los grupos principales de las personalidad MBTI: analistas, centinelas, diplomáticos y exploradores. En cada piso habrá un empleado, un animador y un jefe con los cuales el jugador irá interactuando, enfrentándose a dsitintos retos y descubriendo los secretos de la empresa. La relación que tenga el jugador con estos personajes estará influenciada por las distintas personalidades de cada uno y las elecciones del jugador serán determinantes para el final del juego. 
+Al inicio del juego uno de los trabajadores contacta con nuestro protagonista para comunicarle que el jefe ha desaparecido y no se sabe nada de él. Por tanto, requieren de la ayuda del jugador para sacar la empresa a flote con el proviniente caos. Cada planta representa a cada uno de los grupos principales de las personalidad MBTI: analistas, centinelas, diplomáticos y exploradores. En cada piso habrá un empleado, un animador y un jefe con los cuales el jugador irá interactuando, enfrentándose a distintos retos y descubriendo los secretos de la empresa. La relación que tenga el jugador con estos personajes estará influenciada por las distintas personalidades de cada uno y las elecciones del jugador serán determinantes para el final del juego. 
 
 ### Estética
 El edificio se verá lateralmente, sin pared, como si se tratara de una casa de muñecas. Los assets, los personajes y el espacio serán 2D y no contarán con profundidad, a modo pixelart. En cuanto a los colores, usaremos una escala de grises para representar la monotonía de la vida adulta Además, utilizaremos los colores azul, amarillo, morado y verde para representar cada tipo de personalidad y darle ambientación a los detalles más representativos y/o estéticos de las habitaciones.
@@ -45,8 +47,8 @@ El edificio se verá lateralmente, sin pared, como si se tratara de una casa de 
 </div>
 
 ## Menús y modos de juego
-El juego tendrá un menú principal desde el cual se podrá iniciar la partida y configurar algunos aspectos de esta como el volumen. 
-Además contará con un menú de pausa que podrá ser accedido en medio de un nivel. En este menú se podrá acceder a la configuración del juego (volumen) y reanudar la partida.
+El juego tendrá un menú principal desde el cual se podrá iniciar la partida.
+Además contará con un menú de pausa que podrá ser accedido en medio de un nivel. En este menú se podrá reanudar la partida o salir.
 
 <div align="center">
   
@@ -69,19 +71,17 @@ El juego tiene un único modo de juego y por ello no es configurable la dificult
 Precisaremos de recursos de arte en *pixel art* de los personajes, fondo y objetos interaccionables, además de música de ambiente para el juego.
 
 ### Niveles 
-La escena inicial será una pequeña cinemática en la que se mostrarán todas las plantas del edificio, desde la última planta a la más baja. 
-
 Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, todas estarán ambientadas en base al color del grupo y su orden será amarillo, verde, azul y morado. En estas el jugador se encontrará con personajes que representan distintas personalidades del grupo, interactuando con ellos/as pasará por tres fases en cada una. Al principio tendremos una pequeña misión en el espacio de la planta, ya sea interactuando con los objetos o a través de conversaciones interactivas con los otros personajes; esta determinará la insignia que se le dé al jugador en esa planta, las insignias representan cada una de las 4 letras o dualidades del tipo de personalidad ( I-E / S-N / T-F / P-J ). Seguidamente, se cruzará con algún personaje en la planta con el que tendrá una pequeña conversación, en la que nuestro jugador interactúa o simplemente escucha lo que digan estos. Al llegar al final de la planta, el jugador se encontrará con un último personaje que le presentará un minijuego; este se llevará a cabo en una escena distinta a la de la planta, y al superarlo se podrá avanzar a la siguiente.
 
 - **Planta 1 - Exploradores**
-  - Al llegar abajo, el jugador entrará al hall del edificio en el que Victoria de secretaría le dirá que el jefe, cuya oficina se encuentra en la última planta del edificio, tiene la puerta cerrada y no contesta al teléfono. Le dirá que la mayoría de empleados se han ido a sus casas y que él mismo podría hacerlo. Para ello tendrá dos opciones: 
+  - Al comenzar, el jugador se encontrará con Victoria, la secretaria, que le dirá que el jefe, cuya oficina se encuentra en la última planta del edificio, tiene la puerta cerrada y no contesta al teléfono. Le dirá que la mayoría de empleados se han ido a sus casas y que él mismo podría hacerlo. Para ello tendrá dos opciones: 
     - E = Hablar con su compañero de recursos humanos, Álvaro.
-    - I = Encontrar un objeto lo suficientemente grande (archivador) para pasar por delante de Álvaro sin ser visto...
+    - I = Encontrar una carpeta para pasar por delante de Álvaro sin ser visto.
 
   - De esta manera el jugador no sólo entenderá las mecánicas básicas del juego, sino que también conseguirá su primera insignia.
-  - Así, una vez entendido el juego, empieza la dinámica en la que en cualquier momento nuestro jugador puede abandonar la partida e irse a casa o seguir en el edificio ayudando a sus compañeros y descubriendo el misterio de la actitud del jefe. Para incentivarlo a seguir Alma, el próximo personaje con el que se cruce, le dará mensajes de ánimo.
-  - Si nuestro jugador ha decidido quedarse en la empresa, se dirigirá a la siguiente planta. En la puerta se encontrará con Emilio, con el que tendrá una conversación sobre el juego que ha descubierto al caerse la red, nuestra versión del dinosaurio de google, el ajolote.
-    - El minijuego consiste en superar el high score de Emilio en este juego de plataformas en el que, conforme estas van cayendo, el jugador tiene que mantener al ajolote en el espacio de la pantalla delimitado; para ello tendrá que saltar entre las plataformas.
+  - Así, una vez entendido el juego, empieza la dinámica en la que en cualquier momento nuestro jugador puede abandonar la partida e irse a casa o seguir en el edificio ayudando a sus compañeros y descubriendo el misterio de la actitud del jefe. Para incentivarlo a seguir, Alma, que el próximo personaje con el que se cruza, le dará mensajes de ánimo.
+  - Si nuestro jugador ha decidido quedarse en la empresa, se dirigirá al ascensor para subir a la siguiente planta. En la puerta se encontrará con Emilio, con el que tendrá una conversación sobre el juego que ha descubierto al caerse la red, nuestra versión del dinosaurio de google, el ajolote.
+    - El minijuego consiste en superar el high score de Emilio en este juego de plataformas en el que, conforme estas van apareciendo, el ajolote tiene que tratar de rebotar para alcanzar la siguiente plataforma e ir subiendo. Si se cae de las plataformas, se reinicia el minijuego.
 <div align="center">
   
 <sub>*Minijuego planta 1.*</sub>
@@ -92,21 +92,21 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
     - S = Una persona con este tipo de personalidad es muy paciente y metódica a la hora de tomar decisiones y querría estar segura de la clave antes de hacer nada, por lo que esperará hasta que aparezcan todos los números en pantalla.
     - N = Estas personas son más espontáneas y se guían por la intuición, por lo que intentaría intuir los números y probar a abrir la puerta hasta encontrar la clave correcta.
 
-  - Al encenderse la luz el jugador podrá ver que, como le venían advirtiendo, esta planta es un caos; no queda prácticamente nadie y todo está tirado por los suelos, casi como si alguien hubiera perdido los papeles… pero por qué? Melisa le cuenta a nuestro jugador que Pedro (próximo personaje) ha tenido una discusión con el jefe. 
+  - Al encenderse la luz el jugador podrá ver que, como le venían advirtiendo, esta planta es un caos; no queda prácticamente nadie y todo está tirado por los suelos, casi como si alguien hubiera perdido los papeles. Melisa le cuenta a nuestro jugador que Pedro (próximo personaje) ha tenido una discusión con el jefe. 
   - Al acercarse a él se iniciará un diálogo en el que Pedro explica que al parecer el jefe le ha llamado diciendo que hay que reducir plantilla, sin dar muchas explicaciones. Al enterarse de la mala noticia no ha podido contener su ira ya que estos últimos meses han estado todos metiendo horas extra y tener que despedir a tanta gente de la nada será duro para todos.
   - Hace unos años Pedro y el jefe solían dirigir la empresa juntos; pues todo empezó con una idea en el pequeño salón del piso que compartían en la universidad. Conforme crecía la empresa, las gestiones empresariales por hacer se acumulaban, por lo que decidieron que Pedro se quedaría en las líneas de producción y el jefe pasaría a formar parte de la junta directiva, cada vez alejándose más de los trabajadores. Pedro le pedirá al jugador ayuda para recoger.
-    - Este minijuego consiste en lanzar bolas de papel a alguna de las papeleras que irán apareciendo en pantalla. Tanto las papeleras como la mano solo podrán moverse en el eje horizontal.
+    - En este minijuego la papelera se moverá en el eje horizontal y la bola de papel , que se podrá cambiar su posición también en el eje horizontal, se tendrá que ir lanzando y encestando en la papelera hasta llegar a 10.
 <div align="center">
   
 <sub>*Minijuego planta 2.*</sub>
 </div>
 
 - **Planta 3 - Centinelas**
-  - Esta es la planta de los economistas. Al entrar el jugador le contará al primer personaje, Lola, lo que ha pasado; ella argumentará que la empresa necesita despedir a esos empleados y que no hay nada de malo en ello. De esta manera empezará un diálogo en el que podremos analizar la siguiente característica de la personalidad del jugador.
+  - Esta es la planta de los economistas. Al entrar, el jugador le contará al primer personaje, Lola, lo que ha pasado; ella argumentará que la empresa necesita despedir a esos empleados y que no hay nada de malo en ello. De esta manera empezará un diálogo en el que podremos analizar la siguiente característica de la personalidad del jugador.
     - T = Un thinker estaría de acuerdo con nuestro logista. Si los hechos nos llevan a una conclusión, ¿por qué habría que dudar de ello?
     - F = Un feeler, poniéndose en el lugar de sus compañeros de la planta anterior, le llevaría la contraria e intentaría hacer que Lola empatizara con lxs trabajadorxs que van a ser despedidos.
 
-  - Después de esa pequeña discusión seguiremos adelante en la oficina en la que iremos escuchando conversaciones de los trabajadores que nos dan alguna pista de lo que puede estar pasando. La empresa está creciendo y hay mucho cambio, se escuchan hipótesis sobre salir al mercado internacional, se pone en duda la capacidad de liderazgo del jefe y etc.
+  - Después de esa pequeña discusión seguiremos adelante en la oficina en la que iremos escuchando conversaciones de los trabajadores que nos dan alguna pista de lo que puede estar pasando. La empresa está creciendo y hay mucho cambio, se escuchan hipótesis sobre salir al mercado internacional y se está empezando a poner en duda la capacidad de liderazgo del jefe.
   - Al final de esta planta vemos a Jesús, el cual tiene cara de llevar varios días sin dormir y está claramente sobrepasado por la situación. Este le contará al jugador que lleva un año complicado; efectivamente la empresa está creciendo mucho, y entre la carga de trabajo, las nuevas tecnologías y que cada vez hay más documentos que llegan en otros idiomas, siente que se está quedando atrás. Él lleva en la empresa prácticamente desde que empezó; de ser un amigo de la familia entendido en finanzas echando una mano, a convertirse en el CFO de la empresa intentando gestionar su crecimiento.  En esta situación de caos en la que los nervios están a flor de piel, Jesus se abrirá al jugador, contándole su situación personal en un pequeño e irónicamente dramático diálogo en el que finalmente, nuestro jugador le ayudará con sus tareas.
     - Este minijuego consta de  dos partes; por un lado, el jugador tendrá que ordenar las carpetas mediante un drag and drop y por otro, resolverá el puzzle en el que sólo puede mover las fichas a su posición contigua si esta está vacía.
 <div align="center">
@@ -119,7 +119,7 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
       - J = Estas personas son organizadas y les gusta enfrentarse a los retos con gran preparación, siguen las reglas y se ciñen a los planes. Por lo que si nuestro jugador es un judger intentará encontrar las llaves en esta sala para poder abrir la puerta.
       - P = Los perceivers son más espontáneos y flexibles, por lo que al jugador se le dará también la opción de tirar la puerta abajo para pasar, esto se hará mediante varios clics seguidos en la puerta.
 
-   - Al pasar nuestro jugador escuchará a una última conversación entre Charlotte e Inma con la que llegará a entender del todo el drama de la empresa. Entre teorías y debate de ambos personajes podrá discernir lo que está pasando: Al parecer, conforme la empresa ha ido creciendo las demandas de los accionistas también lo han hecho; por lo tanto, estas últimas semanas se ha estado planteando que la única manera de mantenerse competitivos en el mercado internacional es trasladar la producción a una fábrica externa y reducir así los gastos. El jefe ha estado retrasando tomar la decisión y hoy era el día en el que venía la junta directiva para firmar los últimos documentos, por lo que se ha encerrado en su oficina evitando la confrontación.
+   - Al pasar la puerta, nuestro jugador escuchará a una última conversación entre Charlotte e Inma con la que llegará a entender del todo el drama de la empresa. Entre teorías y debate de ambos personajes podrá discernir lo que está pasando: Al parecer, conforme la empresa ha ido creciendo las demandas de los accionistas también lo han hecho; por lo tanto, estas últimas semanas se ha estado planteando que la única manera de mantenerse competitivos en el mercado internacional es trasladar la producción a una fábrica externa y reducir así los gastos. El jefe ha estado retrasando tomar la decisión, y hoy era el día en el que venía la junta directiva para firmar los últimos documentos, por lo que se ha encerrado en su oficina evitando la confrontación.
    - Finalmente en esta planta el jugador se encontrará con Conrad, que está apunto de conseguir abrir la puerta.
       - Podrás ayudarle disparando a los virus que caigan hasta coger la clave.
 <div align="center">
@@ -135,10 +135,10 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
 ### Personajes
 - **Personaje principal:** El jugador controla al protagonista de la historia quien irá interactuando con los demás personajes. En un principio, se trata de un personaje simple y plano.
 - **Planta 1 - Exploradores:**
-  - Victoria, virtuosa; las personas con este tipo de personalidad son amables pero reservadas y tranquilas, asimismo disfrutan de echar una mano y aprenden de su entorno a medida que avanzan. Por lo tanto, si bien Victoria no le dará a nuestro jugador más que un titular de lo que está pasando en la empresa, si que le ayudará contándole lo que ha ido viendo hacer a sus compañeros (las dos opciones de la misión).
-  - Alvaro, aventurero; estas personas disfrutan mucho relacionándose con los demás, es por eso que este será el encargado de recursos humanos. Asimismo, al ser espontáneos e imprevisibles oscilan entre la generosidad y una actitud más egoísta, por lo que nuestro personaje tendrá que navegar una conversación llena de altibajos para poder escaquearse de este día del trabajo.
+  - Victoria, virtuosa; las personas con este tipo de personalidad son amables pero reservadas y tranquilas, asimismo disfrutan de echar una mano y aprenden de su entorno a medida que avanzan. Por lo tanto, si bien Victoria no le dará a nuestro jugador más que un titular de lo que está pasando en la empresa, si que le ayudará contándole lo que ha ido viendo hacer a sus compañeros (las dos opciones de la misión: irse a casa o hablar con Álvaro).
+  - Álvaro, aventurero; estas personas disfrutan mucho relacionándose con los demás, es por eso que este será el encargado de recursos humanos. Asimismo, al ser espontáneos e imprevisibles oscilan entre la generosidad y una actitud más egoísta, por lo que nuestro personaje tendrá que navegar una conversación llena de altibajos para poder escaquearse de este día del trabajo.
   - Alma, animadora; esta personalidad se caracteriza por su voluntad de ayudar y ofrecer su apoyo a las personas que les rodean, siempre pueden ver el lado positivo de las cosas e intentan hacérselo ver al resto, pero también son buenos observadores muy capaces de leer las emociones de los demás. Es por eso que si bien Alma animará a nuestro jugador a seguir adelante, entenderá también que quiera irse a casa, dándole la opción de abandonar la partida en cualquier momento.
-  - Emilio, emprendedor; directos, inteligentes, graciosos y competitivos, así son las personas de este grupo. Es por eso que Emilio intentará retar al jugador, en una conversación llena de chascarrillos y chistes malos.
+  - Emilio, emprendedor; directos, inteligentes, graciosos y competitivos, así son las personas de este grupo. Es por eso que Emilio intentará retar al jugador al juego que está jugando, en una conversación llena de chascarrillos y chistes malos.
 
 - **Planta 2 - Diplomáticos:**
   - Andrea, activista; estas personas suelen ver la vida como un complejo rompecabezas, se valen de su gran creatividad e imaginación para encontrar soluciones originales a sus problemas, no perdiendo nunca la sonrisa. De tal manera que al llegar a esta planta, a pesar de estar todo un poco patas arriba, Andrea le presentará a nuestro jugador varias maneras de seguir adelante con gran entusiasmo.
@@ -174,5 +174,5 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
 
 ## Referencias
 - Estilo cámara y salas: <ins>Plunder Pack</ins>, <ins>Sound Shapes</ins>
-- Minijuegos: <ins>Space Invaders</ins>, <ins>A Little to the Left</ins>, <ins>Chrome Dino</ins>, <ins>Juego del 15</ins>, <ins>Among Us</ins>, <ins>Pou</ins> 
+- Minijuegos: <ins>Space Invaders</ins>, <ins>A Little to the Left</ins>, <ins>Juego del 15</ins>, <ins>Among Us</ins>, <ins>Pou</ins> 
 

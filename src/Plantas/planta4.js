@@ -27,7 +27,7 @@ export default class Planta4 extends plantaBase {
         this.load.image('tileset_door_purple', 'assets/officeAssets/Doors/tile_door_purple.png');
     }
 
-    create(){
+    create(data){
 		super.create();
 
 		// TILEMAP
@@ -62,6 +62,12 @@ export default class Planta4 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
+		this.jugador.introvertido = data.introvertido;
+		this.jugador.extrovertido = data.extrovertido;
+		this.jugador.intuitivo = data.intuitivo;
+		this.jugador.sensitivo = data.sensitivo;
+		this.jugador.thinker = data.thinker;
+		this.jugador.feeler = data.feeler;
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -79,7 +85,10 @@ export default class Planta4 extends plantaBase {
 		super.update();
 
 		if(this.p.isDown){ 
-			this.scene.start('Planta4_2');
+			this.scene.start('Planta4_2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+				sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
+				thinker : this.jugador.thinker, feeler : this.jugador.feeler,
+				juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
 			this.scene.stop();
 			console.log("Paso de P4_1 a P4_2")
 		}	

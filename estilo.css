@@ -45,7 +45,8 @@ header
 {
 	pointer-events: none;
 	color: #ffffff;
-	font-size: 20px;
+	font-size: 50px;
+	text-align: center;
 	padding-top: 100px;
 	padding-left: 60px;
 }

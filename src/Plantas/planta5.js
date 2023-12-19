@@ -34,7 +34,7 @@ export default class Planta5 extends plantaBase {
         this.load.image('tileset_objects_blue', 'assets/officeAssets/Objects/tiles_objects_blue.png');
     }
 
-    create(){
+    create(data){
 		super.create();
 
 		// TILEMAP
@@ -75,7 +75,14 @@ export default class Planta5 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
-
+		this.jugador.introvertido = data.introvertido;
+		this.jugador.extrovertido = data.extrovertido;
+		this.jugador.intuitivo = data.intuitivo;
+		this.jugador.sensitivo = data.sensitivo;
+		this.jugador.thinker = data.thinker;
+		this.jugador.feeler = data.feeler;
+		this.jugador.juzgador = data.juzgador;
+		this.jugador.perceptivo = data.perceptivo;
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);

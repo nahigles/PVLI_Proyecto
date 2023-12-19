@@ -1,8 +1,6 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import MJ_Basuras from '../Minijuegos/mj_Basuras.js' ;
-import Button from '../UI/Button.js';
 export default class Planta2 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -29,9 +27,8 @@ export default class Planta2 extends plantaBase {
         this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
     }
 
-    create(){
+    create(data){
 		super.create();
-
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_2', 
@@ -64,6 +61,8 @@ export default class Planta2 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
+		this.jugador.introvertido = data.introvertido;
+		this.jugador.extrovertido = data.extrovertido;
 
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -74,9 +73,6 @@ export default class Planta2 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		//this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
-		this.pauseButton = new Button(this, 570, 30, 'pauseButton', ()=>{this.scene.launch("PauseMenuPlanta2");}, ()=>{this.scene.pause();}, ()=>{} , ()=>{});
-		this.pauseButton.setScrollFactor(0);
-        this.pauseButton.setDepth(100);
 		this.p = this.input.keyboard.addKey('P');
     }
 
@@ -84,7 +80,8 @@ export default class Planta2 extends plantaBase {
 		super.update();
 		
 		if(this.p.isDown){ 
-			this.scene.start('Planta3');
+			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
+										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
 			console.log("Paso de P2 a P3")
 		}	

@@ -5,7 +5,7 @@ import dialogEmilio from "../Dialogs/dialogText/dialogsP1/Emilio.json"  assert {
 
 export default class Conversation{
 	/**
-	 * Constructor del pato
+	 * Constructor
 	 * @param {Scene} scene -  escena
 	 * @param {string} who - npc _whoIsTalking
 	 */
