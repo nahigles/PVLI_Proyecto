@@ -43,7 +43,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="BotonPausa">
+ <objectgroup id="3" name="BotonPausa" class="Button">
   <object id="2" name="BotonPausa" type="Button" x="181.5" y="7.25">
    <point/>
   </object>
