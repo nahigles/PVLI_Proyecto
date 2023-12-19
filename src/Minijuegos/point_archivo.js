@@ -8,7 +8,7 @@ export default class PointArchivo extends Phaser.Geom.Point{
 	 */
     constructor(scene,x,y, key) {
         // Constructor del padre 
-        super(scene,x,y);
+        super(x,y);
 
         // Añadimos el punto a la escena 
         this.scene = scene;

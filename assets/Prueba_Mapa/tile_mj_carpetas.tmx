@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="192" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="4">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="192" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="23">
  <editorsettings>
   <export target="tile_mj_carpetas.json" format="json"/>
  </editorsettings>
@@ -11,8 +11,35 @@
 1
 </data>
  </layer>
- <objectgroup id="2" name="Puntos">
-  <object id="1" name="AB" type="Point" x="52" y="72.75">
+ <objectgroup id="2" name="Puntos" visible="0">
+  <object id="1" name="AC" type="Point" x="54" y="115.25">
+   <point/>
+  </object>
+  <object id="6" name="DF" type="Point" x="57" y="102.75">
+   <point/>
+  </object>
+  <object id="7" name="GH" type="Point" x="61.5" y="90">
+   <point/>
+  </object>
+  <object id="8" name="IK" type="Point" x="66" y="76">
+   <point/>
+  </object>
+  <object id="9" name="LN" type="Point" x="71.5" y="61.75">
+   <point/>
+  </object>
+  <object id="10" name="OQ" type="Point" x="133" y="115">
+   <point/>
+  </object>
+  <object id="11" name="RS" type="Point" x="130" y="102.5">
+   <point/>
+  </object>
+  <object id="12" name="TV" type="Point" x="125.5" y="89.75">
+   <point/>
+  </object>
+  <object id="13" name="WX" type="Point" x="121" y="75.75">
+   <point/>
+  </object>
+  <object id="14" name="YZ" type="Point" x="115.5" y="61.5">
    <point/>
   </object>
  </objectgroup>
@@ -22,10 +49,73 @@
   </object>
  </objectgroup>
  <objectgroup id="4" name="Carpetas" class="Archivo">
-  <object id="3" name="Carpeta_AB" x="95.5" y="65.25">
+  <object id="3" name="Carpeta_AC" type="Archivo" x="135" y="65.25">
    <properties>
-    <property name="keyFolder" value="A-B"/>
-    <property name="keyID" value="AB"/>
+    <property name="keyFolder" value="A-C"/>
+    <property name="keyID" value="AC"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="4" name="Carpeta_DF" type="Archivo" x="103" y="85.5">
+   <properties>
+    <property name="keyFolder" value="D-F"/>
+    <property name="keyID" value="DF"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" name="Carpeta_GH" type="Archivo" x="72" y="112">
+   <properties>
+    <property name="keyFolder" value="G-H"/>
+    <property name="keyID" value="GH"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" name="Carpeta_IK" type="Archivo" x="44.75" y="75.75">
+   <properties>
+    <property name="keyFolder" value="I-K"/>
+    <property name="keyID" value="IK"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="Carpeta_LN" type="Archivo" x="148.25" y="117.25">
+   <properties>
+    <property name="keyFolder" value="L-N"/>
+    <property name="keyID" value="LN"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" name="Carpeta_OQ" type="Archivo" x="68.25" y="90">
+   <properties>
+    <property name="keyFolder" value="O-Q"/>
+    <property name="keyID" value="OQ"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="Carpeta_RS" type="Archivo" x="90.5" y="108.25">
+   <properties>
+    <property name="keyFolder" value="R-S"/>
+    <property name="keyID" value="RS"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="Carpeta_TV" type="Archivo" x="91.5" y="79">
+   <properties>
+    <property name="keyFolder" value="T-V"/>
+    <property name="keyID" value="TV"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" name="Carpeta_WX" type="Archivo" x="134" y="86.25">
+   <properties>
+    <property name="keyFolder" value="W-X"/>
+    <property name="keyID" value="WX"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" name="Carpeta_YZ" type="Archivo" x="69.25" y="68">
+   <properties>
+    <property name="keyFolder" value="Y-Z"/>
+    <property name="keyID" value="YZ"/>
    </properties>
    <point/>
   </object>

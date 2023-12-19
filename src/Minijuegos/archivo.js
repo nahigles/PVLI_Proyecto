@@ -18,28 +18,28 @@ export default class Archivo extends Phaser.GameObjects.Container{
         this.scene = scene;
 		this.scene.add.existing(this);
 
-        const imgFolder =  new Phaser.GameObjects.Sprite(this.scene, 0, 0, keyImg, 0);
-        const text = new Phaser.GameObjects.BitmapText(this.scene,0, 0, keyText, keyFolder).setFontSize(32);
+        // Bool drag and drop
+        this.drag = false;
+        this.imgFolder =  new Phaser.GameObjects.Sprite(this.scene, 0, 0, keyImg, 0);
+        this.text = new Phaser.GameObjects.BitmapText(this.scene,-18, -18, keyText, keyFolder).setFontSize(4);
         
         this.id = keyID;
 
-        this.add([imgFolder, text]).setScale(1,1);
-        this.setSize(imgFolder.width, imgFolder.height);
+        this.add([this.imgFolder, this.text]).setScale(1,1);
+        this.setSize(this.imgFolder.width, this.imgFolder.height);
         
         this.setInteractive();
 
         this.on('pointerover', () =>
         {
-            
-            imgFolder.setTint(0x44ff44);
-            console.log('aaaaaaaaaaa');
+            this.imgFolder.setTint(0x44ff44);
             
         });
-
+        
         this.on('pointerout', () =>
         {
             
-            imgFolder.clearTint();
+            this.imgFolder.clearTint();
             
         });
     }

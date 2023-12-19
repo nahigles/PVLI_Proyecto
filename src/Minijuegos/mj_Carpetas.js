@@ -43,30 +43,21 @@ export default class MJ_Carpetas extends MinijuegoBase{
         this.cameras.main.setBounds(1,1, this.map.height, this.map.width, true);
         
         // ARCHIVOS
-        //this.archivo = new Archivo(this, 250, 200, 'A-B', 'folder', 'atari');
-        //this.input.setDraggable(this.archivo);
-        
         this.archivosGroup = this.add.group();
-        //this.archivosGroup = this.physics.add.group();
         // Bucle de creación de ARCHIVOS
 		for (const objeto of this.map.getObjectLayer('Carpetas').objects) {
-			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
+            // `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
-            console.log('bucle creacion archivos');
-            console.log(objeto.type);
 			if (objeto.type === 'Archivo') {
                 this.archivo = new Archivo(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.properties[1].value, 'folder', 'atari');
-                this.input.setDraggable(this.archivo);
                 console.log(this.archivo);
+                this.input.setDraggable(this.archivo);
                 this.archivosGroup.add(this.archivo);
-                //this.archivosGroup.create(new Archivo(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.properties[1].value, 'folder', 'atari'));
-                console.log(this.archivosGroup);
 
             }
 		}
         
-        /*this.pointsGroup = this.add.group();
-        //this.pointsGroup = this.physics.add.group();
+        this.pointsGroup = [];
         // Bucle de creación de LUGARES ARCHIVOS (puntos/coordenadas)
 		for (const objeto of this.map.getObjectLayer('Puntos').objects) {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
@@ -75,49 +66,62 @@ export default class MJ_Carpetas extends MinijuegoBase{
             console.log(objeto.type);
 			if (objeto.type === 'Point') {
                 this.point = new PointArchivo(this, objeto.x, objeto.y, objeto.name);
-                console.log(this.point);
-                
-                this.pointsGroup.add(this.point);
-                console.log(this.pointsGroup);
+                this.pointsGroup.push(this.point);
+                console.log('coordenadas punto: ', this.point.x, this.point.y);
             }
-		}*/
+		}
         
-
+        // DRAG
         this.input.on('drag', (pointer, gameObject, dragX, dragY) =>
         {
-            
             gameObject.x = dragX;
             gameObject.y = dragY;
-            console.log('DRAAAG');
-            
+            gameObject.drag = true;
         });
-
-        // COMPROBACIÓN DE COORDENADAS
-        this.archivosGroup.getChildren();
-        for (const Archivo of this.archivosGroup.getChildren())
+        // DROP
+        this.input.on('dragend', (pointer, gameObject) =>
         {
-            this.pointsGroup.getChildren();
-            for(const Point of this.pointsGroup.getChildren())
-            {
-                if(Archivo.id == Point.key && (Archivo.keyArchivo.x == Point.x && Archivo.y == Point.y))
-                {
-                    Archivo.disableInteractive();
-                    console.log('Se disableaaa')
-                }
-            }
+            gameObject.drag = false;
         }
-
+        )
+        
         // BotonPause
-       //this.pauseButton = new Button(this, 100, 100, 'pauseButton', ()=>{this.scene.launch(new PauseMenu('Planta3', 'mj_Carpetas', 'MenuPause_P3'));}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
+        //this.pauseButton = new Button(this, 100, 100, 'pauseButton', ()=>{this.scene.launch(new PauseMenu('Planta3', 'mj_Carpetas', 'MenuPause_P3'));}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
        //this.pauseButton.setScale(0.1,0.1); 
 
        //console.log("CONTAINER: ", this.container.x, this.container.y);
        //console.log("BOTON PAUSA: ", this.pauseButton.x, this.pauseButton.y);
-        
+       
     }
     update(){
         super.update();
-        
+        // COMPROBACIÓN DE COORDENADAS
+         this.archivosGroup.getChildren();
+         for (const Archivo of this.archivosGroup.getChildren())
+         {
+            Archivo.depth = Archivo.y;
+            /*let franja = this.map.height / 5;
+            if()
+            {
+
+            }*/
+             for(const Point of this.pointsGroup)
+             {
+                 /*if(Archivo.drag == false)
+                 {*/
+                     if(Archivo.id == Point.key && 
+                        ((Archivo.x >= Point.x || Archivo.x < Point.x + 10) && (Archivo.y >= Point.y && Archivo.y < Point.y + 5)))
+                    {
+                        Archivo.imgFolder.clearTint();
+                        Archivo.imgFolder.setTint(0x0000ff);
+                        Archivo.x = Point.x;
+                        Archivo.y = Point.y;
+                        Archivo.disableInteractive();
+                    }
+                /*}*/
+             }
+         }
+
 
     }
 }

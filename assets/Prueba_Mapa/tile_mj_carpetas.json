@@ -23,18 +23,135 @@
                 {
                  "height":0,
                  "id":1,
-                 "name":"AB",
+                 "name":"AC",
                  "point":true,
                  "rotation":0,
                  "type":"Point",
                  "visible":true,
                  "width":0,
-                 "x":52,
-                 "y":72.75
+                 "x":54,
+                 "y":115.25
+                },
+            
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"DF",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":57,
+                 "y":102.75
+                },
+            
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"GH",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":61.5,
+                 "y":90
+                },
+            
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"IK",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":66,
+                 "y":76
+                },
+            
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"LN",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":71.5,
+                 "y":61.75
+                },
+            
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"OQ",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":133,
+                 "y":115
+                },
+            
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"RS",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":130,
+                 "y":102.5
+                },
+            
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"TV",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":125.5,
+                 "y":89.75
+                },
+            
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"WX",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":121,
+                 "y":75.75
+                },
+            
+                {
+                 "height":0,
+                 "id":14,
+                 "name":"YZ",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Point",
+                 "visible":true,
+                 "width":0,
+                 "x":115.5,
+                 "y":61.5
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         },
@@ -72,26 +189,251 @@
                 {
                  "height":0,
                  "id":3,
-                 "name":"Carpeta_AB",
+                 "name":"Carpeta_AC",
                  "point":true,
                  "properties":[
                         {
                          "name":"keyFolder",
                          "type":"string",
-                         "value":"A-B"
+                         "value":"A-C"
                         },
                     
                         {
                          "name":"keyID",
                          "type":"string",
-                         "value":"AB"
+                         "value":"AC"
                         }],
                  "rotation":0,
                  "type":"Archivo",
                  "visible":true,
                  "width":0,
-                 "x":95.5,
+                 "x":135,
                  "y":65.25
+                },
+            
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Carpeta_DF",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"D-F"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"DF"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":103,
+                 "y":85.5
+                },
+            
+                {
+                 "height":0,
+                 "id":15,
+                 "name":"Carpeta_GH",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"G-H"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"GH"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":72,
+                 "y":112
+                },
+            
+                {
+                 "height":0,
+                 "id":16,
+                 "name":"Carpeta_IK",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"I-K"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"IK"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":44.75,
+                 "y":75.75
+                },
+            
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"Carpeta_LN",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"L-N"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"LN"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":148.25,
+                 "y":117.25
+                },
+            
+                {
+                 "height":0,
+                 "id":18,
+                 "name":"Carpeta_OQ",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"O-Q"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"OQ"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":68.25,
+                 "y":90
+                },
+            
+                {
+                 "height":0,
+                 "id":19,
+                 "name":"Carpeta_RS",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"R-S"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"RS"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":90.5,
+                 "y":108.25
+                },
+            
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"Carpeta_TV",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"T-V"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"TV"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":91.5,
+                 "y":79
+                },
+            
+                {
+                 "height":0,
+                 "id":21,
+                 "name":"Carpeta_WX",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"W-X"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"WX"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":134,
+                 "y":86.25
+                },
+            
+                {
+                 "height":0,
+                 "id":22,
+                 "name":"Carpeta_YZ",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"keyFolder",
+                         "type":"string",
+                         "value":"Y-Z"
+                        },
+                    
+                        {
+                         "name":"keyID",
+                         "type":"string",
+                         "value":"YZ"
+                        }],
+                 "rotation":0,
+                 "type":"Archivo",
+                 "visible":true,
+                 "width":0,
+                 "x":69.25,
+                 "y":68
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -100,7 +442,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":4,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
