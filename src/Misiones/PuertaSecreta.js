@@ -126,7 +126,10 @@ export default class PuertaSecreta extends Phaser.Scene{
             let plantica2 = this.scene.get("Planta2");
             plantica2.lightsOn();
             plantica2.misionCompleta();
-            this.scene.get("UiScene").sigConver();
+
+            if(!this.clavMirada){
+                this.scene.get("UiScene").sigConver();
+            }
         }
         
         this.correct = correctttt;

@@ -4,7 +4,7 @@ El contexto se centra en las oficinas de una empresa y para representarlas hemos
 Los personajes están basados en las apariencias de las diferentes personalidades del test.
 
 Links de los assets del juego: 
-- ...
+- Jugador: https://penzilla.itch.io/protagonist-character
 - ...
 
 Links de las imágenes:

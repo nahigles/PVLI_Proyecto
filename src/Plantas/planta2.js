@@ -79,10 +79,11 @@ export default class Planta2 extends plantaBase {
 		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
 
 		// Clave mision
-		this.clave = new Clave(this,170,80, 'ClaveSprite');
+		this.clave = new Clave(this,170,85, 'ClaveSprite');
 
 		// Grupo de NPCS
 		this.NPCGroup = this.physics.add.group();
+
 		// NPCS POR CAPA DE OBJETOS
 		// Bucle de creación
 		for (const objeto of this.map.getObjectLayer('NPCS').objects) {
@@ -104,6 +105,7 @@ export default class Planta2 extends plantaBase {
 		this.jugador.introvertido = data.introvertido;
 		this.jugador.extrovertido = data.extrovertido;
 		this.e = this.input.keyboard.addKey('E');
+
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -120,9 +122,20 @@ export default class Planta2 extends plantaBase {
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
-		
+
+
+		// Colision positClave-jugador
+		this.physics.add.overlap(this.clave, this.jugador, (clave,jugador)=>{
+				if(!this.misionCompletada){
+					console.log("overlapeau");
+					setTimeout(()=>{
+						this.startMision();
+					},3000);
+				}
+				
+			});
+
 		this.p = this.input.keyboard.addKey('P');
-		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
 
 		// Mascara
 		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
@@ -160,10 +173,6 @@ export default class Planta2 extends plantaBase {
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
 		}
-		if(this.i.isDown){
-			this.scene.launch('puertaSecreta');
-            this.scene.pause();
-		}	
     }
 
 	onPause(bol){
