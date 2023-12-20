@@ -3,7 +3,7 @@
         {
             "who": "Andrea",
             "frase": "Bb! Ya aki?! Si todavía no son las 17h. Jajajajjajajja q mala influencia t amo<3",
-            "nextId": 17
+            "nextId": 18
             },{
             "who": "Player",
             "frase": "¿Hola? ¿Hay alguien aqui?",
@@ -26,50 +26,54 @@
             "nextId": 6
             },{
             "who": "Andrea",
-            "frase": "De hecho si puedes intentar abrir la puerta del d mantenimiento.",
+            "frase": "Las bombillas están en este armario. Pero pusieron una clave, por qué claro, malo sea que m lleve un par d bolis.",
             "nextId": 7
             },{
+            "who": "Andrea",
+            "frase": "La última vez que vino el de mantenimiento nos lo apuntó en un postIt pero ns dnd lo tenemos. Sino hay q ir probando, aunque a mí me ha dado pereza la verdad jejjje.",
+            "nextId": 8
+            },{
             "who": "Choice",
-            "a": "El postIt debe d estar por aquí, búscalo.",
-            "b": "Adivina el pin.",
-            "nextA": 8,
-            "nextB": 10
+            "a": "Voy a buscar el postIt, a ver si hay suerte.",
+            "b": "Con tres cifras no hay tantas opciones en verdad.",
+            "nextA": 9,
+            "nextB": 11
             },{
             "who": "Player",
-            "frase": "Voy a buscar el postIt.",
-            "nextId": 9
+            "frase": "Voy a buscar el postIt, a ver si hay suerte.",
+            "nextId": 10
             },{
             "who": "Action", 
             "what": "postIt",
-            "nextId": 12
-            },{
-            "who": "Player",
-            "frase": "Con tres cifras no hay tantas opciones en verdad.",
-            "nextId": 11
-            },{
-            "who": "Action", 
-            "what": "adivinar",
-            "nextId": 12
-            },{
-            "who": "Andrea",
-            "frase": "Q bn amooor<3 muchas gracias!!!",
             "nextId": 13
             },{
             "who": "Player",
-            "frase": "Nada :) Puedo hacer algo más??",
+            "frase": "Con tres cifras no hay tantas opciones en verdad.",
+            "nextId": 12
+            },{
+            "who": "Action", 
+            "what": "adivinar",
+            "nextId": 13
+            },{
+            "who": "Andrea",
+            "frase": "Q bn amooor<3 muchas gracias!!!",
             "nextId": 14
+            },{
+            "who": "Player",
+            "frase": "Nada :) Puedo hacer algo más??",
+            "nextId": 15
             },{
             "who": "Andrea",
             "frase": "Si quieres en la sala de al lado está Pedro. Y bueno… el pobre… igual le viene bn hablar cn alguien.",
-            "nextId": 15
+            "nextId": 16
             },{
             "who": "Player",
             "frase": "Voy!",
-            "nextId": 16
+            "nextId": 17
             },{
             "who": "Andrea",
             "frase": "Y oye cuando salgas pasate por aquí y si quieres nos vamos a tomar algo <3",
-            "nextId": 17
+            "nextId": 18
             },{
             "who": "End"
         }

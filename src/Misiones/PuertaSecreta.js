@@ -78,7 +78,8 @@ export default class PuertaSecreta extends Phaser.Scene{
         if(this.correct){
             setTimeout(()=>{
                 this.scene.resume('Planta2'); //volvemos a planta
-                this.scene.stop();
+                this.scene.stop();                
+                this.scene.get("UiScene").conversation.next();
             },500);
         }
     }

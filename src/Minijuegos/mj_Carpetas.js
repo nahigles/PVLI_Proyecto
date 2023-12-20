@@ -84,11 +84,11 @@ export default class MJ_Carpetas extends MinijuegoBase{
         // `objeto.name` u `objeto.type` nos llegan de las propiedades del
         // objeto en Tiled
         if (objeto.type === 'Button') {
-            console.log('botoon');
-            console.log(this.pauseButton.x, this.pauseButton.y);
+           // console.log('botoon');
+           // console.log(this.pauseButton.x, this.pauseButton.y);
             this.pauseButton.x = objeto.x;
             this.pauseButton.y = objeto.y;
-            console.log(this.pauseButton.x, this.pauseButton.y);
+           // console.log(this.pauseButton.x, this.pauseButton.y);
             this.pauseButton.setScale(0.1,0.1);
 
         }
@@ -131,7 +131,7 @@ export default class MJ_Carpetas extends MinijuegoBase{
         this.scene.get("Planta3").minijuegoCompletado();
         //para que no cambie de repente
         setTimeout(()=>{
-            console.log('no me va el metodo aaa');
+            //console.log('no me va el metodo aaa');
             this.scene.resume("Planta3"); //volvemos a planta
             this.scene.remove();
         },1500);

@@ -50,9 +50,7 @@ export default class Planta1 extends plantaBase {
     create(){
 		super.create();
 
-		this.p = this.input.keyboard.addKey('P');
-		this.w = this.input.keyboard.addKey('W');
-		console.log(this.pauseButton); 
+		//this.p = this.input.keyboard.addKey('P');
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -104,7 +102,7 @@ export default class Planta1 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
-		console.log(this.jugador);
+		//console.log(this.jugador);
 		this.e = this.input.keyboard.addKey('E');
 
 		// CAMARA
@@ -126,7 +124,7 @@ export default class Planta1 extends plantaBase {
 
 		//Mision
 		this.carpeta = new Carpeta(this,66, this.jugador.y+4, 'Carpeta').setScale(0.2, 0.2);
-		this.e = this.input.keyboard.addKey('E');
+		//this.e = this.input.keyboard.addKey('E');
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
 		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
@@ -144,21 +142,21 @@ export default class Planta1 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				console.log("puedes subir");
+				//console.log("puedes subir");
 
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion					
-					console.log("I = " + this.jugador.introvertido);
-					console.log("E = " + this.jugador.extrovertido);
+					//console.log("I = " + this.jugador.introvertido);
+					//console.log("E = " + this.jugador.extrovertido);
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
 				}, this);
 			}
 			else{
-				console.log("todavia no puedes subir");
+				//console.log("todavia no puedes subir");
 			}
 		}
 	}
@@ -173,33 +171,33 @@ export default class Planta1 extends plantaBase {
 	}
 	resultadoMision(){
 		if(this.haveToTalk && this.alreadyTalked ) { //si tenia que hablar y ha hablado
-			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
 			this.misionCompletada = true;
+			this.scene.get("UiScene").addInsignia('E');
 		}
 		else if(!this.haveToTalk && this.alreadyTalked && !this.carpeta.catch){ //si no tenia que hablar, pero no ha cogido la carpeta, Alvaro le ha hablado
-			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
 			this.misionCompletada = true;
+			this.scene.get("UiScene").addInsignia('E');
 		}
 		else if(!this.haveToTalk && this.alreadyTalked && this.carpeta.catch) { //si no tenia que hablar,pero ha hablado  aunque haya  ha cogido la carpeta
-			console.log("extrovertido");
 			this.jugador.extrovertido = true; //extrovertido
 			this.misionCompletada = true;
+			this.scene.get("UiScene").addInsignia('E');
 		}
 		else if(!this.haveToTalk && !this.alreadyTalked&& this.carpeta.catch){//si no tenia que hablar, no ha hablado  y ha cogido la carpeta
-			console.log("introvertido");
 			this.jugador.introvertido = true; //introvertido
 			this.misionCompletada = true;
+			this.scene.get("UiScene").addInsignia('I');
 		}
 	}
     update(){
 		super.update();
-		if(this.p.isDown){
+	/*	if(this.p.isDown){
 			this.scene.get("UiScene").removeUI();
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
-		}
+		}*/
 		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
 			this.nextLevel();
