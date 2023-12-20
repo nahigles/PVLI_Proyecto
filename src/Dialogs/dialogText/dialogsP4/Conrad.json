@@ -1,17 +1,30 @@
 {
     "Talk": [
         {
-            "who": "Conrad",
-            "frase": "Habla con el jefe.",
-            "nextId": 3
+            
+            "who": "Player",
+            "frase": "Habla tú con él, a mi me da mal rollo.",
+            "nextId": 6
+            },{
+            "who": "Player",
+            "frase": "¿Esta puerta da a la oficina del jefe?",
+            "nextId": 2
             },{
             "who": "Conrad",
-            "frase": "Hacker mode on.",
-            "nextId": 2
+            "frase": "Sí, pero la ha bloqueado desde dentro, estoy intentando abrirla.",
+            "nextId": 3
+            },{
+            "who": "Player",
+            "frase": "¿Puedo probar?",
+            "nextId": 4
+            },{
+            "who": "Conrad",
+            "frase": "¡Dale! Tienes que consegur darle al candado. ¡Cuidado con los viruses!",
+            "nextId": 5
             },{
             "who": "Action", 
             "what": "MinijuegoPlanta4",
-            "nextId": 3
+            "nextId": 6
             },{
             "who": "End"
         }

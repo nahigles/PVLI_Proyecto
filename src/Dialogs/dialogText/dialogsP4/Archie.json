@@ -3,33 +3,37 @@
         {
             "who": "Archie",
             "frase": "Bro si ya está la puerta abierta, dale!",
-            "nextId": 7
-            },{
-            "who": "Archie",
-            "frase": "Prefieres ostias o paciencia?",
-            "nextId": 2
-            },{
-            "who": "Choice",
-            "a": "Ostias gracias, P.",
-            "b": "Busco las llaves, J.",
-            "nextA": 3,
-            "nextB": 5
+            "nextId": 8
             },{
                 "who": "Player",
-                "frase": "Ostias gracias, P.",
-                "nextId": 4
+                "frase": "Hola, ¿puedo pasar?",
+                "nextId": 2
+            },{
+            "who": "Archie",
+            "frase": "Claro, las llaves están por aquí, aunque si le das un empujón se abre fácil también. Viene bien para liberar la tensión.",
+            "nextId": 3
+            },{
+            "who": "Choice",
+            "a": "Al cabo de unos cuantos empujones (clicks) se abrirá la puerta.",
+            "b": "Prefiero buscar las llaves.",
+            "nextA": 4,
+            "nextB": 6
+            },{
+                "who": "Player",
+                "frase": "Al cabo de unos cuantos empujones (clicks) se abrirá la puerta.",
+                "nextId": 5
                 },{
                 "who": "Action", 
                 "what": "InsigniaP",
-                "nextId": 7
+                "nextId": 8
                 },{
                 "who": "Player",
-                "frase": "Busco las llaves, J.",
-                "nextId": 6
+                "frase": "Prefiero buscar las llaves.",
+                "nextId": 7
                 },{
                 "who": "Action", 
                 "what": "InsigniaJ",
-                "nextId": 7
+                "nextId": 8
             },{
             "who": "End"
         }

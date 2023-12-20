@@ -42,6 +42,9 @@ export default class Planta4_2 extends plantaBase {
     create(data){
 		super.create();
 
+		this.planta4Sound = this.sound.add('plant4Sound');
+		this.planta4Sound.play();
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_4_2', 
@@ -160,9 +163,20 @@ export default class Planta4_2 extends plantaBase {
 			this.scene.stop();
 			console.log("Paso de P4_2 a P5")
 		}	*/
+		if(this.mjCompletado && !this.jugador.inputEnabled)
+		{
+			this.onPause(false);
+		}
     }
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	startMinijuegoP4()
+	{
+		this.onPause(true);
+		this.scene.launch(this.minijuego);
+		this.scene.pause("UiScene");
 	}
 }

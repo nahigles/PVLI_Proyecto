@@ -15,7 +15,6 @@ export default class Planta1 extends plantaBase {
 
 	init(){
 		super.init();
-
 	}
 
     preload(){
@@ -49,6 +48,9 @@ export default class Planta1 extends plantaBase {
 
     create(){
 		super.create();
+		
+		this.planta1Sound = this.sound.add('plant1Sound');
+		this.planta1Sound.play();
 
 		//this.p = this.input.keyboard.addKey('P');
 		// TILEMAP
@@ -193,7 +195,7 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
-	/*	if(this.p.isDown){
+		/*if(this.p.isDown){
 			this.scene.get("UiScene").removeUI();
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();

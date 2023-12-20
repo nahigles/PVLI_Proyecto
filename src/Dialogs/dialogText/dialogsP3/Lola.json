@@ -3,37 +3,79 @@
         {
             "who": "Lola",
             "frase": "Ya hemos acabado ¿no?",
-            "nextId": 7
+            "nextId": 17
             },{
             "who": "Lola",
-            "frase": "¿Que eres? (MISIÓN DIALOGADA PENDIENTE)",
+            "frase": "Ya viene otro. ¿Tú también a quejarte?",
             "nextId": 2
             },{
-            "who": "Choice",
-            "a": "T",
-            "b": "F",
-            "nextA": 3,
-            "nextB": 5
+            "who": "Player",
+            "frase": "No, venía a ver si alguien necesita algo.",
+            "nextId": 3
             },{
-                "who": "Player",
-                "frase": "Soy T.",
-                "nextId": 4
-                },{
-                "who": "Action", 
-                "what": "InsigniaT",
-                "nextId": 7
-                },{
-                "who": "Player",
-                "frase": "Soy F.",
-                "nextId": 6
-                },{
-                "who": "Action", 
-                "what": "InsigniaF",
-                "nextId": 7
+            "who": "Lola",
+            "frase": "Ai q alegría que no seas de esos, todo el día escuchando a gente llorar, necesito un respiro.",
+            "nextId": 4
+            },{
+            "who": "Choice",
+            "a": "Bueno es normal, ya me han contado lo de los despidos.",
+            "b": "Ya ves, la gente se queja demasiado.",
+            "nextA": 5,
+            "nextB": 14
+            },{
+            "who": "Player",
+            "frase": "Bueno es normal, ya me han contado lo de los despidos.",
+            "nextId": 6
+            },{
+            "who": "Lola",
+            "frase": "Para volar más alto, hay q soltar el lastre.",
+            "nextId": 7
+            },{
+            "who": "Choice",
+            "a": "Eso es un poco duro, no te parece?",
+            "b": "Bueno, puede que tengas razón.",
+            "nextA": 8,
+            "nextB": 15
+            },{
+            "who": "Player",
+            "frase": "Eso es un poco duro, no te parece?",
+            "nextId": 9
+            },{
+            "who": "Lola",
+            "frase": "Es realista, ¿o tu quieres que la empresa quiebre?",
+            "nextId": 10
+            },{
+                "who": "Choice",
+                "a": "Tia, te han comido el coco. Un poco de conciencia d clase.",
+                "b": "Es verdad, solo estás haciendo tu trabajo.",
+                "nextA": 11,
+                "nextB": 12
+            },{
+            "who": "Player",
+            "frase": "Tia, te han comido el coco. Un poco de conciencia d clase.",
+            "nextId": 16
+            },{
+            "who": "Player",
+            "frase": "Es verdad, solo estás haciendo tu trabajo.",
+            "nextId": 15
+            },{
+            "who": "Player",
+            "frase": "Ya ves, la gente se queja demasiado.",
+            "nextId": 15
+            },{
+            "who": "Player",
+            "frase": "Bueno, puede que tengas razón.",
+            "nextId": 15
+            },{
+            "who": "Action", 
+            "what": "InsigniaT",
+            "nextId": 17
+            },{
+            "who": "Action", 
+            "what": "InsigniaF",
+            "nextId": 17
             },{
             "who": "End"
         }
     ]
 }
-
-

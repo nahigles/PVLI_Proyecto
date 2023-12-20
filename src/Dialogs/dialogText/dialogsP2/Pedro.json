@@ -2,8 +2,8 @@
     "Talk": [
         {
             "who": "Pedro",
-            "frase": "Anda ve. Pedro está ahí al lado.",
-            "nextId": 9
+            "frase": "Tira, ya te he echado suficiente la chapa.",
+            "nextId": 42
             },{
             "who": "Player",
             "frase": "Hola Pedro. ¿Estás bn?",
@@ -18,12 +18,156 @@
             "nextId": 4
             },{
             "who": "Pedro",
-            "frase": "Recoge.",
+            "frase": "No, disculpame. Está bien, tengo que salir de mi cabeza de todas formas.",
             "nextId": 5
+            },{
+            "who": "Player",
+            "frase": "¿Puedo preguntarte que ha pasado?",
+            "nextId": 6
+            },{
+            "who": "Pedro",
+            "frase": "Lo d siempre, que por llevar corbata aquí la gente se cree el mismo rey.",
+            "nextId": 7
+            },{
+            "who": "Player",
+            "frase": "¿Hablas del jefe?",
+            "nextId": 8
+            },{
+            "who": "Pedro",
+            "frase": "El jefe, así le llamais ahora todos. ¿Quien me iba a decir entonces que acabariamos así?",
+            "nextId": 9
+            },{
+            "who": "Player",
+            "frase": "¿Le conoces hace mucho?",
+            "nextId": 10
+            },{
+            "who": "Pedro",
+            "frase": "¿Conocer? Joder, incluso pensaba que eramos amigos, fijate. 26 años.",
+            "nextId": 11
+            },{
+            "who": "Player",
+            "frase": "26!!!",
+            "nextId": 12
+            },{
+            "who": "Pedro",
+            "frase": "Sí ostia desde primero de carrera, total para qué.",
+            "nextId": 13
+            },{
+            "who": "Player",
+            "frase": "¿Pero que ha pasado?",
+            "nextId": 14
+            },{
+            "who": "Pedro",
+            "frase": "Yo mira, si es que… si es que soy de Cuenca. Mi familia lleva en este negocio toda la vida. Mi padre, su padre, el padre de su padre… TODOS. Pero a mi pues me dió por emprender, y en vez d quedarme allí aprendiendo con ellos y trabajando en la fábrica, NO, tenía que venirme a Madrid a estudiar ADE. ADE quién me manda a mi a meterme con excel cuando nosotros lo que hacemos es lana.",
+            "nextId": 15
+            },{
+            "who": "Player",
+            "frase": "¿Y entonces conociste al jefe?",
+            "nextId": 16
+            },{
+            "who": "Pedro",
+            "frase": "Justo. Entre tanto niño pijo d la capital pues a este al menos se le veía buen chaval. No sé, no debí confiar tanto.",
+            "nextId": 17
+            },{
+            "who": "Player",
+            "frase": "¿Confiar? ¿Dices por haber empezado a trabajar para él?",
+            "nextId": 18
+            },{
+            "who": "Pedro",
+            "frase": "PARA ÉL, SI ES QUE MANDA HUEVOS. NO TE JODE, esta es MI empresa.",
+            "nextId": 19
+            },{
+            "who": "Player",
+            "frase": "Perdón, perdón, no llevo mucho aquí, no tenía ni idea.",
+            "nextId": 20
+            },{
+            "who": "Pedro",
+            "frase": "Lo sé, no es tu culpa, es esto de la gestión emocional que no se me da del todo bien.",
+            "nextId": 21
+            },{
+            "who": "Player",
+            "frase": "¿Entonces, esta es la empresa de tu familia?",
+            "nextId": 22
+            },{
+            "who": "Pedro",
+            "frase": "Sí. Bueno, ya no. O sí. Él sabrá.",
+            "nextId": 23
+            },{
+            "who": "Pedro",
+            "frase": "La cosaa es que hicimos muy buenas migas en la carrera, compartiamos piso, él conocía a toda mi familia, yo a la suya, casi como hermanos. Y claro, él sabía que mi sueño era hacer algo con el negocio familiar, llevarlo al siguiente nivel sabes?",
+            "nextId": 24
+            },{
+            "who": "Player",
+            "frase": "¡¡¿Te robó la idea?!!",
+            "nextId": 25
+            },{
+            "who": "Pedro",
+            "frase": "Todo lo contrario. Él tenía la vida resuelta, su padre conocía a gente, podría haberlo enchufado en cualquier lado, pero no. Decidió ayudarme; aprovechamos sus contactos, la ayuda de su padre, todo iba bien.",
+            "nextId": 26
+            },{
+            "who": "Player",
+            "frase": "¿Y que pasó?",
+            "nextId": 27
+            },{
+            "who": "Pedro",
+            "frase": "Pues no lo sé ni yo. Yo vengo todas las mañanas, coordino los grupos de trabajo, estoy encima de la linea de producción y de todo el papeleo se encarga él. Fue así desde el principio, ya sabes, los inversores se fian más del hijo de que de un cualquiera de Cuenca.",
+            "nextId": 28
+            },{
+            "who": "Player",
+            "frase": "¿Pero la empresa sigue siendo tuya?",
+            "nextId": 29
+            },{
+            "who": "Pedro",
+            "frase": "Pues no lo sé. Lo sea o no, ya que más da. Por lo visto ya solo me toca acatar ordenes.",
+            "nextId": 30
+            },{
+            "who": "Player",
+            "frase": "¿Ordenes?",
+            "nextId": 31
+            },{
+            "who": "Pedro",
+            "frase": "Si, de ahí este desastre. La llamada era para decirme que tenemos que reducir la plantilla un 36%. Un 36. Él suelta el número y espera que yo me encargue de todo.",
+            "nextId": 32
+            },{
+            "who": "Player",
+            "frase": "¿De despedir a la gente?",
+            "nextId": 33
+            },{
+            "who": "Pedro",
+            "frase": "La gente… estas personas son mi familia.",
+            "nextId": 34
+            },{
+            "who": "Player",
+            "frase": "Bueno, es duro, pero al final es trabajo. Lo entenderán.",
+            "nextId": 35
+            },{
+            "who": "Pedro",
+            "frase": "Nono, mi familia de verdad. La fabrica sigue en Cuenca, mis primos, los sobrinos, la tia Paqui. Ai la tia Paqui. Después de esto ¿con que cara aparezco yo en la cena de navidad?",
+            "nextId": 36
+            },{
+            "who": "Player",
+            "frase": ":/",
+            "nextId": 37
+            },{
+            "who": "Pedro",
+            "frase": "Perdón, no debería haberte contado esto.",
+            "nextId": 38
+            },{
+            "who": "Player",
+            "frase": "No pasa nada, venía para ayudar.",
+            "nextId": 39
+            },{
+            "who": "Pedro",
+            "frase": "No te preocupes, voy a recoger esto y me voy a casa. A ver si hay algún tren esta tarde.",
+            "nextId": 40
+            },{
+            "who": "Player",
+            "frase": "Vale. Entonces, puedo ayudarte a recoger.",
+            "nextId": 41
             },{
                 "who": "Action", 
                 "what": "MinijuegoPlanta2",
-                "nextId": 6
+                "nextId": 42
             },{
             "who": "End"
         }

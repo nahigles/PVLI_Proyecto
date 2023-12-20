@@ -1,17 +1,29 @@
 {
     "Talk": [
-        {
-            "who": "Inma",
-            "frase": "Odio a esta tia.",
-            "nextId": 3
-            },{
+        { 
             "who": "Charlotte",
-            "frase": "Yo pienso esto.",
+            "frase": "Odio a esta tia.",
+            "nextId": 6
+            },{
+            "who": "Inma",
+            "frase": "Lo que te digo, Charlotte, que le viene grande el puesto.",
             "nextId": 2
             },{
-            "who": "Inma",
-            "frase": "Yo esto.",
+            "who": "Charlotte",
+            "frase": "Yo creo que tiene que ser algo más.",
             "nextId": 3
+            },{
+            "who": "Inma",
+            "frase": "Cancelar la reunión así por así, eso es que a vuestra generación os han mimado mucho.",
+            "nextId": 4
+            },{
+            "who": "Charlotte",
+            "frase": "Siempre con lo mismo Inma.",
+            "nextId": 5
+            },{
+            "who": "Inma",
+            "frase": "Es la verdad.",
+            "nextId": 6
             },{
             "who": "End"
         }
