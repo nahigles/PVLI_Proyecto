@@ -216,7 +216,7 @@ export default class UiScene extends Phaser.Scene {
             case "postIt" :  
                 this.endDialog();
                 //misión y al acabar directamente se lanza las siguentes lineas
-                this.scene.get("PuertaSecreta").ClavMirada();
+                this.scene.get("PuertaSecreta").clavMirada();
                 console.log("postItAction");
                 this.conversation.next();                
                 break;
