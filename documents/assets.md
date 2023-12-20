@@ -5,10 +5,12 @@ Los personajes están basados en las apariencias de las diferentes personalidade
 
 Links de los assets del juego: 
 - Jugador: https://penzilla.itch.io/protagonist-character
+- Plataformas: https://jamiecross.itch.io/breakout-brick-breaker-game-tile-set-free
+- Oficina: https://rixitic.itch.io/2d-sidescroller-office-tileset (editado en los diferentes colores del juego)
+- Decoración oficina: https://mercyssh.itch.io/simple-office-furniture-set (editado en los diferentes colores del juego)
 
 Links de las imágenes:
-- ...
-- ...
+- Carpeta: https://es.vecteezy.com/arte-vectorial/9877878-pixel-art-document-folder-vector-icono-para-8bit-game-on-white-background
 
 Links de los audios:
 - Sonidos UI: https://ellr.itch.io/universal-ui-soundpack
