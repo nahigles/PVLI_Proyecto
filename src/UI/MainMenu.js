@@ -30,7 +30,6 @@ export default class MainMenu extends Phaser.Scene {
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
     }
     create(){
-		
 		// TILE MAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_main_menu', 

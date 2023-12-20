@@ -129,6 +129,8 @@ export default class Planta1 extends plantaBase {
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
 		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
+
+		this.emilioFisrtTime = false;
     }
 	catchFolder(){
 		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
@@ -213,6 +215,10 @@ export default class Planta1 extends plantaBase {
 			if(this.misionCompletada) {
 				this.carpeta.destroy(); //se elimina la carpeta
 			}
+		}
+		if(this.mjCompletado && !this.emilioFisrtTime){
+			this.scene.get("UiScene").talk();
+			this.emilioFisrtTime = true;
 		}
 	}
 	onPause(bol){
