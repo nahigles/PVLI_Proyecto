@@ -111,8 +111,8 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		}
 	}	
 
-	onPauseInput(){
-		this.inputEnabled = !this.inputEnabled;
+	onPauseInput(bol){
+		this.inputEnabled = !bol;
 	}
 
 	sitAnim(){

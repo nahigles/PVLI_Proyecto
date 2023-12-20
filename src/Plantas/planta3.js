@@ -97,8 +97,7 @@ export default class Planta3 extends plantaBase {
 		this.jugador.extrovertido = data.extrovertido;
 		this.jugador.intuitivo = data.intuitivo;
 		this.jugador.sensitivo = data.sensitivo;
-		//this.e = this.input.keyboard.addKey('E');
-		this.w = this.input.keyboard.addKey('W');
+		this.e = this.input.keyboard.addKey('E');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -140,7 +139,7 @@ export default class Planta3 extends plantaBase {
 	}
     update(){
 		super.update();
-		if(this.w.isDown){	//subir ascensor
+		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
 		if(this.p.isDown){ 
@@ -153,7 +152,7 @@ export default class Planta3 extends plantaBase {
 		}	
     }
 
-	onPause(){
-		this.jugador.onPauseInput();
+	onPause(bol){
+		this.jugador.onPauseInput(bol);
 	}
 }

@@ -93,7 +93,7 @@ export default class UiScene extends Phaser.Scene {
         // Tecla p
         this.pauseInput = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
         this.pauseInput.on('down', pointer => { 
-            this.pauseGame();
+            this.pauseGame(true);
         });
                 
         this.isOnPauseMenu = false;        
@@ -115,9 +115,10 @@ export default class UiScene extends Phaser.Scene {
         dialogEvents.emit("wantToTalk");
     }
 
-    /*PROBANDO ESTE CODIGO ¡WIP!*/
     // Inicia el diálogo
     initDialog(conversation, who, text) {
+        console.log("initDialog();")
+
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
             this.conversation = conversation;
@@ -195,9 +196,51 @@ export default class UiScene extends Phaser.Scene {
             case "FinConversacionVictoria" : 
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
-
+                    
             case "FinConversacionAlvaro" :
                 this.scene.get("Planta1").finConversacionAlvaro();
+                break;
+                
+            case "postIt" :  
+                this.endDialog();
+                //misión y al acabar directamente se lanza las siguentes lineas
+                console.log("postItAction");
+                this.conversation.next();                
+                break;
+                
+            case "adivinar" :
+                this.endDialog();
+                //misión y al acabar directamente se lanza las siguentes lineas
+                console.log("adivinarAction");
+                this.conversation.next();
+                break;
+                        
+            case "MinijuegoPlanta2":
+                console.log('MinijuegoPlanta2');
+                break;
+
+            case "InsigniaT":
+                console.log('InsigniaT');
+                break;
+
+            case "InsigniaF":
+                console.log('InsigniaF');
+                break;
+
+            case "MinijuegoPlanta3":
+                console.log('MinijuegoPlanta3');
+                break;
+
+            case "InsigniaP":
+                console.log('InsigniaP');
+                break;
+
+            case "InsigniaJ":
+                console.log('InsigniaJ');
+                break;
+
+            case "MinijuegoPlanta4":
+                console.log('MinijuegoPlanta3');
                 break;
 
             default:
@@ -215,35 +258,39 @@ export default class UiScene extends Phaser.Scene {
     endDialog(){ 
         console.log("endDialog");
 
+        this.hide();
+
+        this.onDialogFinished();
+        this.textMessage.onMessageFinished();
+        this.onDialog=false;
+    } 
+
+    hide(){
         this.dialogBox.visible = false; //hacer invisible el cuadro de texto
         this.actThumbNail.visible = false;
         if (this.choice === "a" || this.choice === "b"){           
             this.A.destroy();
             this.B.destroy();
         }
-
-        this.onDialogFinished();
-        this.textMessage.onMessageFinished();
-        this.onDialog=false;
-    } 
+    }
     
     /////////////////////////////////////////////////MÉTODOS PARA PAUSA
     // Menú de pausa 
-    pauseGame() {
-        this.isOnPauseMenu = !this.isOnPauseMenu;
-        this.ScenePlanta.onPause();
+    pauseGame(bol) {
+        this.isOnPauseMenu = bol;
+        this.ScenePlanta.onPause(bol);
     }
     
     // Pausa el juego al iniciar un diálogo
     onDialogStarted() {
         this.onDialog = true;
-        this.pauseGame();
+        this.pauseGame(true);
     }
 
     // Reanuda el juego tras acabar el diálogo
     onDialogFinished() {
-        this.onDialog = false;            
-        this.pauseGame();
+        this.onDialog = false;   
+        this.pauseGame(false);
         dialogEvents.emit('dialogFinished');             
     }
 
