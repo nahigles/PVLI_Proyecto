@@ -5,6 +5,8 @@ Los personajes están basados en las apariencias de las diferentes personalidade
 
 Links de los assets del juego: 
 - Jugador: https://penzilla.itch.io/protagonist-character
+- Plataformas: https://jamiecross.itch.io/breakout-brick-breaker-game-tile-set-free
+
 
 Links de las imágenes:
 - ...
