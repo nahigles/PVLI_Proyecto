@@ -30,7 +30,7 @@ export default class MainMenu extends Phaser.Scene {
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
 
 		// Sonido Boton
-		this.load.audio('buttonSound', 'sounds/buttonSound.ogg');
+		this.load.audio('buttonSound', 'assets/sounds/buttonSound.ogg');
     }
     create(){
 		this.ButtonSoundd = this.sound.add('buttonSound');
