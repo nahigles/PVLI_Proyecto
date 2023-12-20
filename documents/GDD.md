@@ -25,14 +25,15 @@ Se trata de una aventura gráfica narrativa en vista frontal en la que nuestro p
     - Moverse a la derecha (tecla D o →) 
     - Interactuar con objetos y personajes y pasar de frase durante los diálogos(tecla E)
     - *Drag and drop*, pulsar (click izquierdo)
+    - Menú de pausa (tecla ESC)
   - **En los minijuegos:** 
     - Moverse a la izquierda (tecla A o ← )
     - Moverse a la derecha (tecla D o →) 
     - Moverse hacia arriba (tecla W o ↑)
     - Moverse hacia abajo (tecla S o ↓)
     - Lanzar, *drag and drop* (click izquierdo) 
-    -Disparar?
-
+    - Disparar: tecla X
+    - Menú de pausa (tecla ESC)
   - **Cámara**
     - La cámara sigue al jugador y muestra la planta o minijuego donde se encuentra.
 
