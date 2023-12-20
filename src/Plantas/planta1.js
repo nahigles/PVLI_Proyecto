@@ -1,7 +1,7 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import Carpeta from '../Misiones/carpeta.js';
+import Carpeta from '../src/Misiones/carpeta.js';
 import Ascensor from './ascensor.js';
 export default class Planta1 extends plantaBase {
 	/**
