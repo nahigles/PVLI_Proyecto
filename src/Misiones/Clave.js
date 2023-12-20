@@ -1,7 +1,7 @@
 export default class Clave extends Phaser.GameObjects.Sprite{
     /**
 	 * Contructor de la nota con clave
-	 * @param {Scene} scene, escena en la que se añade la carpeta
+	 * @param {Scene} scene, escena en la que se añade la clave
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
      * @param {string} key - texture

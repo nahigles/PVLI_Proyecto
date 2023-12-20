@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="7">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="8">
+ <editorsettings>
+  <export target="mapa_planta_4_2_purple.json" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" name="tile_door_purple" tilewidth="16" tileheight="16" tilecount="54" columns="9">
   <image source="../officeAssets/Doors/tile_door_purple.png" trans="ff00ff" width="144" height="96"/>
  </tileset>
@@ -114,15 +117,21 @@
 </data>
  </layer>
  <objectgroup id="10" name="NPCS">
-  <object id="2" name="Inma" type="NPCBase" x="384.5" y="79.75">
+  <object id="2" name="Inma" type="NPCBase" x="384.625" y="92.875">
    <properties>
     <property name="key" value="NPCInma"/>
    </properties>
    <point/>
   </object>
-  <object id="6" name="Charlotte" type="NPCBase" x="352" y="79.75">
+  <object id="6" name="Charlotte" type="NPCBase" x="351.375" y="92.875">
    <properties>
     <property name="key" value="NPCCharlotte"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="Conrad" type="NPCBase" x="147.875" y="79.375">
+   <properties>
+    <property name="key" value="NPCConrad"/>
    </properties>
    <point/>
   </object>

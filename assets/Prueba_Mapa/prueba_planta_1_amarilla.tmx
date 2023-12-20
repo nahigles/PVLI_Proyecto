@@ -90,7 +90,7 @@
    </properties>
    <point/>
   </object>
-  <object id="7" name="Victoria" type="NPCBase" x="169.091" y="80.3636">
+  <object id="7" name="Victoria" type="NPCBase" x="168.364" y="97.0909">
    <properties>
     <property name="key" value="NPCVictoria"/>
    </properties>

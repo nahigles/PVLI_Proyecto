@@ -1,6 +1,8 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Ascensor from './ascensor.js';
+import NPC from '../Personajes/NPCBase.js';
+
 export default class Planta5 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -18,6 +20,7 @@ export default class Planta5 extends plantaBase {
     preload(){
         super.preload();
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
+
 
 		// IMAGENES MAPA
 		this.load.tilemapTiledJSON('tilemap_Planta_5', './assets/Prueba_Mapa/mapa_planta_jefe.json');
@@ -87,7 +90,7 @@ export default class Planta5 extends plantaBase {
 				this.NPCGroup.add(this.npc);
 			}
 		}
-		
+
 		// JUGADOR POR CAPA DE OBJETOS	
 		this.jugador = this.map.createFromObjects('Jugador', {
 			name: 'Jugador',
@@ -110,7 +113,8 @@ export default class Planta5 extends plantaBase {
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [data.extrovertido, data.introvertido, data.intuitivo, data.sensitivo, data.thinker, data.feeler, data.juzgador, data.perceptivo]
 		});	
 
 		// Colisiones MAPA 

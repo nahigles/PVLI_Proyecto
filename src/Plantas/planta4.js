@@ -102,9 +102,9 @@ export default class Planta4 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				console.log('creado npc planta 2');
+				//console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
-				console.log(this.npc.x, this.npc.y);
+				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -138,11 +138,16 @@ export default class Planta4 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
-		this.p = this.input.keyboard.addKey('P');
+		//this.p = this.input.keyboard.addKey('P');
 		this.e = this.input.keyboard.addKey('E');
 		
     }
-
+	jugadorJuzgador(){
+		this.jugador.juzgador = true;
+	}
+	jugadorPerceptivo(){
+		this.jugador.perceptivo = true;
+	}
     update(){
 		
 		super.update();
@@ -153,13 +158,14 @@ export default class Planta4 extends plantaBase {
 			this.key_door.visible = false;
 			this.keyCatched = this.key_door.catch = true;
 		}
-		if(this.e.isDown)
+	/*	if(this.e.isDown)
 		{
-			console.log(this.physics.overlap(this.jugador, this.key_door));
-		}
+			//console.log(this.physics.overlap(this.jugador, this.key_door));
+		}*/
 		if(!this.puertaAbierta){ //si esta cerrada comprobamos si la abren
 			if ((this.keyCatched && this.physics.overlap(this.jugador, this.locked_door) && this.e.isDown) // Si hemos cogido la llave e interactuamos con la puerta
 			|| (this.contGolpes >= this.maxGolpes)){ // Cuando hayamos golpeado la puerta suficientes veces
+				this.misionCompleta();
 				this.puertaAbierta = true;
 				this.scene.get("UiScene").removeUI();
 				setTimeout(()=>{
@@ -172,7 +178,7 @@ export default class Planta4 extends plantaBase {
 			}
 		}
 
-		if(this.p.isDown){ 
+	/*	if(this.p.isDown){ 
 			this.scene.get("UiScene").removeUI();
 			this.scene.start('Planta4_2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 				sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
@@ -180,7 +186,7 @@ export default class Planta4 extends plantaBase {
 				juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
 			this.scene.stop();
 			console.log("Paso de P4_1 a P4_2")
-		}	
+		}	*/
     }
 
 	onPause(bol){

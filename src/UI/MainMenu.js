@@ -30,7 +30,7 @@ export default class MainMenu extends Phaser.Scene {
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
 
 		// Sonido Boton
-		this.load.audio('buttonSound', 'sounds/buttonSound.ogg');
+		this.load.audio('buttonSound', 'assets/sounds/buttonSound.ogg');
     }
     create(){
 		this.ButtonSoundd = this.sound.add('buttonSound');
@@ -69,7 +69,7 @@ export default class MainMenu extends Phaser.Scene {
 		
 		// Jugadores
 		// Desactivo Input para que no se muevan
-		this.player1 = new Jugador(this, 130, 50, 'playerAnim');
+		this.player1 = new Jugador(this, 130, 90, 'playerAnim');
 		this.player1.onPauseInput(true);
 		this.player1.jumpAnim();
 
