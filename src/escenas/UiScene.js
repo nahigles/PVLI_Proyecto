@@ -293,6 +293,22 @@ export default class UiScene extends Phaser.Scene {
         dialogEvents.emit('dialogFinished');             
     }
 
+    /////////////////////////////////////////////////MÉTODOS PARA PAUSA
+    initInsigniasSys(){
+
+    }
+
+    addInsignia (type){
+        switch (type) {
+            case 'P':
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
+
     removeUI(){
         console.log("REMOVE UI");
         this.dialogManager.removeDM();

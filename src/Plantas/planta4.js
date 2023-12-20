@@ -138,7 +138,7 @@ export default class Planta4 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
-		this.e = this.input.keyboard.addKey('Q');
+		this.e = this.input.keyboard.addKey('E');
 		
     }
 
@@ -156,24 +156,19 @@ export default class Planta4 extends plantaBase {
 		{
 			console.log(this.physics.overlap(this.jugador, this.key_door));
 		}
-		// Si hemos cogido la llave e interactuamos con la puerta
-		if(this.keyCatched && this.physics.overlap(this.jugador, this.locked_door) && this.e.isDown){	
-			this.puertaAbierta = true;
-		}
-		// Cuando hayamos golpeado la puerta suficientes veces
-		if(!this.puertaAbierta && this.contGolpes >= this.maxGolpes)
-		{
-			this.puertaAbierta = true;
-		}
-		if(this.puertaAbierta)
-		{
-			setTimeout(()=>{
-				this.scene.start("Planta4_2", {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
-					sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
-					thinker : this.jugador.thinker, feeler : this.jugador.feeler,
-					juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo}); //volvemos a planta
-				this.scene.stop();
-			},1500);
+		if(!this.puertaAbierta){ //si esta cerrada comprobamos si la abren
+			if ((this.keyCatched && this.physics.overlap(this.jugador, this.locked_door) && this.e.isDown) // Si hemos cogido la llave e interactuamos con la puerta
+			|| (this.contGolpes >= this.maxGolpes)){ // Cuando hayamos golpeado la puerta suficientes veces
+				this.puertaAbierta = true;
+				this.scene.get("UiScene").removeUI();
+				setTimeout(()=>{
+					this.scene.launch("Planta4_2", {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
+						thinker : this.jugador.thinker, feeler : this.jugador.feeler,
+						juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo}); //volvemos a planta
+					this.scene.stop();
+				},1000);		
+			}
 		}
 
 		if(this.p.isDown){ 
