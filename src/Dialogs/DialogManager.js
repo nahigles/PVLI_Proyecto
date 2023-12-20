@@ -2,7 +2,7 @@ import dialogEvents from "./EventCenter.js";
 import Conversation from "./conversation.js";
 
 export default class DialogManager {
-  constructor(scene, UI, player, NPCGroup) {
+  constructor(scene, UI, player, NPCGroup, insignias) {
     this.scene = scene;
     this.UI = UI;
     this.isTalking = false;
@@ -16,7 +16,7 @@ export default class DialogManager {
       NPC.visited = false;
     }
 
-    //console.log("DialoManagerConstruido");
+    this.insignias = insignias;
 
     dialogEvents.on("wantToTalk", this.wantToTalk, this);
   }
@@ -29,7 +29,7 @@ export default class DialogManager {
     if(NPC.talker != 'NONE'){        
       //console.log('empezamos a hablar con ' + NPC.talker.name);
       this.isTalking = true;
-      new Conversation(this.UI, this.scene.key, NPC.talker.name, NPC.visited);
+      new Conversation(this.UI, this.scene.key, NPC.talker.name, NPC.visited, this.insignias);
     }
   }
 

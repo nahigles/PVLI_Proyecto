@@ -48,7 +48,8 @@ export default class UiScene extends Phaser.Scene {
             data.home,
             this,
             data.player,
-            data.NPCs
+            data.NPCs,
+            data.insignias
         );
 
         //numeros magicos blabla cambiar!!!!!!
@@ -377,7 +378,6 @@ export default class UiScene extends Phaser.Scene {
     }
 
     removeUI(){
-        //console.log("REMOVE UI");
         this.dialogManager.removeDM();
         this.scene.stop();
     }

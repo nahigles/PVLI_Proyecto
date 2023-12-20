@@ -11,6 +11,7 @@ import dialogJesus from "../Dialogs/dialogText/dialogsP3/Jesus.json"  assert { t
 import dialogArchie from "../Dialogs/dialogText/dialogsP4/Archie.json"  assert { type: 'json' };
 import dialogInmaCharlotte from "../Dialogs/dialogText/dialogsP4/InmaCharlotte.json"  assert { type: 'json' };
 import dialogConrad from "../Dialogs/dialogText/dialogsP4/Conrad.json"  assert { type: 'json' };
+import dialogJefe from "../Dialogs/dialogText/dialogsP5/Jefe.json"  assert { type: 'json' };
 
 export default class Conversation{
 	/**
@@ -18,7 +19,7 @@ export default class Conversation{
 	 * @param {Scene} scene -  escena
 	 * @param {string} who - npc _whoIsTalking
 	 */
-	constructor(UI, planta, who, visited){
+	constructor(UI, planta, who, visited, insignias){
 		this.UI = UI;
 		this.who = who;
 
@@ -63,6 +64,7 @@ export default class Conversation{
 					default:
 				}
 				break;
+
 			case "Planta3":
 				switch(who){
 					case "Lola":
@@ -77,6 +79,7 @@ export default class Conversation{
 					default:
 				}
 				break;
+
 			case "Planta4":
 				switch(who){
 					case "Archie":
@@ -85,6 +88,7 @@ export default class Conversation{
 					default:
 				}
 				break;
+
 			case "Planta4_2":
 				switch(who){
 					case "Inma":
@@ -98,6 +102,64 @@ export default class Conversation{
 						break;
 					default:
 				}
+				break;
+
+					
+			case "Planta5":
+					this.PType = this.readInsignias(insignias);
+					console.log(this.PType);
+					this.conversText = dialogJefe;
+					switch (this.PType) {
+						case 'ENTJ':
+							this.index = 1;
+							break;
+						case 'ENFJ':
+							this.index = 2;
+							break;
+						case 'ESFJ':
+							this.index = 3;
+							break;
+						case 'ESTJ':
+							this.index = 4;
+							break;
+						case 'ENTP':
+							this.index = 5;
+							break;
+						case 'ENFP':
+							this.index = 6;
+							break;
+						case 'ESFP':
+							this.index = 7;
+							break;
+						case 'ESTP':
+							this.index = 8;
+							break;
+						case 'INTJ':
+							this.index = 9;
+							break;
+						case 'INFJ':
+							this.index = 10;
+							break;
+						case 'ISFJ':
+							this.index = 11;
+							break;
+						case 'ISTJ':
+							this.index = 12;
+							break;
+						case 'INTP':
+							this.index = 13;
+							break;
+						case 'INFP':
+							this.index = 14;
+							break;
+						case 'ISFP':
+							this.index = 15;
+							break;
+						case 'ISTP':
+							this.index = 16;
+							break;
+					}
+
 				break;
 			default:
 		}
@@ -161,6 +223,18 @@ export default class Conversation{
 			//console.log("End");			
 			this.UI.endDialog();
 		}
+	}
+
+	readInsignias(insignias){
+		var pType = ['E', 'N', 'T', 'J']; //Default person
+
+		if(insignias[1]) pType[0] = 'I';
+		if(insignias[3]) pType[1] = 'S';
+		if(insignias[5]) pType[2] = 'F';
+		if(insignias[7]) pType[3] = 'P';
+
+		var stringPType = pType[0] + pType[1] + pType[2] + pType[3];
+    	return {pType};
 	}
 }
 

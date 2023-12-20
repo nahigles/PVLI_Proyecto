@@ -1,0 +1,79 @@
+{
+    "Talk": [
+        {
+            "who": "Jefe",
+            "frase": "Muchas gracias por jugar:)",
+            "nextId": 18
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ENTJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ENFJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ESFJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ENTJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ENTP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ENFP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ESFP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ESTP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un INTJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un INFJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ISFJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ISTJ, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un INTP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un INFP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ISFP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "Al parecer eres un ISTP, me gusta.",
+            "nextId": 17
+            },{
+            "who": "Jefe",
+            "frase": "¿A que final te habrá llevado?",
+            "nextId": 18
+            },{
+            "who": "End"
+        }
+    ]
+}

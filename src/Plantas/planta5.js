@@ -20,7 +20,8 @@ export default class Planta5 extends plantaBase {
     preload(){
         super.preload();
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
-
+		this.load.spritesheet('NPCJefe', './assets/images/Characters/Jefe.png', {frameWidth: 24, frameHeight: 36})
+		this.load.image('Jefe', 'assets/images/UI/Dialogs/faces/Jefe.png');
 
 		// IMAGENES MAPA
 		this.load.tilemapTiledJSON('tilemap_Planta_5', './assets/Prueba_Mapa/mapa_planta_jefe.json');
@@ -83,10 +84,7 @@ export default class Planta5 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
-				if(objeto.name == 'Lola' || objeto.name == 'Jesus') this.npc.setFlip(true, false);
-				console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
