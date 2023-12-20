@@ -105,10 +105,10 @@ export default class UiScene extends Phaser.Scene {
     initPauseSystem() {
         // Tecla p
        // this.pauseInput = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
-        this.pauseInput.on('down', pointer => { 
+        /*this.pauseInput.on('down', pointer => { 
             this.pauseGame(true);
         });
-                
+                */
         this.isOnPauseMenu = false;        
     }
     
