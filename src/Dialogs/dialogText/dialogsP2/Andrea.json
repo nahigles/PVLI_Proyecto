@@ -3,7 +3,7 @@
         {
             "who": "Andrea",
             "frase": "Bb! Ya aki?! Si todavía no son las 17h. Jajajajjajajja q mala influencia t amo<3",
-            "nextId": 13
+            "nextId": 17
             },{
             "who": "Player",
             "frase": "¿Hola? ¿Hay alguien aqui?",
@@ -29,29 +29,47 @@
             "frase": "De hecho si puedes intentar abrir la puerta del d mantenimiento.",
             "nextId": 7
             },{
-            "who": "Action", 
-            "what": "Mision",
-            "nextId": 8
+            "who": "Choice",
+            "a": "El postIt debe d estar por aquí, búscalo.",
+            "b": "Adivina el pin.",
+            "nextA": 8,
+            "nextB": 10
             },{
-            "who": "Andrea",
-            "frase": "Q bn amooor<3 muchas gracias!!!",
+            "who": "Player",
+            "frase": "Voy a buscar el postIt.",
             "nextId": 9
             },{
-            "who": "Player",
-            "frase": "Nada :) Puedo hacer algo más??",
-            "nextId": 10
+            "who": "Action", 
+            "what": "postIt",
+            "nextId": 12
             },{
-            "who": "Andrea",
-            "frase": "Si quieres en la sala de al lado está Pedro. Y bueno… el pobre… igual le viene bn hablar cn alguien.",
+            "who": "Player",
+            "frase": "Con tres cifras no hay tantas opciones en verdad.",
             "nextId": 11
             },{
-            "who": "Player",
-            "frase": "Voy!",
+            "who": "Action", 
+            "what": "adivinar",
             "nextId": 12
             },{
             "who": "Andrea",
-            "frase": "Y oye cuando salgas pasate por aquí y si quieres nos vamos a tomar algo <3",
+            "frase": "Q bn amooor<3 muchas gracias!!!",
             "nextId": 13
+            },{
+            "who": "Player",
+            "frase": "Nada :) Puedo hacer algo más??",
+            "nextId": 14
+            },{
+            "who": "Andrea",
+            "frase": "Si quieres en la sala de al lado está Pedro. Y bueno… el pobre… igual le viene bn hablar cn alguien.",
+            "nextId": 15
+            },{
+            "who": "Player",
+            "frase": "Voy!",
+            "nextId": 16
+            },{
+            "who": "Andrea",
+            "frase": "Y oye cuando salgas pasate por aquí y si quieres nos vamos a tomar algo <3",
+            "nextId": 17
             },{
             "who": "End"
         }

@@ -125,7 +125,7 @@ export default class Planta4 extends plantaBase {
 		}	
     }
 
-	onPause(){
-		this.jugador.onPauseInput();
+	onPause(bol){
+		this.jugador.onPauseInput(bol);
 	}
 }
