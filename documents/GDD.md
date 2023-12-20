@@ -84,10 +84,7 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
   - Así, una vez entendido el juego, empieza la dinámica en la que en cualquier momento nuestro jugador puede abandonar la partida e irse a casa o seguir en el edificio ayudando a sus compañeros y descubriendo el misterio de la actitud del jefe. Para incentivarlo a seguir, Alma, que el próximo personaje con el que se cruza, le dará mensajes de ánimo.
   - Si nuestro jugador ha decidido quedarse en la empresa, se dirigirá al ascensor para subir a la siguiente planta. En la puerta se encontrará con Emilio, con el que tendrá una conversación sobre el juego que ha descubierto al caerse la red, nuestra versión del dinosaurio de google, el ajolote.
     - El minijuego consiste en superar el high score de Emilio en este juego de plataformas en el que, conforme estas van apareciendo, el ajolote tiene que tratar de rebotar para alcanzar la siguiente plataforma e ir subiendo. Si se cae de las plataformas, se reinicia el minijuego.
-<div align="center">
-  
-<sub>*Minijuego planta 1.*</sub>
-</div>
+
 
 - **Planta 2 - Diplomaticos**
   - La siguiente sala no tiene casi luz y está todo patas arriba, según dice Andrea, parece que se ha roto alguna bombilla. Para arreglar la luz hay que entrar a la sala de manenimiento pero está cerrada. Hay que adivinar la clave para entrar, pero siempre tienen un post-it en la pared con la contraseña. El jugador tiene dos opciones.
@@ -98,10 +95,7 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
   - Al acercarse a él se iniciará un diálogo en el que Pedro explica que al parecer el jefe le ha llamado diciendo que hay que reducir plantilla, sin dar muchas explicaciones. Al enterarse de la mala noticia no ha podido contener su ira ya que estos últimos meses han estado todos metiendo horas extra y tener que despedir a tanta gente de la nada será duro para todos.
   - Hace unos años Pedro y el jefe solían dirigir la empresa juntos; pues todo empezó con una idea en el pequeño salón del piso que compartían en la universidad. Conforme crecía la empresa, las gestiones empresariales por hacer se acumulaban, por lo que decidieron que Pedro se quedaría en las líneas de producción y el jefe pasaría a formar parte de la junta directiva, cada vez alejándose más de los trabajadores. Pedro le pedirá al jugador ayuda para recoger.
     - En este minijuego la papelera se moverá en el eje horizontal y la bola de papel , que se podrá cambiar su posición también en el eje horizontal, se tendrá que ir lanzando y encestando en la papelera hasta llegar a 10.
-<div align="center">
-  
-<sub>*Minijuego planta 2.*</sub>
-</div>
+
 
 - **Planta 3 - Centinelas**
   - Esta es la planta de los economistas. Al entrar, el jugador le contará al primer personaje, Lola, lo que ha pasado; ella argumentará que la empresa necesita despedir a esos empleados y que no hay nada de malo en ello. De esta manera empezará un diálogo en el que podremos analizar la siguiente característica de la personalidad del jugador.
@@ -111,10 +105,7 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
   - Después de esa pequeña discusión seguiremos adelante en la oficina en la que iremos escuchando conversaciones de los trabajadores que nos dan alguna pista de lo que puede estar pasando. La empresa está creciendo y hay mucho cambio, se escuchan hipótesis sobre salir al mercado internacional y se está empezando a poner en duda la capacidad de liderazgo del jefe.
   - Al final de esta planta vemos a Jesús, el cual tiene cara de llevar varios días sin dormir y está claramente sobrepasado por la situación. Este le contará al jugador que lleva un año complicado; efectivamente la empresa está creciendo mucho, y entre la carga de trabajo, las nuevas tecnologías y que cada vez hay más documentos que llegan en otros idiomas, siente que se está quedando atrás. Él lleva en la empresa prácticamente desde que empezó; de ser un amigo de la familia entendido en finanzas echando una mano, a convertirse en el CFO de la empresa intentando gestionar su crecimiento.  En esta situación de caos en la que los nervios están a flor de piel, Jesus se abrirá al jugador, contándole su situación personal en un pequeño e irónicamente dramático diálogo en el que finalmente, nuestro jugador le ayudará con sus tareas.
     - Este minijuego consta de  dos partes; por un lado, el jugador tendrá que ordenar las carpetas por orden alfabético mediante un drag and drop y por otro, resolverá el puzzle en el que sólo puede mover las fichas a su posición contigua si esta está vacía.
-<div align="center">
-  
-<sub>*Minijuego planta 3.*</sub>
-</div>
+
 
 - **Planta 4 - Analistas**
    - Conforme avanzas en el edificio, la seguridad de las plantas va en aumento. Al llegar a esta, entrarás en una pequeña sala en la que Archie te dirá que la siguiente puerta está cerrada. Así que para poder pasar barajareis dos opciones:
@@ -140,15 +131,36 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
       -  Estáticas.
       -  Dinámicas: se mueven de un lado a otro.
       -  Frágiles: Cuando el jugador rebota 2 veces en esta plataforma, se rompe.
-   - Si el jugador se cae, se renicia el juego. Una vez superas el highscore de Emilio, el juego finaliza y se vuelve a la escena principal.     
- 
+   - Si el jugador se cae, se renicia el juego. Una vez superas el highscore de Emilio, el juego finaliza y se vuelve a la escena principal.
+<div align="center">
+<img height=200 src="https://github.com/nahigles/Workaholote/blob/main/assets/images/minijuego1.png" width="350" />
+   
+<sub>*Minijuego planta 1.*</sub>
+</div>
+
 - **Planta 2 - Ayuda a Pedro**
    - En este minijuego el jugador tendrá que encestar 10 bolas de papel en la basura para poder superarlo. La basura se moverá de lado a lado por la pantalla suponiendo una dificultad para el jugador. Este podrá mover la bola de papel con el cursor horizontalmente para apuntar. Una vez esté listo para lanzar la bola le dará al click izquierdo. La bola subirá y bajará, simulando una parábola vista de frente. Cuando baje y choque con la parte superior de la basura, se encestará.
+<div align="center">
+<img height=200 src="https://github.com/nahigles/Workaholote/blob/main/assets/images/minijuego2.png" width="350" />
    
+<sub>*Minijuego planta 2.*</sub>
+</div>
+
 - **Planta 3 - Ordena las carpetas de Jesus**
    - Jesus se ha dejado las gafas en casa no es capaz de ordenar unas carpetas. El jugador deberá ordenadarlas alfabeticamente. Haciendo click sobre una carpeta podrá arrastrarla por la escena. La carpeta se colocará en su sitio cuando pase sobre él. 
+<div align="center">
+<img height=200 src="https://github.com/nahigles/Workaholote/blob/main/assets/images/minijuego3.png" width="350" />
+   
+<sub>*Minijuego planta 3.*</sub>
+</div>
+
 - **Planta 4 - Desbloquea la puerta del jefe**
    - El jefe ha cerrado la puerta de su despacho desde dentro. El jugador tendrá que hackear el sistema para abrirla. Para ello tendrá que eliminar unos virus del ordenador principal de la planta. El jugador controlá una nave que se puede mover en las 4 direcciones y rota sobre ella misma. La nave disparará con la tecla 'x' y, gracias a su movimiento, será capaz de apuntar a sus enemigos. Estos simularan ser virus. Se generan en la pantalla con cierta velocidad y se irán desplazando por ella, apareciendo al otro lado de la pantalla si superan los límites. El jugador no será capaz de esto, chocará con los límites deñ juego. Una vez se hayan generado cierta cantidad de virus, aparecerá un candado. Este, al ser destruido por una de las balas de la nave, finalizará el juego y desbloqueará la puerta del jefe.
+<div align="center">
+<img height=200 src="https://github.com/nahigles/Workaholote/blob/main/assets/images/minijuego4.png" width="350" />
+   
+<sub>*Minijuego planta 3.*</sub>
+</div>
 
 ### Personajes
 - **Personaje principal:** El jugador controla al protagonista de la historia quien irá interactuando con los demás personajes. En un principio, se trata de un personaje simple y plano.
