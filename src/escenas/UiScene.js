@@ -192,7 +192,7 @@ export default class UiScene extends Phaser.Scene {
         this.NextMessage();
     }
     goHome(){
-        console.log("Go home.");
+        //console.log("Go home.");
         this.homeBg.visible = true;
         this.exit.visible = false;
         setTimeout(()=>{
@@ -257,7 +257,7 @@ export default class UiScene extends Phaser.Scene {
                 break;
 
             case "MinijuegoPlanta3":
-                console.log('MinijuegoPlanta3');
+                //console.log('MinijuegoPlanta3');
                 this.scene.get("Planta3").startMinijuego();
                 break;
 
@@ -272,7 +272,7 @@ export default class UiScene extends Phaser.Scene {
                 break;
 
             case "MinijuegoPlanta4":
-                console.log('MinijuegoPlanta4');
+                //console.log('MinijuegoPlanta4');
                 this.scene.get("Planta4_2").startMinijuegoP4();
                 break;
 

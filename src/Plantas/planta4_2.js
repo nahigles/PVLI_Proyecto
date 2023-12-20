@@ -130,7 +130,7 @@ export default class Planta4_2 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				console.log("puedes subir");
+				//console.log("puedes subir");
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
@@ -144,7 +144,7 @@ export default class Planta4_2 extends plantaBase {
 				}, this);
 			}
 			else{
-				console.log("todavia no puedes subir");
+				//console.log("todavia no puedes subir");
 			}
 		}
 	}

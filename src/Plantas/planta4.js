@@ -94,7 +94,7 @@ export default class Planta4 extends plantaBase {
 		this.locked_door.on('pointerdown', () =>
 		{
 			this.contGolpes++;
-			console.log('num golpes', this.contGolpes);
+			//console.log('num golpes', this.contGolpes);
 			
 		});
 

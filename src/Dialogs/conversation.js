@@ -107,7 +107,6 @@ export default class Conversation{
 					
 			case "Planta5":
 					this.PType = this.readInsignias(insignias);
-					console.log(this.PType);
 					this.conversText = dialogJefe;
 					switch (this.PType) {
 						case 'ENTJ':
