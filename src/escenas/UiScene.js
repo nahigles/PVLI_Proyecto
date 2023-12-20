@@ -203,6 +203,7 @@ export default class UiScene extends Phaser.Scene {
             case "postIt" :  
                 this.endDialog();
                 //misión y al acabar directamente se lanza las siguentes lineas
+                this.scene.get("PuertaSecreta").ClavMirada();
                 console.log("postItAction");
                 this.conversation.next();                
                 break;
@@ -210,11 +211,13 @@ export default class UiScene extends Phaser.Scene {
             case "adivinar" :
                 this.endDialog();
                 //misión y al acabar directamente se lanza las siguentes lineas
+                this.scene.get("Planta2").startMision();
                 console.log("adivinarAction");
-                this.conversation.next();
+                
                 break;
                         
             case "MinijuegoPlanta2":
+                this.scene.get("Planta2").startMinijuego();
                 console.log('MinijuegoPlanta2');
                 break;
 
@@ -297,5 +300,9 @@ export default class UiScene extends Phaser.Scene {
         console.log("REMOVE UI");
         this.dialogManager.removeDM();
         this.scene.stop();
+    }
+
+    sigConver(){
+        this.conversation.next();
     }
 }

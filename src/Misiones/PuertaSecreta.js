@@ -7,6 +7,7 @@ export default class PuertaSecreta extends Phaser.Scene{
         this.correct = false;
         this.escrito = [" ", " ", " "];
         this.clave = ["0", "4", "7"];
+        this.claveMirada = false;
     }
     init(){
     }
@@ -122,9 +123,16 @@ export default class PuertaSecreta extends Phaser.Scene{
             this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
         }
         else{
-            this.scene.get("Planta2").lightsOn();
+            let plantica2 = this.scene.get("Planta2");
+            plantica2.lightsOn();
+            //plantica2.mis
+            this.scene.get("UiScene").sigConver();
         }
         
         this.correct = correctttt;
+    }
+
+    clavMirada(){
+        this.claveMirada = true;
     }
 }

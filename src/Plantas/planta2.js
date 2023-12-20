@@ -173,4 +173,9 @@ export default class Planta2 extends plantaBase {
 	lightsOn(){
 		this.msk.setAlpha(0.0);
 	}
+
+	startMision(){
+		this.scene.launch('puertaSecreta');
+        this.scene.pause();
+	}
 }
