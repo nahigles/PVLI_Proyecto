@@ -3,46 +3,7 @@
         {
             "who": "Lola",
             "frase": "Ya hemos acabado ¿no?",
-            "nextId": 7
-            },{
-            "who": "Lola",
-            "frase": "¿Que eres? (MISIÓN DIALOGADA PENDIENTE)",
-            "nextId": 2
-            },{
-            "who": "Choice",
-            "a": "T",
-            "b": "F",
-            "nextA": 3,
-            "nextB": 5
-            },{
-                "who": "Player",
-                "frase": "Soy T.",
-                "nextId": 4
-                },{
-                "who": "Action", 
-                "what": "InsigniaT",
-                "nextId": 7
-                },{
-                "who": "Player",
-                "frase": "Soy F.",
-                "nextId": 6
-                },{
-                "who": "Action", 
-                "what": "InsigniaF",
-                "nextId": 7
-            },{
-            "who": "End"
-        }
-    ]
-}
-
-
-{
-    "Talk": [
-        {
-            "who": "Lola",
-            "frase": "Ya hemos acabado ¿no?",
-            "nextId": 15
+            "nextId": 15438451358485
             },{
             "who": "Lola",
             "frase": "Ya viene otro. ¿Tú también a quejarte?",
@@ -50,76 +11,70 @@
             },{
             "who": "Player",
             "frase": "No, venía a ver si alguien necesita algo.",
-            "nextId": 2
+            "nextId": 3
             },{
             "who": "Lola",
-            "frase": "Ai q alegría no seas de esos, todo el día escuchando a gente llorar, necesito un respiro.",
-            "nextId": 2
-            },{
-            "who": "Choice",
-            "a": "De hecho… pensaba irme ahora.",
-            "b": "Sí todo bien ¿En q puedo ayudar?",
-            "nextA": 3,
-            "nextB": 13
-            },{
-            "who": "Player",
-            "frase": "De hecho… pensaba irme ahora.",
+            "frase": "Ai q alegría que no seas de esos, todo el día escuchando a gente llorar, necesito un respiro.",
             "nextId": 4
             },{
-            "who": "Alvaro",
-            "frase": "Ahora? La d la jornada laboral d 8h t la sabes? O q es q falla el jefe y ya todos nos vamos no?",
-            "nextId": 5
+            "who": "Choice",
+            "a": "Bueno es normal, ya me han contado lo de los despidos.",
+            "b": "Ya ves, la gente se queja demasiado.",
+            "nextA": 5,
+            "nextB": 14
+            },{
+            "who": "Player",
+            "frase": "Bueno es normal, ya me han contado lo de los despidos.",
+            "nextId": 6
+            },{
+            "who": "Lola",
+            "frase": "Para volar más alto, hay q soltar el lastre.",
+            "nextId": 7
+            },{
+            "who": "Choice",
+            "a": "Eso es un poco duro, no te parece?",
+            "b": "Bueno, puede que tengas razón.",
+            "nextA": 8,
+            "nextB": 15
+            },{
+            "who": "Player",
+            "frase": "Eso es un poco duro, no te parece?",
+            "nextId": 9
+            },{
+            "who": "Lola",
+            "frase": "Es realista, ¿o tu quieres que la empresa quiebre?",
+            "nextId": 10
             },{
                 "who": "Choice",
-                "a": "Para nada, pero acabo d recibir una llamada y tengo que irme, es urgente.",
-                "b": "Nono, me quedo me quedo.",
-                "nextA": 6,
+                "a": "Tia, te han comido el coco. Un poco de conciencia d clase.",
+                "b": "Es verdad, solo estás haciendo tu trabajo.",
+                "nextA": 11,
                 "nextB": 12
             },{
             "who": "Player",
-            "frase": "Para nada, pero acabo d recibir una llamada y tengo que irme, es urgente.",
-            "nextId": 7
-            },{
-            "who": "Alvaro",
-            "frase": "Yaya una llamada. anda, y la excusa cuál es?",
-            "nextId": 8
-            },{
-                "who": "Choice",
-                "a": "De hecho, mi hermana está de parto.",
-                "b": "De hecho, mi abuela está en el hospital.",
-                "nextA": 9,
-                "nextB": 10
+            "frase": "Tia, te han comido el coco. Un poco de conciencia d clase.",
+            "nextId": 16
             },{
             "who": "Player",
-            "frase": "De hecho, mi hermana está de parto.",
-            "nextId": 11
-            },{
-            "who": "Player",
-            "frase": "De hecho, mi abuela está en el hospital.",
-            "nextId": 11
-            },{
-            "who": "Alvaro",
-            "frase": "Venga tira, pero quiero un selfie en cuanto llegues.",
+            "frase": "Es verdad, solo estás haciendo tu trabajo.",
             "nextId": 15
             },{
             "who": "Player",
-            "frase": "Nono, me quedo me quedo. ¿En q puedo ayudar?",
-            "nextId": 14
+            "frase": "Ya ves, la gente se queja demasiado.",
+            "nextId": 15
             },{
             "who": "Player",
-            "frase": "Sí todo bien ¿En q puedo ayudar?",
-            "nextId": 14
+            "frase": "Bueno, puede que tengas razón.",
+            "nextId": 15
             },{
-                "who": "Alvaro",
-                "frase": "Pues no lo tengo muy claro, pero seguro que encuentras algo que hacer.",
-                "nextId": 15
-            },
-            {
             "who": "Action", 
-            "what": "FinConversacionAlvaro",
-            "nextId": 16
-            },
-            {
+            "what": "InsigniaT",
+            "nextId": 17
+            },{
+            "who": "Action", 
+            "what": "InsigniaF",
+            "nextId": 17
+            },{
             "who": "End"
         }
     ]

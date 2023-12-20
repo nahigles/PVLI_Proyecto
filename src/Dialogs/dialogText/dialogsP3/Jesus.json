@@ -2,19 +2,19 @@
     "Talk": [
         {
             "who": "Jesus",
-            "frase": "M voy a la comunión. Chao.",
+            "frase": "Muchas gracias, me voy ya :)",
             "nextId": 5
             },{
             "who": "Jesus",
-            "frase": "Estoy estresado :(",
+            "frase": "Hola jóven ¿podrias ayudarme?",
             "nextId": 2
             },{
             "who": "Player",
-            "frase": "Oh no!",
+            "frase": "¡Claro!",
             "nextId": 3
             },{
             "who": "Pedro",
-            "frase": "Ayudame!",
+            "frase": "Estoy intentando organizar estas carpetas y me he dejado las gafas en casa.",
             "nextId": 4
             },{
             "who": "Action", 
