@@ -143,6 +143,9 @@ export default class Planta2 extends plantaBase {
 		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
 		this.msk.setAlpha(0.5);
 
+		this.firstTimeAndrea = false;
+		this.fisrtTimePedro = false;
+
     }
 	jugadorIntuitivo(){
 		this.jugador.intuitivo = true;
@@ -181,6 +184,14 @@ export default class Planta2 extends plantaBase {
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
 		}*/
+		if(this.misionCompletada&& !this.firstTimeAndrea){
+			this.scene.get("UiScene").talk();
+			this.firstTimeAndrea = true;
+		}
+		if(this.mjCompletado && !this.fisrtTimePedro){
+			this.scene.get("UiScene").talk();
+			this.fisrtTimePedro = true;
+		}
     }
 
 	onPause(bol){

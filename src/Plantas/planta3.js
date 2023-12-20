@@ -117,7 +117,8 @@ export default class Planta3 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
-	//	this.p = this.input.keyboard.addKey('P');
+	//this.p = this.input.keyboard.addKey('P');
+	this.firsTimeJesus = false;
     }
 	jugadorFeeler(){
 		this.jugador.feeler = true;
@@ -150,6 +151,10 @@ export default class Planta3 extends plantaBase {
 		super.update();
 		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
+		}
+		if(this.mjCompletado && !this.firsTimeJesus){
+			this.scene.get("UiScene").talk();
+			this.firsTimeJesus = true;
 		}
 		/*if(this.p.isDown){ 
 			this.scene.get("UiScene").removeUI();

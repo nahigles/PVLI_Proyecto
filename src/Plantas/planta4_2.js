@@ -121,6 +121,7 @@ export default class Planta4_2 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		//this.p = this.input.keyboard.addKey('P');
+		this.firstTimeConrad = false;
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -160,9 +161,13 @@ export default class Planta4_2 extends plantaBase {
 			this.scene.stop();
 			console.log("Paso de P4_2 a P5")
 		}	*/
-		if(this.mjCompletado && !this.jugador.inputEnabled)
+		/*if(this.mjCompletado && !this.jugador.inputEnabled)
 		{
 			this.onPause(false);
+		}*/
+		if(this.mjCompletado && !this.firstTimeConrad){
+			this.scene.get("UiScene").talk();
+			this.firstTimeConrad = true;
 		}
     }
 
