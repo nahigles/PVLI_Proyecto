@@ -17,11 +17,11 @@ export default class MJ_Nave extends MinijuegoBase{
         super.preload();
         this.load.image('background4', './assets/images/Backgrounds/bg_mjNave.png');
         this.load.image('nave', './assets/images/Objetos/nave.png');
-		this.load.spritesheet('balaAnim', './assets/images/Objetos/bala.png', {frameWidth: 5, frameHeight: 5});
-		this.load.spritesheet('lockAnim', './assets/images/Objetos/lock.png', {frameWidth: 10, frameHeight: 10});
-		this.load.spritesheet('explotionAnim', './assets/images/Objetos/explotion.png', {frameWidth: 19, frameHeight: 21});
+		this.load.image('lock', './assets/images/Objetos/lock.png');
         this.load.image('virusA', './assets/images/Objetos/virusA.png');
         this.load.image('virusB', './assets/images/Objetos/virusB.png');
+		this.load.spritesheet('balaAnim', './assets/images/Objetos/bala.png', {frameWidth: 5, frameHeight: 5});
+		this.load.spritesheet('explotionAnim', './assets/images/Objetos/explotion.png', {frameWidth: 19, frameHeight: 21});
     }
 
     create(){
@@ -33,7 +33,7 @@ export default class MJ_Nave extends MinijuegoBase{
         this.bounds = {x: 112, y:80, w:378, h:220};
         this.physics.world.setBounds(this.bounds.x,this.bounds.y,this.bounds.w,this.bounds.h);
         
-		this.nave = new Nave(this, 200, 100, 'nave');
+		this.nave = new Nave(this, 300, 300, 'nave');
 		this.nave.body.setCollideWorldBounds(true);
         this.nave.body.drag.set(100);
         this.nave.body.maxVelocity.set(200);
@@ -47,23 +47,27 @@ export default class MJ_Nave extends MinijuegoBase{
             this.virus.setV();
         }
 
-        this.triggerTimer = this.time.addEvent({
-            callback: this.addVirus(),
-            callbackScope: this,
-            delay: 3000, // 1000 = 1 sec
-            loop: true
-        });
-
         console.log(this.VirusGRP);
 
+        this.lastCreatedTime = 0;
+        this.freq = 2000;
+        this.virusCant = 0;
+        this.virusMax = 3;
+        this.theresLock = false;
+
         this.balasPool = new Pool(this, 100, true, this.bounds);	
+        //bala para crear la anim
+        this.balasPool.spawn(0, 0, 0, 0, true);
+
         
         this.physics.add.overlap(this.VirusGRP, this.balasPool._group, (bala, virus) => {
+            console.log('BV');
             bala.destroyBala();
             virus.destroyVirus();
         })
 
-        this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {
+        this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {            
+            console.log('NV');
             virus.destroyVirus();
             setTimeout(()=>{
                 this.scene.restart();
@@ -77,18 +81,36 @@ export default class MJ_Nave extends MinijuegoBase{
     }
 
     update(t,dt){
-
+        if (t - this.lastCreatedTime > this.freq){
+            this.lastCreatedTime = t;
+            this.addVirus();
+        }
         
     }
 
     shoot(){
-		this.balasPool.spawn(this.nave.x, this.nave.y, this.nave.rotation, this.nave.body.velocity);
+		this.balasPool.spawn(this.nave.x, this.nave.y, this.nave.rotation, this.nave.body.velocity, false);
     }
 
     addVirus(){       
-        console.log("NEW VIRUS");
-        this.virus = new Virus(this, this.bounds);
+        this.virusCant++;
+        
+        if (this.virusCant > this.virusMax && !this.theresLock){
+            this.theresLock = true; 
+            console.log("LOCK");
+        }
+        this.virus = new Virus(this, this.bounds, this.theresLock);
         this.VirusGRP.add(this.virus);
         this.virus.setV();
+    }
+
+    win(){
+        this.scene.get("Planta4").minijuegoCompletado();
+            //para que no cambie de repente
+            setTimeout(()=>{
+                console.log('WON');
+                this.scene.resume('Planta4'); //volvemos a planta
+                this.scene.stop();
+            },1500);
     }
 }

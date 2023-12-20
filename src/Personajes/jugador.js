@@ -32,14 +32,14 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.scene.anims.create({
 			key: 'jump',
 			frames: scene.anims.generateFrameNumbers('playerAnim', {start:32, end:35}),
-			frameRate: 2,
+			frameRate: 3,
 			repeat: -1
 		});
 
 		this.scene.anims.create({
 			key: 'sit',
 			frames: scene.anims.generateFrameNumbers('playerAnim', {start:40, end:41}),
-			frameRate: 2,
+			frameRate: 1,
 			repeat: -1
 		});
 		
@@ -85,6 +85,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.perceptivo =  false;
 
     }
+	
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
@@ -123,7 +124,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 
 	jumpAnim(){
 		this.jugador.play('jump', true);
-		this.jugador.setFlip(false, false);
+		this.jugador.setFlip(true, false);
 	}
 	// Método vacio necesario para creación de objetos desde tilemap
 	setTexture(){}

@@ -19,12 +19,12 @@ export default class Pool {
 		this._group.killAndHide(entity);
 	}
 	
-	spawn (x, y, rot, vel) {
+	spawn (x, y, rot, vel, isFirst) {
 		let entity = this._group.getFirstDead();
 		
 		if(!entity){		
 			if (this._group.getLength() < this.max) {
-				entity = new Bala(this.scene, x, y, rot, this, this.bounds);
+				entity = new Bala(this.scene, x, y, rot, this, this.bounds, isFirst);
 				this.addEntity(entity);
 			} 
 			 //Como hemos mencionado podemos querer reutilizar el elemento que más tiempo ha estado vivo si no tenemos otra opción

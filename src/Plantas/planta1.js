@@ -116,7 +116,8 @@ export default class Planta1 extends plantaBase {
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [false, false, false, false, false, false, false, false]
 		});	
 
 		// Colisiones MAPA
@@ -129,6 +130,8 @@ export default class Planta1 extends plantaBase {
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
 		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
+
+		this.emilioFisrtTime = false;
     }
 	catchFolder(){
 		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
@@ -146,7 +149,9 @@ export default class Planta1 extends plantaBase {
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
-					//cuando haya acabado la animacion
+					//cuando haya acabado la animacion					
+					console.log("I = " + this.jugador.introvertido);
+					console.log("E = " + this.jugador.extrovertido);
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
@@ -213,6 +218,10 @@ export default class Planta1 extends plantaBase {
 			if(this.misionCompletada) {
 				this.carpeta.destroy(); //se elimina la carpeta
 			}
+		}
+		if(this.mjCompletado && !this.emilioFisrtTime){
+			this.scene.get("UiScene").talk();
+			this.emilioFisrtTime = true;
 		}
 	}
 	onPause(bol){

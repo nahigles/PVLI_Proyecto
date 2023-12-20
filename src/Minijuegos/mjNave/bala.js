@@ -6,20 +6,22 @@ export default class Bala extends Phaser.GameObjects.Sprite {
 	 * @param {number} y - coordenada y
 	 * @param {Pool} pool - object pool
 	 */
-	constructor(scene, x, y, rot, pool, bounds) {
+	constructor(scene, x, y, rot, pool, bounds, isFirst) {
 		super(scene, x, y, 'balaAnim');
         this.key = 'balaAnim';
         this.rotation = rot;
         this.setScale(3,3); 
 
 		this.scene.add.existing(this);
-
-        this.scene.anims.create({
-			key: this.key,
-			frames: scene.anims.generateFrameNumbers(this.key, {start:0, end:1}),
-			frameRate: 10,
-			repeat: -1
-		});
+		
+		if (isFirst){
+			this.scene.anims.create({
+				key: this.key,
+				frames: scene.anims.generateFrameNumbers(this.key, {start:0, end:1}),
+				frameRate: 10,
+				repeat: -1
+			});
+		}
 
 		this.pool = pool;
         this.bounds = bounds;

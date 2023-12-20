@@ -28,9 +28,13 @@ export default class MainMenu extends Phaser.Scene {
         this.load.image('tileset_objects_yellow', 'assets/officeAssets/Objects/tiles_objects_yellow.png');
         this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
         this.load.image('tileset_objects_purple', 'assets/officeAssets/Objects/tiles_objects_purple.png');
+
+		// Sonido Boton
+		this.load.audio('buttonSound', 'sounds/buttonSound.ogg');
     }
     create(){
-		
+		this.ButtonSoundd = this.sound.add('buttonSound');
+
 		// TILE MAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_main_menu', 
@@ -69,7 +73,7 @@ export default class MainMenu extends Phaser.Scene {
 		this.player1.onPauseInput(true);
 		this.player1.jumpAnim();
 
-		this.player2 = new Jugador(this, 68, 80, 'playerAnim');
+		this.player2 = new Jugador(this, 66, 80, 'playerAnim');
 		this.player2.onPauseInput(true);
 		this.player2.sitAnim();
 		this.player2.body.allowGravity = false;
@@ -83,7 +87,7 @@ export default class MainMenu extends Phaser.Scene {
 		this.physics.add.collider(this.player2, this.wallLayer)
 		
 		// BotonPlay
-		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{}, ()=>{});
+		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.start("Planta1");}, ()=>{}, ()=>{}, ()=>{}, this.ButtonSoundd);
 		this.PlayButton.changeScale(0.18,0.18);
 	}
     update(){

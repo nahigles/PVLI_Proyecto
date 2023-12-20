@@ -82,6 +82,11 @@ export default class Conversation{
 					case "Archie":
 						this.conversText = dialogArchie;
 						break;
+					default:
+				}
+				break;
+			case "Planta4_2":
+				switch(who){
 					case "Inma":
 						this.conversText = dialogInmaCharlotte;
 						break;
@@ -94,7 +99,6 @@ export default class Conversation{
 					default:
 				}
 				break;
-
 			default:
 		}
 
@@ -103,6 +107,7 @@ export default class Conversation{
 
 	next(choice = "noHay"){		
 		console.log("NEXT");
+		console.log(this.conversText.Talk[this.index].who);
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
 				let what = this.conversText.Talk[this.index].what;

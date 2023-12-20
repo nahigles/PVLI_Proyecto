@@ -6,10 +6,10 @@ export default class PuertaSecreta extends Phaser.Scene{
         super('puertaSecreta', 'Planta2');
         this.correct = false;
         this.escrito = [" ", " ", " "];
+        this.clave = ["0", "4", "7"];
+        this.claveMirada = false;
     }
-    init(clav){
-        this.clave = clav;
-        console.log(this.clave);
+    init(){
     }
     preload(t,dt){
         // Cargo imagenes
@@ -75,13 +75,11 @@ export default class PuertaSecreta extends Phaser.Scene{
     update(t,dt){
         super.update(t,dt);
 
-        //console.log(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
-        console.log(this.correct);
         if(this.correct){
-            //setTimeout(()=>{
+            setTimeout(()=>{
                 this.scene.resume('Planta2'); //volvemos a planta
                 this.scene.stop();
-            //},1500);
+            },500);
         }
     }
 
@@ -124,7 +122,20 @@ export default class PuertaSecreta extends Phaser.Scene{
             this.escrito = [" ", " ", " "];
             this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
         }
+        else{
+            let plantica2 = this.scene.get("Planta2");
+            plantica2.lightsOn();
+            plantica2.misionCompleta();
+
+            if(!this.clavMirada){
+                this.scene.get("UiScene").sigConver();
+            }
+        }
         
         this.correct = correctttt;
+    }
+
+    clavMirada(){
+        this.claveMirada = true;
     }
 }

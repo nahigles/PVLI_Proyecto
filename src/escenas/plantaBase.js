@@ -34,7 +34,7 @@ export default class PlantaBase extends Phaser.Scene{
         this.m = this.input.keyboard.addKey('M'); 
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         //Minijuego
-		this.mjCompletado = false;
+		this.mjCompletado = true;
         //Mision
         this.misionCompletada = false;
     }
@@ -47,6 +47,9 @@ export default class PlantaBase extends Phaser.Scene{
 		this.mjCompletado = true;
         this.scene.resume("UiScene");
 	}
+    misionCompleta(){
+        this.misionCompletada = true;
+    }
     update(){
         if(this.m.isDown){ 
             this.scene.launch(this.minijuego); // Pasamos al minijuego

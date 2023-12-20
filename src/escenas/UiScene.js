@@ -16,6 +16,15 @@ export default class UiScene extends Phaser.Scene {
     preload(){
         this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
         this.load.spritesheet("houseButton", "./assets/images/UI/house.png", {frameWidth: 80, frameHeight: 80});
+        this.load.image('backgroundHome', './assets/images/Backgrounds/bg_home.png');
+        this.load.image('insigniaE', './assets/images/UI/Insignias/insigniaE.png');
+        this.load.image('insigniaI', './assets/images/UI/Insignias/insigniaI.png');
+        this.load.image('insigniaN', './assets/images/UI/Insignias/insigniaN.png');
+        this.load.image('insigniaS', './assets/images/UI/Insignias/insigniaS.png');
+        this.load.image('insigniaT', './assets/images/UI/Insignias/insigniaT.png');
+        this.load.image('insigniaF', './assets/images/UI/Insignias/insigniaF.png');
+        this.load.image('insigniaJ', './assets/images/UI/Insignias/insigniaJ.png');
+        this.load.image('insigniaP', './assets/images/UI/Insignias/insigniaP.png');
     }
 
     create(data){    
@@ -25,6 +34,10 @@ export default class UiScene extends Phaser.Scene {
         this.ScenePlanta = data.home;
         this.initDialogSystem(data);
         this.initPauseSystem();
+        this.initInsigniasSys(data.insignias);
+         //imagen calle irese casa
+         this.homeBg = this.add.image(0, 0, 'backgroundHome').setOrigin(0,0).setScale(3.8,3.8);
+         this.homeBg.visible = false; 
     }
 
     //Sistema de dialogos
@@ -177,22 +190,33 @@ export default class UiScene extends Phaser.Scene {
         this.choice = "b";        
         this.NextMessage();
     }
-    
+    goHome(){
+        console.log("Go home.");
+        this.homeBg.visible = true;
+        this.exit.visible = false;
+        setTimeout(()=>{
+            this.removeUI();
+            this.scene.start("MainMenu");
+        },2000);
+    }
 	actions(action){
         switch (action) { 
             case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.scene.stop(this.ScenePlanta);},  ()=>{this.scene.start("MainMenu");},  ()=>{this.removeUI()}, ()=>{}) ;
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.scene.stop(this.ScenePlanta);},  ()=>{this.goHome()},  ()=>{}, ()=>{}) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
             case "MinijuegoPlanta1":
+                this.endDialog();
                 this.scene.get("Planta1").startMinijuego();
                 break;
             case "HablaConAlvaro" :
+                this.addInsignia('E');
                 this.scene.get("Planta1").hablaConAlvaro();
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
                 
-            case "FinConversacionVictoria" : 
+            case "FinConversacionVictoria" :  
+                this.addInsignia('I');
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
                     
@@ -202,28 +226,35 @@ export default class UiScene extends Phaser.Scene {
                 
             case "postIt" :  
                 this.endDialog();
+                this.addInsignia('S');
                 //misión y al acabar directamente se lanza las siguentes lineas
+                this.scene.get("puertaSecreta").clavMirada();
+                this.scene.get("Planta2").jugadorSensitivo();
                 console.log("postItAction");
                 this.conversation.next();                
                 break;
                 
             case "adivinar" :
                 this.endDialog();
+                this.addInsignia('N');
                 //misión y al acabar directamente se lanza las siguentes lineas
+                this.scene.get("Planta2").startMision();
+                this.scene.get("Planta2").jugadorIntuitivo();
                 console.log("adivinarAction");
-                this.conversation.next();
+                
                 break;
                         
             case "MinijuegoPlanta2":
+                this.scene.get("Planta2").startMinijuego();
                 console.log('MinijuegoPlanta2');
                 break;
 
             case "InsigniaT":
-                console.log('InsigniaT');
+                this.addInsignia('T');
                 break;
 
             case "InsigniaF":
-                console.log('InsigniaF');
+                this.addInsignia('F');
                 break;
 
             case "MinijuegoPlanta3":
@@ -231,11 +262,11 @@ export default class UiScene extends Phaser.Scene {
                 break;
 
             case "InsigniaP":
-                console.log('InsigniaP');
+                this.addInsignia('P');
                 break;
 
             case "InsigniaJ":
-                console.log('InsigniaJ');
+                this.addInsignia('J');
                 break;
 
             case "MinijuegoPlanta4":
@@ -293,9 +324,58 @@ export default class UiScene extends Phaser.Scene {
         dialogEvents.emit('dialogFinished');             
     }
 
+    /////////////////////////////////////////////////MÉTODOS PARA PAUSA
+    initInsigniasSys(checkList){
+        console.log(checkList);
+        this.insignias = this.add.group();  
+        this.insignias.add(this.add.image(30, 370, "insigniaE").setName('E').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[0]));
+        this.insignias.add(this.add.image(30, 370, "insigniaI").setName('I').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[1]));
+        this.insignias.add(this.add.image(80, 370, "insigniaN").setName('N').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[2]));
+        this.insignias.add(this.add.image(80, 370, "insigniaS").setName('S').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[3]));
+        this.insignias.add(this.add.image(130, 370, "insigniaT").setName('T').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[4]));
+        this.insignias.add(this.add.image(130, 370, "insigniaF").setName('F').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[5]));
+        this.insignias.add(this.add.image(180, 370, "insigniaJ").setName('J').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[6]));
+        this.insignias.add(this.add.image(180, 370, "insigniaP").setName('P').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[7]));
+    }
+
+    addInsignia (type){
+        switch (type) {
+            case 'E':
+                this.insignias.getMatching('name', 'E')[0].setVisible(true);
+                break;
+            case 'I':
+                this.insignias.getMatching('name', 'I')[0].setVisible(true);
+                break;
+            case 'N':
+                this.insignias.getMatching('name', 'N')[0].setVisible(true);
+                break;
+            case 'S':
+                this.insignias.getMatching('name', 'S')[0].setVisible(true);
+                break;
+            case 'T':
+                this.insignias.getMatching('name', 'T')[0].setVisible(true);
+                break;
+            case 'F':
+                this.insignias.getMatching('name', 'F')[0].setVisible(true);
+                break;
+            case 'J':
+                this.insignias.getMatching('name', 'J')[0].setVisible(true);
+                break;
+            case 'P':
+                this.insignias.getMatching('name', 'P')[0].setVisible(true);
+                break;        
+            default:
+                break;
+        }
+    }
+
     removeUI(){
         console.log("REMOVE UI");
         this.dialogManager.removeDM();
         this.scene.stop();
+    }
+
+    sigConver(){
+        this.conversation.next();
     }
 }
