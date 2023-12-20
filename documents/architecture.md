@@ -1,1 +1,3 @@
-<a href="https://drive.google.com/file/d/15ncpO5D7__xp6GDhv_DiVwywNBHE3Oxn/view?usp=drive_link">Enlace</a><br>  al UML del juego Work To The Top.
+
+<br><sub>UML del juego Work To The Top:</sub>
+ <img src = "https://github.com/nahigles/Workaholote/blob/main/assets/images/UMLWorkToTheTop.drawio.png" height= "auto" widht="auto">
