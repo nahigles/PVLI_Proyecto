@@ -202,11 +202,7 @@ export default class UiScene extends Phaser.Scene {
     }
     
 	actions(action){
-        switch (action) { 
-            case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.scene.stop(this.ScenePlanta);},  ()=>{this.goHome()},  ()=>{}, ()=>{}) ;
-                this.exit.changeScale(0.6,0.6);
-                break;
+        switch (action) {
             case "MinijuegoPlanta1":
                 this.endDialog();
                 this.scene.get("Planta1").startMinijuego();
@@ -225,17 +221,16 @@ export default class UiScene extends Phaser.Scene {
                 break;
                 
             case "postIt" :  
-                this.endDialog();
+                //this.endDialog();
                 this.addInsignia('S');
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("puertaSecreta").clavMirada();
                 this.scene.get("Planta2").jugadorSensitivo();
-                //console.log("postItAction");
-                this.conversation.next();                
+                //console.log("postItAction");            
                 break;
                 
             case "adivinar" :
-                this.endDialog();
+                //this.endDialog();
                 this.addInsignia('N');
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("Planta2").startMision();

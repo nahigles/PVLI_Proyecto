@@ -9,7 +9,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
     init(){
         super.init();
         this.score = 0;
-        this.emilioScore = 2023;
+        this.emilioScore = 400;
     }
     preload(){
        super.preload();
