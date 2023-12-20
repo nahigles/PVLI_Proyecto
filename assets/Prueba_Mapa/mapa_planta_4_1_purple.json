@@ -60,6 +60,52 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":9,
+         "name":"Door",
+         "objects":[
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"Door",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":14.2727272727273,
+                 "y":92.5454909090909
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"Key",
+         "objects":[
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Key",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":166.364,
+                 "y":96
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -159,7 +205,7 @@
                  "type":"NPCBase",
                  "visible":true,
                  "width":0,
-                 "x":103.333333333333,
+                 "x":103.333,
                  "y":79
                 }],
          "opacity":1,
@@ -168,8 +214,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":9,
- "nextobjectid":3,
+ "nextlayerid":11,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
