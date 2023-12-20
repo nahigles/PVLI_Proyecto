@@ -167,7 +167,7 @@ export default class Planta2 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
+					this.scene.launch('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
    					this.scene.stop();
 					this.scene.get("UiScene").removeUI();

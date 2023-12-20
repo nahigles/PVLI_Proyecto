@@ -35,7 +35,7 @@ import PuertaSecreta from './Misiones/PuertaSecreta.js';
             arcade: {
                 gravity: {y: 400},
                 // Visibilidad de las colisiones 
-                debug: true
+                debug: false
             }
         }
     }
