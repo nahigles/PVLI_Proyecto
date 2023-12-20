@@ -16,6 +16,7 @@ export default class UiScene extends Phaser.Scene {
     preload(){
         this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
         this.load.spritesheet("houseButton", "./assets/images/UI/house.png", {frameWidth: 80, frameHeight: 80});
+        this.load.image('backgroundHome', './assets/images/Backgrounds/bg_home.png');
     }
 
     create(data){    
@@ -25,6 +26,9 @@ export default class UiScene extends Phaser.Scene {
         this.ScenePlanta = data.home;
         this.initDialogSystem(data);
         this.initPauseSystem();
+         //imagen calle irese casa
+         this.homeBg = this.add.image(0, 0, 'backgroundHome').setOrigin(0,0).setScale(3.8,3.8);
+         this.homeBg.visible = false; 
     }
 
     //Sistema de dialogos
@@ -177,14 +181,23 @@ export default class UiScene extends Phaser.Scene {
         this.choice = "b";        
         this.NextMessage();
     }
-    
+    goHome(){
+        console.log("Go home.");
+        this.homeBg.visible = true;
+        this.exit.visible = false;
+        setTimeout(()=>{
+            this.removeUI();
+            this.scene.start("MainMenu");
+        },2000);
+    }
 	actions(action){
         switch (action) { 
             case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.scene.stop(this.ScenePlanta);},  ()=>{this.scene.start("MainMenu");},  ()=>{this.removeUI()}, ()=>{}) ;
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.scene.stop(this.ScenePlanta);},  ()=>{this.goHome()},  ()=>{}, ()=>{}) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
             case "MinijuegoPlanta1":
+                this.endDialog();
                 this.scene.get("Planta1").startMinijuego();
                 break;
             case "HablaConAlvaro" :
