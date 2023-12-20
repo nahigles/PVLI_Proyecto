@@ -12,6 +12,7 @@
    - [Estética](#estética)
 3. [Contenido](#contenido)
    - [Niveles](#niveles)
+   - [Minjuegos](#minijuegos)
    - [Personajes](#personajes)
 4. [Referencias](#referencias) 
 ## Descripción
@@ -131,6 +132,22 @@ Cada planta, de la 1ª a la 4ª representa uno de los 4 grupos de personalidad, 
    - La escena final dependerá de las elecciones del jugador y las insignias que haya conseguido:
       - Por un lado, el jugador ha podido abandonar la partida antes de llegar a esta planta. Esta elección le llevará a ver una cinemática en la que se le ve abandonando el edificio y acabará el juego.
       - Por otro lado, si llega a esta planta se encontrará con el jefe y tendrá un diálogo con él, en el que la actitud del jefe representará el tipo de personalidad asignado al jugador mediante las insignias.
+
+### Minijuegos
+- **Planta 1 - ¡Supera el highscore de Emilio!**
+   - Consiste en superar el high score de Emilio en este juego de plataformas en el que el jugador deberá mover al personaje de lado a lado aprovechando los rebotes. Es decir, el jugador va rebotando en las plataformas y solo controla el movimiento horizontalmente. Si el jugador supera el límite de una de los extremos laterales de la pantalla, aparece por el contrario. Las plataformas están dispuestas verticalmente. Tenemos 3 tipos de plataformas:
+      -  Estáticas.
+      -  Dinámicas: se mueven de un lado a otro.
+      -  Frágiles: Cuando el jugador rebota 2 veces en esta plataforma, se rompe.
+   - Si el jugador se cae, se renicia el juego. Una vez superas el highscore de Emilio, el juego finaliza y se vuelve a la escena principal.     
+ 
+- **Planta 2 - Ayuda a Pedro**
+   - En este minijuego el jugador tendrá que encestar 10 bolas de papel en la basura para poder superarlo. La basura se moverá de lado a lado por la pantalla suponiendo una dificultad para el jugador. Este podrá mover la bola de papel con el cursor horizontalmente para apuntar. Una vez esté listo para lanzar la bola le dará al click izquierdo. La bola subirá y bajará, simulando una parábola vista de frente. Cuando baje y choque con la parte superior de la basura, se encestará.
+   
+- **Planta 3 - Ordena las carpetas de Jesus**
+   - Jesus se ha dejado las gafas en casa no es capaz de ordenar unas carpetas. El jugador deberá ordenadarlas alfabeticamente. Haciendo click sobre una carpeta podrá arrastrarla por la escena. La carpeta se colocará en su sitio cuando pase sobre él. 
+- **Planta 4 - Desbloquea la puerta del jefe**
+   - El jefe ha cerrado la puerta de su despacho desde dentro. El jugador tendrá que hackear el sistema para abrirla. Para ello tendrá que eliminar unos virus del ordenador principal de la planta. El jugador controlá una nave que se puede mover en las 4 direcciones y rota sobre ella misma. La nave disparará con la tecla 'x' y, gracias a su movimiento, será capaz de apuntar a sus enemigos. Estos simularan ser virus. Se generan en la pantalla con cierta velocidad y se irán desplazando por ella, apareciendo al otro lado de la pantalla si superan los límites. El jugador no será capaz de esto, chocará con los límites deñ juego. Una vez se hayan generado cierta cantidad de virus, aparecerá un candado. Este, al ser destruido por una de las balas de la nave, finalizará el juego y desbloqueará la puerta del jefe.
 
 ### Personajes
 - **Personaje principal:** El jugador controla al protagonista de la historia quien irá interactuando con los demás personajes. En un principio, se trata de un personaje simple y plano.
