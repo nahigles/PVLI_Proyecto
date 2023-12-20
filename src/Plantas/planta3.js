@@ -10,6 +10,7 @@ export default class Planta3 extends plantaBase {
 
 	constructor(){	
 		super('Planta3', 'Planta4', 'mj_Carpetas', 'level1', 'tiles', 560);
+
 	}
 
 	init(){
@@ -41,6 +42,9 @@ export default class Planta3 extends plantaBase {
     create(data){
 		super.create();
 
+		this.planta3Sound = this.sound.add('plant3Sound');
+		this.planta3Sound.play();
+		
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_3', 

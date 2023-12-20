@@ -15,6 +15,7 @@ export default class Planta2 extends plantaBase {
 
 	init(){
 		super.init();
+
 	}
 
     preload(){
@@ -48,6 +49,10 @@ export default class Planta2 extends plantaBase {
 
     create(data){
 		super.create();
+
+		this.planta2Sound = this.sound.add('plant2Sound');
+		this.planta2Sound.play();
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_2', 
