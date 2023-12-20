@@ -199,6 +199,7 @@ export default class UiScene extends Phaser.Scene {
             this.scene.start("MainMenu");
         },2000);
     }
+    
 	actions(action){
         switch (action) { 
             case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
