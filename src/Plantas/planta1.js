@@ -193,7 +193,7 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
-	/*	if(this.p.isDown){
+		/*if(this.p.isDown){
 			this.scene.get("UiScene").removeUI();
 			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
