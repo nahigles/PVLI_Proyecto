@@ -53,7 +53,8 @@ export default class MJ_Basuras extends MinijuegoBase{
             setTimeout(()=>{
                 this.scene.resume('Planta2'); //volvemos a planta
                 this.scene.stop();
-            },1500);
+            },500);
+            
         }
     }
 }

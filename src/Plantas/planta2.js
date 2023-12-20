@@ -2,6 +2,7 @@ import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Ascensor from './ascensor.js';
+import Clave from '../Misiones/Clave.js';
 export default class Planta2 extends plantaBase {
 	/**
 	 * Nivel 1
@@ -10,7 +11,6 @@ export default class Planta2 extends plantaBase {
 
 	constructor(){	
 		super('Planta2', 'Planta3', 'mj_Basuras', 'level1', 'tiles', 560);
-		this.claveNum = ["0", "4", "7"];
 	}
 
 	init(){
@@ -38,6 +38,12 @@ export default class Planta2 extends plantaBase {
 		this.load.image('Andrea', 'assets/images/UI/Dialogs/faces/Andrea.png');
 		this.load.image('Pedro', 'assets/images/UI/Dialogs/faces/Pedro.png');
 		this.load.image('Melisa', 'assets/images/UI/Dialogs/faces/Melisa.png');
+
+		// Imagen nota clave
+		this.load.image('ClaveSprite', 'assets/images/Objetos/Clave.png');
+
+		// Mask
+		this.load.image('Mascara', 'assets/images/Backgrounds/FondoNegroMascara.png');
 	}
 
     create(data){
@@ -68,8 +74,12 @@ export default class Planta2 extends plantaBase {
 
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
+
 		//Ascensor
 		this.ascensor = new Ascensor(this, 50 , 88, 'ascensorAnim' );
+
+		// Clave mision
+		this.clave = new Clave(this,170,80, 'ClaveSprite');
 
 		// Grupo de NPCS
 		this.NPCGroup = this.physics.add.group();
@@ -113,6 +123,11 @@ export default class Planta2 extends plantaBase {
 		
 		this.p = this.input.keyboard.addKey('P');
 		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
+
+		// Mascara
+		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
+		this.msk.setAlpha(0.5);
+
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -146,12 +161,16 @@ export default class Planta2 extends plantaBase {
 			this.scene.stop();
 		}
 		if(this.i.isDown){
-			this.scene.launch('puertaSecreta', this.claveNum);
+			this.scene.launch('puertaSecreta');
             this.scene.pause();
 		}	
     }
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	lightsOn(){
+		this.msk.setAlpha(0.0);
 	}
 }
