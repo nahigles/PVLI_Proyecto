@@ -216,7 +216,8 @@ export default class UiScene extends Phaser.Scene {
             case "postIt" :  
                 this.endDialog();
                 //misión y al acabar directamente se lanza las siguentes lineas
-                this.scene.get("PuertaSecreta").clavMirada();
+                this.scene.get("puertaSecreta").clavMirada();
+                this.scene.get("Planta2").jugadorSensitivo();
                 console.log("postItAction");
                 this.conversation.next();                
                 break;
@@ -225,6 +226,7 @@ export default class UiScene extends Phaser.Scene {
                 this.endDialog();
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("Planta2").startMision();
+                this.scene.get("Planta2").jugadorIntuitivo();
                 console.log("adivinarAction");
                 
                 break;
