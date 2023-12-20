@@ -10,6 +10,7 @@ export default class Planta3 extends plantaBase {
 
 	constructor(){	
 		super('Planta3', 'Planta4', 'mj_Carpetas', 'level1', 'tiles', 560);
+
 	}
 
 	init(){
@@ -41,6 +42,9 @@ export default class Planta3 extends plantaBase {
     create(data){
 		super.create();
 
+		this.planta3Sound = this.sound.add('plant3Sound');
+		this.planta3Sound.play();
+		
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_3', 
@@ -117,7 +121,8 @@ export default class Planta3 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
-	//	this.p = this.input.keyboard.addKey('P');
+	//this.p = this.input.keyboard.addKey('P');
+	this.firsTimeJesus = false;
     }
 	jugadorFeeler(){
 		this.jugador.feeler = true;
@@ -134,7 +139,7 @@ export default class Planta3 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+					this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler});
    					this.scene.stop();
@@ -150,6 +155,10 @@ export default class Planta3 extends plantaBase {
 		super.update();
 		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
+		}
+		if(this.mjCompletado && !this.firsTimeJesus){
+			this.scene.get("UiScene").talk();
+			this.firsTimeJesus = true;
 		}
 		/*if(this.p.isDown){ 
 			this.scene.get("UiScene").removeUI();

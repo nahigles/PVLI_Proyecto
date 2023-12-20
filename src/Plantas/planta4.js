@@ -12,6 +12,7 @@ export default class Planta4 extends plantaBase {
 
 	constructor(){	
 		super('Planta4', 'Planta4_2', 'mj_Nave', 'level1', 'tiles', 560);
+		
 	}
 
 	init(){
@@ -46,6 +47,9 @@ export default class Planta4 extends plantaBase {
 
     create(data){
 		super.create();
+
+		this.planta4Sound = this.sound.add('plant4Sound');
+		this.planta4Sound.play();
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 

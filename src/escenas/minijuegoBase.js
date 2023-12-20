@@ -15,8 +15,14 @@ export default class MinijuegoBase extends Phaser.Scene{
     }
     preload(){
         this.load.image('pauseButtonMJ', './assets/images/UI/PauseMenu/pauseButton.png');
+        this.load.audio('minijuegoSound', 'assets/sounds/minijuegoSound.ogg');
+        
     }
     create(){
+
+        this.mjSound = this.sound.add('minijuegoSound');
+        this.mjSound.play();
+
         this.input.keyboard.on('keydown-ESC', function (event) {
             this.scene.launch("PauseMenu", {
                 level : this.key,

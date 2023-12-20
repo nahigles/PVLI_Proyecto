@@ -41,6 +41,10 @@ export default class Planta5 extends plantaBase {
     create(data){
 		super.create();
 
+		
+        this.planta5Sound = this.sound.add('plant5Sound');
+		this.planta5Sound.play();
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_5', 

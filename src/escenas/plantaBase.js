@@ -22,20 +22,29 @@ export default class PlantaBase extends Phaser.Scene{
          this.mapname=tilemap;
          this.tilename=tilename;
          this.numColision=tileColision;
-    }
+         
+        }
     init(){
-    }
 
-    preload(){ //cargar los assets que vayamos a usar
+    }
+    
+    preload(){
+        // Cargamos sonidos
+        this.load.audio('plant1Sound', 'assets/sounds/planta1Sound.WAV');
+        this.load.audio('plant2Sound', 'assets/sounds/planta2Sound.WAV');
+        this.load.audio('plant3Sound', 'assets/sounds/planta3Sound.WAV');
+        this.load.audio('plant4Sound', 'assets/sounds/planta4Sound.WAV');
+        this.load.audio('plant5Sound', 'assets/sounds/planta5Sound.WAV');
     }
 
     create(){
         this.m = this.input.keyboard.addKey('M'); 
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         //Minijuego
-		this.mjCompletado = true;
+		this.mjCompletado = false;
         //Mision
-        this.misionCompletada = true;
+        this.misionCompletada = false;
+  
     }
     startMinijuego(){
         this.scene.launch(this.minijuego);

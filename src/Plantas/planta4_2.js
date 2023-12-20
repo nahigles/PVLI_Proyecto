@@ -42,6 +42,9 @@ export default class Planta4_2 extends plantaBase {
     create(data){
 		super.create();
 
+		this.planta4Sound = this.sound.add('plant4Sound');
+		this.planta4Sound.play();
+
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_4_2', 
@@ -121,6 +124,7 @@ export default class Planta4_2 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		//this.p = this.input.keyboard.addKey('P');
+		this.firstTimeConrad = false;
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -131,7 +135,7 @@ export default class Planta4_2 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.scene.start('Planta5', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+					this.scene.launch('Planta5', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler,
 						juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
@@ -160,9 +164,13 @@ export default class Planta4_2 extends plantaBase {
 			this.scene.stop();
 			console.log("Paso de P4_2 a P5")
 		}	*/
-		if(this.mjCompletado && !this.jugador.inputEnabled)
+		/*if(this.mjCompletado && !this.jugador.inputEnabled)
 		{
 			this.onPause(false);
+		}*/
+		if(this.mjCompletado && !this.firstTimeConrad){
+			this.scene.get("UiScene").talk();
+			this.firstTimeConrad = true;
 		}
     }
 
