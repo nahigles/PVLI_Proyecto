@@ -85,6 +85,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 		this.perceptivo =  false;
 
     }
+	
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);

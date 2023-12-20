@@ -130,7 +130,8 @@ export default class Planta4 extends plantaBase {
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [data.extrovertido, data.introvertido, data.intuitivo, data.sensitivo, data.thinker, data.feeler, false, false]
 		});	
 
 		// Colisiones MAPA 

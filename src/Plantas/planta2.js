@@ -113,10 +113,12 @@ export default class Planta2 extends plantaBase {
 
 		// UISCENE
 		console.log("Planta 2: launcheas UI");
+		
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [data.extrovertido, data.introvertido, false, false, false, false, false, false]
 		});	
 
 		// Colisiones MAPA 

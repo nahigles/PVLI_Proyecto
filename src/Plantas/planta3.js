@@ -97,6 +97,7 @@ export default class Planta3 extends plantaBase {
 		this.jugador.extrovertido = data.extrovertido;
 		this.jugador.intuitivo = data.intuitivo;
 		this.jugador.sensitivo = data.sensitivo;
+
 		this.e = this.input.keyboard.addKey('E');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
@@ -104,11 +105,13 @@ export default class Planta3 extends plantaBase {
 		this.cameras.main.setZoom(3.2);
 
 		// UISCENE
-		this.scene.launch("UiScene", {
+		this.UI = this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [data.extrovertido, data.introvertido, data.intuitivo, data.sensitivo, false, false, false, false]
 		});	
+
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
