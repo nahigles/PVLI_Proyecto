@@ -40,6 +40,9 @@ export default class Planta2 extends plantaBase {
 
 		// Imagen nota clave
 		this.load.image('ClaveSprite', 'assets/images/Objetos/Clave.png');
+
+		// Mask
+		this.load.image('Mascara', 'assets/images/Backgrounds/FondoNegroMascara.png');
 	}
 
     create(data){
@@ -112,6 +115,11 @@ export default class Planta2 extends plantaBase {
 		
 		this.p = this.input.keyboard.addKey('P');
 		this.i = this.input.keyboard.addKey('I'); // tecla prueba para mision planta 2
+
+		// Mascara
+		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
+		this.msk.setAlpha(0.5);
+
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -148,5 +156,9 @@ export default class Planta2 extends plantaBase {
 
 	onPause(){
 		this.jugador.onPauseInput();
+	}
+
+	lightsOn(){
+		this.msk.setAlpha(0.0);
 	}
 }

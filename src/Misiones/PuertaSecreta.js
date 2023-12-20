@@ -121,6 +121,9 @@ export default class PuertaSecreta extends Phaser.Scene{
             this.escrito = [" ", " ", " "];
             this.numbers.setText(this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2]);
         }
+        else{
+            this.scene.get("Planta2").lightsOn();
+        }
         
         this.correct = correctttt;
     }
