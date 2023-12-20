@@ -10,7 +10,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	 * @param {Function} action3 - accion que se realiza al pulsar el boton
 	 * @param {Function} action4 - accion que se realiza al pulsar el boton
 	 */
-	constructor(scene, x, y, key, action1, action2, action3,action4){
+	constructor(scene, x, y, key, action1, action2, action3,action4, sound){
 		// Llamamos al constructor del padre
 		super(scene, x, y, key);
 
@@ -31,6 +31,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		this.action3Method = action3;
 		this.action4Method = action4;
 		this.self = this;
+		this.mySound = sound; 
 
 		if(key === 'playButton2') {
 			this.scene.anims.create({
@@ -60,6 +61,8 @@ export default class Button extends Phaser.GameObjects.Sprite {
 			this.clearTint();
 
         });
+
+		
     }
 
 	preUpdate(t, dt){
@@ -88,6 +91,7 @@ export default class Button extends Phaser.GameObjects.Sprite {
 	 */
 	pulsado(pointer){
 		this.pulsadoBoolean = true;
+		this.mySound.play();
 	}
 
 	changeScale (x, y){
