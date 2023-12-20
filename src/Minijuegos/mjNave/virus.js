@@ -19,11 +19,11 @@ export default class Virus extends Phaser.GameObjects.Sprite {
         else {
             if (Math.random() < 0.5){
                 key = 'virusA';
-                speed = 22;
+                speed = 12;
             }
             else {
                 key = 'virusB';
-                speed = 33;
+                speed = 10;
             }
             if (scene.virusCant == 1){
                 scene.anims.create({
@@ -39,6 +39,7 @@ export default class Virus extends Phaser.GameObjects.Sprite {
 
         if (isLock){
             key = 'lock'
+            speed = 10;
             this.setScale(3,3); }
 
         // Guardamos escena y añadimos ajolote a escena
@@ -51,6 +52,8 @@ export default class Virus extends Phaser.GameObjects.Sprite {
         //FISICAS
         this.scene.physics.world.enable(this);        
         this.body.setAllowGravity(false);
+
+        this.keyID = key;
     }
 
     preUpdate(t, dt){
@@ -63,18 +66,19 @@ export default class Virus extends Phaser.GameObjects.Sprite {
     }
 
     destroyVirus(){
+        this.body.setVelocity(0);
 		console.log("destroy virus");
-        if (super.key == 'lock'){
+        this.play('explotionAnim', true);
+        this.once('animationcomplete', () => {
+            console.log('animationcomplete');
+            setTimeout(()=>{
+                this.destroy();
+            },100);
+        })
+        if (this.keyID == 'lock'){
             this.scene.win();
-        }
-        else {
-            this.play('explotionAnim', true);
-            this.once('animationcomplete', () => {
-                console.log('animationcomplete');
-                setTimeout(()=>{
-                    this.destroy();
-                },100);
-            })
+    		console.log("WIIIIN");
+
         }
     }
 }

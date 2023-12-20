@@ -160,9 +160,20 @@ export default class Planta4_2 extends plantaBase {
 			this.scene.stop();
 			console.log("Paso de P4_2 a P5")
 		}	*/
+		if(this.mjCompletado && !this.jugador.inputEnabled)
+		{
+			this.onPause(false);
+		}
     }
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	startMinijuegoP4()
+	{
+		this.onPause(true);
+		this.scene.launch(this.minijuego);
+		this.scene.pause("UiScene");
 	}
 }
