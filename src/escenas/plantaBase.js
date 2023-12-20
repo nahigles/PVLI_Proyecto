@@ -47,6 +47,9 @@ export default class PlantaBase extends Phaser.Scene{
 		this.mjCompletado = true;
         this.scene.resume("UiScene");
 	}
+    misionCompleta(){
+        this.misionCompletada = true;
+    }
     update(){
         if(this.m.isDown){ 
             this.scene.launch(this.minijuego); // Pasamos al minijuego
