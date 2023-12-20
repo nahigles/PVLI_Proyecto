@@ -55,8 +55,6 @@ export default class Planta2 extends plantaBase {
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_green', 'tileset_objects_green');  
 		const tileset_locked_door = this.map.addTilesetImage('green_door', 'tileset_door_green');  
 		
-		console.log(tileset_locked_door);
-		console.log(tileset_objects);
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
 		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);

@@ -1,6 +1,8 @@
 import plantaBase from '../escenas/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
+import PurpleKey from '../Minijuegos/purpleKey.js'
+import LockedDoor from '../Minijuegos/lockedDoor.js'
 
 export default class Planta4 extends plantaBase {
 	/**
@@ -16,6 +18,8 @@ export default class Planta4 extends plantaBase {
 		super.init();
 		this.contGolpes = 0;
 		this.maxGolpes = 20;
+		this.puertaAbierta = false;
+		this.keyCatched = false;
 	}
 
     preload(){
@@ -35,8 +39,9 @@ export default class Planta4 extends plantaBase {
 		// NPS DIALOGO
 		this.load.image('Archie', 'assets/images/UI/Dialogs/faces/Archie.png');
 
-		// LOCKED DOOR
+		// LOCKED DOOR AND KEY
 		this.load.image('Locked_door', 'assets/officeAssets/Doors/locked_door_purple.png');
+		this.load.image('purple_key', 'assets/images/Objetos/purple_key.png');
     }
 
     create(data){
@@ -67,6 +72,27 @@ export default class Planta4 extends plantaBase {
 
 		// Colisiones con las paredes
 		this.wallLayer.setCollisionByExclusion([-1]);
+
+		// MISION
+		// Puerta
+		for (const objeto of this.map.getObjectLayer('Door').objects) {
+			
+			this.locked_door = new LockedDoor(this, objeto.x, objeto.y, 'Locked_door');
+		}
+
+		// Llave
+		for (const objeto of this.map.getObjectLayer('Key').objects) {
+			
+			this.key_door = new PurpleKey(this, objeto.x, objeto.y, 'purple_key');
+		}
+		
+		
+		this.locked_door.on('pointerdown', () =>
+		{
+			this.contGolpes++;
+			console.log('num golpes', this.contGolpes);
+			
+		});
 
 		// Grupo de NPCS
 		this.NPCGroup = this.physics.add.group();
@@ -105,33 +131,42 @@ export default class Planta4 extends plantaBase {
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
 		this.p = this.input.keyboard.addKey('P');
-
-
-		// MISION
-		for (const objeto of this.map.getObjectLayer('Door').objects) {
-			
-			this.locked_door = new Phaser.GameObjects.Sprite(this, objeto.x, objeto.y, 'Locked_door');
-			this.locked_door.setInteractive();
-		}
-
-
-		this.locked_door.on('pointerdown', () =>
-        {
-            this.contGolpes++;
-			console.log('num golpes', this.contGolpes);
-            
-        });
-
+		this.e = this.input.keyboard.addKey('Q');
+		
     }
 
     update(){
-
+		
 		super.update();
-
+		
 		// MISION
-		if(this.contGolpes >= this.maxGolpes)
+		// Cogemos la llave
+		if(this.physics.overlap(this.jugador, this.key_door) && this.e.isDown){	
+			this.key_door.visible = false;
+			this.keyCatched = this.key_door.catch = true;
+		}
+		if(this.e.isDown)
 		{
-			console.log('puerta abierta');
+			console.log(this.physics.overlap(this.jugador, this.key_door));
+		}
+		// Si hemos cogido la llave e interactuamos con la puerta
+		if(this.keyCatched && this.physics.overlap(this.jugador, this.locked_door) && this.e.isDown){	
+			this.puertaAbierta = true;
+		}
+		// Cuando hayamos golpeado la puerta suficientes veces
+		if(!this.puertaAbierta && this.contGolpes >= this.maxGolpes)
+		{
+			this.puertaAbierta = true;
+		}
+		if(this.puertaAbierta)
+		{
+			setTimeout(()=>{
+				this.scene.start("Planta4_2", {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
+					sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
+					thinker : this.jugador.thinker, feeler : this.jugador.feeler,
+					juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo}); //volvemos a planta
+				this.scene.stop();
+			},1500);
 		}
 
 		if(this.p.isDown){ 

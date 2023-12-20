@@ -73,8 +73,31 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":11,
-                 "y":72.6363636363636
+                 "x":14.2727272727273,
+                 "y":92.5454909090909
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"Key",
+         "objects":[
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"Key",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":166.364,
+                 "y":96
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -191,8 +214,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":4,
+ "nextlayerid":11,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
