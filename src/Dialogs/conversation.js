@@ -50,6 +50,10 @@ export default class Conversation{
 					case "Andrea":
 						this.conversText = dialogAndrea;
 						break;
+					case "AndreaOver":
+						this.conversText = dialogAndrea;
+						this.index = 10;
+						break;
 					case "Melisa":
 						this.conversText = dialogMelisa;
 						break;
@@ -97,14 +101,17 @@ export default class Conversation{
 		this.next();
     }	
 
-	next(choice = "noHay"){
+	next(choice = "noHay"){		
+		console.log("NEXT");
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
-				this.UI.actions(this.conversText.Talk[this.index].what);
+				let what = this.conversText.Talk[this.index].what;
 				this.index = this.conversText.Talk[this.index].nextId;
 				console.log("change to index " + this.index);
+				this.UI.actions(what);
 			}
-			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)
+			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)				
+				console.log("Choice");
 				if (choice == "noHay"){ //PRIM VEZ
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
 					"· " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
@@ -120,6 +127,7 @@ export default class Conversation{
 					console.log("init " + this.index);
 				}
 				if (choice == "a"){ //ha elegido a
+					console.log("A is the choice");
 					this.index = this.conversText.Talk[this.index].nextA;
 					console.log("change to index " + this.index);
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
@@ -137,11 +145,16 @@ export default class Conversation{
 				}
 			}
 			else {
+				console.log(this.conversText.Talk[this.index].frase);
 				this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
 				console.log("init " + this.index);
 				this.index = this.conversText.Talk[this.index].nextId;
 				console.log("change to index " + this.index);
 			}
+		}
+		else {
+			console.log("End");			
+			this.UI.endDialog();
 		}
 	}
 }

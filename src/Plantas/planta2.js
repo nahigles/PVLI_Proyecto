@@ -27,6 +27,7 @@ export default class Planta2 extends plantaBase {
         this.load.image('tileset_architecture_green', 'assets/officeAssets/Architecture/tiles_architecture_green.png');
         this.load.image('tileset_furniture_green', 'assets/officeAssets/Furniture/tiles_furniture_green.png');
         this.load.image('tileset_objects_green', 'assets/officeAssets/Objects/tiles_objects_green.png');
+        this.load.image('tileset_door_green', 'assets/officeAssets/Doors/green_door.png');
 
 		// NPCS
 		this.load.spritesheet('NPCAndrea', './assets/images/Characters/Andrea.png', {frameWidth: 24, frameHeight: 36})
@@ -54,13 +55,14 @@ export default class Planta2 extends plantaBase {
 		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_green', 'tileset_architecture_green');  
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_green', 'tileset_furniture_green');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_green', 'tileset_objects_green');  
+		const tileset_locked_door = this.map.addTilesetImage('green_door', 'tileset_door_green');  
 		
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
 		this.wallLayer = this.map.createLayer('Walls', tileset_architecture);
 		this.windowsLayer = this.map.createLayer('Windows', tileset_architecture);
 		this.columsLayer = this.map.createLayer('Colums', tileset_architecture);
-		this.objectsLayer = this.map.createLayer('Furniture', [tileset_objects, tileset_furniture]);
+		this.objectsLayer = this.map.createLayer('Furniture', [tileset_objects, tileset_furniture, tileset_locked_door]);
 		this.PCLayer = this.map.createLayer('PC', [tileset_objects]);
 		this.chairsLayer = this.map.createLayer('Chairs', [tileset_objects]);
 
@@ -149,7 +151,7 @@ export default class Planta2 extends plantaBase {
 		}	
     }
 
-	onPause(){
-		this.jugador.onPauseInput();
+	onPause(bol){
+		this.jugador.onPauseInput(bol);
 	}
 }

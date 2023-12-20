@@ -101,6 +101,7 @@ export default class Planta4_2 extends plantaBase {
 		this.jugador.juzgador = data.juzgador;
 		this.jugador.perceptivo = data.perceptivo;
 		this.e = this.input.keyboard.addKey('E');
+		//this.w = this.input.keyboard.addKey('W');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -159,7 +160,7 @@ export default class Planta4_2 extends plantaBase {
 		}	
     }
 
-	onPause(){
-		this.jugador.onPauseInput();
+	onPause(bol){
+		this.jugador.onPauseInput(bol);
 	}
 }
