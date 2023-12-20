@@ -259,6 +259,7 @@ export default class UiScene extends Phaser.Scene {
 
             case "MinijuegoPlanta3":
                 console.log('MinijuegoPlanta3');
+                this.scene.get("Planta3").startMinijuego();
                 break;
 
             case "InsigniaP":
@@ -271,6 +272,7 @@ export default class UiScene extends Phaser.Scene {
 
             case "MinijuegoPlanta4":
                 console.log('MinijuegoPlanta3');
+                this.scene.get("Planta4").startMinijuego();
                 break;
 
             default:

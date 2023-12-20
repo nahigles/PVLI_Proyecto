@@ -47,8 +47,6 @@ export default class MJ_Nave extends MinijuegoBase{
             this.virus.setV();
         }
 
-        console.log(this.VirusGRP);
-
         this.lastCreatedTime = 0;
         this.freq = 2000;
         this.virusCant = 0;
@@ -59,33 +57,31 @@ export default class MJ_Nave extends MinijuegoBase{
         //bala para crear la anim
         this.balasPool.spawn(0, 0, 0, 0, true);
 
-        
-        this.physics.add.overlap(this.VirusGRP, this.balasPool._group, (bala, virus) => {
-            console.log('BV');
-            bala.destroyBala();
-            virus.destroyVirus();
-        })
-
-        this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {            
-            console.log('NV');
-            virus.destroyVirus();
-            setTimeout(()=>{
-                this.scene.restart();
-            }, 100);
-        })
+            this.overlapBalas = this.physics.add.overlap(this.VirusGRP, this.balasPool._group, (bala, virus) => {
+                bala.destroyBala();
+                virus.destroyVirus();
+            })
+    
+            this.overlapNave = this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {            
+                virus.destroyVirus();
+                setTimeout(()=>{
+                    this.scene.restart();
+                }, 100);
+            })
+            
 
         this.x = this.input.keyboard.addKey('X');
         this.x.on('down', pointer => {
             this.shoot();
         });
+
     }
 
     update(t,dt){
-        if (t - this.lastCreatedTime > this.freq){
+        if (this.virusCant <= this.virusMax && t - this.lastCreatedTime > this.freq){
             this.lastCreatedTime = t;
             this.addVirus();
         }
-        
     }
 
     shoot(){
@@ -95,9 +91,11 @@ export default class MJ_Nave extends MinijuegoBase{
     addVirus(){       
         this.virusCant++;
         
-        if (this.virusCant > this.virusMax && !this.theresLock){
+        if (this.virusCant == this.virusMax && !this.theresLock){
             this.theresLock = true; 
-            console.log("LOCK");
+        }
+        else{
+            this.theresLock = false; 
         }
         this.virus = new Virus(this, this.bounds, this.theresLock);
         this.VirusGRP.add(this.virus);
@@ -106,11 +104,13 @@ export default class MJ_Nave extends MinijuegoBase{
 
     win(){
         this.scene.get("Planta4").minijuegoCompletado();
+        this.overlapBalas.active = false;
+        this.overlapNave.active = false;
             //para que no cambie de repente
             setTimeout(()=>{
-                console.log('WON');
-                this.scene.resume('Planta4'); //volvemos a planta
                 this.scene.stop();
-            },1500);
+                //this.scene.resume('Planta4'); //volvemos a planta
+                this.scene.get("Planta4").minijuegoCompletado();
+            },1000);
     }
 }
