@@ -116,7 +116,8 @@ export default class Planta1 extends plantaBase {
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
-			NPCs: this.NPCGroup
+			NPCs: this.NPCGroup,
+			insignias: [false, false, false, false, false, false, false, false]
 		});	
 
 		// Colisiones MAPA
@@ -148,7 +149,9 @@ export default class Planta1 extends plantaBase {
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
-					//cuando haya acabado la animacion
+					//cuando haya acabado la animacion					
+					console.log("I = " + this.jugador.introvertido);
+					console.log("E = " + this.jugador.extrovertido);
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
 					this.scene.get("UiScene").removeUI();

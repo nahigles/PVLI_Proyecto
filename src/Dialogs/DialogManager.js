@@ -45,6 +45,23 @@ export default class DialogManager {
         talker = NPC;
         this.visited = NPC.visited;
         NPC.visited = true;
+        //caso especial de Inma y Charlotte (están juntas)
+          if (talker.name == "Inma"){
+            this.NPCGroup.getChildren();
+            for (const NPC of this.NPCGroup.getChildren()) {
+              if (NPC.name == "Charlotte"){
+                NPC.visited = true;
+              }
+            }
+          }
+          else if (talker.name == "Charlotte"){
+            this.NPCGroup.getChildren();
+            for (const NPC of this.NPCGroup.getChildren()) {
+              if (NPC.name == "Inma"){
+                NPC.visited = true;
+              }
+            }
+          }
       }
     }
 

@@ -27,7 +27,6 @@ export default class PauseMenu extends Phaser.Scene {
         this.level = data.level;
         this.other = data.other;
         this.pauseBg = this.add.image(0,0,'backgroundPausa').setScale(4,4).setOrigin(0,0);
-
 		// BotonVolverMinijuego
 		new Button(this,300, 105, 'resumeButton', ()=>{this.scene.resume(this.level);},  ()=>{this.scene.stop();},  ()=>{}, ()=>{});
         //Controles
@@ -53,7 +52,7 @@ export default class PauseMenu extends Phaser.Scene {
         console.log("Go home.");
 
         this.scene.get("UiScene").removeUI();
-        this.homeBg.visible = true; 
+        this.homeBg.visible = true;
         setTimeout(()=>{
             this.scene.start("MainMenu");
             this.scene.stop(this.level);
