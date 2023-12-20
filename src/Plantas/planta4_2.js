@@ -31,10 +31,12 @@ export default class Planta4_2 extends plantaBase {
 		// NPCS
 		this.load.spritesheet('NPCCharlotte', './assets/images/Characters/Charlotte.png', {frameWidth: 24, frameHeight: 36})
 		this.load.spritesheet('NPCInma', './assets/images/Characters/Inma.png', {frameWidth: 24, frameHeight: 36})
+		this.load.spritesheet('NPCConrad', './assets/images/Characters/Conrad.png', {frameWidth: 24, frameHeight: 36})
 
 		// NPS DIALOGO
 		this.load.image('Charlotte', 'assets/images/UI/Dialogs/faces/Charlotte.png');
 		this.load.image('Inma', 'assets/images/UI/Dialogs/faces/Inma.png');
+		this.load.image('Conrad', 'assets/images/UI/Dialogs/faces/Conrad.png');
     }
 
     create(data){

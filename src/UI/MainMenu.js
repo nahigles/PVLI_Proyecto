@@ -65,11 +65,11 @@ export default class MainMenu extends Phaser.Scene {
 		
 		// Jugadores
 		// Desactivo Input para que no se muevan
-		this.player1 = new Jugador(this, 130, 50, 'playerAnim');
+		this.player1 = new Jugador(this, 130, 90, 'playerAnim');
 		this.player1.onPauseInput(true);
 		this.player1.jumpAnim();
 
-		this.player2 = new Jugador(this, 61, 80, 'playerAnim');
+		this.player2 = new Jugador(this, 68, 80, 'playerAnim');
 		this.player2.onPauseInput(true);
 		this.player2.sitAnim();
 		this.player2.body.allowGravity = false;
