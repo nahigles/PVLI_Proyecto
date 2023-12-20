@@ -1,7 +1,7 @@
 export default class PurpleKey extends Phaser.GameObjects.Sprite{
     /**
 	 * Contructor de la carpeta
-	 * @param {Scene} scene, escena en la que se añade la carpeta
+	 * @param {Scene} scene, escena en la que se añade
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
      * @param {string} key - texture
@@ -9,7 +9,7 @@ export default class PurpleKey extends Phaser.GameObjects.Sprite{
     constructor(scene,x,y,key) {
         //constructor del padre (Sprite)
         super(scene,x,y, key);
-        // Añadimos la carpeta a la escena 
+        // Añadimos a la escena 
         this.scene = scene;
 		this.scene.add.existing(this);
         //fisicas
