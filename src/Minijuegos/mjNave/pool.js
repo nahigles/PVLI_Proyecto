@@ -52,7 +52,6 @@ export default class Pool {
 			entity.body.checkCollision.none = false;
 		}
 
-		console.log(entity);
 		return entity;
 	}
 	

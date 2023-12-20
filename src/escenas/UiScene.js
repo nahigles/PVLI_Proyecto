@@ -10,7 +10,7 @@ export default class UiScene extends Phaser.Scene {
     }
 
     init(){
-        console.log("UI INIT");
+       // console.log("UI INIT");
     }
 
     preload(){
@@ -29,7 +29,7 @@ export default class UiScene extends Phaser.Scene {
 
     create(data){    
 
-        console.log("UI CREATE");
+        //console.log("UI CREATE");
 
         this.ScenePlanta = data.home;
         this.initDialogSystem(data);
@@ -43,7 +43,7 @@ export default class UiScene extends Phaser.Scene {
     //Sistema de dialogos
     initDialogSystem(data) {
 
-        console.log("initDialogSys");
+        //console.log("initDialogSys");
         this.dialogManager = new DialogManager(
             data.home,
             this,
@@ -130,7 +130,7 @@ export default class UiScene extends Phaser.Scene {
 
     // Inicia el diálogo
     initDialog(conversation, who, text) {
-        console.log("initDialog();")
+        //console.log("initDialog();")
 
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
@@ -211,13 +211,11 @@ export default class UiScene extends Phaser.Scene {
                 this.scene.get("Planta1").startMinijuego();
                 break;
             case "HablaConAlvaro" :
-                this.addInsignia('E');
                 this.scene.get("Planta1").hablaConAlvaro();
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
                 
             case "FinConversacionVictoria" :  
-                this.addInsignia('I');
                 this.scene.get("Planta1").finConversacionVictoria();
                 break;
                     
@@ -231,7 +229,7 @@ export default class UiScene extends Phaser.Scene {
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("puertaSecreta").clavMirada();
                 this.scene.get("Planta2").jugadorSensitivo();
-                console.log("postItAction");
+                //console.log("postItAction");
                 this.conversation.next();                
                 break;
                 
@@ -241,37 +239,45 @@ export default class UiScene extends Phaser.Scene {
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("Planta2").startMision();
                 this.scene.get("Planta2").jugadorIntuitivo();
-                console.log("adivinarAction");
+                //console.log("adivinarAction");
                 
                 break;
                         
             case "MinijuegoPlanta2":
                 this.scene.get("Planta2").startMinijuego();
-                console.log('MinijuegoPlanta2');
+                //console.log('MinijuegoPlanta2');
                 break;
 
             case "InsigniaT":
                 this.addInsignia('T');
+                this.scene.get("Planta3").jugadorThinker();
+                this.scene.get("Planta3").misionCompleta();
                 break;
 
             case "InsigniaF":
                 this.addInsignia('F');
+                this.scene.get("Planta3").jugadorFeeler();
+                this.scene.get("Planta3").misionCompleta();
                 break;
 
             case "MinijuegoPlanta3":
                 console.log('MinijuegoPlanta3');
+                this.scene.get("Planta3").startMinijuego();
                 break;
 
             case "InsigniaP":
                 this.addInsignia('P');
+                this.scene.get("Planta4").jugadorPerceptivo();
                 break;
 
             case "InsigniaJ":
                 this.addInsignia('J');
+                this.scene.get("Planta4").jugadorJuzgador();
                 break;
 
             case "MinijuegoPlanta4":
-                console.log('MinijuegoPlanta3');
+                console.log('MinijuegoPlanta4');
+                this.scene.get("Planta4_2").startMinijuegoP4();
                 break;
 
             default:
@@ -287,7 +293,7 @@ export default class UiScene extends Phaser.Scene {
     }
 
     endDialog(){ 
-        console.log("endDialog");
+        //console.log("endDialog");
 
         this.hide();
 
@@ -327,7 +333,7 @@ export default class UiScene extends Phaser.Scene {
 
     /////////////////////////////////////////////////MÉTODOS PARA PAUSA
     initInsigniasSys(checkList){
-        console.log(checkList);
+        //console.log(checkList);
         this.insignias = this.add.group();  
         this.insignias.add(this.add.image(30, 370, "insigniaE").setName('E').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[0]));
         this.insignias.add(this.add.image(30, 370, "insigniaI").setName('I').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[1]));
@@ -371,7 +377,7 @@ export default class UiScene extends Phaser.Scene {
     }
 
     removeUI(){
-        console.log("REMOVE UI");
+        //console.log("REMOVE UI");
         this.dialogManager.removeDM();
         this.scene.stop();
     }

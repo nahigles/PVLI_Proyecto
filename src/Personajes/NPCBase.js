@@ -36,7 +36,7 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
 		
 		// Ejecutamos la animación 'idle'
 		this.play(key, true);
-		console.log(this);
+		//console.log(this);
 
 		// Speed
 		this.speed = 3;

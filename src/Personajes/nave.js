@@ -12,7 +12,7 @@ export default class Nave extends Phaser.GameObjects.Sprite {
         this.speed = 200;
         this.setScale(1,1); 
 
-        // Guardamos escena y añadimos ajolote a escena
+        // Guardamos escena y añadimos nave a escena
 		this.scene = scene;
 		this.scene.add.existing(this);
         this.key = key;

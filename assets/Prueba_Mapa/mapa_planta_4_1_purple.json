@@ -73,8 +73,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":14.2727272727273,
-                 "y":92.5454909090909
+                 "x":14.2727,
+                 "y":92.5455
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -157,8 +157,8 @@
                  "type":"Jugador",
                  "visible":true,
                  "width":0,
-                 "x":232.333,
-                 "y":83.6667
+                 "x":233.878454545455,
+                 "y":100.757609090909
                 }],
          "opacity":1,
          "type":"objectgroup",
