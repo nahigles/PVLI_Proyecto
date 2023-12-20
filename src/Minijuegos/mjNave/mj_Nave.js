@@ -110,7 +110,7 @@ export default class MJ_Nave extends MinijuegoBase{
             setTimeout(()=>{
                 this.scene.stop();
                 //this.scene.resume('Planta4'); //volvemos a planta
-                this.scene.get("Planta4").minijuegoCompletado();
+                this.scene.get("Planta4_2").minijuegoCompletado();
             },1000);
     }
 }
