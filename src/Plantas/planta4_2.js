@@ -79,10 +79,10 @@ export default class Planta4_2 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				console.log('creado npc planta 2');
+				//console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				if(objeto.name == 'Inma') this.npc.setFlip(true, false);
-				console.log(this.npc.x, this.npc.y);
+				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -101,7 +101,6 @@ export default class Planta4_2 extends plantaBase {
 		this.jugador.juzgador = data.juzgador;
 		this.jugador.perceptivo = data.perceptivo;
 		this.e = this.input.keyboard.addKey('E');
-		//this.w = this.input.keyboard.addKey('W');
 		// CAMARA
 		this.cameras.main.setBounds(0,0,this.map.widthInPixels, this.map.height);//ancho  y alto nivel
 		this.cameras.main.startFollow(this.jugador);
@@ -119,7 +118,7 @@ export default class Planta4_2 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
-		this.p = this.input.keyboard.addKey('P');
+		//this.p = this.input.keyboard.addKey('P');
     }
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
@@ -149,7 +148,7 @@ export default class Planta4_2 extends plantaBase {
 		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
-		if(this.p.isDown){ 
+	/*	if(this.p.isDown){ 
 			
 			this.scene.get("UiScene").removeUI();
 			this.scene.start('Planta5', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
@@ -158,7 +157,7 @@ export default class Planta4_2 extends plantaBase {
 				juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
 			this.scene.stop();
 			console.log("Paso de P4_2 a P5")
-		}	
+		}	*/
     }
 
 	onPause(bol){
