@@ -197,8 +197,8 @@
                  "type":"NPCBase",
                  "visible":true,
                  "width":0,
-                 "x":384.5,
-                 "y":79.75
+                 "x":384.625,
+                 "y":92.875
                 }, 
                 {
                  "height":0,
@@ -215,8 +215,26 @@
                  "type":"NPCBase",
                  "visible":true,
                  "width":0,
-                 "x":352,
-                 "y":79.75
+                 "x":351.375,
+                 "y":92.875
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"Conrad",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"NPCConrad"
+                        }],
+                 "rotation":0,
+                 "type":"NPCBase",
+                 "visible":true,
+                 "width":0,
+                 "x":147.875,
+                 "y":79.375
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -225,7 +243,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
