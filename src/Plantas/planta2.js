@@ -128,6 +128,8 @@ export default class Planta2 extends plantaBase {
 
 		// Colision positClave-jugador
 		this.physics.add.overlap(this.clave, this.jugador, (clave,jugador)=>{
+			console.log("hola");
+			console.log(this.misionCompletada);
 				if(!this.misionCompletada){
 					console.log("overlapeau");
 					setTimeout(()=>{
@@ -144,6 +146,12 @@ export default class Planta2 extends plantaBase {
 		this.msk.setAlpha(0.5);
 
     }
+	jugadorIntuitivo(){
+		this.jugador.intuitivo = true;
+	}
+	jugadorSensitivo(){
+		this.jugador.sensitivo = true;
+	}
 	nextLevel(){
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
