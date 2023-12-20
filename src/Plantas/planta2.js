@@ -92,7 +92,7 @@ export default class Planta2 extends plantaBase {
 			if (objeto.type === 'NPCBase') {
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				//if(objeto.name == 'Emilio' || objeto.name == 'Victoria') this.npc.setFlip(true, false);
-				console.log(this.npc.x, this.npc.y);
+				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -112,7 +112,7 @@ export default class Planta2 extends plantaBase {
 		this.cameras.main.setZoom(3.2);
 
 		// UISCENE
-		console.log("Planta 2: launcheas UI");
+		//console.log("Planta 2: launcheas UI");
 		
 		this.scene.launch("UiScene", {
 			home: this,
@@ -128,10 +128,8 @@ export default class Planta2 extends plantaBase {
 
 		// Colision positClave-jugador
 		this.physics.add.overlap(this.clave, this.jugador, (clave,jugador)=>{
-			console.log("hola");
-			console.log(this.misionCompletada);
 				if(!this.misionCompletada){
-					console.log("overlapeau");
+					//console.log("overlapeau");
 					setTimeout(()=>{
 						this.startMision();
 					},3000);
@@ -139,7 +137,7 @@ export default class Planta2 extends plantaBase {
 				
 			});
 
-		this.p = this.input.keyboard.addKey('P');
+		//this.p = this.input.keyboard.addKey('P');
 
 		// Mascara
 		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
@@ -156,7 +154,7 @@ export default class Planta2 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				console.log("puedes subir");
+				//console.log("puedes subir");
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
@@ -168,7 +166,7 @@ export default class Planta2 extends plantaBase {
 				}, this);
 			}
 			else{
-				console.log("todavia no puedes subir");
+				//console.log("todavia no puedes subir");
 			}
 		}
 	}
@@ -177,12 +175,12 @@ export default class Planta2 extends plantaBase {
 		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
-		if(this.p.isDown){ 
+		/*if(this.p.isDown){ 
 			this.scene.get("UiScene").removeUI();
 			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
 			this.scene.stop();
-		}
+		}*/
     }
 
 	onPause(bol){

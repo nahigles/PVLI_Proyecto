@@ -1,7 +1,7 @@
 export default class PointArchivo extends Phaser.Geom.Point{
     /**
-	 * Contructor de la carpeta
-	 * @param {Scene} scene, escena en la que se añade la carpeta
+	 * Contructor
+	 * @param {Scene} scene, escena en la que se añade
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
      * @param {string} key - id

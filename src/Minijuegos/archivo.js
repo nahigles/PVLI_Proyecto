@@ -1,7 +1,7 @@
 export default class Archivo extends Phaser.GameObjects.Container{
     /**
 	 * Contructor de la carpeta
-	 * @param {Scene} scene, escena en la que se añade la carpeta
+	 * @param {Scene} scene, escena en la que se añade el archivo
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena
      * @param {string} keyID - id
@@ -14,7 +14,7 @@ export default class Archivo extends Phaser.GameObjects.Container{
         super(scene,x,y);
         this.setScale(0.3,0.3);
 
-        // Añadimos la carpeta a la escena 
+        // Añadimos a la escena 
         this.scene = scene;
 		this.scene.add.existing(this);
 

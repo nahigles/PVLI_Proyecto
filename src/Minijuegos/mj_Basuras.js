@@ -39,7 +39,7 @@ export default class MJ_Basuras extends MinijuegoBase{
          if(bolaPapel.body.touching.down){
              this.ballNumer = this.ballNumer - 1;
              this.ballsText.setText('BALLS: ' + this.ballNumer);
-             console.log("Colisionau");
+             //console.log("Colisionau");
              bolaPapel.resetPosition();
              basura.stopBasura();
             } 
@@ -47,7 +47,7 @@ export default class MJ_Basuras extends MinijuegoBase{
     }
 
     update(t,dt){
-        console.log(this.ballNumer);
+     //   console.log(this.ballNumer);
 
         if(this.ballNumer == 0){
             setTimeout(()=>{

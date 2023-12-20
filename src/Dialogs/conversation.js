@@ -106,59 +106,59 @@ export default class Conversation{
     }	
 
 	next(choice = "noHay"){		
-		console.log("NEXT");
-		console.log(this.conversText.Talk[this.index].who);
+		//console.log("NEXT");
+		//console.log(this.conversText.Talk[this.index].who);
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
 				let what = this.conversText.Talk[this.index].what;
 				this.index = this.conversText.Talk[this.index].nextId;
-				console.log("change to index " + this.index);
+				//console.log("change to index " + this.index);
 				this.UI.actions(what);
 			}
 			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)				
-				console.log("Choice");
+				//console.log("Choice");
 				if (choice == "noHay"){ //PRIM VEZ
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
 					"· " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
-					console.log("init " + this.index);
+					//console.log("init " + this.index);
 				}
 				else if (choice == "noSabe") {
 					this.UI.initDialog(this, "ChoiceStay", 
 					"Tienes que tomar una decisión para poder avanzar.\n. " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
-					console.log("init " + this.index);
+					//console.log("init " + this.index);
 				}
 				if (choice == "a"){ //ha elegido a
-					console.log("A is the choice");
+					//console.log("A is the choice");
 					this.index = this.conversText.Talk[this.index].nextA;
-					console.log("change to index " + this.index);
+					//console.log("change to index " + this.index);
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-					console.log("init " + this.index);
+					//console.log("init " + this.index);
 					this.index = this.conversText.Talk[this.index].nextId;
-					console.log("change to index " + this.index);
+					//console.log("change to index " + this.index);
 				}
 				else if (choice == "b"){ //ha elegido b
 					this.index = this.conversText.Talk[this.index].nextB;
-					console.log("change to index " + this.index);
+					//console.log("change to index " + this.index);
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-					console.log("init " + this.index);
+					//console.log("init " + this.index);
 					this.index = this.conversText.Talk[this.index].nextId;
-					console.log("change to index " + this.index);
+					//console.log("change to index " + this.index);
 				}
 			}
 			else {
-				console.log(this.conversText.Talk[this.index].frase);
+				//console.log(this.conversText.Talk[this.index].frase);
 				this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-				console.log("init " + this.index);
+				//console.log("init " + this.index);
 				this.index = this.conversText.Talk[this.index].nextId;
-				console.log("change to index " + this.index);
+				//console.log("change to index " + this.index);
 			}
 		}
 		else {
-			console.log("End");			
+			//console.log("End");			
 			this.UI.endDialog();
 		}
 	}
