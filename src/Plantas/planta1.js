@@ -52,7 +52,7 @@ export default class Planta1 extends plantaBase {
 		this.planta1Sound = this.sound.add('plant1Sound');
 		this.planta1Sound.play();
 
-		this.p = this.input.keyboard.addKey('P');
+		//this.p = this.input.keyboard.addKey('P');
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -194,11 +194,13 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
+		/*
 		if(this.p.isDown){
 			this.scene.get("UiScene").removeUI();
 			this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
 		}
+		*/
 		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
 			this.nextLevel();

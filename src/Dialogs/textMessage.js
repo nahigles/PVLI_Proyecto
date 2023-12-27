@@ -55,6 +55,7 @@ export default class TextMessage extends Phaser.GameObjects.Container {
         this.text.setWordWrapWidth(this.width - 20 * 2);
 
         this.text.setResolution(2);
+        this.text.setDepth(2);
       }
   
   

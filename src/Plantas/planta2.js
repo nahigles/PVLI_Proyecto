@@ -118,14 +118,13 @@ export default class Planta2 extends plantaBase {
 		this.cameras.main.setZoom(3.2);
 
 		// UISCENE
-		//console.log("Planta 2: launcheas UI");
-		
 		this.scene.launch("UiScene", {
 			home: this,
 			player: this.jugador,
 			NPCs: this.NPCGroup,
 			insignias: [data.extrovertido, data.introvertido, false, false, false, false, false, false]
 		});	
+		this.scene.get("UiScene").actions("BotonExit");
 
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);

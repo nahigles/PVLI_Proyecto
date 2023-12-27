@@ -37,7 +37,7 @@ export default class UiScene extends Phaser.Scene {
         this.initInsigniasSys(data.insignias);
          //imagen calle irese casa
          this.homeBg = this.add.image(0, 0, 'backgroundHome').setOrigin(0,0).setScale(3.8,3.8);
-         this.homeBg.visible = false; 
+         this.homeBg.visible = false;
     }
 
     //Sistema de dialogos
@@ -191,18 +191,31 @@ export default class UiScene extends Phaser.Scene {
         this.choice = "b";        
         this.NextMessage();
     }
+
     goHome(){
         //console.log("Go home.");
         this.homeBg.visible = true;
         this.exit.visible = false;
+        
+        this.dialogBox.setPosition(360,80);
+        this.dialogBox.setScale(0.48, 0.5);
+        this.dialogBox.visible = true;
+        this.dialogBox.setDepth(1);
+
+        this.textMessage = new TextMessage(this, 150, 28, 440, "¡Bn hecho! Las inevitables consecuencias del capitalismo no deberían rayarte. Disfruta de tu vida <3");
+
         setTimeout(()=>{
             this.removeUI();
             this.scene.start("MainMenu");
-        },2000);
+        },10000);
     }
     
 	actions(action){
         switch (action) {
+            case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{console.log("M QUIERO IR")},  ()=>{this.goHome()},  ()=>{}, ()=>{}) ;
+                this.exit.changeScale(0.6,0.6);
+                break;
             case "MinijuegoPlanta1":
                 this.endDialog();
                 this.scene.get("Planta1").startMinijuego();

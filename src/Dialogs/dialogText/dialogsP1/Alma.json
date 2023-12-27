@@ -3,7 +3,7 @@
         {
             "who": "Alma",
             "frase": "Vamos! Ayuda a tus compañeros!!!",
-            "nextId": 8
+            "nextId": 9
             },{
             "who": "Alma",
             "frase": "Ei pero ya te vas?",
@@ -34,6 +34,10 @@
             "who": "Alma",
             "frase": "Genial! Si todos ponemos un poquito de nuestra parte, salimos d esta fijo!",
             "nextId": 8
+            },{
+                "who": "Action", 
+                "what": "BotonExit",
+                "nextId": 9
             },{
             "who": "End"
         }
