@@ -1,7 +1,7 @@
 import DialogManager from "../Dialogs/DialogManager.js";
 import dialogEvents from "../Dialogs/EventCenter.js";
 import TextMessage from "../Dialogs/textMessage.js";
-import Button from "../UI/Button.js";
+import Button from "./Button.js";
 export default class UiScene extends Phaser.Scene {
   constructor() {
         super({

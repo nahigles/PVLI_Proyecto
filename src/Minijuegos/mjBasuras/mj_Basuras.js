@@ -1,4 +1,4 @@
-import MinijuegoBase from '../escenas/minijuegoBase.js';
+import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
 import BolaPapel from './bolaPapel.js'
 import Basura from './basura.js'
 export default class MJ_Basuras extends MinijuegoBase{

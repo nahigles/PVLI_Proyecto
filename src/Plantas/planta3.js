@@ -1,4 +1,4 @@
-import plantaBase from '../escenas/plantaBase.js';
+import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Ascensor from './ascensor.js';

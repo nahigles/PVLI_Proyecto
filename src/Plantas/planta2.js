@@ -1,8 +1,9 @@
-import plantaBase from '../escenas/plantaBase.js';
+import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Ascensor from './ascensor.js';
 import Clave from '../Misiones/Clave.js';
+
 export default class Planta2 extends plantaBase {
 	/**
 	 * Nivel 1

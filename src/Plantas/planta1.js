@@ -1,4 +1,4 @@
-import plantaBase from '../escenas/plantaBase.js';
+import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Carpeta from '../Misiones/Carpeta.js';
@@ -52,7 +52,7 @@ export default class Planta1 extends plantaBase {
 		this.planta1Sound = this.sound.add('plant1Sound');
 		this.planta1Sound.play();
 
-		//this.p = this.input.keyboard.addKey('P');
+		this.p = this.input.keyboard.addKey('P');
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -126,7 +126,6 @@ export default class Planta1 extends plantaBase {
 
 		//Mision
 		this.carpeta = new Carpeta(this,66, this.jugador.y+4, 'Carpeta').setScale(0.2, 0.2);
-		//this.e = this.input.keyboard.addKey('E');
 		this.haveToTalk = false;	//saber si tiene que hablar o no con Alvaro
 		this.alreadyTalked = false;	//saber si ya ha hablado con Alvaro
 		this.choose = false;		//saber si se ha elegido una opcion de la mision, si se ha hablado con Victoria
@@ -195,11 +194,11 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
-		/*if(this.p.isDown){
+		if(this.p.isDown){
 			this.scene.get("UiScene").removeUI();
-			this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
+			this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 			this.scene.stop();
-		}*/
+		}
 		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
 			this.nextLevel();

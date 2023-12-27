@@ -1,8 +1,8 @@
-import MinijuegoBase from '../escenas/minijuegoBase.js';
-import Button from '../UI/Button.js';
-import PauseMenu from '../UI/PauseMenu.js';
-import Archivo from '../Minijuegos/archivo.js'
-import PointArchivo from '../Minijuegos/point_archivo.js'
+import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
+import Button from '../../UI/Button.js';
+import PauseMenu from '../../UI/PauseMenu.js';
+import Archivo from './archivo.js'
+import PointArchivo from './point_archivo.js'
 export default class MJ_Carpetas extends MinijuegoBase{
 
     constructor(){

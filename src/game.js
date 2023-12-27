@@ -6,13 +6,13 @@ import Planta3 from './Plantas/planta3.js';
 import Planta4 from './Plantas/planta4.js';
 import Planta4_2 from './Plantas/planta4_2.js';
 import Planta5 from './Plantas/planta5.js';
-import UiScene from './escenas/UiScene.js';
+import UiScene from './UI/UiScene.js';
 import MainMenu from './UI/MainMenu.js';
-import MJ_Plataformas from './Minijuegos/mj_Plataformas.js';
-import MJ_Basuras from './Minijuegos/mj_Basuras.js';
+import MJ_Plataformas from './Minijuegos/mjPlataformas/mj_Plataformas.js';
+import MJ_Basuras from './Minijuegos/mjBasuras/mj_Basuras.js';
 import MJ_Nave from './Minijuegos/mjNave/mj_Nave.js';
 import PauseMenu from './UI/PauseMenu.js';
-import MJ_Carpetas from './Minijuegos/mj_Carpetas.js';
+import MJ_Carpetas from './Minijuegos/mjCarpetas/mj_Carpetas.js';
 import PuertaSecreta from './Misiones/PuertaSecreta.js';
 
 	// Configuracion phaser

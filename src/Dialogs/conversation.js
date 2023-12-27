@@ -12,6 +12,14 @@ import dialogArchie from "../Dialogs/dialogText/dialogsP4/Archie.json"  assert {
 import dialogInmaCharlotte from "../Dialogs/dialogText/dialogsP4/InmaCharlotte.json"  assert { type: 'json' };
 import dialogConrad from "../Dialogs/dialogText/dialogsP4/Conrad.json"  assert { type: 'json' };
 import dialogJefe from "../Dialogs/dialogText/dialogsP5/Jefe.json"  assert { type: 'json' };
+import dialogJefeE from "../Dialogs/dialogText/dialogsP5/JefeE.json"  assert { type: 'json' };
+import dialogJefeI from "../Dialogs/dialogText/dialogsP5/JefeI.json"  assert { type: 'json' };
+import dialogJefeS from "../Dialogs/dialogText/dialogsP5/JefeS.json"  assert { type: 'json' };
+import dialogJefeN from "../Dialogs/dialogText/dialogsP5/JefeN.json"  assert { type: 'json' };
+import dialogJefeT from "../Dialogs/dialogText/dialogsP5/JefeT.json"  assert { type: 'json' };
+import dialogJefeF from "../Dialogs/dialogText/dialogsP5/JefeF.json"  assert { type: 'json' };
+import dialogJefeJ from "../Dialogs/dialogText/dialogsP5/JefeJ.json"  assert { type: 'json' };
+import dialogJefeP from "../Dialogs/dialogText/dialogsP5/JefeP.json"  assert { type: 'json' };
 
 export default class Conversation{
 	/**
@@ -107,6 +115,9 @@ export default class Conversation{
 					
 			case "Planta5":
 					this.PType = this.readInsignias(insignias);
+					console.log("P5 PType: " + this.PType);
+					this.dialogSwitch('1');
+					/*
 					this.conversText = dialogJefe;
 					switch (this.PType) {
 						case 'ENTJ':
@@ -157,7 +168,10 @@ export default class Conversation{
 						case 'ISTP':
 							this.index = 16;
 							break;
+						default:
+							break;
 					}
+					*/
 
 				break;
 			default:
@@ -167,8 +181,8 @@ export default class Conversation{
     }	
 
 	next(choice = "noHay"){		
-		//console.log("NEXT");
-		//console.log(this.conversText.Talk[this.index].who);
+		console.log("NEXT");
+		console.log(this.conversText.Talk[this.index].who);
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
 				let what = this.conversText.Talk[this.index].what;
@@ -187,7 +201,7 @@ export default class Conversation{
 				}
 				else if (choice == "noSabe") {
 					this.UI.initDialog(this, "ChoiceStay", 
-					"Tienes que tomar una decisión para poder avanzar.\n. " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
+					"Decide para avanzar.\n. " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
 					//console.log("init " + this.index);
@@ -210,8 +224,17 @@ export default class Conversation{
 					//console.log("change to index " + this.index);
 				}
 			}
+			else if (this.conversText.Talk[this.index].who == "Change"){ //CAMBIO D JSON)
+			console.log("CHANGE");		
+			this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
+			this.index = this.conversText.Talk[this.index].nextId;
+				this.dialogSwitch(this.conversText.Talk[this.index].pTypeId);
+				this.index = 1;
+			}
+
 			else {
-				//console.log(this.conversText.Talk[this.index].frase);
+				console.log("barra normal");
+				console.log(this.conversText.Talk[this.index].frase);
 				this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
 				//console.log("init " + this.index);
 				this.index = this.conversText.Talk[this.index].nextId;
@@ -234,6 +257,67 @@ export default class Conversation{
 
 		var stringPType = pType[0] + pType[1] + pType[2] + pType[3];
     	return {pType};
+	}
+
+	dialogSwitch (p){
+		switch (p) {
+			case '0':
+				switch (this.PType.pType[0]) {
+					case 'E':		
+						console.log("switch to E");		
+						this.conversText = dialogJefeE;
+						break;
+					case 'I':	
+						console.log("switch to I");			
+						this.conversText = dialogJefeI;
+						break;
+					default:
+						console.log("dflt");
+						break;
+				}
+			break;
+			case '1':
+				switch (this.PType.pType[1]) {
+					case 'N':	
+						console.log("switch to N");
+						this.conversText = dialogJefeN;
+						break;
+					case 'S':				
+						this.conversText = dialogJefeS;
+						break;
+					default:
+						console.log("dflt");
+						break;
+				}
+			case '2':
+				switch (this.PType.pType[2]) {
+					case 'T':				
+						this.conversText = dialogJefeT;
+						break;
+					case 'F':				
+						this.conversText = dialogJefeF;
+						break;
+					default:
+						console.log("dflt");
+						break;
+				}
+			case '3':
+				switch (this.PType.pType[3]) {
+					case 'J':				
+						this.conversText = dialogJefeJ;
+						break;
+					case 'P':				
+						this.conversText = dialogJefeP;
+						break;
+					default:
+						console.log("dflt");
+						break;
+				}
+			break;
+		
+			default:
+				break;
+		}
 	}
 }
 

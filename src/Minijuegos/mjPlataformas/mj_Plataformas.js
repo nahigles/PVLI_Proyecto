@@ -1,6 +1,6 @@
-import MinijuegoBase from '../escenas/minijuegoBase.js';
-import Ajolote from '../Personajes/ajolote.js';
-import Plataforma from '../Minijuegos/plataforma.js';
+import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
+import Ajolote from '../../Personajes/ajolote.js';
+import Plataforma from './plataforma.js';
 export default class MJ_Plataformas extends MinijuegoBase{
 
     constructor(){

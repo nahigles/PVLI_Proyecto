@@ -1,4 +1,4 @@
-import MinijuegoBase from '../../escenas/minijuegoBase.js';
+import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
 import Nave from '../../Personajes/nave.js';
 import Virus from './virus.js'
 import Pool from './pool.js'

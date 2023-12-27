@@ -1,8 +1,8 @@
-import plantaBase from '../escenas/plantaBase.js';
+import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
-import PurpleKey from '../Minijuegos/purpleKey.js'
-import LockedDoor from '../Minijuegos/lockedDoor.js'
+import PurpleKey from '../Misiones/purpleKey.js'
+import LockedDoor from '../Misiones/lockedDoor.js'
 
 export default class Planta4 extends plantaBase {
 	/**

@@ -1,0 +1,19 @@
+{
+    "Talk": [
+        {
+            "who": "Jefe",
+            "frase": "Muchas gracias por jugar:)",
+            "nextId": 3
+            },{
+            "who": "Jefe",
+            "frase": "F",
+            "nextId": 2
+            },{
+            "who": "Change",
+            "pTypeId": "3",
+            "nextId": 3
+            },{
+            "who": "End"
+        }
+    ]
+}
