@@ -115,7 +115,6 @@ export default class Conversation{
 					
 			case "Planta5":
 					this.PType = this.readInsignias(insignias);
-					console.log("P5 PType: " + this.PType);
 					this.dialogSwitch('1');
 					/*
 					this.conversText = dialogJefe;
@@ -181,8 +180,7 @@ export default class Conversation{
     }	
 
 	next(choice = "noHay"){		
-		console.log("NEXT");
-		console.log(this.conversText.Talk[this.index].who);
+		//console.log("NEXT");
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
 				let what = this.conversText.Talk[this.index].what;
@@ -226,10 +224,9 @@ export default class Conversation{
 			}
 			else if (this.conversText.Talk[this.index].who == "Change"){ //CAMBIO D JSON)
 			console.log("CHANGE");		
-			this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-			this.index = this.conversText.Talk[this.index].nextId;
 				this.dialogSwitch(this.conversText.Talk[this.index].pTypeId);
 				this.index = 1;
+				this.next();
 			}
 
 			else {
@@ -276,6 +273,7 @@ export default class Conversation{
 						break;
 				}
 			break;
+
 			case '1':
 				switch (this.PType.pType[1]) {
 					case 'N':	
@@ -283,30 +281,39 @@ export default class Conversation{
 						this.conversText = dialogJefeN;
 						break;
 					case 'S':				
+						console.log("switch to S");	
 						this.conversText = dialogJefeS;
 						break;
 					default:
 						console.log("dflt");
 						break;
 				}
+			break;
+
 			case '2':
 				switch (this.PType.pType[2]) {
-					case 'T':				
+					case 'T':						
+						console.log("switch to T");			
 						this.conversText = dialogJefeT;
 						break;
-					case 'F':				
+					case 'F':								
+						console.log("switch to F");		
 						this.conversText = dialogJefeF;
 						break;
 					default:
 						console.log("dflt");
 						break;
 				}
+			break;
+
 			case '3':
 				switch (this.PType.pType[3]) {
-					case 'J':				
+					case 'J':										
+						console.log("switch to J");	
 						this.conversText = dialogJefeJ;
 						break;
 					case 'P':				
+						console.log("switch to P");	
 						this.conversText = dialogJefeP;
 						break;
 					default:
@@ -316,7 +323,7 @@ export default class Conversation{
 			break;
 		
 			default:
-				break;
+			break;
 		}
 	}
 }
