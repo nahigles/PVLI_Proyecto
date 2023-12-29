@@ -128,10 +128,13 @@ export default class MJ_Carpetas extends MinijuegoBase{
     
     win()
     {
-        this.scene.get("Planta3").minijuegoCompletado();
+        let plantica3 = this.scene.get("Planta3");
+        plantica3.minijuegoCompletado();
         //para que no cambie de repente
         setTimeout(()=>{
             //console.log('no me va el metodo aaa');
+            this.mjSound.pause();
+            plantica3.plantaMusic3(true);
             this.scene.resume("Planta3"); //volvemos a planta
             this.scene.remove();
         },1500);

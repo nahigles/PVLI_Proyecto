@@ -51,9 +51,12 @@ export default class MJ_Basuras extends MinijuegoBase{
 
         if(this.ballNumer == 0){
             setTimeout(()=>{
+                this.mjSound.pause();
                 this.scene.resume('Planta2'); //volvemos a planta
                 this.scene.stop();
-                this.scene.get("Planta2").minijuegoCompletado();
+                let plantica2 = this.scene.get("Planta2");
+                plantica2.minijuegoCompletado();
+                plantica2.plantaMusic2(true);
             },500);
             
         }

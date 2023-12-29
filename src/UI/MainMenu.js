@@ -14,7 +14,6 @@ export default class MainMenu extends Phaser.Scene {
 	}
     preload(){
 		this.load.spritesheet('playerAnim', './assets/images/Player/AnimationSheet.png', {frameWidth: 24, frameHeight: 24});
-		//this.load.image("playButton", "./assets/images/UI/MainMenu/playButton.png" );
         this.load.spritesheet("playButton2", "./assets/images/UI/MainMenu/playButton3.png", {frameWidth: 300, frameHeight: 120});
 		
 		// IMAGENES TILEMAP
@@ -31,9 +30,12 @@ export default class MainMenu extends Phaser.Scene {
 
 		// Sonido Boton
 		this.load.audio('buttonSound', 'assets/sounds/buttonSound.ogg');
+		this.load.audio('mainMenuSound', 'assets/sounds/mainMenuSound.wav')
     }
     create(){
 		this.ButtonSoundd = this.sound.add('buttonSound');
+		this.MainMenuSound = this.sound.add('mainMenuSound');
+		this.MainMenuSound.play();
 
 		// TILE MAP
 		this.map = this.make.tilemap({ 
@@ -87,9 +89,19 @@ export default class MainMenu extends Phaser.Scene {
 		this.physics.add.collider(this.player2, this.wallLayer)
 		
 		// BotonPlay
-		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.launch("Planta1");}, ()=>{this.scene.stop();}, ()=>{}, ()=>{}, this.ButtonSoundd);
+		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.launch("Planta1");}, ()=>{this.scene.stop(); this.MainMenuSound.pause();}, ()=>{}, ()=>{}, this.ButtonSoundd);
 		this.PlayButton.changeScale(0.18,0.18);
 	}
+
     update(){
     }
+
+	mainMusic(enable){
+		if(enable){
+			this.MainMenuSound.resume();
+		}
+		else{
+			this.MainMenuSound.pause();
+		}
+	}
 }

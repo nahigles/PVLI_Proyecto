@@ -21,6 +21,8 @@ export default class MinijuegoBase extends Phaser.Scene{
     create(){
 
         this.mjSound = this.sound.add('minijuegoSound');
+        this.mjSound.loop = true;
+        this.mjSound.setVolume(0.25);
         this.mjSound.play();
 
         this.input.keyboard.on('keydown-ESC', function (event) {

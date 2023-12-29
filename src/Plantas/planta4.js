@@ -49,6 +49,7 @@ export default class Planta4 extends plantaBase {
 		super.create();
 
 		this.planta4Sound = this.sound.add('plant4Sound');
+		this.planta4Sound.loop = true;
 		this.planta4Sound.play();
 
 		// TILEMAP
@@ -94,8 +95,6 @@ export default class Planta4 extends plantaBase {
 		this.locked_door.on('pointerdown', () =>
 		{
 			this.contGolpes++;
-			//console.log('num golpes', this.contGolpes);
-			
 		});
 
 		// Grupo de NPCS
@@ -106,9 +105,7 @@ export default class Planta4 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				//console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
-				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -143,7 +140,6 @@ export default class Planta4 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 
-		//this.p = this.input.keyboard.addKey('P');
 		this.e = this.input.keyboard.addKey('E');
 		
     }
@@ -163,10 +159,7 @@ export default class Planta4 extends plantaBase {
 			this.key_door.visible = false;
 			this.keyCatched = this.key_door.catch = true;
 		}
-	/*	if(this.e.isDown)
-		{
-			//console.log(this.physics.overlap(this.jugador, this.key_door));
-		}*/
+
 		if(!this.puertaAbierta){ //si esta cerrada comprobamos si la abren
 			if ((this.keyCatched && this.physics.overlap(this.jugador, this.locked_door) && this.e.isDown) // Si hemos cogido la llave e interactuamos con la puerta
 			|| (this.contGolpes >= this.maxGolpes)){ // Cuando hayamos golpeado la puerta suficientes veces
@@ -182,19 +175,18 @@ export default class Planta4 extends plantaBase {
 				},1000);		
 			}
 		}
-
-	/*	if(this.p.isDown){ 
-			this.scene.get("UiScene").removeUI();
-			this.scene.start('Planta4_2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
-				sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
-				thinker : this.jugador.thinker, feeler : this.jugador.feeler,
-				juzgador : this.jugador.juzgador, perceptivo: this.jugador.perceptivo});
-			this.scene.stop();
-			console.log("Paso de P4_1 a P4_2")
-		}	*/
     }
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	plantaMusic4(enable){
+		if(enable){
+			this.planta4Sound.resume();
+		}
+		else{
+			this.planta4Sound.pause();
+		}
 	}
 }

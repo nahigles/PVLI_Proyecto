@@ -50,9 +50,9 @@ export default class Planta1 extends plantaBase {
 		super.create();
 		
 		this.planta1Sound = this.sound.add('plant1Sound');
+		this.planta1Sound.loop = true;
 		this.planta1Sound.play();
 
-		//this.p = this.input.keyboard.addKey('P');
 		// TILEMAP
 		this.map = this.make.tilemap({ 
 			key: 'tilemap_Planta_1', 
@@ -104,7 +104,7 @@ export default class Planta1 extends plantaBase {
 			name: 'Jugador',
 			classType: Jugador
 		})[0];
-		//console.log(this.jugador);
+
 		this.e = this.input.keyboard.addKey('E');
 
 		// CAMARA
@@ -143,21 +143,17 @@ export default class Planta1 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				//console.log("puedes subir");
 
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion					
-					//console.log("I = " + this.jugador.introvertido);
-					//console.log("E = " + this.jugador.extrovertido);
+					this.planta1Sound.pause();
+					this.plantaMusic(false);	
 					this.scene.launch('Planta2', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
 					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
 				}, this);
-			}
-			else{
-				//console.log("todavia no puedes subir");
 			}
 		}
 	}
@@ -194,13 +190,7 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
-		/*
-		if(this.p.isDown){
-			this.scene.get("UiScene").removeUI();
-			this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido});
-			this.scene.stop();
-		}
-		*/
+
 		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
 			this.nextLevel();
@@ -227,5 +217,14 @@ export default class Planta1 extends plantaBase {
 	}
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	plantaMusic(enable){
+		if(enable){
+			this.planta1Sound.resume();
+		}
+		else{
+			this.planta1Sound.pause();
+		}
 	}
 }

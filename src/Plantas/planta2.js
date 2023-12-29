@@ -52,6 +52,7 @@ export default class Planta2 extends plantaBase {
 		super.create();
 
 		this.planta2Sound = this.sound.add('plant2Sound');
+		this.planta2Sound.loop = true;
 		this.planta2Sound.play();
 
 		// TILEMAP
@@ -97,8 +98,6 @@ export default class Planta2 extends plantaBase {
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
-				//if(objeto.name == 'Emilio' || objeto.name == 'Victoria') this.npc.setFlip(true, false);
-				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -134,15 +133,12 @@ export default class Planta2 extends plantaBase {
 		// Colision positClave-jugador
 		this.physics.add.overlap(this.clave, this.jugador, (clave,jugador)=>{
 				if(!this.misionCompletada){
-					//console.log("overlapeau");
 					setTimeout(()=>{
 						this.startMision();
 					},3000);
 				}
 				
 			});
-
-		//this.p = this.input.keyboard.addKey('P');
 
 		// Mascara
 		this.msk = this.add.sprite(0, 0, 'Mascara').setScale(13.0,13.0);
@@ -162,19 +158,16 @@ export default class Planta2 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				//console.log("puedes subir");
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
+					this.plantaMusic2(false);
 					this.scene.launch('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
    					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
 				}, this);
-			}
-			else{
-				//console.log("todavia no puedes subir");
 			}
 		}
 	}
@@ -183,12 +176,6 @@ export default class Planta2 extends plantaBase {
 		if(this.e.isDown){	//subir ascensor
 			this.nextLevel();
 		}
-		/*if(this.p.isDown){ 
-			this.scene.get("UiScene").removeUI();
-			this.scene.start('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
-										 sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
-			this.scene.stop();
-		}*/
 		if(this.misionCompletada&& !this.firstTimeAndrea){
 			this.scene.get("UiScene").talk();
 			this.firstTimeAndrea = true;
@@ -210,5 +197,14 @@ export default class Planta2 extends plantaBase {
 	startMision(){
 		this.scene.launch('puertaSecreta');
         this.scene.pause();
+	}
+
+	plantaMusic2(enable){
+		if(enable){
+			this.planta2Sound.resume();
+		}
+		else{
+			this.planta2Sound.pause();
+		}
 	}
 }

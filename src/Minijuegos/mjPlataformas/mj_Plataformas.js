@@ -110,6 +110,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         super.update();
         //gestionar cuando muere
         if (this.ajolote.y > 500){
+            this.mjSound.pause();
             this.scene.start(this);
         }
         //jugador aparece por el otro lado 
@@ -123,9 +124,12 @@ export default class MJ_Plataformas extends MinijuegoBase{
        });
        //cuando se iguale el score se termina el minijuego
        if(this.score>this.emilioScore){
-        this.scene.get("Planta1").minijuegoCompletado();
+            let plantica1 = this.scene.get("Planta1");
+            plantica1.minijuegoCompletado();
             //para que no cambie de repente
             setTimeout(()=>{
+                this.mjSound.pause();
+                plantica1.plantaMusic(true);
                 this.scene.resume('Planta1'); //volvemos a planta
                 this.scene.stop();
             },1500);

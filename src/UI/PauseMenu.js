@@ -49,8 +49,6 @@ export default class PauseMenu extends Phaser.Scene {
     }
 
     goHome(){
-        //console.log("Go home.");
-
         this.scene.get("UiScene").removeUI();
         this.homeBg.visible = true;
         setTimeout(()=>{

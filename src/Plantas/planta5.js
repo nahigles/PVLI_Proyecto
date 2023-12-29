@@ -43,6 +43,7 @@ export default class Planta5 extends plantaBase {
 
 		
         this.planta5Sound = this.sound.add('plant5Sound');
+		this.planta5Sound.loop = true;
 		this.planta5Sound.play();
 
 		// TILEMAP
@@ -139,5 +140,14 @@ export default class Planta5 extends plantaBase {
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	plantaMusic5(enable){
+		if(enable){
+			this.planta5Sound.resume();
+		}
+		else{
+			this.planta5Sound.pause();
+		}
 	}
 }

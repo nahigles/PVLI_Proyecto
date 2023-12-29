@@ -43,6 +43,7 @@ export default class Planta3 extends plantaBase {
 		super.create();
 
 		this.planta3Sound = this.sound.add('plant3Sound');
+		this.planta3Sound.loop = true;
 		this.planta3Sound.play();
 		
 		// TILEMAP
@@ -58,7 +59,6 @@ export default class Planta3 extends plantaBase {
 		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_blue', 'tileset_architecture_blue');  
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_blue', 'tileset_furniture_blue');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_blue', 'tileset_objects_blue');  
-		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
 		
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
@@ -84,10 +84,8 @@ export default class Planta3 extends plantaBase {
 			// `objeto.name` u `objeto.type` nos llegan de las propiedades del
 			// objeto en Tiled
 			if (objeto.type === 'NPCBase') {
-				//console.log('creado npc planta 2');
 				this.npc  = new NPC(this, objeto.x, objeto.y, objeto.properties[0].value, objeto.name);
 				if(objeto.name == 'Lola' || objeto.name == 'Jesus') this.npc.setFlip(true, false);
-				//console.log(this.npc.x, this.npc.y);
 				this.NPCGroup.add(this.npc);
 			}
 		}
@@ -122,7 +120,6 @@ export default class Planta3 extends plantaBase {
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
 		
-	//this.p = this.input.keyboard.addKey('P');
 	this.firsTimeJesus = false;
     }
 	jugadorFeeler(){
@@ -135,20 +132,17 @@ export default class Planta3 extends plantaBase {
 		const subir = this.physics.overlap(this.jugador, this.ascensor); //comprobar si el jugador esta "tocando" el ascensor para poder subir
 		if(subir){
 			if(this.mjCompletado && this.misionCompletada) {//Si se ha completado la mision y el minijuego puede subir, si no todavia no
-				//console.log("puedes subir");
 				this.ascensor.play('abrir', true);
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
+					this.plantaMusic4_3(false);
 					this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler});
    					this.scene.stop();
 					this.scene.get("UiScene").removeUI();
 				}, this);
-			}
-			else{
-				//console.log("todavia no puedes subir");
 			}
 		}
 	}
@@ -161,17 +155,18 @@ export default class Planta3 extends plantaBase {
 			this.scene.get("UiScene").talk();
 			this.firsTimeJesus = true;
 		}
-		/*if(this.p.isDown){ 
-			this.scene.get("UiScene").removeUI();
-			this.scene.start('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
-										sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
-										thinker : this.jugador.thinker, feeler : this.jugador.feeler});
-			this.scene.stop();
-			console.log("Paso de P3 a P4")
-		}	*/
     }
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
+	}
+
+	plantaMusic3(enable){
+		if(enable){
+			this.planta3Sound.resume();
+		}
+		else{
+			this.planta3Sound.pause();
+		}
 	}
 }
