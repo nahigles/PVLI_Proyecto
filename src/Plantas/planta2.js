@@ -51,9 +51,10 @@ export default class Planta2 extends plantaBase {
     create(data){
 		super.create();
 
-		this.planta2Sound = this.sound.add('plant2Sound');
-		this.planta2Sound.loop = true;
-		this.planta2Sound.play();
+		// Musica
+		this.musica = this.sound.add('plant2Sound');
+		this.musica.loop = true;
+		this.musica.play();
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 
@@ -162,7 +163,7 @@ export default class Planta2 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.plantaMusic2(false);
+					this.music(false);
 					this.scene.launch('Planta3', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido,
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo});
    					this.scene.stop();
@@ -197,14 +198,5 @@ export default class Planta2 extends plantaBase {
 	startMision(){
 		this.scene.launch('puertaSecreta');
         this.scene.pause();
-	}
-
-	plantaMusic2(enable){
-		if(enable){
-			this.planta2Sound.resume();
-		}
-		else{
-			this.planta2Sound.pause();
-		}
 	}
 }

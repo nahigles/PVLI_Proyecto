@@ -91,15 +91,12 @@ export default class MJ_Plataformas extends MinijuegoBase{
         });
         
         // Animaciones 
-      //  console.log(this.ajolote.body.velocity.y)
             if(this.ajolote.body.velocity.y > 0)
             {
-               // console.log('mira abajo');
                 this.ajolote.play('lookingDown');
             }
             else
             {
-            //    console.log('mira arriba');
                 this.ajolote.play('lookingUp');
             }
         //camara
@@ -129,7 +126,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
             //para que no cambie de repente
             setTimeout(()=>{
                 this.mjSound.pause();
-                plantica1.plantaMusic(true);
+                plantica1.music(true);
                 this.scene.resume('Planta1'); //volvemos a planta
                 this.scene.stop();
             },1500);

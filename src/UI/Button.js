@@ -72,7 +72,6 @@ export default class Button extends Phaser.GameObjects.Sprite {
 		if(this.pulsadoBoolean){
 
 			if(this.timeAcum > 700){ // this.timeAcum > tiempo de espera que queramos para cambiar de escena
-				//this.scene.play();
 				this.action1Method();
 				this.action2Method();
 				this.action3Method();

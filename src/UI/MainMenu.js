@@ -35,6 +35,7 @@ export default class MainMenu extends Phaser.Scene {
     create(){
 		this.ButtonSoundd = this.sound.add('buttonSound');
 		this.MainMenuSound = this.sound.add('mainMenuSound');
+		this.MainMenuSound.loop = true;
 		this.MainMenuSound.play();
 
 		// TILE MAP

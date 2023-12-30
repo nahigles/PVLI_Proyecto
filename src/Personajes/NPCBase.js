@@ -31,12 +31,8 @@ export default class NPCBase extends Phaser.GameObjects.Sprite {
         this.body.setAllowGravity(false);
 		this.body.onOverlap = true;
 		
-		//sprite NPC
-		//this.setOrigin(0,0).setScale(3.0,3.0);
-		
 		// Ejecutamos la animación 'idle'
 		this.play(key, true);
-		//console.log(this);
 
 		// Speed
 		this.speed = 3;

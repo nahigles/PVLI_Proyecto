@@ -78,17 +78,13 @@ export default class MJ_Carpetas extends MinijuegoBase{
         });
         
         // BotonPause
-        //
-       //this.pauseButton.setScale(0.1,0.1); 
+    
        for (const objeto of this.map.getObjectLayer('BotonPausa').objects) {
         // `objeto.name` u `objeto.type` nos llegan de las propiedades del
         // objeto en Tiled
         if (objeto.type === 'Button') {
-           // console.log('botoon');
-           // console.log(this.pauseButton.x, this.pauseButton.y);
             this.pauseButton.x = objeto.x;
             this.pauseButton.y = objeto.y;
-           // console.log(this.pauseButton.x, this.pauseButton.y);
             this.pauseButton.setScale(0.1,0.1);
 
         }
@@ -132,9 +128,8 @@ export default class MJ_Carpetas extends MinijuegoBase{
         plantica3.minijuegoCompletado();
         //para que no cambie de repente
         setTimeout(()=>{
-            //console.log('no me va el metodo aaa');
             this.mjSound.pause();
-            plantica3.plantaMusic3(true);
+            plantica3.music(true);
             this.scene.resume("Planta3"); //volvemos a planta
             this.scene.remove();
         },1500);

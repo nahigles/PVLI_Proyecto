@@ -42,9 +42,10 @@ export default class Planta4_2 extends plantaBase {
     create(data){
 		super.create();
 
-		this.planta4Sound = this.sound.add('plant4Sound');
-		this.planta4Sound.loop = true;
-		this.planta4Sound.play();
+		// Musica
+		this.musica = this.sound.add('plant4Sound');
+		this.musica.loop = true;
+		this.musica.play();
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 
@@ -59,8 +60,7 @@ export default class Planta4_2 extends plantaBase {
 		const tileset_architecture = this.map.addTilesetImage('tiles_architecture_purple', 'tileset_architecture_purple');  
 		const tileset_furniture = this.map.addTilesetImage('tiles_furniture_purple', 'tileset_furniture_purple');  
 		const tileset_objects = this.map.addTilesetImage('tiles_objects_purple', 'tileset_objects_purple');  
-		const tileset_door = this.map.addTilesetImage('tile_door_purple', 'tileset_door_purple');  
-		//const tileset_plants = this.map.addTilesetImage('tiles_plantas_yellow', 'tileset_plants_yellow');  
+		const tileset_door = this.map.addTilesetImage('tile_door_purple', 'tileset_door_purple'); 
 		
 		// Layers 
 		this.backgroundLayer = this.map.createLayer('Background', tileset_architecture);
@@ -133,7 +133,7 @@ export default class Planta4_2 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.plantaMusic4_2(false);
+					this.music(false);	
 					this.scene.launch('Planta5', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler,
@@ -165,14 +165,5 @@ export default class Planta4_2 extends plantaBase {
 		this.onPause(true);
 		this.scene.launch(this.minijuego);
 		this.scene.pause("UiScene");
-	}
-
-	plantaMusic4_2(enable){
-		if(enable){
-			this.planta4Sound.resume();
-		}
-		else{
-			this.planta4Sound.pause();
-		}
 	}
 }

@@ -27,12 +27,6 @@ export default class Ajolote extends Phaser.GameObjects.Sprite {
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 
 		// Animaciones
-		/*this.scene.anims.create({
-			key: 'jump',
-			frames: scene.anims.generateFrameNumbers(key, {start:0, end:1}),
-			frameRate: 2,
-			repeat: -1
-		});*/
 		this.scene.anims.create({
 			key: 'lookingUp',
 			frames: scene.anims.generateFrameNumbers(key, {start:26, end:26}),

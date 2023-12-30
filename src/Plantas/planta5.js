@@ -123,19 +123,10 @@ export default class Planta5 extends plantaBase {
 		// Colisiones MAPA 
 		this.physics.add.collider(this.jugador, this.wallLayer);
 		this.physics.add.collider(this.NPCGroup, this.wallLayer);
-
-		this.p = this.input.keyboard.addKey('P');
     }
 
     update(){
-
 		super.update();
-
-		if(this.p.isDown){ 
-			this.scene.start('Planta1');
-			this.scene.stop();
-			//console.log("Paso de P5 a P1")
-		}	
     }
 
 	onPause(bol){

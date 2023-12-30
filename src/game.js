@@ -1,5 +1,3 @@
-
-
 import Planta1 from './Plantas/planta1.js';
 import Planta2 from './Plantas/planta2.js';
 import Planta3 from './Plantas/planta3.js';
@@ -26,8 +24,7 @@ import PuertaSecreta from './Misiones/PuertaSecreta.js';
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, // Centra horizontalmente // autoCenter: Phaser.Scale.CENTER_BOTH
             mode: Phaser.Scale.FIT, // Para que sirva para cualquier resolucion
             width: 600,
-            height: 400
-           // zoom: 35    
+            height: 400  
         },
         
         physics: {

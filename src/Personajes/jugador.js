@@ -89,7 +89,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 	preUpdate(t, dt){
 		// preupdate del padre, en este caso container
 		this.jugador.preUpdate(t, dt);
-		//console.log(this.inputEnabled);
 		if(this.inputEnabled)
 		{
 			// Si se pulsa letra A
@@ -97,7 +96,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 				this.body.setVelocityX(-this.speed);
 				this.jugador.setFlip(true, false);
 				this.jugador.play('walk', true);
-				//this.scene.moveButtonLeft();
 			} 
 	
 			// Si se pulsa letra D
@@ -105,7 +103,6 @@ export default class Jugador extends Phaser.GameObjects.Container {
 				this.body.setVelocityX(this.speed);
 				this.jugador.setFlip(false, false);
 				this.jugador.play('walk', true);
-				//this.scene.moveButtonRight();
 			} 
 			else {
 				this.jugador.play('idle', true);

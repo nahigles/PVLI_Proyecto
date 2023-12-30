@@ -180,66 +180,49 @@ export default class Conversation{
     }	
 
 	next(choice = "noHay"){		
-		//console.log("NEXT");
 		if (this.conversText.Talk[this.index].who != "End") {
 			if (this.conversText.Talk[this.index].who == "Action"){
 				let what = this.conversText.Talk[this.index].what;
 				this.index = this.conversText.Talk[this.index].nextId;
-				//console.log("change to index " + this.index);
 				this.UI.actions(what);
 			}
-			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)				
-				//console.log("Choice");
+			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)	
 				if (choice == "noHay"){ //PRIM VEZ
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
 					"· " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
-					//console.log("init " + this.index);
 				}
 				else if (choice == "noSabe") {
 					this.UI.initDialog(this, "ChoiceStay", 
 					"Decide para avanzar.\n. " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
-					//console.log("init " + this.index);
 				}
 				if (choice == "a"){ //ha elegido a
-					//console.log("A is the choice");
 					this.index = this.conversText.Talk[this.index].nextA;
-					//console.log("change to index " + this.index);
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-					//console.log("init " + this.index);
 					this.index = this.conversText.Talk[this.index].nextId;
-					//console.log("change to index " + this.index);
 				}
 				else if (choice == "b"){ //ha elegido b
 					this.index = this.conversText.Talk[this.index].nextB;
-					//console.log("change to index " + this.index);
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-					//console.log("init " + this.index);
 					this.index = this.conversText.Talk[this.index].nextId;
-					//console.log("change to index " + this.index);
 				}
 			}
 			else if (this.conversText.Talk[this.index].who == "Change"){ //CAMBIO D JSON)
-			console.log("CHANGE");		
 				this.dialogSwitch(this.conversText.Talk[this.index].pTypeId);
 				this.index = 1;
 				this.next();
 			}
 
 			else {
-				console.log("barra normal");
 				console.log(this.conversText.Talk[this.index].frase);
 				this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
-				//console.log("init " + this.index);
 				this.index = this.conversText.Talk[this.index].nextId;
-				//console.log("change to index " + this.index);
 			}
 		}
-		else {
-			//console.log("End");			
+		else {		
 			this.UI.endDialog();
 		}
 	}
@@ -261,15 +244,12 @@ export default class Conversation{
 			case '0':
 				switch (this.PType.pType[0]) {
 					case 'E':		
-						console.log("switch to E");		
 						this.conversText = dialogJefeE;
 						break;
-					case 'I':	
-						console.log("switch to I");			
+					case 'I':			
 						this.conversText = dialogJefeI;
 						break;
 					default:
-						console.log("dflt");
 						break;
 				}
 			break;
@@ -277,47 +257,38 @@ export default class Conversation{
 			case '1':
 				switch (this.PType.pType[1]) {
 					case 'N':	
-						console.log("switch to N");
 						this.conversText = dialogJefeN;
 						break;
 					case 'S':				
-						console.log("switch to S");	
 						this.conversText = dialogJefeS;
 						break;
 					default:
-						console.log("dflt");
 						break;
 				}
 			break;
 
 			case '2':
 				switch (this.PType.pType[2]) {
-					case 'T':						
-						console.log("switch to T");			
+					case 'T':							
 						this.conversText = dialogJefeT;
 						break;
-					case 'F':								
-						console.log("switch to F");		
+					case 'F':							
 						this.conversText = dialogJefeF;
 						break;
 					default:
-						console.log("dflt");
 						break;
 				}
 			break;
 
 			case '3':
 				switch (this.PType.pType[3]) {
-					case 'J':										
-						console.log("switch to J");	
+					case 'J':						
 						this.conversText = dialogJefeJ;
 						break;
 					case 'P':				
-						console.log("switch to P");	
 						this.conversText = dialogJefeP;
 						break;
 					default:
-						console.log("dflt");
 						break;
 				}
 			break;

@@ -27,8 +27,14 @@ export default class PuertaSecreta extends Phaser.Scene{
         this.load.image('9', './assets/images/Objetos/TecladoNumerico/Number9.png');
         this.load.image('tick', './assets/images/Objetos/TecladoNumerico/Tick.png');
         this.load.image('cross', './assets/images/Objetos/TecladoNumerico/Cross.png');
+
+        // Sonido
+        this.load.audio('teclaSound', 'assets/sounds/teclasSound.wav');
     }
     create(){
+
+        // Sonido
+        this.sonido = this.sound.add('teclaSound');
 
         //background
         this.add.image(0,0,'backgroundM2').setOrigin(0,0).setScale(10.0,13.0);
@@ -51,15 +57,15 @@ export default class PuertaSecreta extends Phaser.Scene{
         for(let i=0; i<col; i++){
 
             for(let j = 0; j < fil; j++){
-                new Tecla(this, j*distanciaX+desplX, i*distanciaY+desplY, nums);
+                new Tecla(this, j*distanciaX+desplX, i*distanciaY+desplY, nums, ()=>{this.sonido.play();});
                 nums++;
             }
         }
 
         // Teclas tick 0 y cross
-        new Tecla(this, desplX,3*distanciaY + desplY, "cross");
-        new Tecla(this, distanciaX+desplX, 3*distanciaY+desplY, "0");
-        new Tecla(this, 2*distanciaX + desplX, 3*distanciaY + desplY, "tick");
+        new Tecla(this, desplX,3*distanciaY + desplY, "cross", ()=>{this.sonido.play();});
+        new Tecla(this, distanciaX+desplX, 3*distanciaY+desplY, "0", ()=>{this.sonido.play();});
+        new Tecla(this, 2*distanciaX + desplX, 3*distanciaY + desplY, "tick", ()=>{this.sonido.play();});
 
         // Texto numeros para pantalla
         this.numbers = this.add.text(230,32, this.escrito[0] + " " + this.escrito[1] + " " + this.escrito[2], {

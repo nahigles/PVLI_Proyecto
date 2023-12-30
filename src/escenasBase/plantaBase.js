@@ -45,6 +45,7 @@ export default class PlantaBase extends Phaser.Scene{
         //Mision
         this.misionCompletada = false;
   
+        this.musica = "";
     }
     startMinijuego(){
         this.scene.launch(this.minijuego);
@@ -64,6 +65,7 @@ export default class PlantaBase extends Phaser.Scene{
             this.scene.pause();
 		}        
          if(this.esc.isDown){
+            this.music(false);
            this.scene.launch("PauseMenu", {
             level : this.key,
             other : this.minijuego
@@ -74,4 +76,13 @@ export default class PlantaBase extends Phaser.Scene{
             this.misionCompletada = true;;
         }
     }
+
+    music(enable){
+		if(enable){
+			this.musica.resume();
+		}
+		else{
+			this.musica.pause();
+		}
+	}
 }

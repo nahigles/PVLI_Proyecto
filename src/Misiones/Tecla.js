@@ -6,7 +6,7 @@ export default class Tecla extends Phaser.GameObjects.Sprite{
 	 * @param {number} y - posición Y en la escena
      * @param {string} key - texture
 	 */
-    constructor(scene,x,y,key) {
+    constructor(scene,x,y,key, funcion) {
         //constructor del padre (Sprite)
         super(scene,x,y, key);
         // Añadimos la tecla a la escena 
@@ -21,6 +21,7 @@ export default class Tecla extends Phaser.GameObjects.Sprite{
         {   
             this.clicado();
             this.setTint(0xff0000);
+            funcion();
 
         });
 
@@ -38,7 +39,6 @@ export default class Tecla extends Phaser.GameObjects.Sprite{
     }
 
     create(){
-    
     }
 
     preUpdate(t, dt){
@@ -57,4 +57,13 @@ export default class Tecla extends Phaser.GameObjects.Sprite{
             this.scene.anadirNum(this.key);
         }
     }
+
+    music(enable){
+		if(enable){
+			this.sonido.resume();
+		}
+		else{
+			this.sonido.pause();
+		}
+	}
 }

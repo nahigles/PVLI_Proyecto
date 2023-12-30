@@ -10,7 +10,6 @@ export default class UiScene extends Phaser.Scene {
     }
 
     init(){
-       // console.log("UI INIT");
     }
 
     preload(){
@@ -27,10 +26,8 @@ export default class UiScene extends Phaser.Scene {
         this.load.image('insigniaP', './assets/images/UI/Insignias/insigniaP.png');
     }
 
-    create(data){    
-
-        //console.log("UI CREATE");
-
+    create(data){  
+        this.ButtonSoundd = this.sound.add('buttonSound');  
         this.ScenePlanta = data.home;
         this.initDialogSystem(data);
         this.initPauseSystem();
@@ -43,7 +40,6 @@ export default class UiScene extends Phaser.Scene {
     //Sistema de dialogos
     initDialogSystem(data) {
 
-        //console.log("initDialogSys");
         this.dialogManager = new DialogManager(
             data.home,
             this,
@@ -104,17 +100,10 @@ export default class UiScene extends Phaser.Scene {
 
     // Sisema de pausa
     initPauseSystem() {
-        // Tecla p
-       // this.pauseInput = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
-        /*this.pauseInput.on('down', pointer => { 
-            this.pauseGame(true);
-        });
-                */
         this.isOnPauseMenu = false;        
     }
     
     update(t, dt){
-        //console.log(t, dt);
         if (this.choice == "noSabe"){ //si todavía no ha decidido mira si se ha clicado alguno de los botones
             if (this.A.pulsadoBoolean){
                 this.chooseA();
@@ -131,17 +120,12 @@ export default class UiScene extends Phaser.Scene {
 
     // Inicia el diálogo
     initDialog(conversation, who, text) {
-        //console.log("initDialog();")
 
         // Si no está en un diálogo, lo inicia
         if(!this.onDialog) {
             this.conversation = conversation;
 
             this.onDialog=true;
-
-            // Reproduce un sonido
-            //this.soundManager = this.scene.get('soundManager');
-            //this.soundManager.play("dialogPop");
             
             this.text = text;       //array de strings 
 
@@ -167,9 +151,9 @@ export default class UiScene extends Phaser.Scene {
             if (who == "ChoiceStay" || who == "Choice"){
                 this.choice = "noSabe";
                 if (who == "Choice"){
-                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{});
+                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
                     this.A.changeScale(0.6,0.6);
-                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{});
+                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
                     this.B.changeScale(0.6,0.6);
                 }
             }
@@ -193,7 +177,6 @@ export default class UiScene extends Phaser.Scene {
     }
 
     goHome(){
-        //console.log("Go home.");
         this.homeBg.visible = true;
         this.exit.visible = false;
         
@@ -213,14 +196,14 @@ export default class UiScene extends Phaser.Scene {
 	actions(action){
         switch (action) {
             case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{console.log("M QUIERO IR")},  ()=>{this.goHome()},  ()=>{}, ()=>{}) ;
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{},  ()=>{this.goHome()},  ()=>{}, ()=>{}, this.ButtonSoundd) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
             case "MinijuegoPlanta1":
                 this.endDialog();
                 let plantita1 = this.scene.get("Planta1");
                 plantita1.startMinijuego();
-                plantita1.plantaMusic(false);
+                plantita1.music(false);
                 break;
             case "HablaConAlvaro" :
                 this.scene.get("Planta1").hablaConAlvaro();
@@ -241,22 +224,20 @@ export default class UiScene extends Phaser.Scene {
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("puertaSecreta").clavMirada();
                 this.scene.get("Planta2").jugadorSensitivo();
-                //console.log("postItAction");            
                 break;
                 
             case "adivinar" :
-                //this.endDialog();
                 this.addInsignia('N');
                 //misión y al acabar directamente se lanza las siguentes lineas
                 this.scene.get("Planta2").startMision();
                 this.scene.get("Planta2").jugadorIntuitivo();
-                //console.log("adivinarAction");
                 
                 break;
                         
             case "MinijuegoPlanta2":
-                this.scene.get("Planta2").startMinijuego();
-                //console.log('MinijuegoPlanta2');
+                let plantica2 = this.scene.get("Planta2");
+                plantica2.startMinijuego();
+                plantica2.music(false);
                 break;
 
             case "InsigniaT":
@@ -272,8 +253,9 @@ export default class UiScene extends Phaser.Scene {
                 break;
 
             case "MinijuegoPlanta3":
-                //console.log('MinijuegoPlanta3');
-                this.scene.get("Planta3").startMinijuego();
+                let plantica3 = this.scene.get("Planta3");
+                plantica3.startMinijuego();
+                plantica3.music(false);
                 break;
 
             case "InsigniaP":
@@ -287,8 +269,9 @@ export default class UiScene extends Phaser.Scene {
                 break;
 
             case "MinijuegoPlanta4":
-                //console.log('MinijuegoPlanta4');
-                this.scene.get("Planta4_2").startMinijuegoP4();
+                let plantica4_2 = this.scene.get("Planta4_2");
+                plantica4_2.music(false);
+                plantica4_2.startMinijuegoP4();
                 break;
 
             default:
@@ -304,7 +287,6 @@ export default class UiScene extends Phaser.Scene {
     }
 
     endDialog(){ 
-        //console.log("endDialog");
 
         this.hide();
 
@@ -344,7 +326,6 @@ export default class UiScene extends Phaser.Scene {
 
     /////////////////////////////////////////////////MÉTODOS PARA PAUSA
     initInsigniasSys(checkList){
-        //console.log(checkList);
         this.insignias = this.add.group();  
         this.insignias.add(this.add.image(30, 370, "insigniaE").setName('E').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[0]));
         this.insignias.add(this.add.image(30, 370, "insigniaI").setName('I').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[1]));

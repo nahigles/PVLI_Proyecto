@@ -19,7 +19,7 @@ export default class MinijuegoBase extends Phaser.Scene{
         
     }
     create(){
-
+        this.ButtonSoundd = this.sound.add('buttonSound');
         this.mjSound = this.sound.add('minijuegoSound');
         this.mjSound.loop = true;
         this.mjSound.setVolume(0.25);
@@ -30,15 +30,26 @@ export default class MinijuegoBase extends Phaser.Scene{
                 level : this.key,
                 other : this.planta
                });
-            this.scene.pause(this.key);
+            this.scene.pause(this.key); 
+            this.music(false);
         }, this);
          // BotonPause
 		this.pauseButton = new Button(this, 575, 25, 'pauseButtonMJ', ()=>{ this.scene.launch("PauseMenu", {
             level : this.key,
             other : this.planta
-           });}, ()=>{this.scene.pause();}, ()=>{}, ()=>{} ).setScrollFactor(0);
+           });}, ()=>{this.scene.pause(); this.music(false);}, ()=>{}, ()=>{}, this.ButtonSoundd ).setScrollFactor(0);
         this.pauseButton.setDepth(10);
     }
     update(){
     }
+
+    music(enable){
+		if(enable){
+			this.mjSound.resume();
+		}
+		else{
+			this.mjSound.pause();
+		}
+
+	}
 }

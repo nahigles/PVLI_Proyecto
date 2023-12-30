@@ -67,18 +67,14 @@ export default class Virus extends Phaser.GameObjects.Sprite {
 
     destroyVirus(){
         this.body.setVelocity(0);
-		//console.log("destroy virus");
         this.play('explotionAnim', true);
         this.once('animationcomplete', () => {
-            //console.log('animationcomplete');
             setTimeout(()=>{
                 this.destroy();
             },100);
         })
         if (this.keyID == 'lock'){
             this.scene.win();
-    		//console.log("WIIIIN");
-
         }
     }
 }

@@ -42,9 +42,10 @@ export default class Planta3 extends plantaBase {
     create(data){
 		super.create();
 
-		this.planta3Sound = this.sound.add('plant3Sound');
-		this.planta3Sound.loop = true;
-		this.planta3Sound.play();
+		// Musica
+		this.musica = this.sound.add('plant3Sound');
+		this.musica.loop = true;
+		this.musica.play();
 		
 		// TILEMAP
 		this.map = this.make.tilemap({ 
@@ -136,7 +137,7 @@ export default class Planta3 extends plantaBase {
 				
 				this.ascensor.once('abierto', function(){
 					//cuando haya acabado la animacion
-					this.plantaMusic4_3(false);
+					this.music(false);	
 					this.scene.launch('Planta4', {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler});
@@ -159,14 +160,5 @@ export default class Planta3 extends plantaBase {
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
-	}
-
-	plantaMusic3(enable){
-		if(enable){
-			this.planta3Sound.resume();
-		}
-		else{
-			this.planta3Sound.pause();
-		}
 	}
 }

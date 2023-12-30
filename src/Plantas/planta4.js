@@ -48,9 +48,10 @@ export default class Planta4 extends plantaBase {
     create(data){
 		super.create();
 
-		this.planta4Sound = this.sound.add('plant4Sound');
-		this.planta4Sound.loop = true;
-		this.planta4Sound.play();
+		// Musica
+		this.musica = this.sound.add('plant4Sound');
+		this.musica.loop = true;
+		this.musica.play();
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 
@@ -179,14 +180,5 @@ export default class Planta4 extends plantaBase {
 
 	onPause(bol){
 		this.jugador.onPauseInput(bol);
-	}
-
-	plantaMusic4(enable){
-		if(enable){
-			this.planta4Sound.resume();
-		}
-		else{
-			this.planta4Sound.pause();
-		}
 	}
 }
