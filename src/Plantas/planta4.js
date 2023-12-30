@@ -168,6 +168,7 @@ export default class Planta4 extends plantaBase {
 				this.puertaAbierta = true;
 				this.scene.get("UiScene").removeUI();
 				setTimeout(()=>{
+					this.music(false);
 					this.scene.launch("Planta4_2", {introvertido : this.jugador.introvertido, extrovertido : this.jugador.extrovertido, 
 						sensitivo : this.jugador.sensitivo, intuitivo : this.jugador.intuitivo, 
 						thinker : this.jugador.thinker, feeler : this.jugador.feeler,

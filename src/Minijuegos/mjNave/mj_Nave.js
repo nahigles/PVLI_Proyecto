@@ -65,6 +65,7 @@ export default class MJ_Nave extends MinijuegoBase{
             this.overlapNave = this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {            
                 virus.destroyVirus();
                 setTimeout(()=>{
+                    this.mjSound.pause();
                     this.scene.restart();
                 }, 100);
             })
