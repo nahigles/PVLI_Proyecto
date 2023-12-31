@@ -189,13 +189,13 @@ export default class Conversation{
 			else if (this.conversText.Talk[this.index].who == "Choice"){ //TIENE Q TOMAR UNA CHOICE)	
 				if (choice == "noHay"){ //PRIM VEZ
 					this.UI.initDialog(this, this.conversText.Talk[this.index].who, 
-					"· " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
+					"A) " + this.conversText.Talk[this.index].a + "\nB) " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
 				}
 				else if (choice == "noSabe") {
 					this.UI.initDialog(this, "ChoiceStay", 
-					"Decide para avanzar.\n. " + this.conversText.Talk[this.index].a + "\n· " + this.conversText.Talk[this.index].b,
+					"Decide para avanzar.\nA) " + this.conversText.Talk[this.index].a + "\nB) " + this.conversText.Talk[this.index].b,
 					this.conversText.Talk[this.index].a,
 					this.conversText.Talk[this.index].b)
 				}

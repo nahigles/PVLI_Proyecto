@@ -14,6 +14,8 @@ export default class UiScene extends Phaser.Scene {
 
     preload(){
         this.load.spritesheet("choiceButton", "./assets/images/UI/Dialogs/choice.png", {frameWidth: 80, frameHeight: 80});
+        this.load.image('choiceA',  "./assets/images/UI/Dialogs/choiceA.png");
+        this.load.image('choiceB',  "./assets/images/UI/Dialogs/choiceB.png");
         this.load.spritesheet("houseButton", "./assets/images/UI/house.png", {frameWidth: 80, frameHeight: 80});
         this.load.image('backgroundHome', './assets/images/Backgrounds/bg_home.png');
         this.load.image('insigniaE', './assets/images/UI/Insignias/insigniaE.png');
@@ -151,10 +153,10 @@ export default class UiScene extends Phaser.Scene {
             if (who == "ChoiceStay" || who == "Choice"){
                 this.choice = "noSabe";
                 if (who == "Choice"){
-                    this.A = new Button(this, 535, 77, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
-                    this.A.changeScale(0.6,0.6);
-                    this.B = new Button(this, 535, 130, 'choiceButton', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
-                    this.B.changeScale(0.6,0.6);
+                    this.A = new Button(this, 535, 77, 'choiceA', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
+                    this.A.changeScale(3,3);
+                    this.B = new Button(this, 535, 130, 'choiceB', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
+                    this.B.changeScale(3,3);
                 }
             }
             else {
