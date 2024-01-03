@@ -190,7 +190,6 @@ export default class Planta1 extends plantaBase {
 	}
     update(){
 		super.update();
-
 		if(this.e.isDown){	//coger carpeta o subir ascensor
 			this.catchFolder();
 			this.nextLevel();

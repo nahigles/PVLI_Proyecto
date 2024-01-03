@@ -1,5 +1,6 @@
 
 import Button from './Button.js';
+import TextMessage from "../Dialogs/textMessage.js";
 export default class PauseMenu extends Phaser.Scene {
     constructor() {
         super({
