@@ -24,12 +24,15 @@ export default class Nave extends Phaser.GameObjects.Sprite {
         // INPUT
 		this.inputEnabled = true;
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
+        this.a = this.scene.input.keyboard.addKey('A');
+		this.d = this.scene.input.keyboard.addKey('D'); 
+        this.w = this.scene.input.keyboard.addKey('W'); 
     }
     preUpdate(t, dt){
         super.preUpdate(t, dt); 
 
         if(this.inputEnabled){
-            if (this.cursors.up.isDown)
+            if (this.cursors.up.isDown || this.w.isDown)
             {
                 this.scene.physics.velocityFromRotation(this.rotation, 200, this.body.acceleration);
             }
@@ -38,11 +41,11 @@ export default class Nave extends Phaser.GameObjects.Sprite {
                 this.body.acceleration.set(0);
             }
 
-            if (this.cursors.left.isDown)
+            if (this.cursors.left.isDown || this.a.isDown)
             {
                 this.body.angularVelocity = -300;
             }
-            else if (this.cursors.right.isDown)
+            else if (this.cursors.right.isDown || this.d.isDown)
             {
                 this.body.angularVelocity = 300;
             }

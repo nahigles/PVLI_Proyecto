@@ -282,9 +282,11 @@ export default class UiScene extends Phaser.Scene {
 
             case "Final":
                 setTimeout(()=>{
+                    this.ScenePlanta.music(false);
+                    this.ScenePlanta.scene.stop();
+                    this.removeUI();
                     this.scene.start("MainMenu");
-                },100);
-                this.removeUI();
+                },1000);
                 break;
 
             default:

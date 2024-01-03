@@ -4,11 +4,6 @@ import Ascensor from './ascensor.js';
 import NPC from '../Personajes/NPCBase.js';
 
 export default class Planta5 extends plantaBase {
-	/**
-	 * Nivel 1
-	 * @extends plantaBase
-	 */
-
 	constructor(){	
 		super('Planta5', 'Planta1', 'mj_Nave', 'level1', 'tiles', 560);
 	}
@@ -45,6 +40,8 @@ export default class Planta5 extends plantaBase {
         this.planta5Sound = this.sound.add('plant5Sound');
 		this.planta5Sound.loop = true;
 		this.planta5Sound.play();
+
+		this.musica = this.planta5Sound;
 
 		// TILEMAP
 		this.map = this.make.tilemap({ 

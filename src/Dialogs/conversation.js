@@ -218,7 +218,7 @@ export default class Conversation{
 			}
 
 			else {
-				console.log(this.conversText.Talk[this.index].frase);
+				//console.log(this.conversText.Talk[this.index].frase);
 				this.UI.initDialog(this, this.conversText.Talk[this.index].who, this.conversText.Talk[this.index].frase);
 				this.index = this.conversText.Talk[this.index].nextId;
 			}
