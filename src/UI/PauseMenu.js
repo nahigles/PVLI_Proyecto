@@ -62,9 +62,13 @@ export default class PauseMenu extends Phaser.Scene {
 
     goHome(){
         
-        this.scene.get("UiScene").goHome();
-        this.scene.stop(this.level);
-        this.scene.stop(this.other);
-        this.scene.stop();
+        this.scene.get("UiScene").removeUI();
+        this.homeBg.visible = true;
+        setTimeout(()=>{
+            this.scene.start("MainMenu");
+            this.scene.stop(this.level);
+            this.scene.stop(this.other);
+            this.scene.stop();
+        },2000);
     }
 }
