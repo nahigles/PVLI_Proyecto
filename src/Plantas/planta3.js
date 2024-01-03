@@ -114,7 +114,6 @@ export default class Planta3 extends plantaBase {
 			NPCs: this.NPCGroup,
 			insignias: [data.extrovertido, data.introvertido, data.intuitivo, data.sensitivo, false, false, false, false]
 		});	
-		this.scene.get("UiScene").actions("BotonExit");
 
 
 		// Colisiones MAPA 

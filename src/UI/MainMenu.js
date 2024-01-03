@@ -90,7 +90,11 @@ export default class MainMenu extends Phaser.Scene {
 		this.physics.add.collider(this.player2, this.wallLayer)
 		
 		// BotonPlay
-		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{this.scene.launch("Planta1");}, ()=>{this.scene.stop(); this.MainMenuSound.pause();}, ()=>{}, ()=>{}, this.ButtonSoundd);
+		this.PlayButton = new Button(this, 96, 54, 'playButton2', ()=>{
+			this.scene.launch("Planta1");
+			this.scene.stop();
+			this.MainMenuSound.pause();
+		}, this.ButtonSoundd);
 		this.PlayButton.changeScale(0.18,0.18);
 	}
 

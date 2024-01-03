@@ -71,19 +71,11 @@ export default class MJ_Plataformas extends MinijuegoBase{
         } 
         //colisiones y rebote
         this.physics.add.collider(this.ajolote, this.plataformas, (ajolote,plataforma)=>{
-            if(ajolote.body.touching.down) { //solo salta cuando el jugador esta encima de la plataforma
-                this.ajolote.body.setVelocityY(-300);   //para que cada vez que rebote en una plataforma lo haga con la misma "fuerza"
-                this.ajolote.play('jumpAjolote');
-                if(plataforma.texture.key==='morado' || plataforma.texture.key==='moradoRota' ){
-                    if(!plataforma.touch) {
-                        plataforma.setTexture('moradoRota');
-                    }
-                    else{
-                        plataforma.destroy();
-                    }
-                }
+            if(ajolote.body.touching.down) { //solo salta cuando el ajolote esta encima de la plataforma
+                this.ajolote.jump();
+                plataforma.hit();
                 if(!plataforma.touch){
-                    plataforma.touch = true;
+                    plataforma.touched();
                     this.score +=  100;
                     this.scoreText.setText('SCORE: '+ this.score);
                 }
