@@ -37,7 +37,10 @@ export default class MinijuegoBase extends Phaser.Scene{
 		this.pauseButton = new Button(this, 575, 25, 'pauseButtonMJ', ()=>{ this.scene.launch("PauseMenu", {
             level : this.key,
             other : this.planta
-           });}, ()=>{this.scene.pause(); this.music(false);}, ()=>{}, ()=>{}, this.ButtonSoundd ).setScrollFactor(0);
+           });
+           this.scene.pause(); 
+           this.music(false);
+        }, this.ButtonSoundd ).setScrollFactor(0);
         this.pauseButton.setDepth(10);
     }
     update(){

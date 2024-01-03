@@ -153,9 +153,9 @@ export default class UiScene extends Phaser.Scene {
             if (who == "ChoiceStay" || who == "Choice"){
                 this.choice = "noSabe";
                 if (who == "Choice"){
-                    this.A = new Button(this, 535, 77, 'choiceA', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
+                    this.A = new Button(this, 535, 77, 'choiceA', ()=>{this.chooseA}, this.ButtonSoundd);
                     this.A.changeScale(3,3);
-                    this.B = new Button(this, 535, 130, 'choiceB', ()=>{this.chooseA},  ()=>{},  ()=>{}, ()=>{}, this.ButtonSoundd);
+                    this.B = new Button(this, 535, 130, 'choiceB', ()=>{this.chooseA},  this.ButtonSoundd); //revisar
                     this.B.changeScale(3,3);
                 }
             }
@@ -179,6 +179,7 @@ export default class UiScene extends Phaser.Scene {
     }
 
     goHome(){
+        
         this.e.enabled = false;
         this.homeBg.visible = true;
         this.exit.visible = false;
@@ -201,7 +202,7 @@ export default class UiScene extends Phaser.Scene {
 	actions(action){
         switch (action) {
             case "BotonExit": 
-                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{},  ()=>{this.goHome()},  ()=>{}, ()=>{}, this.ButtonSoundd) ;
+                this.exit = new Button(this, 560, 360, 'houseButton', ()=>{this.goHome()}, this.ButtonSoundd) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
             case "MinijuegoPlanta1":
