@@ -50,6 +50,11 @@ export default class Ajolote extends Phaser.GameObjects.Sprite {
 		this.body.setOffset(this.width * 0.1,	this.height * 0.35);
 		
     }
+	//salta cada vez que toca una plataforma
+	jump(){
+		this.body.setVelocityY(-300);
+		this.play('jumpAjolote');
+	}
     preUpdate(t, dt){
         super.preUpdate(t, dt); 
         if(this.inputEnabled)

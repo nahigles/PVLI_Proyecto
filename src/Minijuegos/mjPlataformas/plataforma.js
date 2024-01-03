@@ -31,6 +31,19 @@ export default class Plataforma extends Phaser.GameObjects.Sprite{
             this.body.setVelocity(25* this.direccion, 0);
         }  
     }
+    hit(){
+        if(this.texture.key==='morado')  {
+            this.setTexture('moradoRota');
+        }
+        if(this.texture.key==='moradoRota' && this.touch){
+            this.destroy();
+        }
+    }
+    touched(){
+        if(!this.touch) {
+            this.touch = true;
+        }
+    }
     update() {
         if(this.texture.key==='verde' || this.texture.key==='azul')  {
             if(this.x < this.limIzq) {
