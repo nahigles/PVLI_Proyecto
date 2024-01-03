@@ -179,6 +179,7 @@ export default class UiScene extends Phaser.Scene {
     }
 
     goHome(){
+        this.e.enabled = false;
         this.homeBg.visible = true;
         this.exit.visible = false;
         
@@ -190,6 +191,8 @@ export default class UiScene extends Phaser.Scene {
         this.textMessage = new TextMessage(this, 150, 28, 440, "¡Bn hecho! Las inevitables consecuencias del capitalismo no deberían rayarte. Disfruta de tu vida <3");
 
         setTimeout(()=>{
+            this.ScenePlanta.music(false);
+            this.ScenePlanta.scene.stop();
             this.removeUI();
             this.scene.start("MainMenu");
         },10000);
@@ -197,7 +200,7 @@ export default class UiScene extends Phaser.Scene {
     
 	actions(action){
         switch (action) {
-            case "BotonExit": //EN LAS PLANTAS >1 HABRA Q LLAMAR A ESTE DIRECTAMENTE
+            case "BotonExit": 
                 this.exit = new Button(this, 560, 360, 'houseButton', ()=>{},  ()=>{this.goHome()},  ()=>{}, ()=>{}, this.ButtonSoundd) ;
                 this.exit.changeScale(0.6,0.6);
                 break;
@@ -326,7 +329,7 @@ export default class UiScene extends Phaser.Scene {
         dialogEvents.emit('dialogFinished');             
     }
 
-    /////////////////////////////////////////////////MÉTODOS PARA PAUSA
+
     initInsigniasSys(checkList){
         this.insignias = this.add.group();  
         this.insignias.add(this.add.image(30, 370, "insigniaE").setName('E').setOrigin(0.5, 0.5).setScale(2, 2).setVisible(checkList[0]));
@@ -377,5 +380,13 @@ export default class UiScene extends Phaser.Scene {
 
     sigConver(){
         this.conversation.next();
+    }
+    exitVisible(visible) {
+        if(visible){
+            this.exit.visible = true;
+        }
+        else{
+            this.exit.visible = false;
+        }
     }
 }
