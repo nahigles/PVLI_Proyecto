@@ -276,6 +276,13 @@ export default class UiScene extends Phaser.Scene {
                 plantica4_2.startMinijuegoP4();
                 break;
 
+            case "Final":
+                setTimeout(()=>{
+                    this.scene.start("MainMenu");
+                },100);
+                this.removeUI();
+                break;
+
             default:
                 break;
         }

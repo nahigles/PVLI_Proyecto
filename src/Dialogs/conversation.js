@@ -210,6 +210,7 @@ export default class Conversation{
 					this.index = this.conversText.Talk[this.index].nextId;
 				}
 			}
+			
 			else if (this.conversText.Talk[this.index].who == "Change"){ //CAMBIO D JSON)
 				this.dialogSwitch(this.conversText.Talk[this.index].pTypeId);
 				this.index = 1;
