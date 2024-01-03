@@ -1,6 +1,5 @@
 
 import Button from './Button.js';
-import TextMessage from "../Dialogs/textMessage.js";
 export default class PauseMenu extends Phaser.Scene {
     constructor() {
         super({
@@ -19,6 +18,7 @@ export default class PauseMenu extends Phaser.Scene {
         this.load.image('controlsMenu', './assets/images/UI/PauseMenu/controles.png');
         this.load.image('backButton', './assets/images/UI/PauseMenu/backButton.png');
         this.load.image('backButton', './assets/images/UI/PauseMenu/backButton.png');
+        this.load.image('backgroundHome', './assets/images/Backgrounds/bg_home.png');
     }
 
     create(data){
@@ -52,19 +52,19 @@ export default class PauseMenu extends Phaser.Scene {
         },  this.ButtonSoundd);
         this.backButton.setScale(0.15, 0.15);
         this.backButton.setVisible(false);
+         //imagen calle irse casa
+         this.homeBg = this.add.image(0, 0, 'backgroundHome').setOrigin(0,0).setScale(3.8,3.8);
+         this.homeBg.visible = false;
     }
 
     update(){
     }
 
     goHome(){
-        this.scene.get("UiScene").removeUI();
-        this.homeBg.visible = true;
-        setTimeout(()=>{
-            this.scene.start("MainMenu");
-            this.scene.stop(this.level);
-            this.scene.stop(this.other);
-            this.scene.stop();
-        },2000);
+        
+        this.scene.get("UiScene").goHome();
+        this.scene.stop(this.level);
+        this.scene.stop(this.other);
+        this.scene.stop();
     }
 }
