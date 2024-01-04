@@ -82,15 +82,6 @@ export default class MJ_Plataformas extends MinijuegoBase{
             }
         });
         
-        // Animaciones 
-            if(this.ajolote.body.velocity.y > 0)
-            {
-                this.ajolote.play('lookingDown');
-            }
-            else
-            {
-                this.ajolote.play('lookingUp');
-            }
         //camara
         this.cameras.main.setBounds(0,-1800,300, 2300);
         this.cameras.main.startFollow(this.ajolote);
