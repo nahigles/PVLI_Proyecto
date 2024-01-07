@@ -52,6 +52,7 @@ export default class MJ_Nave extends MinijuegoBase{
         this.virusCant = 0;
         this.virusMax = 3;
         this.theresLock = false;
+        this.muerti = false;
 
         this.balasPool = new Pool(this, 100, true, this.bounds);	
         //bala para crear la anim
@@ -64,10 +65,13 @@ export default class MJ_Nave extends MinijuegoBase{
     
             this.overlapNave = this.physics.add.overlap(this.VirusGRP, this.nave, (nave, virus) => {            
                 virus.destroyVirus();
-                setTimeout(()=>{
-                    this.mjSound.pause();
-                    this.scene.restart();
-                }, 100);
+                this.mjSound.pause();
+                if(!this.muerti){
+                    this.muerti = true;
+                    setTimeout(()=>{
+                        this.scene.restart();
+                    }, 100);
+                }
             })
             
 
