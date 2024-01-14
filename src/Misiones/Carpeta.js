@@ -18,8 +18,34 @@ export default class Carpeta extends Phaser.GameObjects.Sprite{
         this.body.allowGravity = false; //no tienen gravedad
         //propiedad para saber si ha sido cogida por el jugador
         this.catch = false;
+        this.speed = 120;
+        this.a = this.scene.input.keyboard.addKey('A'); //izquierda
+		this.d = this.scene.input.keyboard.addKey('D'); //derecha
+        this.cursors = this.scene.input.keyboard.createCursorKeys();
+    }
+    isCatch(){
+        return this.catch;
+    }
+    followPlayer(){
+        this.catch = true;
+        this.y += 10;
+        this.x = this.scene.jugador.x + 5;
+    }
+    die(){
+        this.destroy();
     }
     preUpdate(t, dt){
 		super.preUpdate(t, dt);
+        if(this.catch){
+			if(this.a.isDown || this.cursors.left.isDown){ 
+				this.body.setVelocityX(-this.speed);
+			} 
+			else if(this.d.isDown || this.cursors.right.isDown){
+				this.body.setVelocityX(this.speed);
+			} 
+            else{
+                this.body.setVelocityX(0);
+            }
+        }
 	}
 }

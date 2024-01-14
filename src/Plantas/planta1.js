@@ -135,9 +135,8 @@ export default class Planta1 extends plantaBase {
     }
 	catchFolder(){
 		const canCatch = this.physics.overlap(this.jugador, this.carpeta); //comprobar si el jugador esta "tocando" la carpeta para poder cogerla
-		if(canCatch && !this.carpeta.catch) { //si se puede coger y no se ha cogido antes
-			this.carpeta.catch = true;
-			this.carpeta.y += 10;
+		if(canCatch && !this.carpeta.isCatch()) { //si se puede coger y no se ha cogido antes
+			this.carpeta.followPlayer();
 		}
 	}
 	nextLevel(){
@@ -194,11 +193,8 @@ export default class Planta1 extends plantaBase {
 			this.catchFolder();
 			this.nextLevel();
 		}
-		if(this.carpeta.catch) { //si se ha cogido la carpeta, se mueve con el jugador para taparle
-			this.carpeta.x = this.jugador.x + 5;
-		}
 		//si no se tenia que hablar, pero no se ha cogido la carpeta, Alvaro te ve y te habla
-		if(this.choose && !this.misionCompletada && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.catch && this.jugador.x > 370 ){
+		if(this.choose && !this.misionCompletada && !this.haveToTalk && !this.alreadyTalked &&!this.carpeta.isCatch() && this.jugador.x > 370 ){
 			this.jugador.body.setVelocityX(0);
 			this.scene.get("UiScene").talk();
 		}
@@ -206,7 +202,7 @@ export default class Planta1 extends plantaBase {
 		if(this.choose && !this.misionCompletada && this.jugador.x > 550){
 			this.resultadoMision();
 			if(this.misionCompletada) {
-				this.carpeta.destroy(); //se elimina la carpeta
+				this.carpeta.die(); //se elimina la carpeta
 			}
 		}
 		if(this.mjCompletado && !this.emilioFisrtTime){
