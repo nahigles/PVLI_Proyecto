@@ -154,15 +154,4 @@ export default class Planta4_2 extends plantaBase {
 			this.firstTimeConrad = true;
 		}
     }
-
-	onPause(bol){
-		this.jugador.onPauseInput(bol);
-	}
-
-	startMinijuegoP4()
-	{
-		this.onPause(true);
-		this.scene.launch(this.minijuego);
-		this.scene.pause("UiScene");
-	}
 }

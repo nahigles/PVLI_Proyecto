@@ -41,9 +41,9 @@ export default class PlantaBase extends Phaser.Scene{
     create(){
         this.esc = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         //Minijuego
-		this.mjCompletado = false;
+		this.mjCompletado = true;
         //Mision
-        this.misionCompletada = false;
+        this.misionCompletada = true;
         //musica
         this.musica = "";
         //boton irse a casa

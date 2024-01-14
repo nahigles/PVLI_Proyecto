@@ -92,10 +92,8 @@ export default class UiScene extends Phaser.Scene {
                 families: ['VT323', 'Roboto', 'Freckle Face']
             },
             loading: function () {
-                console.log("Fonts are being loaded");
             },
             active: function () {
-                console.log("Fonts have been rendered")
             }
         });
     }
@@ -277,7 +275,7 @@ export default class UiScene extends Phaser.Scene {
             case "MinijuegoPlanta4":
                 let plantica4_2 = this.scene.get("Planta4_2");
                 plantica4_2.music(false);
-                plantica4_2.startMinijuegoP4();
+                plantica4_2.startMinijuego();
                 break;
 
             case "Final":
