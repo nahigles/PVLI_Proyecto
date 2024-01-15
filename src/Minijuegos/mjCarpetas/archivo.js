@@ -1,3 +1,6 @@
+/**
+ * Archivos interactivos que se utlizzan en el minijuego de la planta 3
+ */
 export default class Archivo extends Phaser.GameObjects.Container{
     /**
 	 * Contructor de la carpeta

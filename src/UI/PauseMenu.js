@@ -1,5 +1,9 @@
 
 import Button from './Button.js';
+/**
+ * Escena de menu de pausa
+ * Incluye un boton para volver a la escena anterior, otro para ver los controles y otro  para salir
+ */
 export default class PauseMenu extends Phaser.Scene {
     constructor() {
         super({

@@ -1,3 +1,7 @@
+/**
+ * Sprite de nave utilizado en el minijuego 4
+ * Controla su movimiento
+ */
 export default class Nave extends Phaser.GameObjects.Sprite {
     /**
 	 * Constructor

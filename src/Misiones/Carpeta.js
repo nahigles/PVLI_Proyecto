@@ -1,3 +1,7 @@
+/**
+ * Sprite de carpeta que se utiliza en la mision de la planta 1
+ * Controla su movimiento lateral, su destruccion
+ */
 export default class Carpeta extends Phaser.GameObjects.Sprite{
     /**
 	 * Contructor de la carpeta
@@ -23,9 +27,11 @@ export default class Carpeta extends Phaser.GameObjects.Sprite{
 		this.d = this.scene.input.keyboard.addKey('D'); //derecha
         this.cursors = this.scene.input.keyboard.createCursorKeys();
     }
+    //para saber si ha sido cogida por el jugador
     isCatch(){
         return this.catch;
     }
+    //cuando se coge debe seguir al jugador
     followPlayer(){
         this.catch = true;
         this.y += 10;

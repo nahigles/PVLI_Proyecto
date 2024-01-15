@@ -1,4 +1,7 @@
-
+/**
+ * Escena de la mision de la planta 2
+ * Se debe introducir un codigo para abrir la puerta, escena con teclas de numeros y pantalla donde se va a ver la contraseña
+ */
 import Tecla from './Tecla.js';
 export default class PuertaSecreta extends Phaser.Scene{
 

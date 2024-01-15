@@ -1,6 +1,11 @@
 import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
 import Ajolote from '../../Personajes/ajolote.js';
 import Plataforma from './plataforma.js';
+
+/**
+ * Minijuego 1 donde hay un ajolote y plataformas que debe saltar
+ * Si se supera el score de Emilio se completa el minijeugo y se vuelve a la planta 1
+ */
 export default class MJ_Plataformas extends MinijuegoBase{
 
     constructor(){
@@ -55,7 +60,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
         const firstPlataforma = new Plataforma(this,firstXPos,firstYPos, 'amarillo');
         this.plataformas.add(firstPlataforma);
         let anteriorX = firstXPos;
-        
+        //creacion plataformas
         for(let i = 0; i < 20; i++) {
             
             const color = colores[i%4]; //va alternando ciclicamente entre los cuatro colores
@@ -74,7 +79,7 @@ export default class MJ_Plataformas extends MinijuegoBase{
             if(ajolote.body.touching.down) { //solo salta cuando el ajolote esta encima de la plataforma
                 this.ajolote.jump();
                 plataforma.hit();
-                if(!plataforma.touch){
+                if(!plataforma.touch){  //cuando el ajolote salta por primera vez una plataforma, sube su puntuacion
                     plataforma.touched();
                     this.score +=  100;
                     this.scoreText.setText('SCORE: '+ this.score);

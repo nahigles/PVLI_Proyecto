@@ -2,7 +2,11 @@ import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
 import Nave from '../../Personajes/nave.js';
 import Virus from './virus.js'
 import Pool from './pool.js'
-
+/**
+ * Minijuego 4 donde hay una nave controlada por el jugador, un grupo de virus y un candado
+ * Cuando la nave coge el candado se completa el minijuego y vuelve a la planta 4
+ * La nave puede disparar balas y destruir a los virus
+ */
 export default class MJ_Nave extends MinijuegoBase{
 
     constructor(){

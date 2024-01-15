@@ -1,8 +1,10 @@
 import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
-import Button from '../../UI/Button.js';
-import PauseMenu from '../../UI/PauseMenu.js';
 import Archivo from './archivo.js'
 import PointArchivo from './point_archivo.js'
+/**
+ * Minijuego 3 donde hay un grupo de archivos que se deben ordenar y colocar en su sitio
+ * Cuando se completa el minijeugo vuelve a la planta 3
+ */
 export default class MJ_Carpetas extends MinijuegoBase{
 
     constructor(){

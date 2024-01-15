@@ -1,3 +1,7 @@
+/**
+ * Sprite de plataforma que se utiliza en el minijuego de la planta 1
+ * Controla su movimiento lateral, su destruccion
+ */
 export default class Plataforma extends Phaser.GameObjects.Sprite{
     /**
      * Constructor plataforma
@@ -31,6 +35,7 @@ export default class Plataforma extends Phaser.GameObjects.Sprite{
             this.body.setVelocity(25* this.direccion, 0);
         }  
     }
+    //para las plataformas moradas, la primera vez que se salta cambia la textura y la segunda vez destruye la plataforma
     hit(){
         if(this.texture.key==='morado')  {
             this.setTexture('moradoRota');
@@ -39,6 +44,7 @@ export default class Plataforma extends Phaser.GameObjects.Sprite{
             this.destroy();
         }
     }
+    //si no ha sido saltada por el jugador ya, se marca como saltada
     touched(){
         if(!this.touch) {
             this.touch = true;

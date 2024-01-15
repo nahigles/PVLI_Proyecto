@@ -1,6 +1,7 @@
 
 /**
- * Escena planta base
+ * Escena planta base de la que van a heredar todas las plantas
+ * Aqui se encuentra todo lo que tienen en comun todas las plantas
  */
 export default class PlantaBase extends Phaser.Scene{
     /**
@@ -49,22 +50,25 @@ export default class PlantaBase extends Phaser.Scene{
         //boton irse a casa
         this.scene.get("UiScene").actions("BotonExit");
     }
+    //pasa al minijuego que corresponda dependiendo de la planta, pausa la escena de la planta y la UI
     startMinijuego(){
         this.scene.launch(this.minijuego);
         this.scene.pause();
         this.scene.get("UiScene").exitVisible(false);
         this.scene.pause("UiScene");
     }
+    //cuando se completa el minijuego se continua con el juego en la planta
     minijuegoCompletado(){
 		this.mjCompletado = true;
         this.scene.get("UiScene").exitVisible(true);
         this.scene.resume("UiScene");
 	}
+    //se llama cuando se ha completado la mision de la planta
     misionCompleta(){
         this.misionCompletada = true;
     }
     update(){  
-         if(this.esc.isDown){
+         if(this.esc.isDown){ //pasa al menu de pausa
             this.music(false);
            this.scene.launch("PauseMenu", {
             level : this.key,
@@ -79,7 +83,7 @@ export default class PlantaBase extends Phaser.Scene{
             this.scene.get("UiScene").exitVisible(false);
         }
     }
-
+     //habilitar / deshabilitar la musica cuando se entra y sale de la planta 
     music(enable){
 		if(enable){
 			this.musica.resume();

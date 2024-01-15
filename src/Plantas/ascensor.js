@@ -1,6 +1,11 @@
+
+/**
+ * Sprite de ascensor utilizado en todas las plantas
+ * El jugador va a interactuar con el y cuando esto pase, el ascensor ejecutara su animacion abrir
+ */
 export default class Ascensor extends Phaser.GameObjects.Sprite{
     /**
-	 * Contructor de la carpeta
+	 * Contructor ascensor
 	 * @param {Scene} scene, escena en la que se añade la ascensor
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena

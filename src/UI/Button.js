@@ -1,3 +1,6 @@
+/**
+ * Sprite de boton que realizara acciones al ser pulsado
+ */
 export default class Button extends Phaser.GameObjects.Sprite {
 	/**
 	 * Constructor del boton

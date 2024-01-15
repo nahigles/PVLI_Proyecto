@@ -3,6 +3,11 @@ import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Carpeta from '../Misiones/Carpeta.js';
 import Ascensor from './ascensor.js';
+/**
+* Planta 1, cuya mision es hablar o no con Alvaro, si no se quiere hablar con el
+* se debe coger una carpeta para cubrirse
+* Cuando se complete la mision y el minijuego se podra subir a la siguiente planta por el ascensor
+ */
 export default class Planta1 extends plantaBase {
 	/**
 	 * Nivel 1

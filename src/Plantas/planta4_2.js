@@ -2,10 +2,13 @@ import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Ascensor from './ascensor.js';
 import NPC from '../Personajes/NPCBase.js';
-
+/**
+* Segunda parte planta 4
+* Cuando se complete el minijuego se podra subir a la siguiente planta por el ascensor
+ */
 export default class Planta4_2 extends plantaBase {
 	/**
-	 * Nivel 1
+	 * Nivel 4
 	 * @extends plantaBase
 	 */
 

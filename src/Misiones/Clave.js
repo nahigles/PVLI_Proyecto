@@ -1,3 +1,6 @@
+/**
+ * Sprite de clave que se utiliza en la mision de la planta 2
+ */
 export default class Clave extends Phaser.GameObjects.Sprite{
     /**
 	 * Contructor de la nota con clave

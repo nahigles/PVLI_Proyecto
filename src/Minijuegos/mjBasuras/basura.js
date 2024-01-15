@@ -1,10 +1,14 @@
+/**
+ * Sprite de basura que se utiliza en el minijuego de la planta 2
+ * Controla su movimiento lateral, con su velocidad,direccion y limites 
+ */
 export default class Basura extends Phaser.GameObjects.Sprite{
     /**
-     * Constructor plataforma
+     * Constructor basura
      *  @param {Scene} scene - escena en la que aparece
      *  @param {number} x - coordenada x
      *  @param {number} y - coordenada y
-     *  @param {String} key - identificador del color del sprite
+     *  @param {String} key -
      */
     constructor(scene, x, y, key) {
         //constructor padre
@@ -14,10 +18,8 @@ export default class Basura extends Phaser.GameObjects.Sprite{
         //añadir fisicas
         scene.physics.add.existing(this); 
         this.body.allowGravity = false; //no tienen gravedad
-        this.touch = false;
 
         this.setScale(2.0,2.0);
-        this.desplazamiento = 25;
         this.speed = 5;
         this.dir = 1;
 
@@ -30,8 +32,6 @@ export default class Basura extends Phaser.GameObjects.Sprite{
     }  
     
     create(){
-
-      
     }
 
     preUpdate(t,dt) {

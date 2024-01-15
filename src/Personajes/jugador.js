@@ -1,4 +1,8 @@
-
+/**
+ * Jugador que aparece en todas las plantas 
+ * Tiene animaciones, puede moverse lateralmente, interactuar con los NPCs y con los objetos de las plantas
+ * Tambien va a tener una personalidad dependiendo de como complete las misiones
+ */
 export default class Jugador extends Phaser.GameObjects.Container {
 	/**
 	 * Constructor del jugador
@@ -118,7 +122,7 @@ export default class Jugador extends Phaser.GameObjects.Container {
 			this.body.setVelocityX(0);
 		}
 	}
-
+	//estas animaciones solo se usan para los jugadores del menu de inicio
 	sitAnim(){
 		this.jugador.play('sit', true);
 	}

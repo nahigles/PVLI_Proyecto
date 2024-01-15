@@ -1,3 +1,8 @@
+/**
+ * Sprite de NPC
+ * Necesario el nombre para identificar que NPC es
+ */
+
 export default class NPCBase extends Phaser.GameObjects.Sprite {
 	/**
 	 * Constructor

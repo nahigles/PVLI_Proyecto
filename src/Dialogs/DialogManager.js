@@ -1,6 +1,9 @@
 import dialogEvents from "./EventCenter.js";
 import Conversation from "./conversation.js";
-
+/**
+ * Clase que maneja con quien vas a hablar o con quien estas hablando
+ * Tiene al player y los NPCs y cuando recibe el evento wantToTalk mira los overlaps y devuelve con quien estamos hablando
+ */
 export default class DialogManager {
   constructor(scene, UI, player, NPCGroup, insignias) {
     this.scene = scene;

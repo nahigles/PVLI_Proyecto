@@ -2,6 +2,10 @@ import DialogManager from "../Dialogs/DialogManager.js";
 import dialogEvents from "../Dialogs/EventCenter.js";
 import TextMessage from "../Dialogs/textMessage.js";
 import Button from "./Button.js";
+/**
+ * Escena que controla todos los dialogos entre el jugador y los NPCs
+ * Tambien muestra las insignias del resultado de las misiones
+ */
 export default class UiScene extends Phaser.Scene {
   constructor() {
         super({

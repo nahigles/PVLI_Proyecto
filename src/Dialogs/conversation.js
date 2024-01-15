@@ -21,6 +21,11 @@ import dialogJefeF from "../Dialogs/dialogText/dialogsP5/JefeF.json"  assert { t
 import dialogJefeJ from "../Dialogs/dialogText/dialogsP5/JefeJ.json"  assert { type: 'json' };
 import dialogJefeP from "../Dialogs/dialogText/dialogsP5/JefeP.json"  assert { type: 'json' };
 
+/**
+ * Clase que maneja el hilo de las conversaciones con los NPCs
+ * Le das el nombre del NPC y la UiScene y se va a encargar de devolverte el texto de las conversaciones, quien lo dice (nombre o "Player") y si necesitas botones o no
+ */
+
 export default class Conversation{
 	/**
 	 * Constructor

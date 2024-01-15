@@ -1,10 +1,14 @@
+/**
+ * Sprite de bola de papel que se utiliza en el minijuego de la planta 2
+ * Controla su movimiento vertical al ser clicada
+ */
 export default class BolaPapel extends Phaser.GameObjects.Sprite{
     /**
-     * Constructor plataforma
+     * Constructor bola papel
      *  @param {Scene} scene - escena en la que aparece
      *  @param {number} x - coordenada x
      *  @param {number} y - coordenada y
-     *  @param {String} key - identificador del color del sprite
+     *  @param {String} key -
      */
     constructor(scene, x, y, key, activoDesactivoBasura) {
         //constructor padre

@@ -1,4 +1,8 @@
 import Button from '../UI/Button.js';
+/**
+ *Escena de la que van a heredar todos los minijuegos
+* Aqui se encuentra todo lo que tienen en comun todos los minijuegos
+ */
 export default class MinijuegoBase extends Phaser.Scene{
      /**
      * Constructora
@@ -45,7 +49,7 @@ export default class MinijuegoBase extends Phaser.Scene{
     }
     update(){
     }
-
+    //habilitar / deshabilitar la musica cuando se entra y sale del minijuego 
     music(enable){
 		if(enable){
 			this.mjSound.resume();

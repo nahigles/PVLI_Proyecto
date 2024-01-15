@@ -1,3 +1,7 @@
+/**
+ * Sprite de virus que se utiliza en el minijuego de la planta 4
+ * Controla su movimiento, con su velocidad y los limites de la escena
+ */
 export default class Virus extends Phaser.GameObjects.Sprite {
     /**
 	 * Constructor

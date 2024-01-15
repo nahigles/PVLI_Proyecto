@@ -3,10 +3,15 @@ import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import Ascensor from './ascensor.js';
 import Clave from '../Misiones/Clave.js';
-
+/**
+* Planta 2, al principio la planta no tiene luz y se ve mas oscura
+* La mision es buscar la nota con la clave o con intucion adivinar la clave
+* Cuando se completa la mision ya se "enciende" la luz de la planta
+* Cuando se complete la mision y el minijuego se podra subir a la siguiente planta por el ascensor
+ */
 export default class Planta2 extends plantaBase {
 	/**
-	 * Nivel 1
+	 * Nivel 2
 	 * @extends plantaBase
 	 */
 

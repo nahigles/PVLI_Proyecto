@@ -1,3 +1,7 @@
+/**
+ * Sprite de tecla que se utiliza en la mision de la planta 2
+ * Esta tecla va a poder ser clicada
+ */
 export default class Tecla extends Phaser.GameObjects.Sprite{
     /**
 	 * Contructor de la nota con tecla

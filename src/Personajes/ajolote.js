@@ -1,3 +1,7 @@
+/**
+ * Sprite de ajolote utilizado en el minijuego 1
+ * Puede moverse lateralmente, tiene animaciones, y rebota en las plataformas
+ */
 export default class Ajolote extends Phaser.GameObjects.Sprite {
     /**
 	 * Constructor

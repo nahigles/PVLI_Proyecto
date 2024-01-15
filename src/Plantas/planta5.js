@@ -2,7 +2,9 @@ import plantaBase from '../escenasBase/plantaBase.js';
 import Jugador from '../Personajes/jugador.js';
 import Ascensor from './ascensor.js';
 import NPC from '../Personajes/NPCBase.js';
-
+/**
+* Planta final con el NPC jefe
+ */
 export default class Planta5 extends plantaBase {
 	constructor(){	
 		super('Planta5', 'Planta1', 'mj_Nave', 'level1', 'tiles', 560);

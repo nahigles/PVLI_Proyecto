@@ -1,6 +1,11 @@
 import MinijuegoBase from '../../escenasBase/minijuegoBase.js';
 import BolaPapel from './bolaPapel.js'
 import Basura from './basura.js'
+
+/**
+ * Minijuego 2 donde hay una basura con movimiento lateral y una bola de papel que se debe encestar
+ * Si se encestan 10 bolas se completa el minijeugo y vuelve a la planta 2
+ */
 export default class MJ_Basuras extends MinijuegoBase{
 
     constructor(){
@@ -8,7 +13,7 @@ export default class MJ_Basuras extends MinijuegoBase{
     }
     init(){
         super.init();
-        this.ballNumer = 10;
+        this.ballNumer = 10; //bolas a encestar
     }
     preload(){
         super.preload();

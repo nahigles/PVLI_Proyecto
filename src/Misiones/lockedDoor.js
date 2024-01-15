@@ -1,6 +1,9 @@
+/**
+ * Sprite de puerta cerrada interactiva que se utiliza en la mision de la planta 4
+ */
 export default class LockedDoor extends Phaser.GameObjects.Sprite{
     /**
-	 * Contructor de la carpeta
+	 * Contructor 
 	 * @param {Scene} scene, escena en la que se añade
      * @param {number} x - posición X en la escena
 	 * @param {number} y - posición Y en la escena

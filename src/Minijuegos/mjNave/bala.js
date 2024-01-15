@@ -1,6 +1,11 @@
+/**
+ * Sprite de bala que se utiliza en el minijuego de la planta 4
+ * Controla su movimiento, con su rotacion y los limites de la escena
+ */
+
 export default class Bala extends Phaser.GameObjects.Sprite {
 	/**
-	 * Constructor de Box, nuestras cajas destructibles
+	 * Constructor de Bala
 	 * @param {Scene} scene - escena en la que aparece
 	 * @param {number} x - coordenada x
 	 * @param {number} y - coordenada y
@@ -31,13 +36,6 @@ export default class Bala extends Phaser.GameObjects.Sprite {
 
         this.play(this.key, true);
 	}
-
-	/**
-	 * Bucle principal de la caja, comprobamos la velocidad para reducirla y setearla a 0 en ciertos umbrales
-	 * Así no se movera de manera infinita cuando la golpeemos
-	 * @param {number} t - Tiempo total
-	 * @param {number} dt - Tiempo entre frames
-	 */
 	preUpdate(t, dt) {
 		super.preUpdate(t, dt);
         
@@ -50,7 +48,6 @@ export default class Bala extends Phaser.GameObjects.Sprite {
 			this.destroy();
         }
 	}
-
 	
     destroyBala(){
 		this.pool.release(this);

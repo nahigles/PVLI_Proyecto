@@ -3,10 +3,13 @@ import Jugador from '../Personajes/jugador.js';
 import NPC from '../Personajes/NPCBase.js';
 import PurpleKey from '../Misiones/purpleKey.js'
 import LockedDoor from '../Misiones/lockedDoor.js'
-
+/**
+* Primera parte planta 4, cuya mision es buscar la llave para abrir la puerta o abrir la puerta a golpes (clics)
+* Cuando se complete la mision se podra pasar a la segunda parte de la planta 4
+ */
 export default class Planta4 extends plantaBase {
 	/**
-	 * Nivel 1
+	 * Nivel 4
 	 * @extends plantaBase
 	 */
 
