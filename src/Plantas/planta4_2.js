@@ -165,4 +165,7 @@ export default class Planta4_2 extends plantaBase {
 		this.scene.launch(this.minijuego);
 		this.scene.pause("UiScene");
 	}
+	resumeP4(){
+		this.onPause(false);
+	}
 }

@@ -116,6 +116,7 @@ export default class MJ_Nave extends MinijuegoBase{
                 this.mjSound.pause();
                 let plantica42 = this.scene.get("Planta4_2");
                 plantica42.music(true);
+                plantica42.resumeP4();
                 this.scene.stop();
                 plantica42.minijuegoCompletado();
             },1000);
